@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<SInteriorOrderData>
+    <startFrom value="2000" />
+    <filePathHash value="0" />
+    <proxies>
+        <Item>hei_kt1_12_strm_0</Item>
+        <Item>int_wnews_milo_</Item>
+        <Item>kt1_occl_01</Item>
+    </proxies>
+</SInteriorOrderData>
