@@ -1,0 +1,259 @@
+@font-face {
+    font-family: "logoFont";
+    src: url(../fonts/logo.ttf);
+}
+
+@font-face {
+    font-family: "titleFont";
+    src: url(../fonts/title.ttf);
+}
+
+@font-face {
+    font-family: "boldFont";
+    src: url(../fonts/bold.ttf);
+}
+
+@font-face {
+    font-family: "regularFont";
+    src: url(../fonts/regular.ttf);
+}
+
+@font-face {
+    font-family: "lightFont";
+    src: url(../fonts/light.ttf);
+}
+
+* {
+    user-select: none;
+}
+
+body {
+    font-family: "regularFont";
+    font-size: 32px;
+}
+
+.gasContainer {
+    background-repeat: no-repeat;
+
+    width: 1305px;
+    height: 903px;
+
+    position:absolute;
+    left:0; right:0;
+    top:0; bottom:0;
+    margin:auto;
+    max-width:100%;
+    max-height:100%;
+    overflow:auto;
+
+    background-color: rgba(21, 21, 21, 0.99);
+    color: #e5ebf5;
+
+    overflow-x: hidden;
+
+}
+
+.header {
+    position: relative;
+    text-align: center;
+    padding-top: 15px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #ffa800;
+    background-color: #111111;
+}
+
+.navigation {
+    position: fixed;
+    height: 804px;
+    width: 225px;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #111111;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 40px;
+    margin-top: 148px;
+    left: 308px;
+}
+  
+.navigation .navElement {
+    padding: 8px 8px 8px 32px;
+    padding-bottom: 10px;
+    margin-bottom: 3px;
+    text-decoration: none;
+    font-size: 14px;
+    color: #494b54;
+    display: block;
+    transition: 0.3s;
+}
+  
+.navigation .navTitle {
+    padding-top: 15px;
+    padding-left: 32px;
+    padding-bottom: 15px;
+    text-decoration: none;
+    font-size: 16px;
+    color: #ffa800;
+    display: block;
+    transition: 0.3s;
+}
+
+.navigation .navElement:hover {
+    color: #f1f1f1;
+    font-size: 14.2px;
+}
+  
+@media screen and (max-height: 450px) {
+    .sidenav {padding-top: 15px;}
+    .sidenav a {font-size: 18px;}
+}
+
+.textContent {
+    position: relative;
+    margin-left: 255px;
+    margin-top: 35px;
+    font-size: 14px;
+}
+
+.stationName {
+    font-size: 26px;
+    margin-bottom: 25px;
+    padding-bottom: 5px;
+    border-bottom: 2px solid #111111;
+}
+
+.segmentInfo {
+    font-size: 16px;
+    margin-bottom: 5px;
+}
+
+.segmentContent {
+    margin-left: 15px;
+}
+
+.stationLabel {
+    line-height: 27px;
+}
+
+.stationInput {
+    border-radius: 6px;
+    border: 0;
+    background-color: #24262d;
+    outline: none;
+    color: #e5ebf5;
+
+    float: right;
+    font-family: "boldFont";
+
+    margin-right: 625px;
+    height: 25px;
+    width: 220px;
+
+    padding-left: 10px;
+    padding-right: 10px;
+    margin-bottom: 25px;
+}
+
+.stationInput:read-only {
+    border-radius: 6px;
+    border: 0;
+    background-color: #24262d;
+    outline: none;
+    color: #aaadb1;
+
+    font-family: "boldFont";
+
+    margin-left: 15px;
+    height: 25px;
+    width: 220px;
+
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.stationRow {
+    margin-bottom: 25px;
+}
+
+.stationSegment {
+    margin-right: -255px;
+    margin-bottom: 45px;
+}
+
+button {
+    background-color: #111111;
+    border: 0;
+    width: 150px;
+    height: 35px;
+    outline: none;
+    color: #ffa800;
+    font-family: "regularFont";
+    font-size: 13px;
+    border-bottom: 2px solid #ffa800;
+}
+
+button:hover {
+    border-bottom: 2px solid #e5ebf5;
+}
+
+button:active {
+    border-bottom: 2px solid #eeff00;
+}
+
+.toastContainer {
+    display: none;
+    position: relative;
+    height: 42px;
+    width: 1000px;
+    margin-left: 255px;
+    margin-top: 25px;
+    background-color: #0e9e32;
+    font-size: 16px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.lds-ring {
+    display: none;
+    position: fixed;
+    width: 101px;
+    height: 101px;
+    bottom: 500px;
+    left: 980px;
+}
+
+.lds-ring div {
+    box-sizing: border-box;
+    display: block;
+    position: fixed;
+    width: 101px;
+    height: 101px;
+    margin: 6px;
+    border: 6px solid #ffa800;
+    border-radius: 50%;
+    animation: lds-ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+    border-color: #ffa800 transparent transparent transparent;
+}
+
+.lds-ring div:nth-child(1) {
+    animation-delay: -0.45s;
+}
+
+.lds-ring div:nth-child(2) {
+    animation-delay: -0.3s;
+}
+
+.lds-ring div:nth-child(3) {
+    animation-delay: -0.15s;
+}
+
+@keyframes lds-ring {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}

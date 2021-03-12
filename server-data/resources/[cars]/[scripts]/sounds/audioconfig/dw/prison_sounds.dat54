@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Dat54>
+ <Version value="7126027" />
+ <NameTable>
+  <Item>RESIDENT\VEHICLES</Item>
+ </NameTable>
+ <Items>
+  <Item type="SoundList">
+   <Name>horn_list_ptruck</Name>
+   <Header>
+    <Flags value="0xAAAAAAAA" />
+   </Header>
+   <UnkShort value="0" />
+   <Items>
+    <Item>hash_2DC750E8</Item>
+   </Items>
+  </Item>
+ </Items>
+</Dat54>

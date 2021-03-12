@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css" media="screen" />
+    <script src="nui://game/ui/jquery.js" type="text/javascript"></script>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.css"
+        integrity="sha256-PF6MatZtiJ8/c9O9HQ8uSUXr++R9KBYu4gbNG5511WE=" crossorigin="anonymous" />
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+</head>
+
+<body>
+    <div class="gasContainer" id="gasContainer" style="display: none;">
+        <div class="header">
+            <span class="title" style="padding-left: 65px;">Tankstellen-Verwaltung</span> <a onclick="closeMenu()"><span
+                    style="float: right; font-size: 18px; font-family: 'Trebuchet MS', 'Lucida Sans Unicode', sans-serif; margin-right: 15px; width: 25px; height: 25px; background-color: #c12929; color: #e5ebf5">x</a></span>
+        </div>
+
+        <div id="navigationBar" class="navigation">
+            <div id="userArea">
+                <span class="navTitle" id="mainHeader">Allgemein</span>
+                <span class="navElement" href="#" id="userDashboard"
+                    onclick="selectElement('userDashboard')">Dashboard</span>
+                <span class="navElement" href="#" id="ownerInformation"
+                    onclick="selectElement('ownerInformation')">Besitzerinformationen</span>
+            </div>
+            <div id="adminArea" style="display: none;">
+                <span class="navTitle" id="adminHeader">Administration</span>
+                <span class="navElement" href="#" id="adminDashboard"
+                    onclick="selectElement('adminDashboard')">Admin-Dashboard</span>
+                <span class="navElement" href="#" id="safeAdministration"
+                    onclick="selectElement('safeAdministration')">Tresor-Verwaltung</span>
+                    <span class="navElement" href="#" id="sellStation"
+                        onclick="selectElement('sellStation')">Tankstelle verkaufen</span>
+            </div>
+            <div id="buyArea" style="display: none;">
+                <span class="navTitle" id="buyHeader">Verkauf</span>
+                <span class="navElement" href="#" id="buyStation" onclick="selectElement('buyStation')">Tankstelle
+                    kaufen</span>
+            </div>
+        </div>
+
+        <div id="toastContainer" class="toastContainer">
+            <div style="line-height: 40px;">
+                <span id="toastMessage"></span>
+            </div>
+        </div>
+
+        <div id="textContent" class="textContent">
+            <div class="stationName">
+                <span id="stationName">ten outta ten</span>
+            </div>
+
+            <div id="uDashboard" style="display: none;">
+                <div style="display: flex;">
+                    <div class="stationSegment">
+                        <div class="segmentInfo"> <span>Tankstellen-Informationen</span> </div>
+                        <div class="segmentContent">
+                            <br>
+                            <div class="stationRow">
+                                <label class="stationLabel">Status</label><input class="stationInput" value="verkauft"
+                                    readonly id="stationStatus"></input>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="stationSegment">
+                        <div class="segmentInfo">Preis-Informationen</div>
+                        <div class="segmentContent">
+                            <br>
+                            <div class="stationRow">
+                                <label class="stationLabel">Preis pro Liter</label><input class="stationInput"
+                                    value="$5" readonly id="pricePerLiter"></input>
+                            </div>
+                            <div class="stationRow">
+                                <label class="stationLabel">volle Betankung (65L)</label><input class="stationInput"
+                                    value="$5" readonly id="fullRefuel"></input>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div style="display: flex;">
+                    <div class="stationSegment">
+                        <div class="segmentInfo">Tank-Anzeige</div>
+                        <div class="segmentContent">
+                            <br>
+                            <div class="stationRow">
+                                <label class="stationLabel">Fuellstand</label><br><input class="stationInput" value="5L"
+                                    readonly id="stationFuel"></input>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="ownerInfo" style="display: none;">
+                <div style="display: flex;">
+                    <div class="stationSegment">
+                        <div class="segmentInfo"> <span>Tankstellen-Informationen</span> </div>
+                        <div class="segmentContent">
+                            <br>
+                            <div class="stationRow">
+                                <label class="stationLabel">Status</label><input class="stationInput" value="gemietet"
+                                    readonly id="stationStatus2"></input>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="stationSegment">
+                        <div class="segmentInfo">Besitzerinformationen</div>
+                        <div class="segmentContent">
+                            <br>
+                            <div class="stationRow">
+                                <label class="stationLabel">Besitzer</label><input class="stationInput"
+                                    value="Hans-Christian Schrader" readonly id="ownerName"></input>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="sellStationPage" style="display: none;">
+                <div style="display: flex;">
+                    <div class="stationSegment">
+                        <div class="segmentInfo"> <span>Tankstelle verkaufen</span> </div>
+                        <div class="segmentContent">
+                            <br>
+                            <div class="stationRow">
+                                <label class="stationLabel">Verkaufs-Preis</label><input class="stationInput" value="$500.000"
+                                    readonly id="stationCost3"></input>
+                            </div>
+
+                            <div class="stationRow">
+
+                                <button style="float: left;" onclick="sellStation()">Tankstelle verkaufen</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="buyStationPage" style="display: none;">
+                <div style="display: flex;">
+                    <div class="stationSegment">
+                        <div class="segmentInfo"> <span>Tankstelle kaufen</span> </div>
+                        <div class="segmentContent">
+                            <br>
+                            <div class="stationRow">
+                                <label class="stationLabel">Kosten</label><input class="stationInput" value="$500.000"
+                                    readonly id="stationCost"></input>
+                            </div>
+
+                            <div class="stationRow">
+
+                                <button style="float: left;" onclick="buyStation()">Tankstelle kaufen</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="aDashboard" style="display: none;">
+                <div style="display: flex;">
+                    <div class="stationSegment" style="margin-right: -432px;">
+                        <div class="segmentInfo"> <span>Tankstellen-Informationen</span> </div>
+                        <div class="segmentContent">
+                            <br>
+                            <div class="stationRow">
+                                <label class="stationLabel">Name</label><input class="stationInput"
+                                    value="ten outta ten" id="gasName"></input>
+                            </div>
+                            <div class="stationRow">
+                                <label class="stationLabel">Einkaufs-Nachricht</label><input class="stationInput"
+                                    value="Hey! Wir bedanken uns sehr fuer Ihren Einkauf." id="buyMessage"></input>
+                            </div>
+                            <div class="stationRow">
+                                <label class="stationLabel">Benzinpreis pro Liter</label><input class="stationInput"
+                                    value="500" style="margin-left: 15px;" id="pricePerLiter2"></input>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="stationSegment">
+                        <div class="segmentInfo">Listen-Konfigurationen</div>
+                        <div class="segmentContent">
+                            <br>
+                            <div class="stationRow">
+                                <label class="stationLabel">Wer darf Benzin nachfüllen?</label><br>
+                                <input style="margin-bottom: 6px;" type="radio" name="joke" value="bed" /> Jeder<br>
+                                <input style="margin-bottom: 6px;" type="radio" name="joke" value="clock" /> Nur
+                                Personen welche in der Liste stehen<br>
+                                <input style="margin-bottom: 6px;" type="radio" name="joke" value="snake" /> Ich
+                                (Besitzer)<br>
+                            </div>
+                            <div class="stationRow">
+                                <label class="stationLabel">Wer darf hier tanken?</label><br>
+                                <input style="margin-bottom: 6px;" type="radio" name="joke" value="bed" /> Jeder<br>
+                                <input style="margin-bottom: 6px;" type="radio" name="joke" value="clock" /> Nur
+                                Personen welche in der Liste stehen<br>
+                                <input style="margin-bottom: 6px;" type="radio" name="joke" value="snake" /> Ich
+                                (Besitzer)<br>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <button style="float: right; margin-right: 135px;" onclick="saveSettings()">Einstellungen
+                    speichern</button>
+            </div>
+
+            <div id="safeAdmin" style="display: none;">
+                <div style="display: flex;">
+                    <div class="stationSegment">
+                        <div class="segmentInfo"> <span>Tresor-Informationen</span> </div>
+                        <div class="segmentContent">
+                            <br>
+                            <div class="stationRow">
+                                <label class="stationLabel">Aktueller Umsatz</label><input class="stationInput"
+                                    value="$100" readonly id="currentMoney"></input>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="stationSegment" style="margin-right: -50px;">
+                        <div class="segmentInfo">Geld auszahlen</div>
+                        <div class="segmentContent">
+                            <br>
+
+                            <div class="stationRow">
+                                <label class="stationLabel">Geld auszahlen</label><br>
+                                <input class="stationInput" id="payoutInput" placeholder="Wert in Dollar (bsp. 100)"></input>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <button style="float: right; margin-right: 155px;" onclick="payout()">Geld auszahlen</button>
+            </div>
+
+            <div class="lds-ring" id="loader">
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+        </div>
+    </div>
+
+    </div>
+
+    <script src="assets/js/script.js" type="text/javascript"></script>
+</body>
+
+</html>

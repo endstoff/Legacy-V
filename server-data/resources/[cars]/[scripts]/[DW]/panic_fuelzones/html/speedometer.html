@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link href="css/style.css" rel="stylesheet" type="text/css">
+    <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+
+    <div class="dle_container">
+        <div class="dle_speedometer">
+            <div class="dle_speedometer_item">
+                <img src="img/vehicle/on.png" class="dle_speedometer_img">
+            </div>
+
+            <div class="dle_speedometer_item">
+                <img src="img/vehicle/locked.png" class="dle_speedometer_img">
+            </div>
+
+            <div class="dle_speedometer_item">
+                <img src="img/vehicle/speed.png" class="dle_speedometer_img">
+                <p class="dle_speedometer_item_text" id="kmh">0 KM/H</p>
+            </div>
+
+            <div class="dle_speedometer_item">
+                <img src="img/vehicle/fuel.png" class="dle_speedometer_img">
+                <p class="dle_speedometer_item_text" id="liter">0 L</p>
+            </div>
+
+            <div class="dle_speedometer_item">
+                <img src="img/vehicle/km.png" class="dle_speedometer_img">
+                <p class="dle_speedometer_item_text" id="km">0,0 km</p>
+            </div>
+        </div>
+
+        <div class="dle_slide">
+            <div class="dle_title" id="tank_name"></div>
+
+            <div class="dle_items">
+                <div class="dle_text_item">
+                    <div class="dle_text_preis">
+                        Preis:
+                    </div>
+                    <div class="dle_text_preis_value" id="tank_money">0 $/L</div>
+                </div>
+
+                <div class="dle_text_item">
+                    <div class="dle_text_liter">
+                        Verfügbare<br>Liter:
+                    </div>
+                    <div class="dle_text_liter_value" id="tank_liter">0000 L</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+<script src="https://code.jquery.com/jquery-3.5.1.js" type="text/javascript"></script>
+<script src="index.js"></script>
+</html>
