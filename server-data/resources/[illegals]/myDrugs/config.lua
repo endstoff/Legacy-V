@@ -24,9 +24,9 @@ Config.BlackMoneyName = 'black_money'
 
 Config.SellItems = { -- set up the items here, that your players can sell at the seller - You can set up the items they get in the missions config.
 
-    {sqlitem = 'weed_pooch', label = 'Weed', priceBuy = 800.0},
-    {sqlitem = 'meth_pooch', label = 'Meth', priceBuy = 1000.0},
-    {sqlitem = 'coke_pooch', label = 'Kokain', priceBuy = 1200.0},
+    {sqlitem = 'weed_pooch', label = 'Weed', priceBuy = 400.0},
+    {sqlitem = 'meth_pooch', label = 'Meth', priceBuy = 500.0},
+    {sqlitem = 'coke_pooch', label = 'Kokain', priceBuy = 600.0},
 
 }
 
