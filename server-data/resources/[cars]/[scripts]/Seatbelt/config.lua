@@ -22,4 +22,3 @@ Config.Speed = 100.0
 
 Config.AlarmOnlySpeed = true
 Config.AlarmSpeed = 20
-
