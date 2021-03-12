@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SInteriorOrderData>
+  <startFrom value="2300" />
+  <proxies>
+	<Item>gabz_imp_impexp_interior_placement_interior_1_impexp_intwaremed_milo_</Item>
+  <Item>gabz_imp_stuff</Item>
+  <Item>hei_id2_15_strm_0</Item>
+  <Item>hei_id2_rd_strm_4</Item>
+  </proxies>
+</SInteriorOrderData>
