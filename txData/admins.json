@@ -1,0 +1,142 @@
+[
+  {
+    "name": "endstoff",
+    "master": true,
+    "password_hash": "$2a$11$QvNlDPd2qcFquTshFAreluTsWZlFCqYM0bEYk.rgPXUNNo/KYLzjK",
+    "providers": {},
+    "permissions": [
+      "all_permissions"
+    ]
+  },
+  {
+    "name": "paniceSports",
+    "master": false,
+    "password_hash": "$2a$11$7dvGEmSX3k7EE4Wt1ZdPEu.vv.GKqxrXlnKkNR9NFVboK.gXfsS4a",
+    "providers": {},
+    "permissions": [
+      "all_permissions"
+    ]
+  },
+  {
+    "name": "Hades93",
+    "master": false,
+    "password_hash": "$2a$11$fEou.piqmy7q257k0b.ieuuIxPSfpeUwY6j1PTYD8slDgc.UJAbgm",
+    "providers": {},
+    "permissions": [
+      "all_permissions"
+    ]
+  },
+  {
+    "name": "Gargani",
+    "master": false,
+    "password_hash": "$2a$11$kJn6vJj7LpC6ZIl5adl6cOU1hJ9shWzX.hTmeVsHw0pNCiNaTmOQO",
+    "providers": {},
+    "permissions": [
+      "all_permissions"
+    ]
+  },
+  {
+    "name": "Francis",
+    "master": false,
+    "password_hash": "$2a$11$9604RlSmiHf4Y4gpXG4NHupUCGQhLIVouENWEVdelo4HquGq6e/nq",
+    "providers": {},
+    "permissions": [
+      "all_permissions"
+    ]
+  },
+  {
+    "name": "T3RM1NAL",
+    "master": false,
+    "password_hash": "$2a$11$pqt2tLL2Dugb4k9wPyXy4.uBXadthY4t4ENPHyvCICP4b2NAaRSxC",
+    "providers": {},
+    "permissions": [
+      "commands.resources",
+      "players.ban",
+      "players.kick",
+      "players.message",
+      "players.warn",
+      "players.whitelist",
+      "console.view",
+      "console.write",
+      "control.server"
+    ]
+  },
+  {
+    "name": "AlexAdioZ",
+    "master": false,
+    "password_hash": "$2a$11$ANnBYz7rCNeDIU5zBrVuZOT/5jLfKz80gbEjVdCtuUEb7HUHjyg.m",
+    "providers": {},
+    "permissions": [
+      "commands.resources",
+      "players.ban",
+      "players.kick",
+      "players.message",
+      "players.warn",
+      "players.whitelist",
+      "console.view",
+      "console.write",
+      "control.server"
+    ]
+  },
+  {
+    "name": "Heislberni",
+    "master": false,
+    "password_hash": "$2a$11$t8hfLAjR6G2eSGWS7qPsqestOEpucyKqwXVCBYdF/bJ6E9oFjyLIW",
+    "providers": {},
+    "permissions": [
+      "players.ban",
+      "players.kick",
+      "players.warn",
+      "players.whitelist"
+    ]
+  },
+  {
+    "name": "tobiaskeska",
+    "master": false,
+    "password_hash": "$2a$11$hMQ7gdz.80RdS/qouZ/vcukoKBsbYfKqircG5wsqV0oHZBGnXIBEa",
+    "providers": {},
+    "permissions": [
+      "players.ban",
+      "players.kick",
+      "players.warn",
+      "players.whitelist"
+    ]
+  },
+  {
+    "name": "DJMaik",
+    "master": false,
+    "password_hash": "$2a$11$fM.Ekoq4epEVSoZvCsbGUOYtV5AH7opbltt1KYeRLdSiRgHfpujpS",
+    "providers": {},
+    "permissions": [
+      "players.ban",
+      "players.kick",
+      "players.warn",
+      "players.whitelist"
+    ]
+  },
+  {
+    "name": "yeetose",
+    "master": false,
+    "password_hash": "$2a$11$4EGt0GsFvkMdtBtD1.6ZC./.t33y3rGLhWlSYrfApPmT/FF/CWusG",
+    "providers": {},
+    "permissions": [
+      "players.ban",
+      "players.kick",
+      "players.warn",
+      "players.whitelist"
+    ]
+  },
+  {
+    "name": "Kabafeld",
+    "master": false,
+    "password_hash": "$2a$11$Faq.Qb29GF3q7m6qxGkNhuq2s/m8k/PXlkidlMSq6Q3DAuZvLoCou",
+    "password_temporary": true,
+    "providers": {},
+    "permissions": [
+      "players.ban",
+      "players.kick",
+      "players.warn",
+      "players.whitelist"
+    ]
+  }
+]

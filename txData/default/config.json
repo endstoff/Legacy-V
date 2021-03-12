@@ -1,0 +1,50 @@
+{
+  "global": {
+    "serverName": "Legacy-V | Open Beta",
+    "language": "de"
+  },
+  "logger": {},
+  "monitor": {
+    "restarterSchedule": [
+      "14:00",
+      "02:00"
+    ],
+    "restarterScheduleWarnings": [
+      60,
+      30,
+      15,
+      10,
+      5,
+      4,
+      3,
+      2,
+      1
+    ],
+    "disableChatWarnings": false
+  },
+  "statsCollector": {},
+  "playerController": {
+    "onJoinCheckBan": true,
+    "onJoinCheckWhitelist": true,
+    "minSessionTime": 5,
+    "whitelistRejectionMessage": "Dieser Server befindet sich aktuell in der Open Beta. Informationen zur Whitelist und weiteren dingen findet ihr hier: https://discord.gg/c7WABYqa9K\n<strong>Deine Whitelist ID: <id></strong>",
+    "wipePendingWLOnStart": true
+  },
+  "authenticator": {},
+  "webServer": {},
+  "discordBot": {
+    "enabled": true,
+    "token": "NzkyNDAwNzc3ODg5MDU0NzQw.X-dKuw.9xDJ_k_psoxJEMpvJY1CX3qQ21w",
+    "announceChannel": "792527000500830219",
+    "prefix": "!",
+    "statusMessage": "**Website:** https://legacy-v.net/\n**TS³:** `ts.legacy-v.net`\n**FiveM:** `play.legacy-v.net`\n**Onlinezeit:** <uptime>"
+  },
+  "fxRunner": {
+    "serverDataPath": "/LegacyV/server-data/",
+    "cfgPath": "server.cfg",
+    "commandLine": "+set sv_enforceGameBuild 2060",
+    "onesync": "legacy",
+    "autostart": false,
+    "quiet": false
+  }
+}
