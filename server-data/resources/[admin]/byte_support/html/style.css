@@ -1,0 +1,99 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+#okbtn {
+  margin-left: 100px;
+  position: relative;
+  display: inline-block;
+  box-sizing: border-box;
+  border: none;
+  border-radius: 4px;
+  padding: 0 16px;
+  min-width: 64px;
+  height: 36px;
+  text-align: center;
+  text-transform: uppercase;
+  color: #fff;
+  background-color: rgb(13, 172, 7);
+  font-family: var(--pure-material-font, "Roboto", "Segoe UI", BlinkMacSystemFont, system-ui, -apple-system);
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  box-shadow: 0 2px 4px -1px rgba(0, 0, 0, 0.2), 0 4px 5px 0 rgba(0, 0, 0, 0.14), 0 1px 10px 0 rgba(0, 0, 0, 0.12);
+  
+}
+
+#okbtn:hover {
+  transition: 500ms;
+  background-color: #08a01c;
+  color: #fff;
+}
+
+#okbtn:focus{
+  outline: none;
+}
+
+#cancelbtn {
+  margin-top: 40px;
+  margin-left: 30px;
+  position: relative;
+  display: inline-block;
+  box-sizing: border-box;
+  border: none;
+  border-radius: 4px;
+  padding: 0 16px;
+  min-width: 64px;
+  height: 36px;
+  text-align: center;
+  text-transform: uppercase;
+  color: #fff;
+  background-color: #f44232;
+  font-family: var(--pure-material-font, "Roboto", "Segoe UI", BlinkMacSystemFont, system-ui, -apple-system);
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  box-shadow: 0 2px 4px -1px rgba(0, 0, 0, 0.2), 0 4px 5px 0 rgba(0, 0, 0, 0.14), 0 1px 10px 0 rgba(0, 0, 0, 0.12);
+}
+
+#title {
+  margin-left: 50px;
+  text-align: left;
+  color: #000;
+  font-family: var(--pure-material-font, "Roboto", "Segoe UI", BlinkMacSystemFont, system-ui, -apple-system);
+  font-size: 25px;
+  font-weight: 500;
+}
+
+#description {
+  margin-left: 50px;
+  text-align: left;
+  color: #000;
+  font-family: var(--pure-material-font, "Roboto", "Segoe UI", BlinkMacSystemFont, system-ui, -apple-system);
+  font-size: 14px;
+  font-weight: 500;
+}
+
+#box {
+  transition: 300ms;
+  height: 220px; /* Höhe der div-Box */
+  width: 340px; /* Breite der div-Box */
+  margin-top: -150px; /* Damit der "Ausrichtungspunkt" in der Mitte der Box liegt */
+  margin-left: -150px;
+  position: absolute; /* positionieren */
+  top: 50%; /* in die Mitte verschieben */
+  left: 50%;
+  background-color: #fff;
+  font-family: var(--pure-material-font, "Roboto", "Segoe UI", BlinkMacSystemFont, system-ui, -apple-system);
+  font-size: 14px;
+  font-weight: 500;
+  box-shadow: 0 2px 4px -1px rgba(0, 0, 0, 0.2), 0 4px 5px 0 rgba(0, 0, 0, 0.14), 0 1px 10px 0 rgba(0, 0, 0, 0.12);
+}
+
+#cancelbtn:hover {
+  transition: 500ms;
+  background-color: #fff;
+  color:#000;
+}
+
+#cancelbtn:focus{
+  outline: none;
+}
