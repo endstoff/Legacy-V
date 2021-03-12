@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="iso-8859-1" ?>
+
+<movie version="8" width="320" height="240" framerate="12">
+    <frame>
+        <library>
+            <font id="Fire Sans" import="FiraSans-Regular.ttf" name="Fire Sans"/>
+        </library>
+    </frame>
+</movie>

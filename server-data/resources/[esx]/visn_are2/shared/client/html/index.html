@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link href="https://fonts.googleapis.com/css?family=Oxanium&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.8.2/css/all.css"
+    integrity="sha384-xVVam1KS4+Qt2OrFa+VdRUoXygyKIuNWUUUBZYv+n27STsJ7oDOHJgfF0bNKLMJF" crossorigin="anonymous">
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+  <div id="uScreen" style="display: none;">
+    <div class="appTitle" style="background-color: rgba(202, 196, 196, 0.7); color: #0c0c0c; font-weight: 900;">
+      <center id="unconscious_text">
+        You are unconscious!
+      </center>
+    </div>
+
+    <div class="uContent" style="font-size: 16px; margin-top: 20px; color: rgb(214, 206, 206);">
+      <center>
+        <b><span id="bleedToDeathText">You will bleed to death in 15 minutes unless given first aid.</span></b>
+        <span id="informEMS"><br><br><span id="informEMSText"></span></span>
+
+        <div id="app" style="margin-top: 12%;"></div>
+      </center>
+    </div>
+  </div>
+
+  <div id="painScreen" style="position: absolute; height: 100%; width: 100%;">
+  </div>
+
+  <div id="bloodScreen"
+    style="position: absolute; height: 100%; width: 100%; background: radial-gradient(circle, rgba(0,0,0,0) 0%, rgba(192, 23, 23, 1) 1000%)">
+  </div>
+
+  <div id="appContainer" class="appContainer">
+    <div class="appTitle"><span id="nameSpan"> </span><span class="xButton" style="float: right; padding-right: 20px;"
+        onclick="$.post('http://visn_are/enable', false);">x</span></div>
+
+    <div class="appContent">
+      <div class="g-left">
+        <div class="appHealType">
+          <i class="fas fa-diagnoses" id="checkPerson" data-disabled="true" data-type="checkPerson"
+            data-selected="false" data-toggle="tooltip" title="Diagnoses"></i>
+          <i class="fas fa-bone-break" id="boneBreak" data-disabled="true" data-type="boneBreak" data-selected="false"
+            data-toggle="tooltip" title="Bandages & co."></i>
+          <i class="fas fa-syringe" id="syringes" data-disabled="true" data-type="syringes" data-selected="false"
+            data-toggle="tooltip" title="Syringes"></i>
+          <i class="fas fa-heart-rate" id="lifeSaver" data-disabled="true" data-type="lifeSaver" data-selected="false"
+            data-toggle="tooltip" title="Life saving actions"></i>
+          <i class="fas fa-vials" id="infusions" data-disabled="true" data-type="infusions" data-selected="false"
+            data-toggle="tooltip" title="Infusions"></i>
+          <i class="fas fa-person-carry" id="carry" data-type="carry" data-disabled="static" data-selected="false"
+            data-toggle="tooltip" title="Carry"></i>
+          <i class="fas fa-sync" id="sync" data-type="sync" data-selected="false" data-disabled="static"
+            onclick="performMethod('resync')" data-toggle="tooltip" title=""></i>
+        </div>
+
+        <div class="appButtons">
+          <div class="appButton hidden" id="checkResponse" data-type="checkPerson"
+            onclick="performMethod('checkPerson')" data-toggle="tooltip"
+            title="A state of consciousness describes types of conscious experience that are characterized by the characteristics of perception, etc.">
+            Check responsiveness</div>
+          <div class="appButton hidden" id="checkPulse" data-type="checkPerson" onclick="performMethod('checkPulse')"
+            data-toggle="tooltip"
+            title="The hitting of the blood wave transmitted by the heartbeat on the vessel walls, especially the arteries on the inner wrist and on the temples.">
+            Measure pulse</div>
+          <div class="appButton hidden" id="checkBloodPressure" data-type="checkPerson"
+            onclick="performMethod('checkBloodPressure')">
+            Measure blood pressure</div>
+          <div class="appButton hidden" id="useBandage" data-type="boneBreak" onclick="performMethod('useBandage')"
+            data-toggle="tooltip"
+            title="Bandages are mostly soft, elastic pieces of fabric that are used to wrap injured body parts to protect them from dirt.">
+            Apply bandage</div>
+          <div class="appButton hidden" id="useBandageGauze" data-type="boneBreak"
+            onclick="performMethod('useElasticBandage')" data-toggle="tooltip"
+            title="Bandages are mostly soft, elastic pieces of fabric that are used to wrap injured body parts to protect them from dirt.">
+            Apply gauze bandage</div>
+          <div class="appButton hidden" id="useBandageQuickClot" data-type="boneBreak"
+            onclick="performMethod('useQuickClot')" data-toggle="tooltip"
+            title="Bandages are mostly soft, elastic pieces of fabric that are used to wrap injured body parts to protect them from dirt.">
+            Apply quickclot bandage</div>
+          <div class="appButton hidden" id="useBandagePacking" data-type="boneBreak"
+            onclick="performMethod('usePackingBandage')" data-toggle="tooltip"
+            title="Bandages are mostly soft, elastic pieces of fabric that are used to wrap injured body parts to protect them from dirt.">
+            Apply packing bandage</div>
+          <div class="appButton hidden" id="useSurgicalKit" data-type="boneBreak"
+            onclick="performMethod('useSurgicalKit')" data-toggle="tooltip"
+            title="A suturing set is a suitcase with contents that are used to sew open and cleaned wounds.">
+            Use the sewing set</div>
+          <div class="appButton hidden" id="useTourniquet" data-type="boneBreak"
+            onclick="performMethod('useTourniquet')" data-toggle="tooltip"
+            title="A suturing set is a suitcase with contents that are used to sew open and cleaned wounds.">
+            Use tourniquet</div>
+          <div class="appButton hidden" id="removeTourniquet" data-type="boneBreak"
+            onclick="performMethod('removeTourniquet')" data-toggle="tooltip"
+            title="A suturing set is a suitcase with contents that are used to sew open and cleaned wounds.">
+            Remove tourniquet</div>
+          <div class="appButton hidden" id="useMorphin" data-type="syringes" onclick="performMethod('useMorphin')"
+            data-toggle="tooltip"
+            title="Morphine or morphine is a main alkaloid of opium and is therefore one of the opiates.">
+            Inject morphin</div>
+          <div class="appButton hidden" id="useEpinephrin" data-type="syringes" onclick="performMethod('useEpinephrin')"
+            data-toggle="tooltip"
+            title="Adrenaline or epinephrine is a hormone produced in the adrenal medulla that belongs to the group of catecholamines.">
+            Inject epinephrin</div>
+          <div class="appButton hidden" id="useAtropin" data-type="syringes" onclick="performMethod('useAtropin')"
+            data-toggle="tooltip"
+            title="Atropine is a very toxic tropane alkaloid; it is a racemate from the isomeric and hyoscyamine, which is formed during isolation by racemization from the natural product hyoscyamine.">
+            Inject atropine</div>
+          <div class="appButton hidden" id="usePainkillers" data-type="syringes"
+            onclick="performMethod('usePainkillers')" data-toggle="tooltip"
+            title="Pain pills are used to treat acute and chronic pain.">
+            Give pain medication</div>
+          <div class="appButton hidden" id="doCPR" data-type="lifeSaver" data-toggle="tooltip"
+            onclick="performMethod('useCPR')"
+            title="The cardiopulmonary resuscitation is intended to end a respiratory and circulatory arrest and thus avert the imminent death of the person concerned.">
+            Perform CPR</div>
+          <div class="appButton hidden" id="useDefibrilator" data-type="lifeSaver" data-toggle="tooltip"
+            onclick="performMethod('useDefibrilator')"
+            title="A defibrillator, or defibrillator in the technical jargon, is a medical device for defibrillation and possibly for cardioversion.">
+            Use defibrillator</div>
+          <div class="appButton hidden" id="useInfusionBlood1000" data-type="infusions" data-toggle="tooltip"
+            title="Blood transfusion refers to the intravenous administration (transfer or infusion) of red blood cell concentrates (erythrocytes = red blood cells) or (very rare today) of (whole) blood."
+            onclick="performMethod('infusionBlood1000')">
+            Give blood infusion (1000ml)</div>
+          <div class="appButton hidden" id="useInfusionBlood500" data-type="infusions" data-toggle="tooltip"
+            title="Blood transfusion refers to the intravenous administration (transfer or infusion) of red blood cell concentrates (erythrocytes = red blood cells) or (very rare today) of (whole) blood."
+            onclick="performMethod('infusionBlood500')">
+            Give blood infusion (500ml)</div>
+          <div class="appButton hidden" id="useInfusionBlood250" data-type="infusions" data-toggle="tooltip"
+            title="Blood transfusion refers to the intravenous administration (transfer or infusion) of red blood cell concentrates (erythrocytes = red blood cells) or (very rare today) of (whole) blood."
+            onclick="performMethod('infusionBlood250')">
+            Give blood infusion (250ml)</div>
+          <div class="appButton hidden" id="useInfusionBlood100" data-type="infusions" data-toggle="tooltip"
+            title="Blood transfusion refers to the intravenous administration (transfer or infusion) of red blood cell concentrates (erythrocytes = red blood cells) or (very rare today) of (whole) blood."
+            onclick="performMethod('infusionBlood100')">
+            Give blood infusion (100ml)</div>
+          <div class="appButton hidden" id="carry" data-type="carry" onclick="performMethod('tryCarry')">
+            Carry person</div>
+          <div class="appButton hidden" id="putInVehicle" data-type="carry" onclick="performMethod('tryPutInVehicle')">
+            Put in vehicle</div>
+          <div class="appButton hidden" id="pullOutVehicle" data-type="carry"
+            onclick="performMethod('tryPullOutVehicle')">
+            Pull out</div>
+          <div class="appButton" id="useBodybag" data-type="carry" data-toggle="tooltip"
+            onclick="performMethod('useBodybag')"
+            title="The body bag is an airtight and liquid-tight bag made of special plastic, which is used to transport corpses from the place where they were found for further examination, for example in forensic medicine, or directly for burial.">
+            Stow person in body bag</div>
+        </div>
+      </div>
+
+      <div class="g-middle">
+        <div class="appBody">
+          <img class="appBodyPart" id="head" data-part="head" src="img/head.png" data-toggle="tooltip" title="Head">
+          <img class="appBodyPart" id="left_arm_t" style="display: none;" data-part="left_arm_t"
+            src="img/arm_left_t.png" tabindex="-1" disabled>
+          <img class="appBodyPart" id="left_arm" data-tName="left_arm_t" data-part="left_arm" src="img/arm_left.png"
+            data-toggle="tooltip" title="Left arm">
+          <img class="appBodyPart" id="right_arm_t" style="display: none;" data-part="right_arm_t"
+            src="img/arm_right_t.png" tabindex="-1" disabled>
+          <img class="appBodyPart" id="right_arm" data-tName="right_arm_t" data-part="right_arm" src="img/arm_right.png"
+            data-toggle="tooltip" title="Right arm">
+          <img class="appBodyPart" id="torso" data-part="torso" src="img/torso.png" data-toggle="tooltip" title="Torso">
+          <img class="appBodyPart" id="left_leg_t" style="display: none;" data-part="leg_left_t"
+            src="img/leg_left_t.png" tabindex="-1" disabled>
+          <img class="appBodyPart" id="left_leg" data-tName="left_leg_t" data-part="left_leg" src="img/leg_left.png"
+            data-toggle="tooltip" title="Left leg">
+          <img class="appBodyPart" id="right_leg" data-tName="right_leg_t" data-part="right_leg" src="img/leg_right.png"
+            data-toggle="tooltip" title="">
+          <img class="appBodyPart" id="right_leg_t" style="display: none;" data-part="leg_right_t"
+            src="img/leg_right_t.png" tabindex="-1" disabled>
+        </div>
+      </div>
+
+      <div class="g-right">
+        <div class="appBodyTypeInjuries">
+          <span class="bodyPart"></span>
+          <div class="bodyInjuries" style="margin-top: 10px;">
+            <ul id="bodyInjuries">
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="appBottom">
+      <hr>
+      <div class="g-left" style="color: #fff;">
+        <span id="activityHistory"></span>
+        <div class="appActivityLog" style="margin-top: 10px;">
+          <ul id="activityLog" style="margin-left: 15px; padding-top: 5px;">
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+  <script src="heartbeat.js"></script>
+</body>
+
+</html>

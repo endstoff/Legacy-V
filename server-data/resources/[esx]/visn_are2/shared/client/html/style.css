@@ -1,0 +1,442 @@
+* {
+    font-family: "Oxanium";
+    user-select: none;
+
+}
+
+body {
+    background: rgba(21, 21, 21, 0.0) !important;
+}
+
+.appContainer {
+    background-color: rgba(11, 11, 11, 0.85);
+    width: 1200px;
+    height: 750px;
+
+    position:absolute; /*it can be fixed too*/
+    left:0; right:0;
+    top:0; bottom:0;
+    margin:auto;
+
+    /*this to solve "the content will not be cut when the window is smaller than the content": */
+    max-width:100%;
+    max-height:100%;
+    overflow: hidden;
+    border-radius: 3px;
+    display: none;
+}
+
+.appTitle {
+    height: 30px;
+
+    line-height: 30px;
+
+    padding-left: 15px;
+    font-weight: 200;
+    font-size: 20px;
+    background-color: #ffa800;
+    color: #fff;
+    text-align: center;
+}
+
+#nameSpan:hover {
+    color: #1a1a1a;
+}
+
+i[data-disabled="true"] {
+    color: rgba(255, 255, 255, 0.253);
+}
+
+.xButton:hover {
+    color: #1a1a1a;
+}
+
+.g-left {
+    position: relative;
+    left: 0;
+    margin-top: 15px;
+    margin-left: 25px;
+}
+
+.g-middle {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    -webkit-transform: translate(-50%, -65%);
+    transform: translate(-50%, -65%);
+}
+
+.appHealType {
+    width: 28%;
+
+    padding: 5px;
+    border-radius: 3px;
+
+    font-size: 26px;
+    color: #fff;
+    letter-spacing: 5px;
+    background-color: rgba(11, 11, 11, 0.5);
+    text-align: center;
+}
+
+.appHealType i[data-disabled="false"]:hover {
+    color: #ffa800;
+}
+
+.appHealType i[data-disabled="static"]:hover {
+    color: #ffa800;
+}
+
+.appHealType i[data-selected="true"] {
+    color: #ffa800;
+}
+
+.appButtons {
+    margin-top: 20px;
+    background-color: rgba(11, 11, 11, 0.5);
+    width: 28%;
+    border-radius: 3px;
+    padding: 5px;
+    height: 420px;
+    display: block;
+}
+
+.appButton {
+    background-color: rgba(11, 11, 11, 0.8);
+    color: #fff;
+    padding: 5px;
+    text-align: center;
+    margin-bottom: 5px;
+    border-radius: 3px;
+}
+
+.appButton:hover {
+    color: #ffa800;
+}
+
+.appBodyTypeInjuries {
+    position: absolute;
+    right: 0;
+    top: 12.2%;
+    
+    margin-right: 25px;
+
+    margin-top: 20px;
+    background-color: rgba(11, 11, 11, 0.5);
+    width: 28%;
+    border-radius: 3px;
+    padding: 15px;
+    height: 420px;
+    color: #fff;
+    display: block;
+}
+
+ul {
+  list-style-type: none;
+  list-style-position: inside;
+  padding-left: 0;
+}
+
+.appBody {
+    background-image: url(img/background.png);
+    width: 512px;
+    height: 512px;
+}
+
+.appBottom {
+    position: relative;
+    bottom: 1%;
+}
+
+.appBottom hr {
+    border: 1px solid #fff;
+    opacity: 0.2;
+    width: 90%;
+}
+
+.appBodyPart[data-part="head"] {
+    position: absolute; left: 45.25%; top: 6.1%;
+}
+
+.appBodyPart[data-part="left_arm_t"] {
+    position: absolute; left: 57%; top: 27.5%;
+    content:url("img/arm_left_t.png");
+    z-index: 999;
+    outline: 0;
+}
+
+.appBodyPart[data-part="left_arm"] {
+    position: absolute; left: 55.7%; top: 19.5%;
+}
+
+.appBodyPart[data-part="right_arm"] {
+    position: absolute; left: 32.4%; top: 19.5%;
+}
+
+.appBodyPart[data-part="right_arm_t"] {
+    position: absolute; left: 38.0%; top: 27.5%;
+    content:url("img/arm_right_t.png");
+    z-index: 999;
+    outline: 0;
+}
+
+.appBodyPart[data-part="torso"] {
+    position: absolute; left: 42.2%; top: 19.5%;
+}
+
+.appBodyPart[data-part="left_leg"] {
+    position: absolute; left: 50.25%; top: 43.59%;
+}
+
+.appBodyPart[data-part="leg_left_t"] {
+    position: absolute; left: 50.25%; top: 47.7%;
+    content:url("img/leg_left_t.png");
+    z-index: 999;
+    outline: 0;
+}
+
+.appBodyPart[data-part="right_leg"] {
+    position: absolute; left: 38.9%; top: 43.7%;
+}
+
+.appBodyPart[data-part="leg_right_t"] {
+    position: absolute; left: 40.9%; top: 47.7%;
+    content:url("img/leg_right_t.png");
+    z-index: 999;
+    outline: 0;
+}
+
+.appBodyPart[data-part="head"][data-damage="none"] {
+    content:url("img/head.png");
+}
+
+.appBodyPart[data-part="head"][data-damage="sewed"] {
+    content:url("img/head_s.png");
+}
+
+.appBodyPart[data-part="head"][data-damage="light"] {
+    content:url("img/head_l.png");
+}
+
+.appBodyPart[data-part="head"][data-damage="medium"] {
+    content:url("img/head_m.png");
+}
+
+.appBodyPart[data-part="head"][data-damage="heavy"] {
+    content:url("img/head_h.png");
+}
+
+.appBodyPart[data-part="head"][data-damage="burned"] {
+    content:url("img/head_b.png");
+}
+
+
+.appBodyPart[data-part="left_arm"][data-damage="none"] {
+    content:url("img/arm_left.png");
+}
+
+.appBodyPart[data-part="left_arm"][data-damage="sewed"] {
+    content:url("img/arm_left_s.png");
+}
+
+.appBodyPart[data-part="left_arm"][data-damage="light"] {
+    content:url("img/arm_left_l.png");
+}
+
+.appBodyPart[data-part="left_arm"][data-damage="medium"] {
+    content:url("img/arm_left_m.png");
+}
+
+.appBodyPart[data-part="left_arm"][data-damage="heavy"] {
+    content:url("img/arm_left_h.png");
+}
+
+.appBodyPart[data-part="left_arm"][data-damage="burned"] {
+    content:url("img/arm_left_b.png");
+}
+
+
+.appBodyPart[data-part="right_arm"][data-damage="none"] {
+    content:url("img/arm_right.png");
+}
+
+.appBodyPart[data-part="right_arm"][data-damage="sewed"] {
+    content:url("img/arm_right_s.png");
+}
+
+.appBodyPart[data-part="right_arm"][data-damage="light"] {
+    content:url("img/arm_right_l.png");
+}
+
+.appBodyPart[data-part="right_arm"][data-damage="medium"] {
+    content:url("img/arm_right_m.png");
+}
+
+.appBodyPart[data-part="right_arm"][data-damage="heavy"] {
+    content:url("img/arm_right_h.png");
+}
+
+.appBodyPart[data-part="right_arm"][data-damage="burned"] {
+    content:url("img/arm_right_b.png");
+}
+
+
+.appBodyPart[data-part="torso"][data-damage="none"] {
+    content:url("img/torso.png");
+}
+
+.appBodyPart[data-part="torso"][data-damage="sewed"] {
+    content:url("img/torso_s.png");
+}
+
+.appBodyPart[data-part="torso"][data-damage="light"] {
+    content:url("img/torso_l.png");
+}
+
+.appBodyPart[data-part="torso"][data-damage="medium"] {
+    content:url("img/torso_m.png");
+}
+
+.appBodyPart[data-part="torso"][data-damage="heavy"] {
+    content:url("img/torso_h.png");
+}
+
+.appBodyPart[data-part="torso"][data-damage="burned"] {
+    content:url("img/torso_b.png");
+}
+
+
+.appBodyPart[data-part="left_leg"][data-damage="none"] {
+    content:url("img/leg_left.png");
+}
+
+.appBodyPart[data-part="left_leg"][data-damage="sewed"] {
+    content:url("img/leg_left_s.png");
+}
+
+.appBodyPart[data-part="left_leg"][data-damage="light"] {
+    content:url("img/leg_left_l.png");
+}
+
+.appBodyPart[data-part="left_leg"][data-damage="medium"] {
+    content:url("img/leg_left_m.png");
+}
+
+.appBodyPart[data-part="left_leg"][data-damage="heavy"] {
+    content:url("img/leg_left_h.png");
+}
+
+.appBodyPart[data-part="left_leg"][data-damage="burned"] {
+    content:url("img/leg_left_b.png");
+}
+
+
+.appBodyPart[data-part="right_leg"][data-damage="none"] {
+    content:url("img/leg_right.png");
+}
+
+.appBodyPart[data-part="right_leg"][data-damage="sewed"] {
+    content:url("img/leg_right_s.png");
+}
+
+.appBodyPart[data-part="right_leg"][data-damage="light"] {
+    content:url("img/leg_right_l.png");
+}
+
+.appBodyPart[data-part="right_leg"][data-damage="medium"] {
+    content:url("img/leg_right_m.png");
+}
+
+.appBodyPart[data-part="right_leg"][data-damage="heavy"] {
+    content:url("img/leg_right_h.png");
+}
+
+.appBodyPart[data-part="right_leg"][data-damage="burned"] {
+    content:url("img/leg_right_b.png");
+}
+
+.hidden {
+    display: none;
+}
+
+.appActivityLog {
+    height: 130px;
+    overflow: auto;
+    margin-right: 15px;
+}
+
+#activityLog li {
+    margin-top: 3px;
+}
+
+#activityLog li:hover {
+    color: #ffa800;
+}
+
+#uScreen {
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.9);
+    width: 100%;
+    height: 100%;
+}
+
+body {
+    font-family: sans-serif;
+    display: grid;
+    height: 100vh;
+    place-items: center;
+  }
+  
+  .base-timer {
+    position: relative;
+    width: 300px;
+    height: 300px;
+  }
+  
+  .base-timer__svg {
+    transform: scaleX(-1);
+  }
+  
+  .base-timer__circle {
+    fill: none;
+    stroke: none;
+  }
+  
+  .base-timer__path-elapsed {
+    stroke-width: 7px;
+    stroke: grey;
+  }
+  
+  .base-timer__path-remaining {
+    stroke-width: 7px;
+    stroke-linecap: square;
+    transform: rotate(90deg);
+    transform-origin: center;
+    transition: 1s linear all;
+    fill-rule: nonzero;
+    stroke: currentColor;
+  }
+  
+  .base-timer__path-remaining.green {
+    color: rgb(31, 185, 116);
+  }
+  
+  .base-timer__path-remaining.orange {
+    color: #ffa800;
+  }
+  
+  .base-timer__path-remaining.red {
+    color: red;
+  }
+  
+  .base-timer__label {
+    position: absolute;
+    width: 300px;
+    height: 300px;
+    top: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 48px;
+  }
+  

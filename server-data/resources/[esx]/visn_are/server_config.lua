@@ -1,0 +1,19 @@
+ServerConfig = {}
+
+ServerConfig.transactionId = "tbx-8882121a38848-4c5995" -- Your tebex transaction id
+ServerConfig.medicJobNames = {"ambulance"} -- The name of the jobs who should do medic things. Sewing, giving blood infusions.. 
+ServerConfig.dateFormat = "%d.%m.%Y - %H:%M" -- The date format at the activity history
+ServerConfig.medicNameInActivityHistory = true -- Shows the name of medic in the activity history
+ServerConfig.activityHistorySeperator = "::" -- The seperator between date and action in the activity history
+ServerConfig.requireItems = true -- Checks if the player has enough of the item
+ServerConfig.stateSaving = false -- Saves the data of a patient after disconnect
+ServerConfig.discordKillLogs = true -- Discord kill logs
+ServerConfig.logWebhookId = "https://discord.com/api/webhooks/814214959323152404/tHXOPUGhcNLGKoDHGXWoO-qR8jFrQt-nTvnMZQg0RjzAjdnn7VBWaZ7dKwIPuzFrKffn" -- Discord webhook url
+ServerConfig.showCharacterName = true -- Shows the character name of the patient in the title of the men
+ServerConfig.jobNeededForMedicalOperations = true -- When enabled, jobs are required which are defined in ServerConfig.medicJobNames
+ServerConfig.jobUnlimitedSupplies = false -- If true, the players, which own the job, doensn't need items
+ServerConfig.tableName = "users"
+ServerConfig.columnName = "healthData"
+ServerConfig.identifierColumn = "identifier"
+ServerConfig.autoUpdate = true -- auto-update...
+ServerConfig.updateBranch = 'stable' -- update branch ("stable", "early_access")

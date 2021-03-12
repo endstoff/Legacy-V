@@ -1,0 +1,274 @@
+{
+    "languageName": "English",
+    "languageCode": "en",
+    "author": "veryinsanee",
+    "messages": {
+        "seconds": "Seconds",
+        "menuTitle": "Medical menu",
+        
+        "gauze_bandage": "Gauze bandage",
+        "bandage": "Bandage",
+        "quick_clot": "Field bandage (QuickClot)",
+        "package_bandage": "Package bandage",
+
+        "bandage_applied": "Bandage applied.<br><br>Type: <b>%s</b>",
+
+        "epinephrine_inject": "Epinephrine has been injected into your body.",
+        "atropine_inject": "Atropine has been injected into your body.",
+        "morphin_inject": "Morphin has been injected into your body.",
+
+        "measuring_pulse": "Measuring pulse...",
+        "pulse_measured": "Pulse measured.<br><br>Pulse: <b>%sbpm</b><br>Duration: <b>%s</b></b>",
+        
+        "checking_reponse": "Checking reponse...",
+        "person_not_responsive": "The examined person is not responsive.",
+        "person_responsive": "The examined person is responsive.",
+
+        "measuring_blood_pressure": "Measuring blood pressure...",
+        "blood_pressure_measured": "Blood pressure measured.<br><br>Blood pressure: <b>%s / %s</b><br>Duration: <b>%s</b></b>",
+        
+        "measuring_blood_content": "Measuring blood content...",
+        "blood_content_measured": "Blood content measured.<br><br>Blood content: <b>%sl</b><br>Duration: <b>%s</b></b>",
+        
+        "applying_badange": "Applying bandage...",
+
+        "sewing_wounds": "Sewing wounds...",
+        "sewd_wounds": "Sewd wounds.",
+
+        "stow_in_body_bag": "Stow in the body bag...",
+        "person_stowed": "Person stowed in the body bag.",
+
+        "cpr_in_progress": "CPR in progress...",
+        "cpr_performed": "CPR performed.",
+
+        "giving_painkillers": "Giving painkillers...",
+        "given_painkillers": "Given painkilers.",
+
+        "defibrillator_being_used": "Defibrillator is being used...",
+        "defibrillator_used": "Defibrillator used.",
+
+        "injecting_liquid": "Injecting liquid.",
+        "liquid_injected": "Liquid injected.",
+
+        "giving_infusion": "Giving infusion...",
+        "infusion_given": "Infusion successful.",
+
+        "phone_call_text": "Emergency: Unconscious person",
+        "distress_call_sent": "A distress call has been sent to all available LSFMD officers.",
+
+        "open_health_menu_self": "Open health menu: Own",
+        "open_health_menu_other": "Open health menu: Person in front of you",
+
+        "carrying_person": "Carrying person.<br><br>Press <b>%s</b>, to cancel the carry!",
+
+        "missing_item": "Action canceled. You are missing the item!",
+        "person_too_far_away": "Action canceled. Person too far away.",
+        "person_must_be_unconscious": "The person must be passed out for this action.",
+        
+        "head": "Head",
+        "right_arm": "Right arm",
+        "left_arm": "Left arm",
+        "torso": "Torso",
+        "right_leg": "Right leg",
+        "left_leg": "Left leg",
+
+        "activityHistory": "Activity history",
+
+        "active_bleeding_weak": "Active bleeding (weak)",
+        "active_bleeding_average": "Active bleeding (average)",
+        "active_bleeding_strong": "Active bleeding (strong)",
+
+        "lost_blood_little": "Lost a little amount of blood",
+        "lost_blood_huge": "Lost a huge amount of blood",
+        "lost_blood_fatal": "Lost a fatal amount of blood",
+
+        "active_pain": "Active pain",
+        "active_blood_infusion": "Active blood infusion ({0}ml)",
+
+        "discord_kill_player": "The player %s (%d) was killed by player %s (%s)",
+        "discord_kill_self": "The player %s (%d) killed himself.",
+        
+        "slight_concussion": "Slight concussion",
+        "moderately_large_head_laceration": "Moderately large head laceration",
+        "large_open_lacerated_wound": "Large open lacerated wound",
+        "severe_burns": "Severe burns",
+
+        "suturing_required": "Suturing of the wound required...",
+        "no_injuries_at_bodypart": "No injuries to this part of the body...",
+
+        "small_abrasion": "Small abrasion",
+        "large_laceration": "Large laceration",
+        "large_cut": "Large cut",
+
+        "open_tear_wound": "Open tear wound",
+        "slight_bruise": "Slight bruise",
+        "open_stab_wound": "Open stab wound",
+
+        "CHECK_PERSON": "The responsiveness was checked",
+        "CHECK_PULSE": "A pulse measurement was carried out.",
+        "CHECK_BLOOD_VOLUME": "A blood content measurement was carried out.",
+        
+        "GIVE_BANDAGE_NORMAL_HEAD": "A bandage was tied around the head.",
+        "GIVE_BANDAGE_NORMAL_LEFT_ARM": "A bandage was tied around the left arm.",
+        "GIVE_BANDAGE_NORMAL_RIGHT_ARM": "A bandage was tied around the right arm.",
+        "GIVE_BANDAGE_NORMAL_TORSO": "A bandage was tied around the torso.",
+        "GIVE_BANDAGE_NORMAL_LEFT_LEG": "A bandage was tied around the left leg.",
+        "GIVE_BANDAGE_NORMAL_RIGHT_LEG": "A bandage was tied around the right leg.",
+        
+        "GIVE_BANDAGE_ELASTIC_HEAD": "A gauze bandage was tied around the head.",
+        "GIVE_BANDAGE_ELASTIC_LEFT_ARM": "A gauze bandage was tied around the left arm.",
+        "GIVE_BANDAGE_ELASTIC_RIGHT_ARM": "A gauze bandage was tied around the right arm.",
+        "GIVE_BANDAGE_ELASTIC_TORSO": "A gauze bandage was tied around the torso.",
+        "GIVE_BANDAGE_ELASTIC_LEFT_LEG": "A gauze bandage was tied around the left leg.",
+        "GIVE_BANDAGE_ELASTIC_RIGHT_LEG": "A gauze bandage was tied around the right leg.",
+        
+        "GIVE_BANDAGE_QUICKCLOT_HEAD": "A field bandage (QuickClot) was tied around the head.",
+        "GIVE_BANDAGE_QUICKCLOT_LEFT_ARM": "A field bandage (QuickClot) was tied around the left arm.",
+        "GIVE_BANDAGE_QUICKCLOT_RIGHT_ARM": "A field bandage (QuickClot) was tied around the right arm.",
+        "GIVE_BANDAGE_QUICKCLOT_TORSO": "A field bandage (QuickClot) was tied around the torso.",
+        "GIVE_BANDAGE_QUICKCLOT_LEFT_LEG": "A field bandage (QuickClot) was tied around the left leg.",
+        "GIVE_BANDAGE_QUICKCLOT_RIGHT_LEG": "A field bandage (QuickClot) was tied around the right leg.",
+        
+        "GIVE_BANDAGE_PACKING_HEAD": "A packing bandage was tied around the head.",
+        "GIVE_BANDAGE_PACKING_LEFT_ARM": "A packing bandage was tied around the left arm.",
+        "GIVE_BANDAGE_PACKING_RIGHT_ARM": "A packing bandage was tied around the right arm.",
+        "GIVE_BANDAGE_PACKING_TORSO": "A packing bandage was tied around the torso.",
+        "GIVE_BANDAGE_PACKING_LEFT_LEG": "A packing bandage was tied around the left leg.",
+        "GIVE_BANDAGE_PACKING_RIGHT_LEG": "A packing bandage was tied around the right leg.",
+        
+        "USE_SURGICAL_KIT_HEAD": "All wounds in the head area were sewn.",
+        "USE_SURGICAL_KIT_LEFT_ARM": "All wounds in the area of the left arm were sewn.",
+        "USE_SURGICAL_KIT_RIGHT_ARM": "All wounds in the area of the right arm were sewn.",
+        "USE_SURGICAL_KIT_TORSO": "All wounds in the torso area were sewn.",
+        "USE_SURGICAL_KIT_LEFT_LEG": "All wounds in the area of the left leg were sewn.",
+        "USE_SURGICAL_KIT_RIGHT_LEG": "All wounds in the area of the right leg were sewn.",
+
+        "GIVE_EPINEPHRINE_LEFT_ARM": "Epinephrine was injected into the left arm.",
+        "GIVE_EPINEPHRINE_RIGHT_ARM": "Epinephrine was injected into the right arm.",
+        "GIVE_EPINEPHRINE_LEFT_LEG": "Epinephrine was injected into the left leg.",
+        "GIVE_EPINEPHRINE_RIGHT_LEG": "Epinephrine was injected into the right leg.",
+        
+        "GIVE_MORPHIN_LEFT_ARM": "Morphine was injected into the left arm.",
+        "GIVE_MORPHIN_RIGHT_ARM": "Morphine was injected into the right arm.",
+        "GIVE_MORPHIN_LEFT_LEG": "Morphine was injected into the left leg.",
+        "GIVE_MORPHIN_RIGHT_LEG": "Morphine was injected into the right leg.",
+
+        "GIVE_ATROPINE_LEFT_ARM": "Atropine was injected into the left arm.",
+        "GIVE_ATROPINE_RIGHT_ARM": "Atropine was injected into the right arm.",
+        "GIVE_ATROPINE_LEFT_LEG": "Atropine was injected into the left leg.",
+        "GIVE_ATROPINE_RIGHT_LEG": "Atropine was injected into the right leg.",
+
+        "USE_BODY_BAG": "Bodybag was used.",
+        "USE_EMR": "A emergency revive kit was used.",
+
+        "USE_CPR": "Cardiopulmonary resuscitation was performed.",
+        "USE_DEFIBRILATOR": "A defibrillator shock was performed.",
+        "USE_PAINKILLERS": "Painkillers were given.",
+
+        "GIVE_INFUSION_BLOOD_100": "A blood infusion (100 ml) was given.",
+        "GIVE_INFUSION_BLOOD_250": "A blood infusion (250 ml) was given.",
+        "GIVE_INFUSION_BLOOD_500": "A blood infusion (500 ml) was given.",
+        "GIVE_INFUSION_BLOOD_1000": "A blood infusion (1000 ml) was given.",
+
+        "CHECK_BLOOD_PRESSURE": "A blood pressure measurement was carried out.",
+
+        "unconscious_text": "You are unconscious!",
+        "bleed_to_death_text": "You will bleed to death in 15 minutes unless given first aid .",
+        "inform_ems_text": "Press G, to contact an LSFMD officer with your last strength.",
+
+        "checkPerson": "Diagnoses",
+        "boneBreak": "Bandages & co.",
+        "syringes": "Syringes",
+        "lifeSaver": "Life saving actions",
+        "infusions": "Infusions",
+        "carry": "Carry",
+        "sync": "Resynchronize menu",
+
+        "doing_cpr": "Doing cpr...",
+
+        "checkResponse": "Check responsiveness",
+        "checkResponse_title": "A state of consciousness describes types of conscious experience that are characterized by the characteristics of perception, etc.",
+        
+        "checkPulse": "Measure pulse",
+        "checkPulse_title": "The hitting of the blood wave transmitted by the heartbeat on the vessel walls, especially the arteries on the inner wrist and on the temples.",
+        
+        "checkBloodPressure": "Measure blood pressure",
+        "checkBloodPressure_title": "",
+
+        "checkBloodVolume": "Measure blood levels",
+        "checkBloodVolume_title": "The hitting of the blood wave transmitted by the heartbeat on the vessel walls, especially the arteries on the inner wrist and on the temples.",
+
+        "useBandage": "Apply bandage",
+        "useBandage_title": "",
+
+        "putInVehicle": "Put in vehicle",
+        "putInVehicle_title": "",
+
+        "pullOutVehicle": "Pull out of the vehicle",
+        "pullOutVehicle_title": "",
+
+        "useBandageGauze": "Apply gauze bandage",
+        "useBandageGauze_title": "",
+
+        "useBandageQuickClot": "Apply quickclot bandage",
+        "useBandageQuickClot_title": "",
+
+        "useBandagePacking": "Apply packing bandage",
+        "useBandagePacking_title": "",
+
+        "useSurgicalKit": "Use the sewing set",
+        "useSurgicalKit_title": "A suturing set is a suitcase with contents that are used to sew open and cleaned wounds.",
+        
+        "useMorphin": "Inject morphin",
+        "useMorphin_title": "Morphine or morphine is a main alkaloid of opium and is therefore one of the opiates.",
+        
+        "useEpinephrin": "Inject epinephrin",
+        "useEpinephrin_title": "Adrenaline or epinephrine is a hormone produced in the adrenal medulla that belongs to the group of catecholamines.",
+
+        "useAtropin": "Inject atropine",
+        "useAtropin_title": "Atropine is a very toxic tropane alkaloid; it is a racemate from the isomeric and hyoscyamine, which is formed during isolation by racemization from the natural product hyoscyamine.",
+    
+        "usePainkillers": "Give painkillers",
+        "usePainkillers_title": "Pain pills are used to treat acute and chronic pain.",
+
+        "doCPR": "Perform CPR",
+        "doCPR_title": "The cardiopulmonary resuscitation is intended to end a respiratory and circulatory arrest and thus avert the imminent death of the person concerned.",
+        
+        "useDefibrilator": "Use defibrillator",
+        "useDefibrilator_title": "A defibrillator, or defibrillator in the technical jargon, is a medical device for defibrillation and possibly for cardioversion.",
+        
+        "useBodybag": "Use bodybag",
+        "useBodybag_title": "The body bag is an airtight and liquid-tight bag made of special plastic, which is used to transport corpses from the place where they were found for further examination, for example in forensic medicine, or directly for burial.",
+        
+        "useInfusionBlood1000": "Give blood infusion (1000ml)",
+        "useInfusionBlood1000_title": "Blood transfusion refers to the intravenous administration (transfer or infusion) of red blood cell concentrates (erythrocytes = red blood cells) or (very rare today) of (whole) blood.",
+                
+        "useInfusionBlood500": "Give blood infusion (500ml)",
+        "useInfusionBlood500_title": "Blood transfusion refers to the intravenous administration (transfer or infusion) of red blood cell concentrates (erythrocytes = red blood cells) or (very rare today) of (whole) blood.",
+                
+        "useInfusionBlood250": "Give blood infusion (250ml)",
+        "useInfusionBlood250_title": "Blood transfusion refers to the intravenous administration (transfer or infusion) of red blood cell concentrates (erythrocytes = red blood cells) or (very rare today) of (whole) blood.",
+                
+        "useInfusionBlood100": "Give blood infusion (100ml)",
+        "useInfusionBlood100_title": "Blood transfusion refers to the intravenous administration (transfer or infusion) of red blood cell concentrates (erythrocytes = red blood cells) or (very rare today) of (whole) blood.",
+    
+        "tourniquet_is_applied": "Tourniquet applied",
+        "removing_tourniquet": "Removing tourniquet...",
+        "removed_tourniquet": "Tourniquet removed.",
+        "applying_tourniquet": "Applying tourniquet...",
+        "applied_tourniqet": "Tourniquet applied.",
+        "useTourniquet": "Use tourniquet",
+        "removeTourniquet": "remove tourniquet",
+
+        "useEmergencyReviveKit": "Use emergency revive",
+        "useEmergencyReviveKit_title": "",
+
+        "useTourniquet_title": "",
+        "removeTourniquet_title": "",
+
+        "wound_opened": "A wound has opened again.",
+
+        "using_emr": "Using emergency revive kit...",
+        "used_emr": "Emergency revive kit has been used"
+    }
+}
