@@ -1,0 +1,36 @@
+.notifications {
+    position: relative;
+    background-color: transparent;
+    width: 300px;
+    height: 800px;
+    font-family: 'Raleway';
+    font-size: 15px;
+    overflow: hidden;
+}
+
+.notification {
+    overflow: hidden;
+    position: relative;
+    margin-top: 20px;
+    width: 100%;
+    height: auto;
+    background-color: rgba(0, 0, 0, 0.863);
+    font-family: 'Poppins', sans-serif;
+}
+
+.notification .head {
+    background-color: #e97439;
+    height: 100%;
+    width: 6px;
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+.notification p {
+    position: relative;
+    padding: 15px;
+    color: white;
+    left: 3px;
+    font-family: 'Poppins', sans-serif;
+}

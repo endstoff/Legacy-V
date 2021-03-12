@@ -1,0 +1,139 @@
+<html>
+    <head>
+        <title>Banking @ JanKrb</title>
+        <link rel="stylesheet" type="text/css" href="ui.css">
+        <link href="https://fonts.googleapis.com/css?family=Raleway&display=swap" rel="stylesheet">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+        <script src="ui.js"></script>
+    </head>
+    <body>
+        <div class="blur">
+
+        </div>
+       <div class="container noselect">
+            <div class="navbar">
+                <img src="avatar.png" class="nav-img">
+                <p>Name Name</p>
+                <hr class="seperator">
+
+                <div class="nav-elements">
+                    <div class="nav-elem" id="accs">
+                        <div class="nav-active" id="active-accs"></div>
+                        <i class="fas fa-user-circle nav-icon"></i>
+                        <span class="nav-home-title">Konten</span>
+                    </div>
+
+                    <div class="nav-elem" id="send">
+                        <div class="nav-active" id="active-send"></div>
+                        <i class="fas fa-paper-plane nav-icon-alt"></i>
+                        <span class="nav-home-title">Geld verwalten</span>
+                    </div>
+
+                    <div class="nav-elem" id="deposit">
+                        <div class="nav-active" id="active-deposit"></div>
+                        <i class="fas fa-money-bill-wave nav-icon-alt"></i>
+                        <span class="nav-home-title">Geld senden</span>
+                    </div>
+                </div>
+
+                <p class="copyright-info">
+                    &copy; 2020 Fleeca Banking <br>
+                    All Rights Reserved
+                </p>
+            </div>
+            <div class="inner-container">
+                <div class="inner-container-head">
+                    <p>Meine Konten</p>
+                </div>
+                <div class="inner-container-content">
+                    <div class="inner-container-content-list-konten" id="konten">
+                        
+                    </div>
+
+                    <div class="inner-container-content-list-send" id="sendm">
+                        <div class="inner-container-content-list-send-dropdown-head">
+                            Bitte wähle den Account...<i class="fas fa-caret-down"></i>
+                        </div>
+                        <div class="inner-container-content-list-send-dropdown-content" id="payout-konten">
+                            
+                        </div>
+                        <div class="inner-container-content-list-send-main">
+                            <div class="inner-container-content-list-send-main-col" style="float:left">
+                                <div class="inner-container-content-list-send-main-col-head">
+                                    Guthaben aufladen
+                                </div>
+                                <div class="inner-container-content-list-send-main-col-display">
+                                    <p class="inner-container-content-list-send-main-col-display-label">Verfügbar:</p>
+                                    <p class="inner-container-content-list-send-main-col-display-money" id="label-cash">1</p>
+                                </div>
+                                <div class="inner-container-content-list-send-main-col-display">
+                                    <p class="inner-container-content-list-send-main-col-display-label">Summe zum Aufladen:</p>
+                                    <input type="number" class="inner-container-content-list-send-main-col-display-money-i" id="cash-to-bank" min="0" max="0">
+                                </div>
+                                <div class="inner-container-content-list-send-main-col-display-apply" id="aufladen-btn">
+                                    Bestätigen
+                                </div>
+                            </div>
+                            <div class="inner-container-content-list-send-main-col" style="float:right">
+                                <div class="inner-container-content-list-send-main-col-head">
+                                    Guthaben abbuchen
+                                </div>
+                                <div class="inner-container-content-list-send-main-col-display">
+                                    <p class="inner-container-content-list-send-main-col-display-label">Verfügbar:</p>
+                                    <p class="inner-container-content-list-send-main-col-display-money" id="label-bank">1</p>
+                                </div>
+                                <div class="inner-container-content-list-send-main-col-display">
+                                    <p class="inner-container-content-list-send-main-col-display-label">Summe zum Abbuchen:</p>
+                                    <input type="number" class="inner-container-content-list-send-main-col-display-money-i" id="bank-to-cash" min="0" max="0">
+                                </div>
+                                <div class="inner-container-content-list-send-main-col-display-apply" id="abbuchen-btn">
+                                    Bestätigen
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="inner-container-content-list-send2" id="senden">
+                        <div class="inner-container-content-list-send-dropdown-head2">
+                            Bitte wähle den Account...<i class="fas fa-caret-down"></i>
+                        </div>
+                        <div class="inner-container-content-list-send-dropdown-content2" id="send-konten">
+                            
+                        </div>
+                        <div class="inner-container-content-list-send-main-col2" style="float:right">
+                            <div class="inner-container-content-list-send-main-col2-row">
+                                <div class="inner-container-content-list-send-main-col2-row-head">
+                                    Geld senden
+                                </div>
+                                <div class="inner-container-content-list-send-main-col2-row-base">
+                                    <div class="inner-container-content-list-send-main-col2-row-base-bar" id="transfer-own">
+
+                                    </div>
+                                    <div class="inner-container-content-list-send-main-col2-row-base-bar placeholder" id="transfer-target" data-placeholder="IBAN: " contenteditable="true">
+
+                                    </div>
+                                    <input type="number" class="inner-container-content-list-send-main-col2-row-base-bar-i" id="transfer-money" min="0" max="0">
+                                </div>
+                                <div class="inner-container-content-list-send-main-col2-row-footer" id="transfer-do">
+                                    Bestätigen
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="inner-dialog">
+                <div class="inner-dialog-head">
+                    
+                </div>
+                <div class="inner-dialog-content" id="dialog-content">
+                    
+                </div>
+                <div class="inner-dialog-footer" id="dialog-footer">
+                    
+                </div>
+            </div>
+       </div>
+    </body>
+</html>

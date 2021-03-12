@@ -1,0 +1,69 @@
+Config                            = {}
+
+Config.Locale             = 'de'
+
+Config.Openkey = 288
+
+-- ESX Events DONT TOUCH THIS IF YOU DONT EXACTLY KNOW WHAT THESE DOES
+Config.esxgetSharedObjectevent = 'esx:getSharedObject'
+Config.esxprefix = "esx:"
+
+-- Exports Config
+Config.MumbleVoipFolderName = "mumble-voip"
+Config.SaltychatFolderName = 'saltychat'
+
+-- Wallpaper
+Config.backgroundurl = "https://cdn.discordapp.com/attachments/717040110641741894/802176415269257236/bright.png"
+Config.darkbackgroundurl = "https://cdn.discordapp.com/attachments/717040110641741894/788435064475353098/wallpaper.png"
+
+--[[
+Phone Numer
+Nummer will be like [prefix-number]
+The number will be randomly generated between the lower and higher number
+]] 
+
+Config.LowerPrefix = 555
+Config.HigherPrefix = 555
+
+Config.LowerNumber = 10000
+Config.HigherNumber = 99999
+
+-- Voice Chat [only 1 can be true]
+Config.TokoVoip = false
+Config.MumbleVoip = false
+Config.SaltyChat = true
+
+
+-- Radio
+Config.blockedchannels = 5 -- Number how much Channels are reserved for the listed fractions below
+
+-- These Jobs have access to the blocked channels 
+Config.Access = {
+    {
+        frequenz = 1,
+        job = "police",
+        joblabel = "LSPD"
+    },
+    {
+        frequenz = 2,
+        job = "police",
+        joblabel = "LSPD"
+    },
+    {
+        frequenz = 3,
+        job = "ambulance",
+        joblabel = "Ambulance"
+    },
+    {
+        frequenz = 4,
+        job = "ambulance",
+        joblabel = "Ambulance"
+    },
+    {
+        frequenz = 5,
+        job = "ambulance",
+        joblabel = "Ambulance"
+    },
+}
+
+
