@@ -9695,3 +9695,6 @@ server-data/cache/files/gabz_pillbox_fivem/stream_cache/z02663f1228bb9b58d3db37c
 server-data/cache/files/gabz_pillbox_fivem/stream_cache/z00c11a567cac07d2a01b39887be2e4ef29e3ccc7
 server-data/cache/files/gabz_pillbox_fivem/stream_cache/z00414de0f65f9d28a6505a51abbc399028be1781
 server-data/cache/files/gabz_pillbox_fivem/stream_cache/z001f12c4659dc0dd9d6f0295c229d8418fb7dc59
+server-data/cache/files/**/*.rpf
+server-data/cache/files/**/*.db
+server-data/cache/files/**/*.sfl 

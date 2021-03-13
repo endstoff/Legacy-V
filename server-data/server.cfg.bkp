@@ -362,7 +362,7 @@ add_ace identifier.steam:110000113df958c "command.hypnonema" allow
 # Hide player endpoints in external log output.
 sv_endpointprivacy true
 
-sets tags 'roleplay,esx,lspd,lsmd,pac,softwhitelist,maps,german,ger,deutsch,rp'
+sets tags ''
 sets 🎧Discord "https://discord.gg/c7WABYqa9K"
 sets 🎧Teamspeak "ts.legacy-v.net"
 sets 🌐Website "https://legacy-v.net"
