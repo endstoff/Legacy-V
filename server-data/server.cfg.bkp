@@ -294,7 +294,7 @@ ensure gabz_mrpd
 #ensure nurburgring
 ensure vremastered
 ensure JumpPointsEntfernt
-#ensure DimondCasino_in_construction
+ensure DimondCasino_in_construction
 ensure casinoexterior
 ensure casinointerior
 ensure LegacyMaps
