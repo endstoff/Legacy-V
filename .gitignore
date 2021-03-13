@@ -9505,3 +9505,5 @@ server-data/cache/files/Autos/stream_cache/z0021c028af45221921b24674875662fa4019
 *.log
 *.log
 txData/default/logs/fxserver.log
+*.log
+*.log
