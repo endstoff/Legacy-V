@@ -1,15 +1,15 @@
 exec permissions.cfg
 set es_enableCustomData 1 
-set mysql_connection_string "server=127.0.0.1;database=legacytest;userid=local;password=JAqswEWQ12TT56HHFO8"
-endpoint_add_tcp "0.0.0.0:30100"
-endpoint_add_udp "0.0.0.0:30100"
+set mysql_connection_string "server=127.0.0.1;database=legacyv;userid=local;password=JAqswEWQ12TT56HHFO8"
+endpoint_add_tcp "0.0.0.0:30120"
+endpoint_add_udp "0.0.0.0:30120"
 
 +set onesync_distanceCullVehicles true
 +set onesync_forceMigration true
 +set onesync_enabled 1
 
 
-sv_maxclients 32
+sv_maxclients 64
 # You probably don't want to change these!
 # Only change them if you're using a server with multiple network interfaces.
 
@@ -61,6 +61,7 @@ ensure es_admin2
 #ensure JD_logs
 ensure vMenu
 ensure byte_support
+#ensure est_wartungen
 
 ensure qalle_coords
 #ensure vSync
@@ -146,12 +147,12 @@ ensure xnVending
 
 ensure esx_dmvschool
 
-
 ##      Jobs
 ensure esx_policejob
 ensure core_evidence
 ensure est_sperrzone
 ensure esx_speedcamera
+ensure wgc_ui
 
 ensure esx_ambulancejob
 ensure visn_are
@@ -160,20 +161,20 @@ ensure t1ger_mechanicjob
 
 ensure est_bmeister
 
-#ensure esx_bennys
-#ensure esx_bennys_tuning
+ensure esx_bennys
+ensure esx_bennys_tuning
 
 #ensure esx_bloodscustoms
 #ensure esx_bloodscustoms_tuning
 
 ensure myFarming
-#ensure esx_minerjob
-#ensure legacy_jobs
-#ensure est_farming
-
 
 ##		Dienstausweise
 ensure est_dienstausweis_lspd
+
+##      panic
+ensure panic_sos-button
+ensure rcpaxon
 
 ##		Scripts
 ensure interact-sound
@@ -206,14 +207,10 @@ ensure dpemotes
 
 ensure progressBars
 ensure pogressBar
-#ensure simpletp
+ensure simpletp
 ensure VehicleTransport
 
-#ensure new_banking
 ensure orp-banking
-
-
-#ensure Cayo
 
 ensure bob74_ipl
 #ensure fivem-ipl
@@ -245,12 +242,9 @@ ensure myDrugs
 ##      Cars
 ensure Autos
 
-ensure trailers5
-
 ## 		Cars Scripts
 ensure est_garage
 ensure est_impound
-
 
 ensure esx_legacyfuel
 ensure dw_business
@@ -289,7 +283,7 @@ ensure wnewsv2
 ensure gabz_diner
 #ensure gabz_imp_garage
 #ensure gabz_pacific_bank
-#ensure gabz_pillbox
+ensure gabz_pillbox_fivem
 ensure gabz_mrpd
 
 #ensure prisonprops
@@ -305,7 +299,7 @@ ensure casinoexterior
 ensure casinointerior
 ensure LegacyMaps
 ensure forest
-ensure bennyspatochev2_1
+#ensure bennyspatochev2_1
 ensure flywheels
 
 
@@ -331,16 +325,16 @@ sets banner_detail "https://media.discordapp.net/attachments/760982812223995945/
 sets banner_connecting ""
 
 # Set your server's hostname
-sv_hostname "« ^3Legacy^0-V ^3Roleplay ^0» | ^1Devserver^0 | 🎤 ^4SaltyChat^0"
+sv_hostname "« ^3Legacy-V Roleplay ^0» | ^1Open Beta^0 | 🛡️ ^8Whitelist^0 | 🎤 ^4SaltyChat^0"
 
-sets sv_projectName "« ^3Legacy-V ^3Roleplay ^0»"
-sets sv_projectDesc "🛡️ Devserver, 🎤 SaltyChat"
+sets sv_projectName "« ^3Legacy-V Roleplay ^0»"
+sets sv_projectDesc "🛡️ Whitelist, 🎤 SaltyChat"
 
 # Nested configs!
 #exec server_internal.cfg
 
 # Loading a server icon (96x96 PNG file)
-load_server_icon zap96x96.png
+load_server_icon logo.png
 
 # convars which can be used in scripts
 set temp_convar "hey world!"
@@ -382,4 +376,4 @@ set steam_webApiKey "1CBE996F42DC3B683573234E97F91ACB"
 set sv_UseDirectListing false
 sets locale "de-DE"
 set sv_listingIPOverride "45.136.29.85"
-sv_licensekey "21y8ozte2s5jizl4uetchxlm8hvxhnmt"
+sv_licensekey "wtuggpshqs6u1cp2ibb51oecmtmq46ld"
