@@ -9700,3 +9700,4 @@ server-data/cache/files/**/*.db
 server-data/cache/files/**/*.sfl
 txData/default/logs/*.log
 txData/default/data/*.json 
+server-data/cache/files/DimondCasino_in_construction/stream_cache/z5e39b21c3cb6022e8eb3b2e0473b626f30723047
