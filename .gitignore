@@ -9697,4 +9697,6 @@ server-data/cache/files/gabz_pillbox_fivem/stream_cache/z00414de0f65f9d28a6505a5
 server-data/cache/files/gabz_pillbox_fivem/stream_cache/z001f12c4659dc0dd9d6f0295c229d8418fb7dc59
 server-data/cache/files/**/*.rpf
 server-data/cache/files/**/*.db
-server-data/cache/files/**/*.sfl 
+server-data/cache/files/**/*.sfl
+txData/default/logs/*.log
+txData/default/data/*.json 
