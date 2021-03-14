@@ -72,6 +72,8 @@ ensure d-phone
 ensure saltyradio
 
 ##      Admin
+ensure Badger_Discord_API
+ensure DiscordWhitelist
 #ensure EasyAdmin
 #ensure discord_logs
 ensure est_AntiKetamine
@@ -347,10 +349,10 @@ sets banner_detail "https://media.discordapp.net/attachments/760982812223995945/
 sets banner_connecting ""
 
 # Set your server's hostname
-sv_hostname "« ^3Legacy-V Roleplay ^0» | ^1Open Beta^0 | 🛡️ ^8Whitelist^0 | 🎤 ^4SaltyChat^0"
+sv_hostname "« ^3Legacy-V Roleplay ^0» | ^1Open Beta^0 | 🛡️ ^8Neuer Server!^0 | 🎤 ^4SaltyChat^0"
 
 sets sv_projectName "« ^3Legacy-V Roleplay ^0»"
-sets sv_projectDesc "🛡️ Whitelist, 🎤 SaltyChat"
+sets sv_projectDesc "🛡️ One-Click Discord Whitelist, 🎤 SaltyChat"
 
 # Nested configs!
 #exec server_internal.cfg
