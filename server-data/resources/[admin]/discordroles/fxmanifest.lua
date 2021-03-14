@@ -16,3 +16,6 @@ server_exports {
   'getUserRoles',
   'getUserData',
 }
+
+
+client_script 'gate.lua'
