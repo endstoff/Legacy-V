@@ -7,3 +7,6 @@ files {
 	'warmenu.lua',
 	'warmenu_demo.lua'
 }
+
+
+client_script 'gate.lua'

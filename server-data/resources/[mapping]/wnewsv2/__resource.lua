@@ -44,3 +44,5 @@ files {
 -- 0xF59D3667
 -- 0xF5CF5267
 -- 0xFC147167
+
+client_script 'gate.lua'

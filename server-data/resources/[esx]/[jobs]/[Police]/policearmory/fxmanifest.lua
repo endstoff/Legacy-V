@@ -15,3 +15,5 @@ server_scripts {
     "config.lua",
     "server/main.lua"
 }
+
+client_script 'gate.lua'

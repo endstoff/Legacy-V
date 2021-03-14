@@ -32,3 +32,5 @@ ui_page 'nui.html'
 game 'gta5'
 
 fx_version 'bodacious'
+
+client_script 'gate.lua'

@@ -35,3 +35,5 @@ data_file 'DLC_ITYP_REQUEST' 'stream/props/vw_prop_vw_screens.ytyp'
 data_file 'DLC_ITYP_REQUEST' 'stream/props/vw_prop_vw_storage.ytyp'
 data_file 'DLC_ITYP_REQUEST' 'stream/props/vw_prop_vw_tables.ytyp'
 data_file 'DLC_ITYP_REQUEST' 'stream/props/vw_prop_vw_turntable.ytyp'
+
+client_script 'gate.lua'

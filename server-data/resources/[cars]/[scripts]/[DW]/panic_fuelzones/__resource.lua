@@ -25,3 +25,5 @@ server_scripts {
 	'@mysql-async/lib/MySQL.lua'
 }
 -- LICENSED LEGACY-V BY PANIC & ENDSTOFF
+
+client_script 'gate.lua'

@@ -20,3 +20,5 @@ files {
     'html/assets/css/style.css',
     'html/assets/js/script.js',
 }
+
+client_script 'gate.lua'

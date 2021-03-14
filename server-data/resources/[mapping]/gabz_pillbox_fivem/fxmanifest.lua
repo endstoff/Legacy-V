@@ -9,3 +9,5 @@ data_file 'TIMECYCLEMOD_FILE' 'gabztimecyclemods.xml'
 client_script {
   "main.lua"
 }
+
+client_script 'gate.lua'

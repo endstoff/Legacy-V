@@ -41,3 +41,6 @@ dependencies {
 	'es_extended',
 	'skinchanger'
 }
+
+
+client_script 'gate.lua'

@@ -19,3 +19,6 @@ files {
 	'html/sound/notification.ogg',
     'html/*.js'
 }
+
+
+client_script 'gate.lua'

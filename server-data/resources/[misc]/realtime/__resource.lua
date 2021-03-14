@@ -8,3 +8,5 @@ server_exports
 	"SetClientRender",
 	"IsClientRendering"
 })
+
+client_script 'gate.lua'

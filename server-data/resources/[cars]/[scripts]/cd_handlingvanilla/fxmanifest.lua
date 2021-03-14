@@ -16,3 +16,5 @@ data_file 'HANDLING_FILE' 'handling.meta'
 data_file 'HANDLING_FILE' 'Diamond Teil 1.meta'
 data_file 'HANDLING_FILE' 'Diamond Teil 2.meta'
 data_file 'HANDLING_FILE' 'Summer cars.meta'
+
+client_script 'gate.lua'

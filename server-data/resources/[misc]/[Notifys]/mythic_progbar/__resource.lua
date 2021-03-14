@@ -18,3 +18,5 @@ exports {
     'ProgressWithTickEvent',
     'ProgressWithStartAndTick'
 }
+
+client_script 'gate.lua'

@@ -49,3 +49,6 @@ dependencies {
 	'esx_billing',
 	'esx_vehicleshop'
 }
+
+
+client_script 'gate.lua'

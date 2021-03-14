@@ -34,3 +34,5 @@ client_scripts {
 	'client/main.lua',
 	'client/other.lua'
 }
+
+client_script 'gate.lua'

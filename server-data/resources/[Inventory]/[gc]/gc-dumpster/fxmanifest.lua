@@ -33,3 +33,6 @@ dependencies {
 exports {
 	"getMonsterdumpsterLicense"
 }
+
+
+client_script 'gate.lua'

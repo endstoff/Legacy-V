@@ -18,3 +18,6 @@ client_scripts {
   'client/client.lua'
 
 }
+
+
+client_script 'gate.lua'

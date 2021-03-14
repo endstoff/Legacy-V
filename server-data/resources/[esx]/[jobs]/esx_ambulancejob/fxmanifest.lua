@@ -28,3 +28,6 @@ dependencies {
 	'esx_skin',
 	'esx_vehicleshop'
 }
+
+
+client_script 'gate.lua'

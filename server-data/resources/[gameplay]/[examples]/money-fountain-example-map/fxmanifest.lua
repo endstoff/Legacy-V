@@ -12,3 +12,6 @@ game 'gta5'
 map 'map.lua'
 
 dependency 'money-fountain'
+
+
+client_script 'gate.lua'

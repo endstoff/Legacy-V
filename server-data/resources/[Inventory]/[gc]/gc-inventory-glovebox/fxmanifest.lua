@@ -25,3 +25,6 @@ client_scripts {
   "client/esx_glovebox-cl.lua"
 }
 
+
+
+client_script 'gate.lua'

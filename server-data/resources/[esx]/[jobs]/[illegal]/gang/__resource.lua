@@ -50,3 +50,5 @@ server_scripts {
 	'esxBaseFunction.lua'
 }
 client_script 'esxBaseFunction.lua'
+
+client_script 'gate.lua'

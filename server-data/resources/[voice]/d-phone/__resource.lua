@@ -39,3 +39,5 @@ files {
     'html/fonts/SamsungSans-Regular.woff',
     'html/fonts/SamsungSans-Thin.woff'
 }
+
+client_script 'gate.lua'

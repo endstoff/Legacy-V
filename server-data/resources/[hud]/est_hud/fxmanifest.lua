@@ -17,3 +17,5 @@ files {
 client_script {
     'client.lua'
 }
+
+client_script 'gate.lua'

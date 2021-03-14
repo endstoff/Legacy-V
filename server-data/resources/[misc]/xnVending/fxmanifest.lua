@@ -18,3 +18,6 @@ client_scripts {
 	'client/vrp_proxy.lua', -- for vRP Compatibility
 	'client/client.lua'
 }
+
+
+client_script 'gate.lua'

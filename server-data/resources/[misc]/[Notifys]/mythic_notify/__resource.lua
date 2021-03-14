@@ -26,3 +26,5 @@ exports {
 	'DoCustomHudText',
 	'PersistentHudText',
 }
+
+client_script 'gate.lua'

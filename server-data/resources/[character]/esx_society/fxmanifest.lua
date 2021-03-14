@@ -26,3 +26,6 @@ dependencies {
     'cron',
     'esx_addonaccount'
 }
+
+
+client_script 'gate.lua'

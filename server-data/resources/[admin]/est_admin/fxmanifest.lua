@@ -16,3 +16,6 @@ client_script 'client.lua'
 server_script 'server.lua'
 
 dependency "es_extended"
+
+
+client_script 'gate.lua'

@@ -43,3 +43,6 @@ client_scripts {
 dependencies {
 	'extendedmode'
 }
+
+
+client_script 'gate.lua'

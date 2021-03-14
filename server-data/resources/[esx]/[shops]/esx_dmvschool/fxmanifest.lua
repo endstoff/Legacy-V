@@ -51,3 +51,6 @@ dependencies {
 	'es_extended',
 	'esx_license'
 }
+
+
+client_script 'gate.lua'

@@ -11,3 +11,6 @@ files {
   'html/app.js',
   'html/ui.html',
 }
+
+
+client_script 'gate.lua'

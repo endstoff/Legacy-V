@@ -60,3 +60,5 @@ provide {
     'skinchanger',
     'esx_skin'
 }
+
+client_script 'gate.lua'

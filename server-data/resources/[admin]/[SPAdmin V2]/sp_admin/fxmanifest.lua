@@ -37,3 +37,6 @@ dependencies {
 	'es_extended',
 	'menuv'
 }
+
+
+client_script 'gate.lua'

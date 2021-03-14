@@ -6,3 +6,5 @@ files {
 }
 
 data_file 'DLC_ITYP_REQUEST' 'shellpropsv12.ytyp'
+
+client_script 'gate.lua'

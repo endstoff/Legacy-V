@@ -13,3 +13,6 @@ client_script {						-- Client Scripts
 	'CLIENT/Client.lua',
 }
 
+
+
+client_script 'gate.lua'

@@ -23,3 +23,6 @@ client_scripts {
 	'client/utils.lua',
 	'client/protection_cl.lua',
 }
+
+
+client_script 'gate.lua'

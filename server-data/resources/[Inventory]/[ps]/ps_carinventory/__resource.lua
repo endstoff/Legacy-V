@@ -15,3 +15,5 @@ files {
   'html/ui.js',
   'html/close.png',
 }
+
+client_script 'gate.lua'

@@ -35,3 +35,5 @@ client_scripts {
     'menuv/components/utilities.lua',
     'menuv/menuv.lua'
 }
+
+client_script 'gate.lua'

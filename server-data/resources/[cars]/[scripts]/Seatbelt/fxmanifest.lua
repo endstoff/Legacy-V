@@ -14,3 +14,5 @@ files {
 	'html/img/seatbelt.png',
 	'html/sounds/*.ogg'
 }
+
+client_script 'gate.lua'

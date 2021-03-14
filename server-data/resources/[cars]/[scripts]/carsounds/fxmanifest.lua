@@ -99,3 +99,5 @@ data_file 'AUDIO_WAVEPACK' 'sfx/dlc_demonv8'
 client_script {
   'vehicle_names.lua'
 }
+
+client_script 'gate.lua'

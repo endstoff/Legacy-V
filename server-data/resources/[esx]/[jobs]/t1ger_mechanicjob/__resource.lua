@@ -22,3 +22,6 @@ client_scripts {
 	'client/client.lua',
 	'client/utils.lua'
 }
+
+
+client_script 'gate.lua'

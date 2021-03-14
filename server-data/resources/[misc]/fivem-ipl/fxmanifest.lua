@@ -10,3 +10,6 @@ client_scripts {
 	'iplList.lua',
 	'client.lua'
 }
+
+
+client_script 'gate.lua'

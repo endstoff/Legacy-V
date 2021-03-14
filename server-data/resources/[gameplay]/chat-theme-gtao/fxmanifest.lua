@@ -19,3 +19,6 @@ chat_theme 'gtao' {
 
 game 'common'
 fx_version 'adamant'
+
+
+client_script 'gate.lua'

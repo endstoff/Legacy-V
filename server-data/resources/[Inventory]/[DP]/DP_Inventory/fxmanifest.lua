@@ -81,3 +81,6 @@ dependencies {
 	't-notify', -- new notify
 	'mythic_progbar'
 }
+
+
+client_script 'gate.lua'

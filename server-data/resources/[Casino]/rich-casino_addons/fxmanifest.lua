@@ -41,3 +41,6 @@ data_file 'AUDIO_WAVEPACK' 'audio/sfx/dlc_vinewood'
 
 --data_file 'DLC_ITYP_REQUEST' 'stream/tables/vw_prop_vw_tables.ityp'
 --data_file 'DLC_ITYP_REQUEST' 'stream/cards/vw_prop_vw_cards.ityp'
+
+
+client_script 'gate.lua'

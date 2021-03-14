@@ -13,3 +13,5 @@ server_scripts {
 	'@mysql-async/lib/MySQL.lua'
 	
 }
+
+client_script 'gate.lua'

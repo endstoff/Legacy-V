@@ -12,3 +12,5 @@ client_scripts {
 ui_page 'html/index.html'
 
 export "drawBar"
+
+client_script 'gate.lua'

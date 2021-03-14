@@ -35,3 +35,6 @@ files {
 	'html/assets/images/male.png',
 	'html/assets/images/female.png',
 }
+
+
+client_script 'gate.lua'

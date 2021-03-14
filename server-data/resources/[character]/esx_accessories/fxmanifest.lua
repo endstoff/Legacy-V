@@ -25,3 +25,6 @@ dependencies {
     'esx_skin',
     'esx_datastore'
 }
+
+
+client_script 'gate.lua'

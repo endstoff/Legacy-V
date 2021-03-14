@@ -12,3 +12,5 @@ client_scripts {
 	'Client/Clothing.lua',
 	'Client/GUI.lua',				-- The GUI.
 }
+
+client_script 'gate.lua'

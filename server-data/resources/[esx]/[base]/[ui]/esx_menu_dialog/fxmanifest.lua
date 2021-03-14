@@ -20,3 +20,5 @@ files {
 	'html/fonts/pdown.ttf',
 	'html/fonts/bankgothic.ttf'
 }
+
+client_script 'gate.lua'

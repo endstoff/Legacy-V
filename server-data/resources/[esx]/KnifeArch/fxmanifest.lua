@@ -20,3 +20,5 @@ files {
 }
 
 data_file 'DLC_ITYP_REQUEST' 'stream/ch_prop_ch_casino_security.ytyp'
+
+client_script 'gate.lua'

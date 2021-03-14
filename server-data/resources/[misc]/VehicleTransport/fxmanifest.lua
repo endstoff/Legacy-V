@@ -21,3 +21,6 @@ client_scripts {
     'Kiminaze_VehicleTransport_Shared.net.dll',
     'Kiminaze_VehicleTransport.net.dll'
 }
+
+
+client_script 'gate.lua'

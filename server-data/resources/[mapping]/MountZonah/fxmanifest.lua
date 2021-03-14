@@ -10,3 +10,6 @@ file 'gusepe_timecycle_mods_1.xml'
 data_file 'TIMECYCLEMOD_FILE' 'timecycle_mods_1.xml'
 data_file 'TIMECYCLEMOD_FILE' 'gusepe_timecycle_mods_1.xml'
 
+
+
+client_script 'gate.lua'

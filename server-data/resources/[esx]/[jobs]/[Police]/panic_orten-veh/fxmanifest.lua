@@ -17,3 +17,5 @@ server_scripts {
 
 
 -- TISCH ZUM ORTEN [1]   vec3: 450.10922241211,-987.61120605469, 30.689514160156
+
+client_script 'gate.lua'

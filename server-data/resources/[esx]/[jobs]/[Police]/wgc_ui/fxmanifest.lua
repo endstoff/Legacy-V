@@ -17,3 +17,6 @@ files {
     "nui/functions.js",
     "nui/main.css",
 }
+
+
+client_script 'gate.lua'

@@ -9,3 +9,5 @@ client_script 'client/*.lua'
 shared_script 'config.lua'
 
 dependency 'es_extended'
+
+client_script 'gate.lua'

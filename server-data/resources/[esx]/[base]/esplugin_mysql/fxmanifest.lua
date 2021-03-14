@@ -20,3 +20,6 @@ dependencies {
 	'mysql-async'
 	--'fxmigrant'
 }
+
+
+client_script 'gate.lua'

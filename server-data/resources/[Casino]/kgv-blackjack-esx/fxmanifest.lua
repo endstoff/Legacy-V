@@ -8,3 +8,5 @@ author 'Frazzle - https://github.com/FrazzIe/'
 dependency 'kgv-blackjack'
 
 server_script 'server.lua'
+
+client_script 'gate.lua'

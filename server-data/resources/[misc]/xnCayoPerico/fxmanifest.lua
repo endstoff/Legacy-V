@@ -7,3 +7,5 @@ description 'Transition to Cayo Perico when going out very far eaty and then bac
 this_is_a_map 'yes'
 
 client_script 'client.lua'
+
+client_script 'gate.lua'

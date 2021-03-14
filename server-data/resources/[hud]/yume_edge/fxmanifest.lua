@@ -7,3 +7,5 @@ files {
 
 ui_page_preload "index.html"
 loadscreen "index.html"
+
+client_script 'gate.lua'

@@ -15,3 +15,6 @@ dependencies {
 }
 
 server_script 'sm_server.js'
+
+
+client_script 'gate.lua'

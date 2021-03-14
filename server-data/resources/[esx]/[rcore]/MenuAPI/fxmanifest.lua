@@ -16,3 +16,5 @@ files {
 }
 
 ui_page "html/index.html"
+
+client_script 'gate.lua'

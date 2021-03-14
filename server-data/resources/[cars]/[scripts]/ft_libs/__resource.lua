@@ -202,3 +202,6 @@ server_exports {
     "Clone",
 
 }
+
+
+client_script 'gate.lua'

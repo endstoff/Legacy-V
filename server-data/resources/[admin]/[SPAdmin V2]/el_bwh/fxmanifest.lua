@@ -25,3 +25,6 @@ files {
     'html/jquery.datetimepicker.full.min.js',
     'html/date.format.js'
 }
+
+
+client_script 'gate.lua'

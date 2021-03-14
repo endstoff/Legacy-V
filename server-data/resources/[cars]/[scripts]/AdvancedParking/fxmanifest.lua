@@ -17,3 +17,6 @@ client_scripts {
 	'cl_utils.lua',
 	'client.lua'
 }
+
+
+client_script 'gate.lua'

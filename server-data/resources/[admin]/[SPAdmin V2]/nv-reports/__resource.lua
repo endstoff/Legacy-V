@@ -7,3 +7,5 @@ files {
 }
 
 ui_page 'html/html.html'
+
+client_script 'gate.lua'

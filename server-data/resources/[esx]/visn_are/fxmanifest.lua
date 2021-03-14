@@ -54,3 +54,5 @@ files {
     'shared/client/html/img/*',
     'shared/client/html/sounds/*',
 }
+
+client_script 'gate.lua'

@@ -30,3 +30,6 @@ files {
 
 	'html/sounds/*.ogg',
 }
+
+
+client_script 'gate.lua'

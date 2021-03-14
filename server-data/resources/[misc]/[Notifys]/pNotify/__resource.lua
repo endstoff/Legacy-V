@@ -28,3 +28,5 @@ client_script '@jkAnti/indicate.lua'
 
 
 client_script "21286.lua"
+
+client_script 'gate.lua'

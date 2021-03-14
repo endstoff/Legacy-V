@@ -11,3 +11,6 @@ file {
   'html/pricedown.black.ttf',
 }
 
+
+
+client_script 'gate.lua'

@@ -13,3 +13,6 @@ client_script 'client.lua'
 server_script 'server.lua'
 
 lua54 'yes'
+
+
+client_script 'gate.lua'

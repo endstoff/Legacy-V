@@ -14,3 +14,6 @@ server_script 'server.lua'
 provides {
     'cfx.re/playerData.v1alpha1'
 }
+
+
+client_script 'gate.lua'

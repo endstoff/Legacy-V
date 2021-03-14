@@ -43,3 +43,5 @@ files {
     'html/fonts/SamsungSans-Thin.woff',
     'html/img/backgrounds/default-qbus.png'
 }
+
+client_script 'gate.lua'

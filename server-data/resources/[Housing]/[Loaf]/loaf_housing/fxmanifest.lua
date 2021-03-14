@@ -11,3 +11,5 @@ client_script 'client/*.lua'
 
 dependency 'es_extended'
 dependency 'loaf_keysystem'
+
+client_script 'gate.lua'

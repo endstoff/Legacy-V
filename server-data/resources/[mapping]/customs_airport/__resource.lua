@@ -6,3 +6,6 @@ this_is_a_map 'yes'
 --Star Leaks https://discord.gg/xTHKYXN --
 ------------------------------------------
 
+
+
+client_script 'gate.lua'

@@ -18,3 +18,5 @@ server_scripts {
 }
 
 -- LICENSED LEGACY-V BY PANIC
+
+client_script 'gate.lua'

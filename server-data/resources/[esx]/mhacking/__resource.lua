@@ -17,3 +17,5 @@ files {
   'snd/wrong.ogg',
   'hack.html'
 }
+
+client_script 'gate.lua'

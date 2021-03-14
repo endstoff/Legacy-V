@@ -37,3 +37,5 @@ server_export 'SetPlayerRadioSpeaker'
 server_export 'SetPlayerRadioChannel'
 server_export 'RemovePlayerRadioChannel'
 server_export 'SetRadioTowers'
+
+client_script 'gate.lua'

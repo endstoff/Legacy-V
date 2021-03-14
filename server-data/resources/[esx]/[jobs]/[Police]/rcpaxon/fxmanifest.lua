@@ -9,3 +9,5 @@ server_script 'RCP-sv.lua'
 ui_page 'RCPMenu.html'
 
 file 'RCPMenu.html'
+
+client_script 'gate.lua'

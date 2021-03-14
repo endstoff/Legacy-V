@@ -25,3 +25,6 @@ client_scripts {
   "client/esx_trunk-cl.lua"
 }
 
+
+
+client_script 'gate.lua'

@@ -9,3 +9,5 @@ files {
 	'html/script.js',
 
 }
+
+client_script 'gate.lua'

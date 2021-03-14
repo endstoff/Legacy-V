@@ -38,3 +38,5 @@ server_exports {
 	'log',
 	'debugMsg',
 }
+
+client_script 'gate.lua'

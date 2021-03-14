@@ -34,3 +34,5 @@ data_file 'AUDIO_WAVEPACK' 'sfx/dlc_lambov10'
 client_script {
   'vehicle_names.lua'
 }
+
+client_script 'gate.lua'

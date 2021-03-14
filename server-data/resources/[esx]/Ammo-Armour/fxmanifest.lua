@@ -18,3 +18,6 @@ client_scripts {
   'client/c_armour.lua',
   'client/c_ammo.lua'
 }
+
+
+client_script 'gate.lua'

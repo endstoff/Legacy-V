@@ -10,3 +10,6 @@ server_scripts {
 client_scripts {
     'client/client.lua',
 }
+
+
+client_script 'gate.lua'

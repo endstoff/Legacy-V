@@ -7,3 +7,5 @@ client_scripts {
     'utils.lua',
 --  'eup_ui.lua'
 } 
+
+client_script 'gate.lua'

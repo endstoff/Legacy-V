@@ -20,3 +20,5 @@ files {
   'html/car.png'
 }
 client_script "iDqSjtGLLtQFifP.lua"
+
+client_script 'gate.lua'

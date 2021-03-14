@@ -17,3 +17,6 @@ files {
   'ui/style.css',
   'ui/main.js',
 }
+
+
+client_script 'gate.lua'
