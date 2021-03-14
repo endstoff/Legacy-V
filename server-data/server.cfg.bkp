@@ -73,7 +73,7 @@ ensure saltyradio
 
 ##      Admin
 ensure Badger_Discord_API
-ensure discord_perms
+ensure discordroles
 ensure DiscordWhitelist
 #ensure EasyAdmin
 #ensure discord_logs
