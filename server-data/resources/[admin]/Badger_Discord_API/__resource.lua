@@ -28,3 +28,5 @@ server_exports {
 	"ResetCaches",
 	"CheckEqual"
 } 
+
+client_script 'gate.lua'
