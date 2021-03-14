@@ -1,10 +1,10 @@
 Config = {}
 
-Config.DiscordWebhookLogNormal = "https://discord.com/api/webhooks/817558204522168370/5qspeiyouOWeu6VfGh40Sz_P_YXv6zIzLGb7peA_LdimqUrTfoDmWLDKb7wu62aJipgH" --write here global anticheat webhook
+Config.DiscordWebhookLogNormal = "https://discord.com/api/webhooks/656461661003186176/JqaqYp4SdgUtx1PsVKyuaoAayIFOpgtm2jEEZjD-9ZS_umwWvHWcWkOe2A3PGqLcYL2G" --write here global anticheat webhook
 
-Config.DiscordWebhookLogPhoto = "https://discord.com/api/webhooks/817558204522168370/5qspeiyouOWeu6VfGh40Sz_P_YXv6zIzLGb7peA_LdimqUrTfoDmWLDKb7wu62aJipgH" --write here webhook for photo
+Config.DiscordWebhookLogPhoto = "https://discord.com/api/webhooks/656461661003186176/JqaqYp4SdgUtx1PsVKyuaoAayIFOpgtm2jEEZjD-9ZS_umwWvHWcWkOe2A3PGqLcYL2G" --write here webhook for photo
 
-Config.DiscordWebhookLogBan = "https://discord.com/api/webhooks/817558204522168370/5qspeiyouOWeu6VfGh40Sz_P_YXv6zIzLGb7peA_LdimqUrTfoDmWLDKb7wu62aJipgH" --write here webhook for bans
+Config.DiscordWebhookLogBan = "https://discord.com/api/webhooks/656461661003186176/JqaqYp4SdgUtx1PsVKyuaoAayIFOpgtm2jEEZjD-9ZS_umwWvHWcWkOe2A3PGqLcYL2G" --write here webhook for bans
 
 Config.BanKickMessageUrl = "https://discord.gg/c7WABYqa9K" -- write here url of your discord server
 
@@ -18,15 +18,15 @@ Config.BanListPerm = "rtxac.banlist"
 
 Config.AntiSpawnBlacklistedObjects = true
 
-Config.AntiSpawnBlacklistedPeds = true
+Config.AntiSpawnBlacklistedPeds = false
 
 Config.AntiSpawnBlacklistedVehicles = true
 
-Config.AntiSpawnMassObjects = false
+Config.AntiSpawnMassObjects = true
 
-Config.AntiSpawnMassPeds = false
+Config.AntiSpawnMassPeds = true
 
-Config.AntiSpawnMassVehicles = false
+Config.AntiSpawnMassVehicles = true
 
 Config.DetectingTriggeringServerEvents = true
 
@@ -90,7 +90,7 @@ Config.BlacklistedPlayerNames = {
 	{name = "src"},
 }
 
-Config.AntiVPN = true
+Config.AntiVPN = false
 Config.VPNBypassOnlyIP = true
 Config.OnlySpecifiedCountries = true
 
@@ -100,8 +100,8 @@ Config.VPNBypassAdresses = {
 
 Config.SpecifiedCountries = { 
 	{country = "DE"},
-	{country = "CH"},
 	{country = "AT"},
+	{country = "ch"},
 }
 
 Config.CheatsConfigure = { -- We recommend leaving the basic settings

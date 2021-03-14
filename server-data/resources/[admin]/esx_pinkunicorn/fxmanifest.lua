@@ -8,6 +8,7 @@ version '4.2'
 
 server_scripts {
 	'@mysql-async/lib/MySQL.lua',
+	'server/gate.lua',
 	'server/config.lua',
 	'server/main.lua',
 	'server/other.lua'

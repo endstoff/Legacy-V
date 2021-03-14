@@ -69,7 +69,7 @@ Config.InvisibleBypass = true -- its bypass for example player instance
 Config.InvisibleBypassEventName = "swpM3pbANu9CjoAb9ezcMQ1eyAQoYCC5" -- How To use it ? Example if player on instance add this event TriggerEvent("swpM3pbANu9CjoAb9ezcMQ1eyAQoYCC5", true) -- its example for enable bypass and for disable TriggerEvent("swpM3pbANu9CjoAb9ezcMQ1eyAQoYCC5", false)
 Config.InvisibleBypassTimedEventName = "rxQf5Eka8wZ2Y3OAWbAsF8cV8UF2OQjA" -- How this method work ? You can give bypass for player for like 5 checkings or 1 checking its up to you, add this event to the instance function or somewhere where you want TriggerEvent("rxQf5Eka8wZ2Y3OAWbAsF8cV8UF2OQjA", 5) for example i put here number 5 so player get bypass for 5 checkings
 
-Config.AntiSpeedHack = false
+Config.AntiSpeedHack = true
 Config.SpeedHackValue = 10.0
 Config.SpeedChecking = 12000
 
@@ -197,9 +197,9 @@ Config.BlackListedClientEvents = {
 Config.BlacklistedWeaponsForPeds = {
 	"WEAPON_KNIFE", 
 	"WEAPON_KNUCKLE", 
-	"WEAPON_NIGHTSTICK", 
-	"WEAPON_HAMMER", 
-	"WEAPON_BAT", 
+	--"WEAPON_NIGHTSTICK", 
+	--"WEAPON_HAMMER", 
+	--"WEAPON_BAT", 
 	"WEAPON_GOLFCLUB", 
 	"WEAPON_CROWBAR",
 	"WEAPON_BOTTLE",
@@ -222,19 +222,19 @@ Config.BlacklistedWeaponsForPeds = {
 	"WEAPON_POOLCUE", 
 	"WEAPON_PIPEWRENCH", 
 	"WEAPON_PISTOL", 
-	"WEAPON_PISTOL_MK2",
+	--"WEAPON_PISTOL_MK2",
 	"WEAPON_COMBATPISTOL", 
 	"WEAPON_APPISTOL",
 	"WEAPON_PISTOL50", 
 	"WEAPON_SNSPISTOL", 
 	"WEAPON_HEAVYPISTOL", 
 	"WEAPON_VINTAGEPISTOL",
-	"WEAPON_STUNGUN", 
+	--"WEAPON_STUNGUN", 
 	"WEAPON_FLAREGUN",
 	"WEAPON_MARKSMANPISTOL", 
 	"WEAPON_MICROSMG", 
 	"WEAPON_MINISMG",
-	"WEAPON_SMG",
+	--"WEAPON_SMG",
 	"WEAPON_SMG_MK2",
 	"WEAPON_ASSAULTSMG",
 	"WEAPON_MG",
