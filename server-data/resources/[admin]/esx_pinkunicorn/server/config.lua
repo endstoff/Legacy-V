@@ -1048,7 +1048,7 @@ Config.BlackListedServerEvents = {
 	"dmv:success",
 	"eden_garage:payhealth",
 	"ems:revive",
-	"esx_ambulancejob:revive",
+--	"esx_ambulancejob:revive",
 --	"esx_ambulancejob:setDeathStatus",
 --	"esx_billing:sendBill",
 	"esx_banksecurity:pay",

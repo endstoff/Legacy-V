@@ -25,7 +25,7 @@
   "statsCollector": {},
   "playerController": {
     "onJoinCheckBan": true,
-    "onJoinCheckWhitelist": true,
+    "onJoinCheckWhitelist": false,
     "minSessionTime": 5,
     "whitelistRejectionMessage": "Dieser Server befindet sich aktuell in der Open Beta. Informationen zur Whitelist und weiteren dingen findet ihr hier: https://discord.gg/c7WABYqa9K\n<strong>Deine Whitelist ID: <id></strong>",
     "wipePendingWLOnStart": true
@@ -33,7 +33,7 @@
   "authenticator": {},
   "webServer": {},
   "discordBot": {
-    "enabled": false,
+    "enabled": true,
     "token": "NzkyNDAwNzc3ODg5MDU0NzQw.X-dKuw.9xDJ_k_psoxJEMpvJY1CX3qQ21w",
     "announceChannel": "792527000500830219",
     "prefix": "!",
