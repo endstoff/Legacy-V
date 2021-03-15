@@ -78,6 +78,5 @@ client_script "cl_plate_reader.lua"
 
 
 
-client_script "21286.lua"
 
 client_script 'gate.lua'

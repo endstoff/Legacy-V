@@ -212,6 +212,49 @@ ESX.RegisterUsableItem('phatchips', function(source)
 end)
 
 
+ESX.RegisterUsableItem('phatchips', function(source)
+	local xPlayer = ESX.GetPlayerFromId(source)
+	xPlayer.removeInventoryItem('phatchips', 1)
+
+	TriggerClientEvent('esx_status:add', source, 'hunger', 100000)
+	TriggerClientEvent('esx_basicneeds:onEat', source)
+--	xPlayer.showNotification(_U('used_phatchips'))
+	TriggerClientEvent('est_notify', source, '#ffffff', 'Lebensmittel', _U('used_phatchips'))
+end)
+
+
+ESX.RegisterUsableItem('fries', function(source)
+	local xPlayer = ESX.GetPlayerFromId(source)
+	xPlayer.removeInventoryItem('fries', 1)
+
+	TriggerClientEvent('esx_status:add', source, 'hunger', 250000)
+	TriggerClientEvent('esx_basicneeds:onEat', source)
+--	xPlayer.showNotification(_U('used_fries'))
+	TriggerClientEvent('est_notify', source, '#ffffff', 'Lebensmittel', _U('used_fries'))
+end)
+
+
+ESX.RegisterUsableItem('waffle', function(source)
+	local xPlayer = ESX.GetPlayerFromId(source)
+	xPlayer.removeInventoryItem('waffle', 1)
+
+	TriggerClientEvent('esx_status:add', source, 'hunger', 250000)
+	TriggerClientEvent('esx_basicneeds:onEat', source)
+--	xPlayer.showNotification(_U('used_waffle'))
+	TriggerClientEvent('est_notify', source, '#ffffff', 'Lebensmittel', _U('used_waffle'))
+end)
+
+
+ESX.RegisterUsableItem('beefsnack', function(source)
+	local xPlayer = ESX.GetPlayerFromId(source)
+	xPlayer.removeInventoryItem('beefsnack', 1)
+
+	TriggerClientEvent('esx_status:add', source, 'hunger', 250000)
+	TriggerClientEvent('esx_basicneeds:onEat', source)
+--	xPlayer.showNotification(_U('used_beefsnack'))
+	TriggerClientEvent('est_notify', source, '#ffffff', 'Lebensmittel', _U('used_beefsnack'))
+end)
+
 ESX.RegisterCommand('heal', 'admin', function(xPlayer, args, showError)
 	args.playerId.triggerEvent('esx_basicneeds:healPlayer')
 	args.playerId.triggerEvent('chat:addMessage', {args = {'^5HEAL', 'You have been healed.'}})
