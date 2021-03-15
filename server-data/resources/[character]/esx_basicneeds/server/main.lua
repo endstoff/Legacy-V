@@ -148,6 +148,69 @@ ESX.RegisterUsableItem('apple', function(source)
 	TriggerClientEvent('est_notify', source, '#ffffff', 'Lebensmittel', _U('used_apple'))
 end)
 
+ESX.RegisterUsableItem('ecola', function(source)
+	local xPlayer = ESX.GetPlayerFromId(source)
+	xPlayer.removeInventoryItem('ecola', 1)
+
+	TriggerClientEvent('esx_status:add', source, 'thirst', 250000)
+	TriggerClientEvent('esx_basicneeds:onEat', source)
+--	xPlayer.showNotification(_U('used_ecola'))
+	TriggerClientEvent('est_notify', source, '#ffffff', 'Lebensmittel', _U('used_ecola'))
+end)
+
+ESX.RegisterUsableItem('sprunk', function(source)
+	local xPlayer = ESX.GetPlayerFromId(source)
+	xPlayer.removeInventoryItem('sprunk', 1)
+
+	TriggerClientEvent('esx_status:add', source, 'thirst', 250000)
+	TriggerClientEvent('esx_basicneeds:onEat', source)
+--	xPlayer.showNotification(_U('used_sprunk'))
+	TriggerClientEvent('est_notify', source, '#ffffff', 'Lebensmittel', _U('used_sprunk'))
+end)
+
+ESX.RegisterUsableItem('icetea', function(source)
+	local xPlayer = ESX.GetPlayerFromId(source)
+	xPlayer.removeInventoryItem('icetea', 1)
+
+	TriggerClientEvent('esx_status:add', source, 'thirst', 350000)
+	TriggerClientEvent('esx_basicneeds:onEat', source)
+--	xPlayer.showNotification(_U('used_icetea'))
+	TriggerClientEvent('est_notify', source, '#ffffff', 'Lebensmittel', _U('used_icetea'))
+end)
+
+
+ESX.RegisterUsableItem('icetea_sparkling', function(source)
+	local xPlayer = ESX.GetPlayerFromId(source)
+	xPlayer.removeInventoryItem('icetea_sparkling', 1)
+
+	TriggerClientEvent('esx_status:add', source, 'thirst', 350000)
+	TriggerClientEvent('esx_basicneeds:onEat', source)
+--	xPlayer.showNotification(_U('used_icetea_sparkling'))
+	TriggerClientEvent('est_notify', source, '#ffffff', 'Lebensmittel', _U('used_icetea_sparkling'))
+end)
+
+
+ESX.RegisterUsableItem('p&qs', function(source)
+	local xPlayer = ESX.GetPlayerFromId(source)
+	xPlayer.removeInventoryItem('p&qs', 1)
+
+	TriggerClientEvent('esx_status:add', source, 'hunger', 100000)
+	TriggerClientEvent('esx_basicneeds:onEat', source)
+--	xPlayer.showNotification(_U('used_p&qs'))
+	TriggerClientEvent('est_notify', source, '#ffffff', 'Lebensmittel', _U('used_p&qs'))
+end)
+
+
+ESX.RegisterUsableItem('phatchips', function(source)
+	local xPlayer = ESX.GetPlayerFromId(source)
+	xPlayer.removeInventoryItem('phatchips', 1)
+
+	TriggerClientEvent('esx_status:add', source, 'hunger', 100000)
+	TriggerClientEvent('esx_basicneeds:onEat', source)
+--	xPlayer.showNotification(_U('used_phatchips'))
+	TriggerClientEvent('est_notify', source, '#ffffff', 'Lebensmittel', _U('used_phatchips'))
+end)
+
 
 ESX.RegisterCommand('heal', 'admin', function(xPlayer, args, showError)
 	args.playerId.triggerEvent('esx_basicneeds:healPlayer')
