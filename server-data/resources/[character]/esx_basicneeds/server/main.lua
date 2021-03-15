@@ -212,17 +212,6 @@ ESX.RegisterUsableItem('phatchips', function(source)
 end)
 
 
-ESX.RegisterUsableItem('phatchips', function(source)
-	local xPlayer = ESX.GetPlayerFromId(source)
-	xPlayer.removeInventoryItem('phatchips', 1)
-
-	TriggerClientEvent('esx_status:add', source, 'hunger', 100000)
-	TriggerClientEvent('esx_basicneeds:onEat', source)
---	xPlayer.showNotification(_U('used_phatchips'))
-	TriggerClientEvent('est_notify', source, '#ffffff', 'Lebensmittel', _U('used_phatchips'))
-end)
-
-
 ESX.RegisterUsableItem('fries', function(source)
 	local xPlayer = ESX.GetPlayerFromId(source)
 	xPlayer.removeInventoryItem('fries', 1)

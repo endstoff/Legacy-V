@@ -33,7 +33,7 @@
   "authenticator": {},
   "webServer": {},
   "discordBot": {
-    "enabled": true,
+    "enabled": false,
     "token": "NzkyNDAwNzc3ODg5MDU0NzQw.X-dKuw.9xDJ_k_psoxJEMpvJY1CX3qQ21w",
     "announceChannel": "792527000500830219",
     "prefix": "!",
