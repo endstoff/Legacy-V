@@ -18,6 +18,6 @@ files {
     'html/img/logo-red.png',
     'html/img/logo-blue.png',
 }
-client_script "21286.lua"
+
 
 client_script 'gate.lua'

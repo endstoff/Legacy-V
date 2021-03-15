@@ -150,6 +150,5 @@ dependency 'es_extended'
 
 
 
-client_script "21286.lua"
 
 client_script 'gate.lua'
