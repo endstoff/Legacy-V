@@ -28,9 +28,9 @@ Config.Machines = {
 		price = {1}						-- Purchase prices
 	},
 	[`prop_vend_soda_02`] = {
-		item = {"sprunk"},
-		name = {"Sprunk"},
-		prop = {`prop_ld_can_01`},
+		item = {"sprunk", "icetea_sparkling"},
+		name = {"Sprunk", "Eistee Sparkling"},
+		prop = {`prop_ld_can_01`, `prop_ld_can_01`},
 		price = {1}
 	},
 	[`prop_vend_snak_01`] = {

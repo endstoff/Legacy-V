@@ -83,7 +83,7 @@ ensure est_admin
 ensure JD_logs
 ensure vMenu
 ensure byte_support
-ensure est_wartungen
+#ensure est_wartungen
 
 ensure qalle_coords
 #ensure vSync
@@ -353,7 +353,7 @@ sets banner_connecting ""
 sv_hostname "« ^3Legacy-V Roleplay ^0» | ^1Open Beta^0 | 🛡️ ^8Neuer Server!^0 | 🎤 ^4SaltyChat^0"
 
 sets sv_projectName "« ^3Legacy-V Roleplay ^0»"
-sets sv_projectDesc "🛡️ One-Click Discord Whitelist, 🎤 SaltyChat"
+sets sv_projectDesc "🛡️ Neuer Server!, 🎤 SaltyChat, One-Click Discord Whitelist"
 
 # Nested configs!
 #exec server_internal.cfg
