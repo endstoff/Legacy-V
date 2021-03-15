@@ -332,7 +332,7 @@ Config = {
         ["drinks"] = {
             {label = "Wasser", item = "water", price = 3},
             {label = "Fanta Exotic", item = "fanta", price = 5},
-            {label = "Fruchtsaft", item = "berriesjuice", price = 7},
+            {label = "Fruchtsaft", item = "berriesjuice", price = 25},
             {label = "Eistee", item = "icetea", price = 10},
             {label = "Eistee Sparkling", item = "icetea_sparkling", price = 15},
         --  {label = "Loka Crush", item = "loka", price = 10},
