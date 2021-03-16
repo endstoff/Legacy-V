@@ -57,7 +57,8 @@ RegisterCommand('atm', function(source, args) -- Command to access ATM when play
         openPlayersBank('atm')
         local ped = GetPlayerPed(-1)
     else
-        TriggerEvent('notifications', "#B90000", "Bank", "Es ist kein ATM in der nähe!")
+    --  TriggerEvent('notifications', "#B90000", "Bank", "Es ist kein ATM in der nähe!")
+        TriggerEvent('notify', 3, "", "Es ist kein ATM in der nähe!")
     end
 end)
 
@@ -87,7 +88,8 @@ function openPlayersBank(type, color)
     end
 
     TaskPlayAnim(ped, dict, anim, 8.0, 8.0, -1, 0, 0, 0, 0, 0)
-    TriggerEvent("pNotify2:SendNotification", {layout = 'bottomcenter', theme = 'gta', timeout = 1800, type = 'success', progressbar = true, text = 'Karte einlegen ...'})
+    --TriggerEvent("pNotify2:SendNotification", {layout = 'bottomcenter', theme = 'gta', timeout = 1800, type = 'success', progressbar = true, text = 'Karte einlegen ...'})
+    exports['progressBars']:startUI(1800, "Karte einlegen ...")
     Citizen.Wait(time)
     ClearPedTasks(ped)
     if type == 'bank' then
@@ -172,7 +174,8 @@ RegisterNUICallback('deposit', function(data)
         TriggerServerEvent('orp:bank:deposit', tonumber(data.amount))
         TriggerServerEvent('orp:bank:balance')
     else
-        TriggerEvent('est_notify', "#B90000", "Bank", "Du kannst hier kein Geld einzahlen!")
+    --  TriggerEvent('est_notify', "#B90000", "Bank", "Du kannst hier kein Geld einzahlen!")
+        TriggerEvent('notify', 3, "", "Du kannst hier kein Geld einzahlen!")
     end
 end)
 
@@ -205,7 +208,8 @@ function closePlayersBank()
     SetNuiFocus(false, false)
     SendNUIMessage({type = 'closeAll'})
     TaskPlayAnim(ped, dict, anim, 8.0, 8.0, -1, 0, 0, 0, 0, 0)
-    TriggerEvent("pNotify2:SendNotification", {layout = 'bottomcenter', theme = 'gta', timeout = 1300, type = 'error', progressbar = true, text = 'Karte herausnehmen ...'})
+    --TriggerEvent("pNotify2:SendNotification", {layout = 'bottomcenter', theme = 'gta', timeout = 1300, type = 'error', progressbar = true, text = 'Karte herausnehmen ...'})
+    exports['progressBars']:startUI(1300, "Karte herausnehmen ...")
     Citizen.Wait(time)
     ClearPedTasks(ped)
     inMenu = false

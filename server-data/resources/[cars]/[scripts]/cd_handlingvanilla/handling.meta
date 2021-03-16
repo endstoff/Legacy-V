@@ -4502,7 +4502,7 @@
       <vecInertiaMultiplier x="1.160000" y="0.990000" z="1.680000" />
       <fDriveBiasFront value="0.000000" />
       <nInitialDriveGears value="8" />
-      <fInitialDriveForce value="0.30000" />
+      <fInitialDriveForce value="0.03000" />
       <fDriveInertia value="1.200000" />
       <fClutchChangeRateScaleUpShift value="50.000000" />
       <fClutchChangeRateScaleDownShift value="50.000000" />
@@ -15415,7 +15415,7 @@
     <Item type="CHandlingData">
       <handlingName>COMET3</handlingName>
       <fMass value="1200.000000" />
-      <fInitialDragCoeff value="4.801000" />
+      <fInitialDragCoeff value="5.801000" />
       <fDownforceModifier value="1.780000" />
       <fPercentSubmerged value="72.000000" />
       <vecCentreOfMassOffset x="0.000000" y="-0.130000" z="0.025000" />
@@ -15433,7 +15433,7 @@
       <fSteeringLock value="32.700000" />
       <fTractionCurveMax value="2.110000" />
       <fTractionCurveMin value="1.844000" />
-      <fTractionCurveLateral value="20.550000" />
+      <fTractionCurveLateral value="22.550000" />
       <fTractionSpringDeltaMax value="0.136000" />
       <fLowSpeedTractionLossMult value="0.045000" />
       <fCamberStiffnesss value="0.000000" />
@@ -18597,7 +18597,7 @@
       <vecInertiaMultiplier x="1.200000" y="1.400000" z="1.60000" />
       <fDriveBiasFront value="0.500000" />
       <nInitialDriveGears value="6" />
-      <fInitialDriveForce value="0.30000" />
+      <fInitialDriveForce value="0.25000" />
       <fDriveInertia value="1.000000" />
       <fClutchChangeRateScaleUpShift value="5.200000" />
       <fClutchChangeRateScaleDownShift value="6.000000" />
