@@ -4495,30 +4495,30 @@
     <Item type="CHandlingData">
       <handlingName>KHAMEL</handlingName>
       <fMass value="2400.000000" />
-      <fInitialDragCoeff value="1.290000" />
+      <fInitialDragCoeff value="3.290000" />
 	  <fDownforceModifier value="1.310000" />
       <fPercentSubmerged value="80.000000" />
       <vecCentreOfMassOffset x="0.000000" y="0.020000" z="0.020000" />
       <vecInertiaMultiplier x="1.160000" y="0.990000" z="1.680000" />
       <fDriveBiasFront value="0.000000" />
       <nInitialDriveGears value="8" />
-      <fInitialDriveForce value="0.083000" />
+      <fInitialDriveForce value="0.30000" />
       <fDriveInertia value="1.200000" />
       <fClutchChangeRateScaleUpShift value="50.000000" />
       <fClutchChangeRateScaleDownShift value="50.000000" />
-      <fInitialDriveMaxFlatVel value="185.000000" />
-      <fBrakeForce value="0.760000" />
+      <fInitialDriveMaxFlatVel value="300.000000" />
+      <fBrakeForce value="0.860000" />
       <fBrakeBiasFront value="0.484650" />
       <fHandBrakeForce value="0.800000" />
       <fSteeringLock value="34.200000" />
       <fTractionCurveMax value="2.070000" />
       <fTractionCurveMin value="1.810000" />
-      <fTractionCurveLateral value="16.500000" />
+      <fTractionCurveLateral value="22.500000" />
       <fTractionSpringDeltaMax value="0.129000" />
-      <fLowSpeedTractionLossMult value="0.240000" />
+      <fLowSpeedTractionLossMult value="0.040000" />
       <fCamberStiffnesss value="0.000000" />
       <fTractionBiasFront value="0.504500" />
-      <fTractionLossMult value="1.250000" />
+      <fTractionLossMult value="1.000000" />
       <fSuspensionForce value="2.410000" />
       <fSuspensionCompDamp value="1.410000" />
       <fSuspensionReboundDamp value="0.450000" />
@@ -15438,7 +15438,7 @@
       <fLowSpeedTractionLossMult value="0.045000" />
       <fCamberStiffnesss value="0.000000" />
       <fTractionBiasFront value="0.503450" />
-      <fTractionLossMult value="1.190000" />
+      <fTractionLossMult value="0.890000" />
       <fSuspensionForce value="3.110000" />
       <fSuspensionCompDamp value="1.360000" />
       <fSuspensionReboundDamp value="0.670000" />

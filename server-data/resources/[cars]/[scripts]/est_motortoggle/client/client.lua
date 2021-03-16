@@ -48,7 +48,7 @@ AddEventHandler('est_motortoggle:Engine', function()
 		if vehicle[1] == GetVehiclePedIsIn(GetPlayerPed(-1), false) then
 			veh = vehicle[1]
 			StateIndex = i
-			TriggerEvent('est_notify', "#eb4034", "Schlüssel", "Zündschlüssel betätigt")
+			TriggerEvent('notify', 1, "", "Zündschlüssel betätigt")
 		end
 	end
 	Citizen.Wait(1500)

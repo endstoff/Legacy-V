@@ -146,13 +146,15 @@ function openmenuvehicle()
             else
            
           --  exports['b1g_notify']:Notify('true', _U("trunk_closed"))
-            TriggerEvent('est_notify', '#FF0000', 'Fahrzeug', _U("trunk_closed"))
+          --  TriggerEvent('est_notify', '#FF0000', 'Fahrzeug', _U("trunk_closed"))
+            TriggerEvent('notify', 4, "", _U("trunk_closed"))
             end
           end
         else
          
         --    exports['b1g_notify']:Notify('false', _U("no_veh_nearby"))
-            TriggerEvent('est_notify', '#FF0000', 'Fahrzeug', _U("no_veh_nearby"))
+          --  TriggerEvent('est_notify', '#FF0000', 'Fahrzeug', _U("no_veh_nearby"))
+            TriggerEvent('notify', 4, "", _U("no_veh_nearby"))
         end
         lastOpen = true
         GUI.Time = GetGameTimer()
@@ -161,7 +163,8 @@ function openmenuvehicle()
       -- Not their vehicle
     
         --    exports['b1g_notify']:Notify('false', _U("nacho_veh"))
-            TriggerEvent('est_notify', '#FF0000', 'Fahrzeug', _U("nacho_veh"))
+           -- TriggerEvent('est_notify', '#FF0000', 'Fahrzeug', _U("nacho_veh"))
+            TriggerEvent('notify', 4, "", _U("nacho_veh"))
 
     end
   end

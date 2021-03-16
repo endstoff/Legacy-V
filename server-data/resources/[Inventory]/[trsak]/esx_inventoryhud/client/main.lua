@@ -91,7 +91,8 @@ RegisterNUICallback(
         if not foundPlayers then
         
         --  exports['b1g_notify']:Notify('false', _U("players_nearby"))
-            TriggerEvent('est_notify', '#FF0000', 'Inventar', _U("players_nearby"))
+        --  TriggerEvent('est_notify', '#FF0000', 'Inventar', _U("players_nearby"))
+            TriggerEvent('notify', 3, "", _U("players_nearby"))
         else
             SendNUIMessage(
                 {
@@ -177,7 +178,8 @@ RegisterNUICallback(
         else
         
         --    exports['b1g_notify']:Notify('false', _U("player_nearby"))
-            TriggerEvent('est_notify', '#FF0000', 'Inventar', _U("player_nearby"))
+        --    TriggerEvent('est_notify', '#FF0000', 'Inventar', _U("player_nearby"))
+        TriggerEvent('notify', 3, "", _U("player_nearby"))
         end
         cb("ok")
     end

@@ -305,7 +305,8 @@ function OpenCarMenu()
 					OpenCarMenu()
 				end)
 			else
-				ShowNotifyESX(Lang['no_veh_nearby'])
+			--	ShowNotifyESX(Lang['no_veh_nearby'])
+				TriggerEvent('notify', 1, "", (Lang['no_veh_nearby']))
 			end
 		
 		-- DOORS:
@@ -347,7 +348,8 @@ function OpenCarMenu()
 					OpenCarMenu()
 				end)
 			else
-				ShowNotifyESX(Lang['no_veh_nearby'])
+			--	ShowNotifyESX(Lang['no_veh_nearby'])
+				TriggerEvent('notify', 1, "", (Lang['no_veh_nearby']))
 			end
 		
 		-- ENGINE:
@@ -359,7 +361,8 @@ function OpenCarMenu()
 					SetVehicleEngineOn(car,true,true,true)
 				end
 			else
-				ShowNotifyESX(Lang['no_veh_nearby'])
+			--	ShowNotifyESX(Lang['no_veh_nearby'])
+				TriggerEvent('notify', 1, "", (Lang['no_veh_nearby']))
 			end
 		
 		-- NEON:
@@ -374,10 +377,12 @@ function OpenCarMenu()
 						end
 					end
 				else
-					ShowNotifyESX(Lang['eng_not_running'])
+				--	ShowNotifyESX(Lang['eng_not_running'])
+					TriggerEvent('notify', 1, "", (Lang['eng_not_running']))	
 				end
 			else
-				ShowNotifyESX(Lang['no_veh_nearby'])
+			--	ShowNotifyESX(Lang['no_veh_nearby'])
+				TriggerEvent('notify', 1, "", (Lang['no_veh_nearby']))	
 			end
 		
 		-- INSURANCE:
@@ -466,7 +471,8 @@ function LockToggleEffects(car,locked)
 		PlayVehicleDoorOpenSound(car, 0)
 		PlaySoundFromEntity(-1, "Remote_Control_Open", car, "PI_Menu_Sounds", 1, 0)
 	--	ShowNotifyESX(Lang['car_unlocked'])
-		TriggerEvent('est_notify', '#45CE00','<span style="color:green"><b>Schlüssel</b></span>', (Lang['car_unlocked']))
+	--	TriggerEvent('est_notify', '#45CE00','<span style="color:green"><b>Schlüssel</b></span>', (Lang['car_unlocked']))
+		TriggerEvent('notify', 2, "", (Lang['car_unlocked']))
 		TriggerEvent("AdvancedParking:updateVehicle", car)
 		
 	elseif not locked then
@@ -474,7 +480,8 @@ function LockToggleEffects(car,locked)
 		PlayVehicleDoorCloseSound(car, 0)
 		PlaySoundFromEntity(-1, "Remote_Control_Close", car, "PI_Menu_Sounds", 1, 0)
 	--	ShowNotifyESX(Lang['car_locked'])
-		TriggerEvent('est_notify', '#FF0000','<span style="color:red"><b>Schlüssel</b></span>', (Lang['car_locked']))
+	--	TriggerEvent('est_notify', '#FF0000','<span style="color:red"><b>Schlüssel</b></span>', (Lang['car_locked']))
+		TriggerEvent('notify', 4, "", (Lang['car_locked']))
 		TriggerEvent("AdvancedParking:updateVehicle", car)
 	end
 	
@@ -506,7 +513,8 @@ AddEventHandler("t1ger_keys:lockpickCL",function(k,v)
 		Citizen.CreateThread(function()
 			if GetVehicleDoorLockStatus(lockedVeh) == 1 or GetVehicleDoorLockStatus(lockedVeh) == 0 then
 			--	ShowNotifyESX("Veh not locked")
-				TriggerEvent('est_notfy', '#FF0000', '<span style="color:red"><b>Dietrich</b></span>', 'Fahrzeug ist nicht Abgeschlossen')
+			--	TriggerEvent('est_notfy', '#FF0000', '<span style="color:red"><b>Dietrich</b></span>', 'Fahrzeug ist nicht Abgeschlossen')
+				TriggerEvent('notify', 4, "", "Fahrzeug ist nicht Abgeschlossen")
 			elseif GetVehicleDoorLockStatus(lockedVeh) == 2 then
 				local percentChance = (math.random() * 100)
 				ESX.TriggerServerCallback('t1ger_keys:isCarOwned', function(isCarOwned,alarmType)
@@ -537,7 +545,8 @@ AddEventHandler("t1ger_keys:lockpickCL",function(k,v)
 		end)
 	else
 	--	ShowNotifyESX(Lang['no_veh_nearby'])
-		TriggerEvent('est_notify', '#FF0000', 'Schlüssel', (Lang['no_veh_nearby']))
+	--	TriggerEvent('est_notify', '#FF0000', 'Schlüssel', (Lang['no_veh_nearby']))
+		TriggerEvent('notify', 1, "", (Lang['no_veh_nearby']))	
 	end
 end)
 
@@ -678,7 +687,8 @@ function OwnedKeysActions()
 						if distance ~= -1 and distance <= 2.0 then 
 							TriggerServerEvent('t1ger_keys:lendCarKeys', GetPlayerServerId(player), data.current.plate)
 						else
-							ShowNotifyESX(Lang['no_players_nearby'])
+						--	ShowNotifyESX(Lang['no_players_nearby'])
+							TriggerEvent('notify', 1, "", (Lang['no_players_nearby']))
 						end
 					else
 						if data.current.type == "stolen" then
@@ -754,7 +764,8 @@ function ToggleVehicleLock()
 		end, closePlate)
 	else
 	--	ShowNotifyESX(Lang['no_veh_nearby'])
-		TriggerEvent('est_notify', '#FF0000', 'Schlüssel', (Lang['no_veh_nearby']))
+	--	TriggerEvent('est_notify', '#FF0000', 'Schlüssel', (Lang['no_veh_nearby']))
+		TriggerEvent('notify', 1, "", (Lang['no_veh_nearby']))
 	end
 end
 
