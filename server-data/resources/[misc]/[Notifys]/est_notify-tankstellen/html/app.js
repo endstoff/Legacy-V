@@ -12,7 +12,7 @@ $(function () {
           item.message +
           "</p></div></div>";
 
-        $(".notification").delay(10000).fadeOut("slow");
+        $(".notification").delay(5000).fadeOut("slow");
       }
     });
   };

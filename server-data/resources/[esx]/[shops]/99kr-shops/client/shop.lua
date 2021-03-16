@@ -38,7 +38,8 @@ Citizen.CreateThread(function()
                 if dist <= 20.0 then
                     if dist >= 12.0 then
                     --    pNotify("You left the store, your basket is now empty!", "error", 2500)
-                        TriggerEvent('est_notify', '#FF0000', 'Shop', 'Du hast den Laden verlassen, dein Warenkorb ist jetzt leer!')
+                    --    TriggerEvent('est_notify', '#FF0000', 'Shop', 'Du hast den Laden verlassen, dein Warenkorb ist jetzt leer!')
+                        TriggerEvent('notify', 3, "", "Du hast den Laden verlassen, dein Warenkorb ist jetzt leer!")
                         payAmount = 0
                         Basket = {}
                     end
@@ -55,7 +56,8 @@ OpenAction = function(action, shelf, text)
             CashRegister(text)
         else
         --    pNotify("You don't have anything in your basket!", 'error', 1500)
-            TriggerEvent('est_notify', '#FF0000', 'Shop', 'Du hast nichts in deinem Warenkorb!')
+        --    TriggerEvent('est_notify', '#FF0000', 'Shop', 'Du hast nichts in deinem Warenkorb!')
+            TriggerEvent('notify', 1, "", "Du hast nichts in deinem Warenkorb!")
         end
     else
         ShelfMenu(text, shelf)
@@ -108,7 +110,8 @@ CashRegister = function(titel)
                                     menu2.close()
                                 else
                                 --    pNotify("You don't have enough money!", 'error', 1500)
-                                    TriggerEvent('est_notify', '#FF0000', 'Shop', 'Du hast nicht genug Geld!')
+                                --    TriggerEvent('est_notify', '#FF0000', 'Shop', 'Du hast nicht genug Geld!')
+                                    TriggerEvent('notify', 3, "", "Du hast nicht genug Geld!")
                                 end
                             end, payAmount, data2.current["value"])
                         end,
@@ -159,7 +162,8 @@ ShelfMenu = function(titel, shelf)
             end
             payAmount = payAmount + data.current["price"] * data.current.value
         --    pNotify("Put " .. data.current.value .. " pieces of " .. data.current["realLabel"] .. " in the basket", 'alert', 1500)     
-            TriggerEvent('est_notify', '#00CC00', 'Shop', 'Lege ' .. data.current.value .. 'x ' .. data.current["realLabel"] .. ' in den Warenkorb')      
+        --    TriggerEvent('est_notify', '#00CC00', 'Shop', 'Lege ' .. data.current.value .. 'x ' .. data.current["realLabel"] .. ' in den Warenkorb') 
+            TriggerEvent('notify', 1, "", "Lege " .. data.current.value .. "x " ..data.current["realLabel"] .. " in den Warenkorb")     
         end,
     function(data, menu)
         menu.close()
@@ -216,7 +220,8 @@ OpenBasket = function()
                     payAmount = 0
                     menu.close()
                 --    pNotify("Removed everything from your basket.", "error", 2500)
-                    TriggerEvent('est_notify', '#FF0000', 'Shop', 'Alles aus dem Warenkorb entfernt.')
+                --    TriggerEvent('est_notify', '#FF0000', 'Shop', 'Alles aus dem Warenkorb entfernt.')
+                    TriggerEvent('notify', 3, "", "Alles aus dem Warenkorb entfernt.")
                 end
                 if data.current.value == "item_menu" then
                     menu.close()
@@ -237,7 +242,8 @@ OpenBasket = function()
                         function(data2, menu2)
                             if data2.current["value"] == "deleteItem" then
                             --    pNotify("Removed " .. Basket[index]["amount"] .." ".. Basket[index]["label"] .. " from basket.", "alert", 2500)
-                                TriggerEvent('est_notify', '#FF0000', 'Shop', "Removed " .. Basket[index]["amount"] .." ".. Basket[index]["label"] .. " from basket.")
+                            --  TriggerEvent('est_notify', '#FF0000', 'Shop', "Removed " .. Basket[index]["amount"] .." ".. Basket[index]["label"] .. " from basket.")
+                                TriggerEvent('notify', 3, "", "x ".. Basket[index]["amount"] .." ".. Basket[index]["label"] .. " vom Warenkorb entfernt." )
                                 payAmount = payAmount - (Basket[index]["amount"] * Basket[index]["price"])
                                 table.remove(Basket, index)
                                 OpenBasket()

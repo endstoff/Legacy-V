@@ -20,7 +20,8 @@ AddEventHandler('99kr-shops:Cashier', function(price, basket, account)
     end
     
  -- pNotify('You bought products for <span style="color: green">$' .. price .. '</span>', 'success', 3000)
-    TriggerClientEvent('est_notify', source, '#00CC00', 'Shop', 'Du hast Produkte für <span style="color: green">$' .. price .. '</span> gekauft')
+--    TriggerClientEvent('est_notify', source, '#00CC00', 'Shop', 'Du hast Produkte für <span style="color: green">$' .. price .. '</span> gekauft')
+    TriggerClientEvent('notify', source, 2, "", "Du hast Produkte für $" .. price .. " gekauft")
 
 end)
 
