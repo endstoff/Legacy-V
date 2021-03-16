@@ -74,7 +74,7 @@ CashRegister = function(titel)
         for i=1, #Basket do
             local item = Basket[i]
             table.insert(elements, {
-                label = '<span style="color:red">*</span> ' .. item["label"] .. ': ' .. item["amount"] .. ' pcs',
+                label = '<span style="color:red">*</span> ' .. item["label"] .. ': ' .. item["amount"] .. ' mal',
                 value = item["value"],
             })
         end
@@ -163,7 +163,7 @@ ShelfMenu = function(titel, shelf)
             payAmount = payAmount + data.current["price"] * data.current.value
         --    pNotify("Put " .. data.current.value .. " pieces of " .. data.current["realLabel"] .. " in the basket", 'alert', 1500)     
         --    TriggerEvent('est_notify', '#00CC00', 'Shop', 'Lege ' .. data.current.value .. 'x ' .. data.current["realLabel"] .. ' in den Warenkorb') 
-            TriggerEvent('notify', 1, "", "Lege " .. data.current.value .. "x " ..data.current["realLabel"] .. " in den Warenkorb")     
+            TriggerEvent('notify', 1, "", "Du hast " .. data.current.value .. "x " ..data.current["realLabel"] .. " in den Warenkorb gelegt")     
         end,
     function(data, menu)
         menu.close()
@@ -199,7 +199,7 @@ OpenBasket = function()
         for i=1, #Basket do
             local item = Basket[i]
             table.insert(elements, {
-                label = '<span style="color:red">*</span> ' .. item["label"] .. ': ' .. item["amount"] .. ' pcs (<span style="color:green">$' .. item["price"] * item["amount"] .. '</span>)',
+                label = '<span style="color:red">*</span> ' .. item["label"] .. ': ' .. item["amount"] .. ' mal (<span style="color:green">$' .. item["price"] * item["amount"] .. '</span>)',
                 value = "item_menu",
                 index = i
             })
@@ -232,7 +232,7 @@ OpenBasket = function()
                     ESX.UI.Menu.Open(
                         'default', GetCurrentResourceName(), 'basket_detailedmenu',
                         {
-                            title    = "Shopping Cart - " .. shopItem["label"] .. " - " .. shopItem["amount"] .. "pcs",
+                            title    = "Shopping Cart - " .. shopItem["label"] .. " - " .. shopItem["amount"] .. "mal",
                             align    = 'center',
                             elements = {
                                 {label = shopItem["label"] .. " - $" .. shopItem["price"] * shopItem["amount"]},
