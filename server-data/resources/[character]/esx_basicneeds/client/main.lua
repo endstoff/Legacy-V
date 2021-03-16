@@ -323,4 +323,17 @@ AddEventHandler('esx_basicneeds:onMedic', function(prop_name)
 	end
 end)
 
+RegisterNetEvent('esx_basicneeds:cigarette')
+AddEventHandler('esx_basicneeds:cigarette', function(source)
+	SmokeAnimation()
+end)
+
+function SmokeAnimation()
+	local playerPed = GetPlayerPed(-1)
+	
+	Citizen.CreateThread(function()
+        TaskStartScenarioInPlace(playerPed, "WORLD_HUMAN_SMOKING", 0, true)               
+	end)
+end
+
 ---------------------------------

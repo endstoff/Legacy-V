@@ -23,6 +23,6 @@ Locales['de'] = {
   ['used_fries'] = 'du hast Pommes gegessen',
   ['used_hotwaffle'] = 'du hast Waffel gegessen',
   ['used_beefsnack'] = 'du hast Beefsnack gegessen',
-
+  ['cigarette'] = 'du hast dir eine Zigarette angezündet'
 
 }

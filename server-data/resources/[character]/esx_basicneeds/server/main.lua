@@ -267,6 +267,15 @@ ESX.RegisterUsableItem('beefsnack', function(source)
 	TriggerClientEvent('notify', source, 1, "", _U('used_beefsnack'))
 end)
 
+ESX.RegisterUsableItem('zigarette', function(source)
+    local xPlayer = ESX.GetPlayerFromId(source)
+    local smoke = xPlayer.getInventoryItem('zigarette')
+
+    xPlayer.removeInventoryItem('zigarette', 1)
+    TriggerClientEvent('esx_basicneeds:cigarette', source)
+	TriggerClientEvent('notify', source, 1, "", _U('used_cigarette'))
+end)
+
 ESX.RegisterCommand('heal', 'admin', function(xPlayer, args, showError)
 	args.playerId.triggerEvent('esx_basicneeds:healPlayer')
 	args.playerId.triggerEvent('chat:addMessage', {args = {'^5HEAL', 'You have been healed.'}})
