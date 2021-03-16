@@ -89,7 +89,7 @@ function openPlayersBank(type, color)
 
     TaskPlayAnim(ped, dict, anim, 8.0, 8.0, -1, 0, 0, 0, 0, 0)
     --TriggerEvent("pNotify2:SendNotification", {layout = 'bottomcenter', theme = 'gta', timeout = 1800, type = 'success', progressbar = true, text = 'Karte einlegen ...'})
-    exports['progressBars']:startUI(2500, "Karte einlegen ...")
+    exports['progressBars']:startUI(1800, "Karte einlegen ...")
     Citizen.Wait(time)
     ClearPedTasks(ped)
     if type == 'bank' then
@@ -209,7 +209,7 @@ function closePlayersBank()
     SendNUIMessage({type = 'closeAll'})
     TaskPlayAnim(ped, dict, anim, 8.0, 8.0, -1, 0, 0, 0, 0, 0)
     --TriggerEvent("pNotify2:SendNotification", {layout = 'bottomcenter', theme = 'gta', timeout = 1300, type = 'error', progressbar = true, text = 'Karte herausnehmen ...'})
-    exports['progressBars']:startUI(1800, "Karte herausnehmen ...")
+    exports['progressBars']:startUI(1300, "Karte herausnehmen ...")
     Citizen.Wait(time)
     ClearPedTasks(ped)
     inMenu = false

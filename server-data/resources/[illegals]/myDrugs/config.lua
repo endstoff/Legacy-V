@@ -1,7 +1,7 @@
 Config = {}
 Translation = {}
 
-Config.Debug = false -- when this is activated, you can restart the script
+Config.Debug = true -- when this is activated, you can restart the script
 Config.Locale = 'de' -- de or en
 
 Config.useOneSyncInfinity = false
@@ -78,7 +78,7 @@ Config.Farms = {
     
     {id = 1, type = "weed", name = "GWeed", label = "Weedlabor", price = 380000, enter = {x = -13.474226951599, y = 6480.4467773438, z = 31.428388595581}, inside = {x = 1064.67, y = -3182.66, z = -39.16, rot = 133.74}, bossActions = {x = 1044.02, y = -3194.92, z = -38.16}, spawnVehicle = {x = -18.258155822754, y = 6465.0415039062, z = 31.446332931519, rot = 225.59}}, 
     {id = 2, type = "meth", name = "PMeth", label = "Methlabor", price = 385000, enter = {x = 1961.3543701172, y = 5185.0170898438, z = 47.964378356934}, inside = {x = 997.3, y = -3200.57, z = -36.39, rot = 260.1}, bossActions = {x = 1002.09, y = -3195.21, z = -38.99}, spawnVehicle = {x = 1967.7254638672, y = 5177.298828125, z = 47.833843231201, rot = 146.59}}, 
-    {id = 3, type = "coke", name = "GCoke", label = "Kokainlaber", price = 460000, enter = {x = -269.42251586914, y = -2437.2082519531, z = 6.3962173461914}, inside = {x = 1088.61, y = -3187.81, z = -38.99, rot = 180.0}, bossActions = {x = 1087.4, y = -3194.22, z = -38.99}, spawnVehicle = {x = -262.82901000977, y = -2441.7531738281, z = 6.0006332397461, rot = 229.13}}, 
+    {id = 3, type = "coke", name = "GCoke", label = "Kokainlabor", price = 460000, enter = {x = -269.42251586914, y = -2437.2082519531, z = 6.3962173461914}, inside = {x = 1088.61, y = -3187.81, z = -38.99, rot = 180.0}, bossActions = {x = 1087.4, y = -3194.22, z = -38.99}, spawnVehicle = {x = -262.82901000977, y = -2441.7531738281, z = 6.0006332397461, rot = 229.13}}, 
     --{id = 4, type = "meth", name = "SMeth", label = "Sandy Meth", price = 450000, enter = {x = 1737.69, y = 3709.59, z = 34.14}, inside = {x = 997.3, y = -3200.57, z = -36.39, rot = 260.1}, bossActions = {x = 1002.09, y = -3195.21, z = -38.99}, spawnVehicle = {x = 1730.03, y = 3712.02, z = 34.21, rot = 24.05}},
     --{id = 5, type = "weed", name = "SWeed", label = "Sandy Weed", price = 410000, enter = {x = 1407.08, y = 3603.46, z = 35.0}, inside = {x = 1064.67, y = -3182.66, z = -39.16, rot = 133.74}, bossActions = {x = 1044.02, y = -3194.92, z = -38.16}, spawnVehicle = {x = 1411.14, y = 3620.41, z = 34.89, rot = 304.19}},
     --{id = 6, type = "coke", name = "SCoke", label = "Desert Coke", price = 490000, enter = {x = 2404.55, y = 3127.57, z = 48.15}, inside = {x = 1088.61, y = -3187.81, z = -38.99, rot = 180.0}, bossActions = {x = 1087.4, y = -3194.22, z = -38.99}, spawnVehicle = {x = 2408.06, y = 3138.08, z = 48.17, rot = 241.86}},

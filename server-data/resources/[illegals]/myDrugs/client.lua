@@ -929,10 +929,10 @@ AddEventHandler('myDrugs:receiveFarms', function(farmOwnerServer, steamID)
 	end
     --ownedFarms = farmOwnerServer
     gotFarms = true
-    --[[
+    
     for k, v in pairs(ownedFarms) do
         for k2, farm in pairs(Config.Farms) do
-            if farm.name == v.name then
+            --[[if farm.name == v.name then
                 local blip = AddBlipForCoord(farm.enter.x, farm.enter.y)
                 SetBlipSprite(blip, 140)
                 SetBlipDisplay(blip, 6)
@@ -943,9 +943,9 @@ AddEventHandler('myDrugs:receiveFarms', function(farmOwnerServer, steamID)
                 AddTextComponentString(farm.label)
                 EndTextCommandSetBlipName(blip)
                 break
-            end
+            end]]
         end
-        ]]
+        
 
     end
     --currentPersonaldata = ownedFarms[1]

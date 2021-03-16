@@ -14,7 +14,7 @@ AddEventHandler('orp:bank:deposit', function(amount)
 		xPlayer.removeMoney(amount)
 		xPlayer.addAccountMoney('bank', tonumber(amount))
 	--	TriggerClientEvent('est_notify', source, "#0BB900", "Bank", 'Du hast <span style="color:green"><b>$' .. amount .. '</b></span> eingezahlt!')
-		TriggerClientEvent('notify', source, 2, "", 'Du hast <span style="color:green"><b>$' .. amount .. '</b></span> eingezahlt!')
+		TriggerClientEvent('notify', source, 2, "", "Du hast $" .. amount .. " eingezahlt!")
 	end
 end)
 
@@ -32,7 +32,7 @@ AddEventHandler('orp:bank:withdraw', function(amount)
 		xPlayer.removeAccountMoney('bank', amount)
 		xPlayer.addMoney(amount)
 	--	TriggerClientEvent('est_notify', source, "#0BB900", "Bank", 'Du hast <span style="color:green"><b>$' .. amount .. '</b></span> abgehoben!')
-		TriggerClientEvent('notify', source, 2, "", 'Du hast <span style="color:green"><b>$' .. amount .. '</b></span> abgehoben!')
+		TriggerClientEvent('notify', source, 2, "", "Du hast $" .. amount .. " abgehoben!")
 	end
 end)
 
@@ -71,9 +71,9 @@ AddEventHandler('orp:bank:transfer', function(to, amountt)
 				xPlayer.removeAccountMoney('bank', tonumber(amount))
 				xTarget.addAccountMoney('bank', tonumber(amount))
 			--	TriggerClientEvent('est_notify', source, '#00CC00', "Bank", 'Du hast erfolgreich <span style="color:green"><b>$' .. amount .. '</b></span> überwiesen')
-				TriggerClientEvent('notify', source, 2, "", 'Du hast erfolgreich <span style="color:green"><b>$' .. amount .. '</b></span> überwiesen', 5000)
+				TriggerClientEvent('notify', source, 2, "", "Du hast erfolgreich $" .. amount .. " überwiesen", 5000)
 			--	TriggerClientEvent('est_notify', to, '#CCCC00', "Bank", 'Du hast gerade <span style="color:green"><b>$' .. amount .. '</b></span> überwiesen bekommen')
-				TriggerClientEvent('notify', to, 1, "", 'Du hast gerade <span style="color:green"><b>$' .. amount .. '</b></span> überwiesen bekommen', 10000)
+				TriggerClientEvent('notify', to, 1, "", "Du hast gerade $" .. amount .. " überwiesen bekommen", 10000)
 			end
 		end
 	end
