@@ -7,33 +7,27 @@ Config.ShowFarmingBlipText = true
 
 Config.FarmingAreas = { 
 
-    {requiredJob = nil, xptype = nil, blip = {sprite = 420, color = 7, data = nil}, items = {{name = 'grapperaisin', label = 'Trauben'}}, x = -1803.03, y = 2186.55, z = 105.63, range = 110.0, randoma = 1, randomb = 3, collectingTime = 8, animation = "PROP_HUMAN_BUM_BIN"},
-    {requiredJob = nil, xptype = nil, blip = {sprite = 420, color = 36, data = nil}, items = {{name = 'weat', label = 'Weizen'}}, x = 2616.83, y = 4451.19, z = 39.06, range = 70.0, randoma = 2, randomb = 6, collectingTime = 11, animation = "world_human_gardener_plant"},
-    {requiredJob = nil, xptype = nil, blip = {sprite = 420, color = 1, data = nil}, items = {{name = 'apple', label = 'Apfel'}}, x = 2371.95, y = 4722.87, z = 33.9, range = 30.0, randoma = 1, randomb = 3, collectingTime = 10, animation = "PROP_HUMAN_BUM_BIN"}, -- or orange
-    {requiredJob = nil, xptype = nil, blip = {sprite = 420, color = 50, data = nil}, items = {{name = 'tomatos', label = 'Tomaten'}}, x = 2286.97, y = 4763.68, z = 38.61, range = 10.0, randoma = 1, randomb = 3, collectingTime = 8, animation = "PROP_HUMAN_BUM_BIN"},
-    {requiredJob = nil, xptype = nil, blip = {sprite = 420, color = 69, data = nil}, items = {{name = 'salad', label = 'Salat'}}, x = 3288.39, y = 5181.42, z = 18.56, range = 8.0, randoma = 1, randomb = 3, collectingTime = 8, animation = "world_human_gardener_plant"},
-    {requiredJob = nil, xptype = nil, blip = {sprite = 420, color = 16, data = nil}, items = {{name = 'potato', label = 'Kartoffel'}}, x = 274.30947875977, y = 6610.6538085938, z = 30.007946014404, range = 8.0, randoma = 1, randomb = 3, collectingTime = 10, animation = "world_human_gardener_plant"},
-    {requiredJob = nil, xptype = nil, blip = {sprite = 420, color = 16, data = nil}, items = {{name = 'bolcacahuetes', label = 'Erdnuss'}}, x = -1818.7586669922, y = 1980.1359863281, z = 131.1247253418, range = 10.0, randoma = 1, randomb = 3, collectingTime = 8, animation = "PROP_HUMAN_BUM_BIN"},
-    {requiredJob = nil, xptype = nil, blip = {sprite = 420, color = 20, data = nil}, items = {{name = 'stone', label = 'Stein', percentage = 70}, {name = 'coal', label = 'Kohle', percentage = 82}, {name = 'silver', label = 'Silber', percentage = 94}, {name = 'gold', label = 'Gold', percentage = 100}}, x = 1312.0114746094, y = 3005.9616699219, z = 53.944561004639, range = 38.0, randoma = 1, randomb = 2, collectingTime = 10, animation = "WORLD_HUMAN_HAMMERING"},
+    {requiredJob = nil, xptype = nil, blip = {sprite = -1, color = 7, data = nil}, items = {{name = 'carbatt', label = 'Autobatterie'}}, x = 2334.5830078125, y = 3050.7287597656, z = 48.151702880859, range = 5.0, randoma = 1, randomb = 1, collectingTime = 10, animation = "WORLD_HUMAN_WELDING"},
+    {requiredJob = nil, xptype = nil, blip = {sprite = -1, color = 7, data = nil}, items = {{name = 'psiloshroom', label = 'Psilocybine Pilze'}}, x = -2156.1760253906, y = 2441.3217773438, z = 3.2220993041992, range = 20.0, randoma = 1, randomb = 3, collectingTime = 10, animation = "PROP_HUMAN_BUM_BIN"},
+    {requiredJob = nil, xptype = nil, blip = {sprite = -1, color = 7, data = nil}, items = {{name = 'amphetamine', label = 'Amphetamine'}}, x = 2433.11328125, y = 4970.7255859375, z = 42.347602844238, range = 20.0, randoma = 1, randomb = 3, collectingTime = 10, animation = "PROP_HUMAN_BUM_BIN"},
+    {requiredJob = nil, xptype = nil, blip = {sprite = -1, color = 7, data = nil}, items = {{name = 'carton', label = 'Karton'}}, x = -593.12225341797, y = -1607.2611083984, z = 27.010812759399, range = 3.0, randoma = 1, randomb = 3, collectingTime = 10, animation = "PROP_HUMAN_BUM_BIN"},
+    {requiredJob = nil, xptype = nil, blip = {sprite = -1, color = 7, data = nil}, items = {{name = 'chemtrash', label = 'Chemieabfälle'}}, x = 3599.6162109375, y = 3669.646484375, z = 33.87174987793, range = 10.0, randoma = 1, randomb = 3, collectingTime = 10, animation = "PROP_HUMAN_BUM_BIN"},
 }
 
 Config.CraftTime = 4 -- in sek
-Config.CraftBlipIcon = 728
-Config.CraftBlipColour = 2
+Config.CraftBlipIcon = -1
+Config.CraftBlipColour = 0
 
 Config.Processor = {
-    {requiredJob = nil, ItemsId = 1, label = 'Saftpresser', XPType = 'juice', ped = "s_m_m_migrant_01", x = 2741.59, y = 4412.76, z = 48.62, rot = 190.0},
-    {requiredJob = nil, ItemsId = 2, label = 'Bäckerei', XPType = 'bakery', ped = "s_m_m_strvend_01", x = -302.42, y = 6211.69, z = 31.42, rot = 0.0},
-    {requiredJob = nil, ItemsId = 6, label = 'Salat Manufaktur', XPType = 'salad', ped = "a_m_m_farmer_01", x = -1693.92, y = -1085.12, z = 13.15, rot = 130.0},
-    {requiredJob = nil, ItemsId = 7, label = 'Schmelze', XPType = 'stone', ped = "ig_chef2", x = 1078.8861083984, y = -1979.7579345703, z = 31.471523284912, rot = 238.72868347168},
-    {requiredJob = nil, ItemsId = 8, label = 'Juwelier', XPType = 'jewellery', ped = "u_f_y_jewelass_01", x = -622.05590820313, y = -232.09861755371, z = 38.057010650635, rot = 126.61913299561},
-    {requiredJob = nil, ItemsId = 9, label = 'Vodka Manufaktur', XPType = 'potato', ped = "a_m_m_farmer_01", x = 1459.3967285156, y = -1930.6866455078, z = 71.804565429688, rot = 268.56},
+    {requiredJob = nil, ItemsId = 1, label = 'Recycler', XPType = 'recycle', ped = "s_m_y_garbage", x = 472.47836303711, y = -1311.0555419922, z = 29.218948364258, rot = 120.33},
+    {requiredJob = nil, ItemsId = 2, label = 'Küche', XPType = 'chemical', ped = "csb_ortega", x = 1390.3225097656, y = 3606.9924316406, z = 38.941898345947, rot = 20.27},
+    {requiredJob = nil, ItemsId = 3, label = 'Redneck', XPType = 'naturals', ped = "s_m_m_trucker_01", x = 1444.5367431641, y = 6333.451171875, z = 23.87401008606, rot = 87.94},
+    {requiredJob = nil, ItemsId = 4, label = 'Waffenmanufaktur', XPType = 'weapon', ped = "csb_mweather", x = -1805.1008300781, y = 3088.8745117188, z = 32.841800689697, rot = 322.74},
+
 }
 
 Config.Seller = {
-    {requiredJob = nil, isExport = true, label = 'Hafen von Los Santos', priceModifier = 2.0, x = -332.6, y = -2792.68, z = 5.0, rot = 90.0},
-    {requiredJob = nil, isExport = true, label = 'JetSam Terminal', priceModifier = 2.0, x = 797.01, y = -2988.83, z = 6.02, rot = 90.0},
-    {requiredJob = nil, isExport = false, label = 'Belieferungs jobs', priceModifier = 2.0, x = -1283.37, y = -565.02, z = 31.71, rot = 310.0},
+    {requiredJob = nil, isExport = true, label = 'Pablo', priceModifier = 30.0, x = -1153.1656494141, y = -1521.837890625, z = 10.642493247986, rot = 67.39},
 }
 
 
@@ -44,33 +38,22 @@ Config.MaxCarry = 3500
 
 Config.ItemLimits = {
 
-    ['grapperaisin'] = 60,
-    ['weat'] = 25,
-    ['apple'] = 60,
-    ['tomatos'] = 60,
-    ['salad'] = 60,
-    ['stone'] = 70,
-    ['coal'] = 70,
-    ['silver'] = 70,
-    ['gold'] = 70,
-    ['potato'] = 40,
-	
-    ['flour'] = 20,
-    ['applejuice'] = 50,
-    ['tomatojuice'] = 50,
-    ['orangejuice'] = 50,
-    ['berriesjuice'] = 50,
-    ['mixedsalad'] = 50,
-    ['vodka'] = 60,
-	
-	['concrete'] = 70,
-	['coalingot'] = 60,
-	['silveringot'] = 60,
-	['goldingot'] = 60,
-	
-	['ironbraclet'] = 50,
-	['goldrings'] = 50,
-	['necklace'] = 50,
+    ['battacid'] = 60,
+    ['carbatt'] = 60,
+    ['kroko'] = 60,
+    ['psiloshroom'] = 60,
+    ['magicshroom'] = 60,
+    ['chemtrash'] = 60,
+    ['amphetamine'] = 60,
+    ['carton'] = 60,
+    ['moonshine'] = 60,
+    ['lsdsheets'] = 60,
+    ['lsd'] = 60,
+    ['xtc'] = 60,
+    ['malkaloid'] = 60,
+    ['semiload'] = 60,
+    ['autoload'] = 60,
+    ['highpress'] = 60,
 
 }
 
@@ -80,155 +63,197 @@ Config.Items = {
     {
         id = 1,
         reqXP = 0,
-        giveXP = {type = 'juice', a = 1, b = 3},
+        giveXP = {type = 'recycle', a = 1, b = 3},
         reqItems = {
-            {item = 'apple', label = 'Apfel', amount = 3}},
-        newitem = {sqlitem = 'applejuice', label = 'Apfelsaft'},
+            {item = 'carbatt', label = 'Autobatterie', amount = 1}},
+        newitem = {sqlitem = 'battacid', label = 'Batteriesäure'},
         newitemamount = 1,
         craftAmount = 10
     },
+
     {
         id = 1,
-        reqXP = 1000,
-        giveXP = {type = 'juice', a = 1, b = 3},
+        reqXP = 0,
+        giveXP = {type = 'recycle', a = 1, b = 3},
         reqItems = {
-            {item = 'tomatos', label = 'Tomaten', amount = 3}},
-        newitem = {sqlitem = 'tomatojuice', label = 'Tomatensaft'},
-        newitemamount = 1,
+            {item = 'carton', label = 'Karton', amount = 1}},
+        newitem = {sqlitem = 'lsdsheets', label = 'LSD Bögen'},
+        newitemamount = 5,
         craftAmount = 10
     },
+
     {
         id = 1,
-        reqXP = 3000,
-        giveXP = {type = 'juice', a = 1, b = 3},
+        reqXP = 0,
+        giveXP = {type = 'recycle', a = 1, b = 3},
         reqItems = {
-            {item = 'grapperaisin', label = 'Trauben', amount = 2}},
-        newitem = {sqlitem = 'berriesjuice', label = 'Beerensaft'},
+            {item = 'repairkit', label = 'Werkzeugkasten', amount = 1}},
+        newitem = {sqlitem = 'highpress', label = 'Hochdruckventil'},
         newitemamount = 1,
         craftAmount = 10
     },
+
     {
         id = 2,
         reqXP = 0,
-        giveXP = {type = 'bakery', a = 1, b = 3},
+        giveXP = {type = 'chemical', a = 1, b = 3},
         reqItems = {
-            {item = 'weat', label = 'Weizen', amount = 3}},
-        newitem = {sqlitem = 'flour', label = 'Mehl'},
+            {item = 'painkillers', label = 'Schmerzmittel', amount = 2},
+            {item = 'battacid', label = 'Batteriesäure', amount = 2}},
+        newitem = {sqlitem = 'kroko', label = 'Krokodil'},
         newitemamount = 1,
         craftAmount = 10
     },
+
     {
-        id = 6,
-        reqXP = 0,
-        giveXP = {type = 'salad', a = 1, b = 3},
-        reqItems = {
-            {item = 'salad', label = 'Salat', amount = 1},
-            {item = 'tomatos', label = 'Tomaten', amount = 1}},
-        newitem = {sqlitem = 'mixedsalad', label = 'Gemischter Salat'},
-        newitemamount = 1,
-        craftAmount = 10
-    },
-    {
-        id = 7,
-        reqXP = 0,
-        giveXP = {type = 'stone', a = 2, b = 4},
-        reqItems = {
-            {item = 'stone', label = 'Stein', amount = 4}},
-        newitem = {sqlitem = 'concrete', label = 'Beton'},
-        newitemamount = 1,
-        craftAmount = 10
-    },
-    {
-        id = 7,
+        id = 2,
         reqXP = 1000,
-        giveXP = {type = 'stone', a = 2, b = 4},
+        giveXP = {type = 'chemical', a = 1, b = 3},
         reqItems = {
-            {item = 'coal', label = 'Kohle', amount = 3}},
-        newitem = {sqlitem = 'coalingot', label = 'Kohle Brikett'},
+            {item = 'amphetamine', label = 'Amphetamine', amount = 2},
+            {item = 'chemtrash', label = 'Chemieabfälle', amount = 2}},
+        newitem = {sqlitem = 'xtc', label = 'Extacy'},
         newitemamount = 1,
         craftAmount = 10
     },
+
     {
-        id = 7,
-        reqXP = 2500,
-        giveXP = {type = 'stone', a = 2, b = 4},
-        reqItems = {
-            {item = 'silver', label = 'Silber', amount = 3}},
-        newitem = {sqlitem = 'silveringot', label = 'Silberbarren'},
-        newitemamount = 1,
-        craftAmount = 10
-    },
-    {
-        id = 7,
-        reqXP = 3500,
-        giveXP = {type = 'stone', a = 2, b = 4},
-        reqItems = {
-            {item = 'gold', label = 'Gold', amount = 4}},
-        newitem = {sqlitem = 'goldingot', label = 'Goldbarren'},
-        newitemamount = 1,
-        craftAmount = 10
-    },
-    {
-        id = 8,
+        id = 3,
         reqXP = 0,
-        giveXP = {type = 'jewellery', a = 2, b = 4},
+        giveXP = {type = 'naturals', a = 1, b = 3},
         reqItems = {
-            {item = 'coalingot', label = 'Kohle Brikett', amount = 2},
-            {item = 'silveringot', label = 'Silberbarren', amount = 1}},
-        newitem = {sqlitem = 'ironbraclet', label = 'Silberarmband'},
+            {item = 'weat', label = 'Weizen', amount = 10}},
+        newitem = {sqlitem = 'malkaloid', label = 'Mutterkornalkaloid'},
         newitemamount = 1,
         craftAmount = 10
     },
+
     {
-        id = 8,
-        reqXP = 3500,
-        giveXP = {type = 'jewellery', a = 2, b = 4},
-        reqItems = {
-            {item = 'goldingot', label = 'Goldbarren', amount = 2}},
-        newitem = {sqlitem = 'goldrings', label = 'Goldring'},
-        newitemamount = 1,
-        craftAmount = 10
-    },
-    {
-        id = 8,
-        reqXP = 5000,
-        giveXP = {type = 'jewellery', a = 2, b = 4},
-        reqItems = {
-            {item = 'goldingot', label = 'Goldbarren', amount = 2},
-            {item = 'silveringot', label = 'Silberbarren', amount = 2}},
-        newitem = {sqlitem = 'necklace', label = 'Halskette'},
-        newitemamount = 1,
-        craftAmount = 10
-    },
-    {
-        id = 9,
+        id = 3,
         reqXP = 0,
-        giveXP = {type = 'potato', a = 3, b = 4},
+        giveXP = {type = 'naturals', a = 1, b = 3},
         reqItems = {
-            {item = 'potato', label = 'Kartoffel', amount = 2}},
-        newitem = {sqlitem = 'vodka', label = 'Vodka'},
+            {item = 'psiloshroom', label = 'Psilocybine Pilze', amount = 10}},
+        newitem = {sqlitem = 'magicshrooms', label = 'Magic Shrooms'},
         newitemamount = 1,
         craftAmount = 10
     },
+
     {
-        id = 9,
+        id = 3,
         reqXP = 500,
-        giveXP = {type = 'potato', a = 3, b = 4},
+        giveXP = {type = 'naturals', a = 1, b = 3},
         reqItems = {
-            {item = 'vodka', label = 'Vodka', amount = 2},
-            {item = 'grapperaisin', label = 'Traube', amount = 4}},
-        newitem = {sqlitem = 'vodkafruit', label = 'Frucht Wodka'},
+            {item = 'malkaloid', label = 'Mutterkornalkaloid', amount = 1},
+            {item = 'lsdsheets', label = 'LSD Bögen', amount = 10}},
+        newitem = {sqlitem = 'lsd', label = 'LSD'},
         newitemamount = 1,
         craftAmount = 10
     },
+
     {
-        id = 9,
+        id = 3,
         reqXP = 1000,
-        giveXP = {type = 'potato', a = 3, b = 4},
+        giveXP = {type = 'naturals', a = 1, b = 3},
         reqItems = {
-            {item = 'vodka', label = 'Vodka', amount = 2},
-            {item = 'bolcacahuetes', label = 'Erdnuss', amount = 4}},
-        newitem = {sqlitem = 'vodkapeanut', label = 'Nuss Nougat Wodka'},
+            {item = 'weat', label = 'Weizen', amount = 1},
+            {item = 'potato', label = 'Kartoffel', amount = 1}},
+        newitem = {sqlitem = 'moonshine', label = 'Moonshine'},
+        newitemamount = 1,
+        craftAmount = 10
+    },
+
+    {
+        id = 4,
+        reqXP = 0,
+        giveXP = {type = 'weapon', a = 10, b = 30},
+        reqItems = {
+            {item = 'aluminium', label = 'Aluminium', amount = 5}},
+        newitem = {sqlitem = 'grip', label = 'Griff'},
+        newitemamount = 1,
+        craftAmount = 10
+    },
+
+    {
+        id = 4,
+        reqXP = 0,
+        giveXP = {type = 'weapon', a = 10, b = 30},
+        reqItems = {
+            {item = 'steel', label = 'steel', amount = 5}},
+        newitem = {sqlitem = 'barrel', label = 'Lauf'},
+        newitemamount = 1,
+        craftAmount = 10
+    },
+
+    {
+        id = 4,
+        reqXP = 500,
+        giveXP = {type = 'weapon', a = 10, b = 30},
+        reqItems = {
+            {item = 'bolt', label = 'Bolzen', amount = 2},
+            {item = 'spring', label = 'Feder', amount = 1},
+            {item = 'screws', label = 'Schrauben', amount = 4}},
+        newitem = {sqlitem = 'semiload', label = 'Semi Mechanismus'},
+        newitemamount = 1,
+        craftAmount = 10
+    },
+
+    {
+        id = 4,
+        reqXP = 800,
+        giveXP = {type = 'weapon', a = 10, b = 30},
+        reqItems = {
+            {item = 'grip', label = 'Griff', amount = 1},
+            {item = 'barrel', label = 'Lauf', amount = 1},
+            {item = 'semiload', label = 'Semi Mechanismus', amount = 1},
+            {item = 'steel', label = 'Stahl', amount = 5}},
+        newitem = {sqlitem = 'weapon_snspistol_mk2', label = 'Billigknarre MK2'},
+        newitemamount = 1,
+        craftAmount = 10
+    },
+
+    {
+        id = 4,
+        reqXP = 10000,
+        giveXP = {type = 'weapon', a = 10, b = 30},
+        reqItems = {
+            {item = 'grip', label = 'Griff', amount = 1},
+            {item = 'barrel', label = 'Lauf', amount = 1},
+            {item = 'semiload', label = 'Semi Mechanismus', amount = 1},
+            {item = 'steel', label = 'Stahl', amount = 10},
+            {item = 'screws', label = 'Schrauben', amount = 5}},
+        newitem = {sqlitem = 'weapon_heavypistol', label = 'Schwere Pistole'},
+        newitemamount = 1,
+        craftAmount = 10
+    },
+
+    {
+        id = 4,
+        reqXP = 50000,
+        giveXP = {type = 'weapon', a = 10, b = 30},
+        reqItems = {
+            {item = 'highpress', label = 'Hochdruckventil', amount = 1},
+            {item = 'spring', label = 'Feder', amount = 2},
+            {item = 'semiload', label = 'Semi Mechanismus', amount = 1},
+            {item = 'steel', label = 'Stahl', amount = 10},
+            {item = 'screws', label = 'Schrauben', amount = 5}},
+        newitem = {sqlitem = 'autoload', label = 'Gasdruck Mechanismus'},
+        newitemamount = 1,
+        craftAmount = 10
+    },
+
+    {
+        id = 4,
+        reqXP = 55000,
+        giveXP = {type = 'weapon', a = 10, b = 30},
+        reqItems = {
+            {item = 'autoload', label = 'Gasdruck Mechanismus', amount = 1},
+            {item = 'spring', label = 'Feder', amount = 2},
+            {item = 'barrel', label = 'Lauf', amount = 2},
+            {item = 'grip', label = 'Griff', amount = 1},
+            {item = 'screws', label = 'Schrauben', amount = 5},
+            {item = 'steel', label = 'Stahl', amount = 50}},
+        newitem = {sqlitem = 'weapon_assaultsmg', label = 'Sturm-MP'},
         newitemamount = 1,
         craftAmount = 10
     },
@@ -238,45 +263,16 @@ Config.Items = {
 
 Config.SellItems = {
 
-    {category = 'Rohmaterial', content = {
-        {sqlitem = 'grapperaisin', label = 'Traube', priceBuy = 2.0},
-        {sqlitem = 'weat', label = 'Weizen', priceBuy = 1.0},
-        {sqlitem = 'apple', label = 'Apfel', priceBuy = 1.0},
-        {sqlitem = 'tomatos', label = 'Tomaten', priceBuy = 2.0},
-        {sqlitem = 'salad', label = 'Salat', priceBuy = 2.0},
-        {sqlitem = 'potato', label = 'Kartoffel', priceBuy = 1.0},
-        {sqlitem = 'bolcacahuetes', label = 'Erdnuss', priceBuy = 3.0},
-        {sqlitem = 'stone', label = 'Stein', priceBuy = 2.0},
-        {sqlitem = 'coal', label = 'Kohle', priceBuy = 10.0},
-        {sqlitem = 'silver', label = 'Silber', priceBuy = 24.0},
-        {sqlitem = 'gold', label = 'Gold', priceBuy = 40.0},
+    {category = 'Chemische Drogen', content = {
+        {sqlitem = 'xtc', label = 'Extacy', priceBuy = 100.0},
+        {sqlitem = 'kroko', label = 'Krokodil', priceBuy = 350.0},
     }},
-    {category = 'Salate', content = {
-        {sqlitem = 'mixedsalad', label = 'Gemischter Salat', priceBuy = 20.0},
+    {category = 'Natürliche Drogen', content = {
+        {sqlitem = 'magicshrooms', label = 'Magic Shrooms', priceBuy = 50.0},
+        {sqlitem = 'lsd', label = 'LSD', priceBuy = 200.0},
     }},
-    {category = 'Säfte', content = {
-        {sqlitem = 'applejuice', label = 'Apfelsaft', priceBuy = 10.0},
-        {sqlitem = 'tomatojuice', label = 'Tomatensaft', priceBuy = 15.0},
-        {sqlitem = 'berriesjuice', label = 'Beerensaft', priceBuy = 20.0},
-    }},
-    {category = 'Bäckerei', content = {
-        {sqlitem = 'flour', label = 'Mehl', priceBuy = 4.0},
-    }},
-    {category = 'Schmelzen', content = {
-        {sqlitem = 'concrete', label = 'Beton', priceBuy = 13.0},
-        {sqlitem = 'coalingot', label = 'Kohlebrikett', priceBuy = 45.0},
-        {sqlitem = 'silveringot', label = 'Silberbarren', priceBuy = 90.0},
-        {sqlitem = 'goldingot', label = 'Goldbarren', priceBuy = 180.0},
-    }},
-    {category = 'Juwelen', content = { 
-        {sqlitem = 'ironbraclet', label = 'Silberarmband', priceBuy = 300.0},
-        {sqlitem = 'goldrings', label = 'Goldring', priceBuy = 550.0},
-        {sqlitem = 'necklace', label = 'Halskette', priceBuy = 800.0},
-    }},
-    {category = 'Wodka Manufaktur', content = {
-        {sqlitem = 'vodka', label = 'Wodka', priceBuy = 10.0},
-        {sqlitem = 'vodkafruit', label = 'Frucht Wodka', priceBuy = 35.0},
-        {sqlitem = 'vodkapeanut', label = 'Nuss Nougat Wodka', priceBuy = 45.0},
+    {category = 'Schwarzgebrannter', content = {
+        {sqlitem = 'moonshine', label = 'Moonshine', priceBuy = 60.0},
     }},
 }
 

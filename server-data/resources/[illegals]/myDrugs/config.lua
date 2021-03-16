@@ -19,7 +19,7 @@ Config.Level3Price = 300000
 Config.useSeller = true -- should the Seller be there
 Config.SellerLocation = {x = 2140.58, y = 4789.76, z = 40.97, rot = 94.16}
 Config.SellerPedModel = "s_m_m_cntrybar_01"
-Config.showSellerBlip = true
+Config.showSellerBlip = false
 
 Config.useBlackMoney = false
 Config.BlackMoneyName = 'black_money'

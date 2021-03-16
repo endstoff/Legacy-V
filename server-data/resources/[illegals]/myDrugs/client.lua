@@ -699,7 +699,7 @@ AddEventHandler('myDrugs:startStorageMission', function(target)
         SetNewWaypoint(dest.x, dest.y)
 
         SpawnVehicle(Config.Vehicles[tonumber(currentPersonaldata.vehicle)].model, currentFarmData.spawnVehicle)
-
+        
         local blip = AddBlipForCoord(dest.x, dest.y)
         SetBlipSprite(blip, 514)
         SetBlipDisplay(blip, 6)
@@ -709,7 +709,7 @@ AddEventHandler('myDrugs:startStorageMission', function(target)
         BeginTextCommandSetBlipName("STRING");
         AddTextComponentString(Translation[Config.Locale]['supplies'])
         EndTextCommandSetBlipName(blip)
-
+        
         local playerCoords = GetEntityCoords(ped)
         startDistance = Vdist(playerCoords, dest.x, dest.y, dest.z)
 
@@ -929,7 +929,7 @@ AddEventHandler('myDrugs:receiveFarms', function(farmOwnerServer, steamID)
 	end
     --ownedFarms = farmOwnerServer
     gotFarms = true
-
+    --[[
     for k, v in pairs(ownedFarms) do
         for k2, farm in pairs(Config.Farms) do
             if farm.name == v.name then
@@ -945,7 +945,7 @@ AddEventHandler('myDrugs:receiveFarms', function(farmOwnerServer, steamID)
                 break
             end
         end
-
+        ]]
 
     end
     --currentPersonaldata = ownedFarms[1]

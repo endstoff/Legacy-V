@@ -32,7 +32,7 @@ sv_maxclients 64
 
 
 ## These resources will ensure by default.
-ensure esx_pinkunicorn
+#ensure esx_pinkunicorn
 ensure chat
 ensure screenshot-basic
 ensure mapmanager
@@ -165,7 +165,7 @@ ensure 99kr-shops
 ensure esx_handyladen
 ensure esx_baumarkt
 ensure esx_apotheke
-#ensure xnVending 
+ensure xnVending 
 
 ensure esx_dmvschool
 
@@ -247,6 +247,7 @@ ensure map
 #ensure DP_Dutch_Radio
 
 ##		Notifys
+ensure est_notification
 ensure est_notify
 ensure est_notify-werbung
 ensure est_notify-broadcast
@@ -261,7 +262,7 @@ ensure CoordsSaver
 ensure No-NPC
 
 ##		Illegals
-#ensure myDrugs 
+ensure myDrugs 
 #ensure t1ger_bankrobbery
 
 ##      Cars

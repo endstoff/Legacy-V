@@ -366,11 +366,38 @@ Config.LocalItems = {
     recommendJob = nil},
 
     {id = 7, label = 'Construction', 
-    price = 567, 
+    price = 300, 
     requires = {
         {item = 'concrete', label = 'Beton', amount = 12},
     }, 
     destination = {x = -585.78631591797, y = -286.04611206055, z = 35.454780578613},
+    state = 0,
+    recommendJob = nil},
+
+    {id = 8, label = 'Construction II', 
+    price = 500, 
+    requires = {
+        {item = 'concrete', label = 'Beton', amount = 25},
+    }, 
+    destination = {x = -939.75567626953, y = 160.41754150391, z = 65.983016967773},
+    state = 0,
+    recommendJob = nil},
+
+    {id = 9, label = 'Construction III', 
+    price = 2000, 
+    requires = {
+        {item = 'concrete', label = 'Beton', amount = 100},
+    }, 
+    destination = {x = -97.227279663086, y = -1013.9320068359, z = 27.275217056274},
+    state = 0,
+    recommendJob = nil},
+
+    {id = 10, label = 'Construction IV', 
+    price = 2200, 
+    requires = {
+        {item = 'concrete', label = 'Beton', amount = 100},
+    }, 
+    destination = {x = 907.39514160156, y = -1.5027470588684, z = 78.764083862305},
     state = 0,
     recommendJob = nil},
 }

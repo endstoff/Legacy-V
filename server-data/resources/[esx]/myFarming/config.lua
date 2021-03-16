@@ -8,13 +8,14 @@ Config.ShowFarmingBlipText = true
 Config.FarmingAreas = { 
 
     {requiredJob = nil, xptype = nil, blip = {sprite = 420, color = 7, data = nil}, items = {{name = 'grapperaisin', label = 'Trauben'}}, x = -1803.03, y = 2186.55, z = 105.63, range = 110.0, randoma = 1, randomb = 3, collectingTime = 8, animation = "PROP_HUMAN_BUM_BIN"},
-    {requiredJob = nil, xptype = nil, blip = {sprite = 420, color = 36, data = nil}, items = {{name = 'weat', label = 'Weizen'}}, x = 2616.83, y = 4451.19, z = 39.06, range = 70.0, randoma = 2, randomb = 6, collectingTime = 11, animation = "world_human_gardener_plant"},
+    {requiredJob = nil, xptype = nil, blip = {sprite = 420, color = 36, data = nil}, items = {{name = 'weat', label = 'Weizen'}}, x = 2616.83, y = 4451.19, z = 39.06, range = 70.0, randoma = 2, randomb = 6, collectingTime = 11, animation = "PROP_HUMAN_BUM_BIN"},
     {requiredJob = nil, xptype = nil, blip = {sprite = 420, color = 1, data = nil}, items = {{name = 'apple', label = 'Apfel'}}, x = 2371.95, y = 4722.87, z = 33.9, range = 30.0, randoma = 1, randomb = 3, collectingTime = 10, animation = "PROP_HUMAN_BUM_BIN"}, -- or orange
     {requiredJob = nil, xptype = nil, blip = {sprite = 420, color = 50, data = nil}, items = {{name = 'tomatos', label = 'Tomaten'}}, x = 2286.97, y = 4763.68, z = 38.61, range = 10.0, randoma = 1, randomb = 3, collectingTime = 8, animation = "PROP_HUMAN_BUM_BIN"},
-    {requiredJob = nil, xptype = nil, blip = {sprite = 420, color = 69, data = nil}, items = {{name = 'salad', label = 'Salat'}}, x = 3288.39, y = 5181.42, z = 18.56, range = 8.0, randoma = 1, randomb = 3, collectingTime = 8, animation = "world_human_gardener_plant"},
-    {requiredJob = nil, xptype = nil, blip = {sprite = 420, color = 16, data = nil}, items = {{name = 'potato', label = 'Kartoffel'}}, x = 274.30947875977, y = 6610.6538085938, z = 30.007946014404, range = 8.0, randoma = 1, randomb = 3, collectingTime = 10, animation = "world_human_gardener_plant"},
+    {requiredJob = nil, xptype = nil, blip = {sprite = 420, color = 69, data = nil}, items = {{name = 'salad', label = 'Salat'}}, x = 3288.39, y = 5181.42, z = 18.56, range = 8.0, randoma = 1, randomb = 3, collectingTime = 8, animation = "PROP_HUMAN_BUM_BIN"},
+    {requiredJob = nil, xptype = nil, blip = {sprite = 420, color = 16, data = nil}, items = {{name = 'potato', label = 'Kartoffel'}}, x = 274.30947875977, y = 6610.6538085938, z = 30.007946014404, range = 8.0, randoma = 1, randomb = 3, collectingTime = 8, animation = "PROP_HUMAN_BUM_BIN"},
     {requiredJob = nil, xptype = nil, blip = {sprite = 420, color = 16, data = nil}, items = {{name = 'bolcacahuetes', label = 'Erdnuss'}}, x = -1818.7586669922, y = 1980.1359863281, z = 131.1247253418, range = 10.0, randoma = 1, randomb = 3, collectingTime = 8, animation = "PROP_HUMAN_BUM_BIN"},
     {requiredJob = nil, xptype = nil, blip = {sprite = 420, color = 20, data = nil}, items = {{name = 'stone', label = 'Stein', percentage = 70}, {name = 'coal', label = 'Kohle', percentage = 82}, {name = 'silver', label = 'Silber', percentage = 94}, {name = 'gold', label = 'Gold', percentage = 100}}, x = 1312.0114746094, y = 3005.9616699219, z = 53.944561004639, range = 38.0, randoma = 1, randomb = 2, collectingTime = 10, animation = "WORLD_HUMAN_HAMMERING"},
+    {requiredJob = nil, xptype = nil, blip = {sprite = 420, color = 20, data = nil}, items = {{name = 'ironore', label = 'Eisenerz', percentage = 70}, {name = 'bauxit', label = 'Bauxit', percentage = 82}, {name = 'coal', label = 'Kohle', percentage = 94}}, x = 2940.1330566406, y = 2789.3664550781, z = 40.122993469238, range = 50.0, randoma = 9, randomb = 13, collectingTime = 90, animation = "WORLD_HUMAN_CONST_DRILL"},
 }
 
 Config.CraftTime = 4 -- in sek
@@ -28,6 +29,7 @@ Config.Processor = {
     {requiredJob = nil, ItemsId = 7, label = 'Schmelze', XPType = 'stone', ped = "ig_chef2", x = 1078.8861083984, y = -1979.7579345703, z = 31.471523284912, rot = 238.72868347168},
     {requiredJob = nil, ItemsId = 8, label = 'Juwelier', XPType = 'jewellery', ped = "u_f_y_jewelass_01", x = -622.05590820313, y = -232.09861755371, z = 38.057010650635, rot = 126.61913299561},
     {requiredJob = nil, ItemsId = 9, label = 'Vodka Manufaktur', XPType = 'potato', ped = "a_m_m_farmer_01", x = 1459.3967285156, y = -1930.6866455078, z = 71.804565429688, rot = 268.56},
+    {requiredJob = nil, ItemsId = 10, label = 'Schlosserei', XPType = 'smith', ped = "ig_chef2", x = 944.125, y = -1697.728515625, z = 30.090450286865, rot = 269.33},
 }
 
 Config.Seller = {
@@ -54,6 +56,8 @@ Config.ItemLimits = {
     ['silver'] = 70,
     ['gold'] = 70,
     ['potato'] = 40,
+    ['ironore'] = 70,
+    ['bauxit'] = 70,
 	
     ['flour'] = 20,
     ['applejuice'] = 50,
@@ -71,6 +75,10 @@ Config.ItemLimits = {
 	['ironbraclet'] = 50,
 	['goldrings'] = 50,
 	['necklace'] = 50,
+
+    ['ironingot'] = 60,
+    ['aluminium'] = 60,
+    ['steel'] = 60,
 
 }
 
@@ -150,7 +158,39 @@ Config.Items = {
     },
     {
         id = 7,
-        reqXP = 2500,
+        reqXP = 1500,
+        giveXP = {type = 'stone', a = 2, b = 4},
+        reqItems = {
+            {item = 'ironore', label = 'Eisenerz', amount = 2},
+            {item = 'coalingot', label = 'Kohle Brikett', amount = 1}},
+        newitem = {sqlitem = 'ironingot', label = 'Eisenbarren'},
+        newitemamount = 1,
+        craftAmount = 10
+    },
+    {
+        id = 7,
+        reqXP = 2000,
+        giveXP = {type = 'stone', a = 2, b = 4},
+        reqItems = {
+            {item = 'bauxit', label = 'Bauxit', amount = 2}},
+        newitem = {sqlitem = 'aluminium', label = 'Aluminium'},
+        newitemamount = 1,
+        craftAmount = 10
+    },
+    {
+        id = 7,
+        reqXP = 2000,
+        giveXP = {type = 'stone', a = 2, b = 4},
+        reqItems = {
+            {item = 'ironingot', label = 'Eisenbarren', amount = 1},
+            {item = 'coalingot', label = 'Kohle Brikett', amount = 1}},
+        newitem = {sqlitem = 'steel', label = 'Stahl'},
+        newitemamount = 1,
+        craftAmount = 10
+    },
+    {
+        id = 7,
+        reqXP = 3000,
         giveXP = {type = 'stone', a = 2, b = 4},
         reqItems = {
             {item = 'silver', label = 'Silber', amount = 3}},
@@ -229,6 +269,37 @@ Config.Items = {
             {item = 'vodka', label = 'Vodka', amount = 2},
             {item = 'bolcacahuetes', label = 'Erdnuss', amount = 4}},
         newitem = {sqlitem = 'vodkapeanut', label = 'Nuss Nougat Wodka'},
+        newitemamount = 1,
+        craftAmount = 10
+    },
+    {
+        id = 10,
+        reqXP = 0,
+        giveXP = {type = 'smith', a = 3, b = 4},
+        reqItems = {
+            {item = 'ironingot', label = 'Eisenbarren', amount = 1},},
+        newitem = {sqlitem = 'screws', label = 'Schrauben'},
+        newitemamount = 1,
+        craftAmount = 10
+    },
+    {
+        id = 10,
+        reqXP = 250,
+        giveXP = {type = 'smith', a = 3, b = 4},
+        reqItems = {
+            {item = 'ironingot', label = 'Eisenbarren', amount = 1},
+            {item = 'aluminium', label = 'Aluminium', amount = 1},},
+        newitem = {sqlitem = 'spring', label = 'Feder'},
+        newitemamount = 1,
+        craftAmount = 10
+    },
+    {
+        id = 10,
+        reqXP = 500,
+        giveXP = {type = 'smith', a = 3, b = 4},
+        reqItems = {
+            {item = 'steel', label = 'Stahl', amount = 1},},
+        newitem = {sqlitem = 'bolt', label = 'Bolzen'},
         newitemamount = 1,
         craftAmount = 10
     },
