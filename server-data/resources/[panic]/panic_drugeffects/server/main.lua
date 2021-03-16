@@ -29,7 +29,3 @@ ESX.RegisterUsableItem('lsd', function(source)
 	TriggerClientEvent('panic_drugeffects:useLSD', source)
 
 end)
-
-RegisterCommand('stopeffect', 'admin', function()
-	TriggerClientEvent('panic_drugeffects:stopAll')
-end)

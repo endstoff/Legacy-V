@@ -757,7 +757,8 @@ function ToggleVehicleLock()
 						end
 					else
 				--		return ShowNotifyESX(Lang['has_key_false'])
-						return TriggerEvent('est_notify', '#FF0000', 'Schlüssel', (Lang['has_key_false']))
+					--	return TriggerEvent('est_notify', '#FF0000', 'Schlüssel', (Lang['has_key_false']))
+						return TriggerEvent('notify', 3, '', (Lang['has_key_false']))
 					end
 				end)
 			end, closeHash)	

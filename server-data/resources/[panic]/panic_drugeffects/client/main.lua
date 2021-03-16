@@ -78,6 +78,11 @@ function EndCokeEffect()
     
     end
     cokeTime = 0 
+    local arm = GetPedArmour(GetPlayerPed(-1))
+
+    if arm > 0 then 
+        SetPedArmour(GetPlayerPed(-1), 0)
+    end 
 end
 
 function EndMethEffect()
@@ -207,7 +212,7 @@ AddEventHandler('panic_drugeffects:useCoke', function()
                 AnimpostfxPlay("DrugsTrevorClownsFight")
                 AddArmourToPed(playerPed, 30)
                 SetEntityHealth(playerPed, seth)
-                
+                cokeTime = cokeTime + 300
                 if armor > 100 then 
                     SetPedArmour(playerPed, 100)
                 end
@@ -311,8 +316,7 @@ Citizen.CreateThread(function()
     end
 end)
 
-RegisterNetEvent('panic_drugeffects:stopAll')
-AddEventHandler('panic_drugeffects:stopAll', function(source)
+function CLEAR()
     weedTime = 0 
     cokeTime = 0 
     methTime = 0
@@ -331,4 +335,4 @@ AddEventHandler('panic_drugeffects:stopAll', function(source)
     SetTimecycleModifier(false)
     SetTimecycleModifierStrength(0.0)
     ShakeGameplayCam("DRUNK_SHAKE", 0.0)
-end)
+end
