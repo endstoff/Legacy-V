@@ -275,29 +275,6 @@ AddEventHandler('myDrugs:sellItems', function(item, amount, price)
 
 end)
 
--- OneSync getPlayers
-
-ESX.RegisterServerCallback('myDrugs:getPlayersInArea', function(source, cb, position, distance)
-    local p = GetPlayers()
-    local players = {}
-    local vecposition = vector3(position.x, position.y, position.z)
-    if(#p > 0) then
-        for index, playerID in ipairs(p) do
-            local player = ESX.GetPlayerFromId(playerID)
-            local coords = player.getCoords(true)
-            if #(vecposition - coords) < distance then
-                local playerInfo = {id = playerID, name = player.getName()}
-                table.insert(players, playerInfo)
-            end
-        end
-    end
-    cb(players)
-  end)
-  
-  
-  --
-  
-
 RegisterServerEvent('myDrugs:buyVehicle')
 AddEventHandler('myDrugs:buyVehicle', function(index, farmID)
 
@@ -396,7 +373,7 @@ AddEventHandler('myDrugs:givePlants', function(amount, target, type)
     xPlayer.addInventoryItem(type, amount)
     TriggerClientEvent('myDrugs:msg', target, Translation[Config.Locale]['mission_dou_plants_arrived'] .. amount .. Translation[Config.Locale]['mission_dou_plants_arrived_2'])
     TriggerClientEvent('myDrugs:msg', source, Translation[Config.Locale]['mission_dou_plants_arrived_target'])
-    --TriggerClientEvent('myDrugs:abortMission', source)
+    TriggerClientEvent('myDrugs:abortMission', source)
     
 
 end)

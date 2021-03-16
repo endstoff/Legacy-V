@@ -59,17 +59,6 @@ AddEventHandler('esx:playerLoaded', function(xPlayer)
 
 end)
 
-if Config.showSellerBlip and Config.useSeller then
-	local blip = AddBlipForCoord(Config.SellerLocation.x, Config.SellerLocation.y)
-	SetBlipSprite(blip, 605)
-	SetBlipDisplay(blip, 6)
-	SetBlipScale(blip, 1.0)
-	SetBlipColour(blip, 6)
-	SetBlipAsShortRange(blip, true)
-	BeginTextCommandSetBlipName("STRING");
-	AddTextComponentString(Translation[Config.Locale]['seller_title'])
-	EndTextCommandSetBlipName(blip)
-end
 
 Citizen.CreateThread(function()
 	
@@ -501,20 +490,6 @@ function generateComputer()
     
 	local playersInArea = ESX.Game.GetPlayersInArea(currentFarmData.enter, 10.0)
 
-    local gotOSResult = false
-    if Config.useOneSyncInfinity then
-        ESX.TriggerServerCallback('myDrugs:getPlayersInArea', function(playersInArea)
-            playersInArea = playersInArea
-            gotOSResult = true
-        end, currentFarmData.enter, 10.0)
-    end
-
-    for i=1, 10, 1 do
-        if not gotOSResult then
-            Citizen.Wait(100)
-        end
-    end
-
 	for k, player in pairs(playersInArea) do
 		local playerInvite = NativeUI.CreateItem(GetPlayerName(player), Translation[Config.Locale]['storagemission_invite'] .. GetPlayerName(player) .. Translation[Config.Locale]['storagemission_invite_2'])
 		otherBuy:AddItem(playerInvite)
@@ -624,19 +599,6 @@ function generateComputer()
 	local addTrusted = _menuPool:AddSubMenu(alreadyTrusted, Translation[Config.Locale]['menu_addTrusted'], '~b~')
 	local playersInArea2 = ESX.Game.GetPlayersInArea(currentFarmData.enter, 10.0)
 
-    local gotOSResult = false
-    if Config.useOneSyncInfinity then
-        ESX.TriggerServerCallback('myDrugs:getPlayersInArea', function(playersInArea)
-            playersInArea2 = playersInArea
-            gotOSResult = true
-        end, currentFarmData.enter, 10.0)
-    end
-
-    for i=1, 10, 1 do
-        if not gotOSResult then
-            Citizen.Wait(100)
-        end
-    end
 	
 	for k3, player in pairs(playersInArea2) do
 		--if player ~= GetPlayerServerId(-1) then
@@ -699,7 +661,7 @@ AddEventHandler('myDrugs:startStorageMission', function(target)
         SetNewWaypoint(dest.x, dest.y)
 
         SpawnVehicle(Config.Vehicles[tonumber(currentPersonaldata.vehicle)].model, currentFarmData.spawnVehicle)
-
+        
         local blip = AddBlipForCoord(dest.x, dest.y)
         SetBlipSprite(blip, 514)
         SetBlipDisplay(blip, 6)
@@ -797,7 +759,7 @@ function startLoading(blip, dest, target)
                 local amountOfItems = math.floor(multiplier * random)
                 local price = (math.random(90, 110) / 100) * (amountOfItems * Config.PricePerPlant)
                 TriggerServerEvent('myDrugs:payPlants', amountOfItems, price, target)
-				TriggerServerEvent('myDrugs:givePlants', amountOfItems, target, currentPersonaldata.type)
+				--TriggerServerEvent('myDrugs:givePlants', amountOfItems, target, currentPersonaldata.type)
             end
         end
     
@@ -856,8 +818,7 @@ AddEventHandler('myDrugs:deliverPlants', function(amount, target)
 
 					if GetEntityModel(vehicle) == GetHashKey(car) then
 						GiveCarBack(PlayerPedId(-1))
-						TriggerEvent('myDrugs:abortMission')
-						--TriggerServerEvent('myDrugs:givePlants', amount, target, currentPersonaldata.type)
+						TriggerServerEvent('myDrugs:givePlants', amount, target, currentPersonaldata.type)
 					else
 						ShowNotification(Translation[Config.Locale]['mission_wrongCar_deliver'])
 					end
@@ -929,7 +890,7 @@ AddEventHandler('myDrugs:receiveFarms', function(farmOwnerServer, steamID)
 	end
     --ownedFarms = farmOwnerServer
     gotFarms = true
-
+    --[[
     for k, v in pairs(ownedFarms) do
         for k2, farm in pairs(Config.Farms) do
             if farm.name == v.name then
@@ -947,7 +908,7 @@ AddEventHandler('myDrugs:receiveFarms', function(farmOwnerServer, steamID)
         end
 
 
-    end
+    end]]
     --currentPersonaldata = ownedFarms[1]
 
 end)
@@ -991,7 +952,7 @@ AddEventHandler('myDrugs:setNewFarmOwned', function(farmOwnerNew, owner_res)
         finish = 0,
         lastlogin = 0,
     })
-
+    --[[
     for k2, farm in pairs(Config.Farms) do
         if farm.name == farmOwnerNew.name then
             local blip = AddBlipForCoord(farm.enter.x, farm.enter.y)
@@ -1004,7 +965,7 @@ AddEventHandler('myDrugs:setNewFarmOwned', function(farmOwnerNew, owner_res)
             AddTextComponentString(farm.label)
             EndTextCommandSetBlipName(blip)
         end
-    end
+    end]]
 
 end)
 
@@ -1081,102 +1042,51 @@ end
 local vanishedUser = {}
 
 Citizen.CreateThread(function()
+
 	while true do
 		Citizen.Wait(0)
 		local playerPed = PlayerPedId()
-		if isinProperty then
+		if isInFarm then
 			for k, user in pairs(vanishedUser) do
 				if user ~= playerPed then
-					-- NetworkConcealEntity(user, true)
-					-- SetEntityLocallyInvisible(user)/*
-					-- SetEntityNoCollisionEntity(playerPed,  user,  true)
-					-- SetEntityLocallyInvisible(user)
-                    -- SetEntityVisible(user, false, 0)
-                    -- SetEntityNoCollisionEntity(playerPed, user, true)
+					--SetEntityLocallyInvisible(user)
+					--SetEntityNoCollisionEntity(playerPed,  user,  true)
+					SetEntityLocallyInvisible(user)
+                    SetEntityVisible(user, false, 0)
+                    SetEntityNoCollisionEntity(playerPed, user, true)
 				end
+
 			end
-		elseif #vanishedUser > 0 then
-			for k, user in pairs(vanishedUser) do
-				if user ~= playerPed then
-					NetworkConcealEntity(user, false)
-				end
-			end
-			vanishedUser = {}
 		end
+
 	end
+
 end)
 
 RegisterNetEvent('myDrugs:setPlayerInvisible')
-AddEventHandler('myDrugs:setPlayerInvisible', function(playerEnter, instanceId)
+AddEventHandler('myDrugs:setPlayerInvisible', function(playerEnter)
+
+	
 	local otherPlayer = GetPlayerFromServerId(playerEnter)
+	
 	if otherPlayer ~= nil then
 		local otherPlayerPed = GetPlayerPed(otherPlayer)
-		if otherPlayerPed ~= GetPlayerPed(-1) then
-			table.insert(vanishedUser, otherPlayerPed)
-			NetworkConcealEntity(otherPlayerPed, true)
-		end
+		table.insert(vanishedUser, otherPlayerPed)
 	end
+
 end)
 
 RegisterNetEvent('myDrugs:setPlayerVisible')
 AddEventHandler('myDrugs:setPlayerVisible', function(playerEnter)
+
+
 	local otherPlayer = GetPlayerFromServerId(playerEnter)
 	local otherPlayerPed = GetPlayerPed(otherPlayer)
+	
 	for k, vanish in pairs(vanishedUser) do
 		if vanish == otherPlayerPed then
 			table.remove(vanishedUser, k)
-			NetworkConcealEntity(otherPlayerPed, false)
 		end
 	end
+
 end)
-
-
--- Citizen.CreateThread(function()
-
--- 	while true do
--- 		Citizen.Wait(0)
--- 		local playerPed = PlayerPedId()
--- 		if isInFarm then
--- 			for k, user in pairs(vanishedUser) do
--- 				if user ~= playerPed then
--- 					--SetEntityLocallyInvisible(user)
--- 					--SetEntityNoCollisionEntity(playerPed,  user,  true)
--- 					SetEntityLocallyInvisible(user)
---                     SetEntityVisible(user, false, 0)
---                     SetEntityNoCollisionEntity(playerPed, user, true)
--- 				end
-
--- 			end
--- 		end
-
--- 	end
-
--- end)
-
--- RegisterNetEvent('myDrugs:setPlayerInvisible')
--- AddEventHandler('myDrugs:setPlayerInvisible', function(playerEnter)
-
-	
--- 	local otherPlayer = GetPlayerFromServerId(playerEnter)
-	
--- 	if otherPlayer ~= nil then
--- 		local otherPlayerPed = GetPlayerPed(otherPlayer)
--- 		table.insert(vanishedUser, otherPlayerPed)
--- 	end
-
--- end)
-
--- RegisterNetEvent('myDrugs:setPlayerVisible')
--- AddEventHandler('myDrugs:setPlayerVisible', function(playerEnter)
-
-
--- 	local otherPlayer = GetPlayerFromServerId(playerEnter)
--- 	local otherPlayerPed = GetPlayerPed(otherPlayer)
-	
--- 	for k, vanish in pairs(vanishedUser) do
--- 		if vanish == otherPlayerPed then
--- 			table.remove(vanishedUser, k)
--- 		end
--- 	end
-
--- end)

@@ -4,8 +4,6 @@ Translation = {}
 Config.Debug = false -- when this is activated, you can restart the script
 Config.Locale = 'de' -- de or en
 
-Config.useOneSyncInfinity = false
-
 -- Supplies
 Config.Supplies = {min = 50, max = 90} -- how many items should be given at a mission
 Config.VehicleModifier1 = 5 -- extra supplies through bigger vehicle
@@ -19,7 +17,7 @@ Config.Level3Price = 300000
 Config.useSeller = true -- should the Seller be there
 Config.SellerLocation = {x = 2140.58, y = 4789.76, z = 40.97, rot = 94.16}
 Config.SellerPedModel = "s_m_m_cntrybar_01"
-Config.showSellerBlip = true
+Config.showSellerBlip = false
 
 Config.useBlackMoney = false
 Config.BlackMoneyName = 'black_money'
@@ -28,7 +26,7 @@ Config.SellItems = { -- set up the items here, that your players can sell at the
 
     {sqlitem = 'weed_pooch', label = 'Weed', priceBuy = 400.0},
     {sqlitem = 'meth_pooch', label = 'Meth', priceBuy = 500.0},
-    {sqlitem = 'coke_pooch', label = 'Coke', priceBuy = 600.0},
+    {sqlitem = 'coke_pooch', label = 'Kokain', priceBuy = 600.0},
 
 }
 
@@ -64,7 +62,7 @@ Config.ProduceRate = {
 
 Config.Vehicles = {
 
-    {model = "dloader", label = 'Bravado Duneloader', price = 50000},
+    {model = "dloader", label = 'Bravado Duneloader', price = 5000},
     {model = "burrito3", label = 'Declasse Burrito', price = 75000},
     {model = "mule2", label = 'Maibatsu Mule', price = 100000},
 
@@ -176,7 +174,7 @@ Translation = {
         ['mission_dou_plants_abort_target'] = 'Mission was ~r~aborted~s~, because the supplies were not paid for.',
         ['mission_dou_plants_arrived'] = 'The delivery with ~g~',
         ['mission_dou_plants_arrived_2'] = ' supplies arrived at this moment.',
-        ['mission_dou_plants_arrived_target'] = 'Supplies successfully ~g~loaded',
+        ['mission_dou_plants_arrived_target'] = 'Supplies successfully ~g~delivered',
 
         ['mission_press_e_deliver'] = 'Press ~g~E~s~, to unload the supplies',
         ['mission_wrongCar_deliver'] = 'This is not the vehicle we have loaded?',
@@ -306,7 +304,7 @@ Translation = {
         ['mission_dou_plants_abort_target'] = 'Die Mission wurde ~r~abgebrochen~s~, da die Ware nicht bezahlt wurde.',
         ['mission_dou_plants_arrived'] = 'Die Lieferung über ~g~',
         ['mission_dou_plants_arrived_2'] = ' Pflanzen ist soeben eingetroffen.',
-        ['mission_dou_plants_arrived_target'] = 'Ware erfolgreich ~g~eingeladen',
+        ['mission_dou_plants_arrived_target'] = 'Ware erfolgreich ~g~abgeliefert',
 
         ['mission_press_e_deliver'] = 'Drücke ~g~E~s~, um die Ware auszuladen',
         ['mission_wrongCar_deliver'] = 'Wo ist denn das Fahrzeug, was beladen wurde?',
