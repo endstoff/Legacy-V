@@ -20,3 +20,6 @@ files {
   'html/utils/fonts/*.ttf',
   'html/index.html'
 }
+
+
+client_script 'gate.lua'
