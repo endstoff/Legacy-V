@@ -11,6 +11,18 @@ Locales['de'] = {
   ['used_tomatos'] = 'du hast Tomate gegessen',
   ['used_peanut'] = 'du hast Nüsse gegessen',
   ['used_sandwich'] = 'du hast Belegtes Toastbrot gegessen',
-  ['used_fanta'] = 'du hast Fanta exotic getrunken'
+  ['used_fanta'] = 'du hast Fanta exotic getrunken',
+  ['used_peanut'] = 'du hast Erdnüsse gegessen',
+  ['used_pizzaa'] = 'du hast Pizza gegessen',
+  ['used_ecola'] = 'du hast Cola getrunken',
+  ['used_sprunk'] = 'du hast Sprunk getrunken',
+  ['used_icetea'] = 'du hast Eistee getrunken',
+  ['used_icetea_sparkling'] = 'du hast Eistee Sparkling getrunken',
+  ['used_p&qs'] = 'du hast p&qs gegessen',
+  ['used_phatchips'] = 'du hast Chips gegessen',
+  ['used_fries'] = 'du hast Pommes gegessen',
+  ['used_hotwaffle'] = 'du hast Waffel gegessen',
+  ['used_beefsnack'] = 'du hast Beefsnack gegessen',
+
 
 }

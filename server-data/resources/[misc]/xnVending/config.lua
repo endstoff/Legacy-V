@@ -9,9 +9,9 @@ Config = {}
 -----------------------------------------------------------------------------------------
 
 --[[ ESX Compatibility ]]
-Config.Framework = "ESX"
+--Config.Framework = "ESX"
 --[[ New ESX Compatibility, for latest versions of ESX ]]
--- Config.Framework = "NewESX"
+ Config.Framework = "NewESX"
 --[[ vRP (0.5) Compatibility (Dunko uses this) ]]
 -- Config.Framework = "vRP"
 --[[ No framework, no economy required (never denies the user an item) ]]
