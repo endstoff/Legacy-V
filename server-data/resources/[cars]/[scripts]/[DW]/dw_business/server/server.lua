@@ -182,7 +182,8 @@ local function refuel(source, stationId)
             local quantity = xPlayer.getInventoryItem('petrol_raffin').count
 
             if quantity < 2 then
-                TriggerClientEvent('mythic_notify:client:SendAlert', source, { type = 'error', text = 'Du hast nicht genügend raffiniertes Öl bei Dir, um den Prozess fortzusetzen.' })
+               --TriggerClientEvent('mythic_notify:client:SendAlert', source, { type = 'error', text = 'Du hast nicht genügend raffiniertes Öl bei Dir, um den Prozess fortzusetzen.' })
+                TriggerClientEvent('notify', source, 3, "", "Du hast nicht genügend raffiniertes Öl bei Dir, um den Prozess fortzusetzen")
             else
                 local fuel = 0
 
@@ -191,7 +192,8 @@ local function refuel(source, stationId)
                 }, function(result)
                     fuel = result[1].stationFuel + 2
                     
-                    TriggerClientEvent('mythic_notify:client:SendAlert', source, { type = 'success', text = '2 Liter raffiniertes Öl wurden zum Tank der Tankstelle hinzugefügt.' })
+                --    TriggerClientEvent('mythic_notify:client:SendAlert', source, { type = 'success', text = '2 Liter raffiniertes Öl wurden zum Tank der Tankstelle hinzugefügt.' })
+                    TriggerClientEvent('notify', source, 2, "", "2 Liter raffiniertes Öl wurden zum Tank der Tankstelle hinzugefügt")
                     
                     xPlayer.removeInventoryItem('petrol_raffin', 2)
                     xPlayer.addAccountMoney('bank', 6)
