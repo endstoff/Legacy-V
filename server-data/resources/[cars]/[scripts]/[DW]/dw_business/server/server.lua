@@ -196,7 +196,7 @@ local function refuel(source, stationId)
                     TriggerClientEvent('notify', source, 2, "", "2 Liter raffiniertes Öl wurden zum Tank der Tankstelle hinzugefügt")
                     
                     xPlayer.removeInventoryItem('petrol_raffin', 2)
-                    xPlayer.addAccountMoney('bank', 6)
+                    xPlayer.addAccountMoney('money', 6)
                     TriggerEvent('dreamwork_business:removeFuel', stationId, fuel)
                 end)
 
