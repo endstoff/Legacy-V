@@ -38,7 +38,7 @@ AddEventHandler('esx:playerLoaded', function(xPlayer)
     TriggerServerEvent('myFarming:getJobXP')
     randomizePriceModifiers()
     TriggerServerEvent('myFarming:setRandomAssignments')
-    loadBlips()
+    --[[loadBlips()]]--
     refreshZones()
 end)
 
