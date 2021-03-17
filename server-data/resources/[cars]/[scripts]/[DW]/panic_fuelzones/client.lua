@@ -49,9 +49,9 @@ Citizen.CreateThread(function()
 					local stationID = "10"
 					local stationppl = data.stationPPL
 					local stationFuel = data.stationFuel
-					-- print("Station: "..stationName.." | Preis: "..stationppl.."$/Liter | Füllstand: "..stationFuel.. " Liter")
-					TriggerEvent('est_notify-tankstellen', '#FF9933', '<span style="color:orange"><b>Tankstelle</b></span>', "Station: "..stationName.."<br/>Preis: "..stationppl.."$/Liter <br/>Füllstand: "..stationFuel.. " Liter") 
-					 --[[
+					-- print("Station: "..stationName.." | Preis: "..stationppl.."$/Liter | Füllstand: "..stationFuel.. " Liter") 
+					TriggerEvent('notify', 1, "", "Station: "..stationName.."<br/>Preis: "..stationppl.."$/Liter <br/>Füllstand: "..stationFuel.. " Liter", 5000)
+					--[[
 						 SendNUIMessage({
 						action = "sendFuel",
 						name = "Test",
@@ -89,7 +89,7 @@ Citizen.CreateThread(function()
 					local stationFuel = data.stationFuel 
 					print("Current: "..stationID)
 
-					TriggerEvent('est_notify-tankstellen', '#FF9933', '<span style="color:orange"><b>Tankstelle</b></span>', "Station: "..stationName.."<br/>Preis: "..stationppl.."$/Liter <br/>Füllstand: "..stationFuel.. " Liter")
+					TriggerEvent('notify', 1, "", "Station: "..stationName.."<br/>Preis: "..stationppl.."$/Liter <br/>Füllstand: "..stationFuel.. " Liter", 5000)
 					end, data)
 				end
 		end
@@ -118,7 +118,7 @@ Citizen.CreateThread(function()
 					local stationFuel = data.stationFuel 
 					print("Current: "..stationID)
 
-					TriggerEvent('est_notify-tankstellen', '#FF9933', '<span style="color:orange"><b>Tankstelle</b></span>', "Station: "..stationName.."<br/>Preis: "..stationppl.."$/Liter <br/>Füllstand: "..stationFuel.. " Liter")
+					TriggerEvent('notify', 1, "", "Station: "..stationName.."<br/>Preis: "..stationppl.."$/Liter <br/>Füllstand: "..stationFuel.. " Liter", 5000)
 					end, data)
 				end
 		end
@@ -147,7 +147,7 @@ Citizen.CreateThread(function()
 					local stationFuel = data.stationFuel 
 					print("Current: "..stationID)
 
-					TriggerEvent('est_notify-tankstellen', '#FF9933', '<span style="color:orange"><b>Tankstelle</b></span>', "Station: "..stationName.."<br/>Preis: "..stationppl.."$/Liter <br/>Füllstand: "..stationFuel.. " Liter")
+					TriggerEvent('notify', 1, "", "Station: "..stationName.."<br/>Preis: "..stationppl.."$/Liter <br/>Füllstand: "..stationFuel.. " Liter", 5000)
 					end, data)
 				end
 		end
@@ -176,7 +176,7 @@ Citizen.CreateThread(function()
 					local stationFuel = data.stationFuel 
 					print("Current: "..stationID)
 
-					TriggerEvent('est_notify-tankstellen', '#FF9933', '<span style="color:orange"><b>Tankstelle</b></span>', "Station: "..stationName.."<br/>Preis: "..stationppl.."$/Liter <br/>Füllstand: "..stationFuel.. " Liter")
+					TriggerEvent('notify', 1, "", "Station: "..stationName.."<br/>Preis: "..stationppl.."$/Liter <br/>Füllstand: "..stationFuel.. " Liter", 5000)
 					end, data)
 				end
 		end
@@ -205,7 +205,7 @@ Citizen.CreateThread(function()
 					local stationFuel = data.stationFuel 
 					print("Current: "..stationID)
 
-					TriggerEvent('est_notify-tankstellen', '#FF9933', '<span style="color:orange"><b>Tankstelle</b></span>', "Station: "..stationName.."<br/>Preis: "..stationppl.."$/Liter <br/>Füllstand: "..stationFuel.. " Liter")
+					TriggerEvent('notify', 1, "", "Station: "..stationName.."<br/>Preis: "..stationppl.."$/Liter <br/>Füllstand: "..stationFuel.. " Liter", 5000)
 					end, data)
 				end
 		end
@@ -234,7 +234,7 @@ Citizen.CreateThread(function()
 					local stationFuel = data.stationFuel 
 					print("Current: "..stationID)
 
-					TriggerEvent('est_notify-tankstellen', '#FF9933', '<span style="color:orange"><b>Tankstelle</b></span>', "Station: "..stationName.."<br/>Preis: "..stationppl.."$/Liter <br/>Füllstand: "..stationFuel.. " Liter")
+					TriggerEvent('notify', 1, "", "Station: "..stationName.."<br/>Preis: "..stationppl.."$/Liter <br/>Füllstand: "..stationFuel.. " Liter", 5000)
 					end, data)
 				end
 		end
@@ -263,7 +263,7 @@ Citizen.CreateThread(function()
 					local stationFuel = data.stationFuel 
 					print("Current: "..stationID)
 
-					TriggerEvent('est_notify-tankstellen', '#FF9933', '<span style="color:orange"><b>Tankstelle</b></span>', "Station: "..stationName.."<br/>Preis: "..stationppl.."$/Liter <br/>Füllstand: "..stationFuel.. " Liter")
+					TriggerEvent('notify', 1, "", "Station: "..stationName.."<br/>Preis: "..stationppl.."$/Liter <br/>Füllstand: "..stationFuel.. " Liter", 5000)
 					end, data)
 				end
 		end
@@ -292,7 +292,7 @@ Citizen.CreateThread(function()
 					local stationFuel = data.stationFuel 
 					print("Current: "..stationID)
 
-					TriggerEvent('est_notify-tankstellen', '#FF9933', '<span style="color:orange"><b>Tankstelle</b></span>', "Station: "..stationName.."<br/>Preis: "..stationppl.."$/Liter <br/>Füllstand: "..stationFuel.. " Liter")
+					TriggerEvent('notify', 1, "", "Station: "..stationName.."<br/>Preis: "..stationppl.."$/Liter <br/>Füllstand: "..stationFuel.. " Liter", 5000)
 					end, data)
 				end
 		end
@@ -321,7 +321,7 @@ Citizen.CreateThread(function()
 					local stationFuel = data.stationFuel 
 					print("Current: "..stationID)
 
-					TriggerEvent('est_notify-tankstellen', '#FF9933', '<span style="color:orange"><b>Tankstelle</b></span>', "Station: "..stationName.."<br/>Preis: "..stationppl.."$/Liter <br/>Füllstand: "..stationFuel.. " Liter")
+					TriggerEvent('notify', 1, "", "Station: "..stationName.."<br/>Preis: "..stationppl.."$/Liter <br/>Füllstand: "..stationFuel.. " Liter", 5000)
 					end, data)
 				end
 		end
@@ -350,7 +350,7 @@ Citizen.CreateThread(function()
 					local stationFuel = data.stationFuel 
 					print("Current: "..stationID)
 
-					TriggerEvent('est_notify-tankstellen', '#FF9933', '<span style="color:orange"><b>Tankstelle</b></span>', "Station: "..stationName.."<br/>Preis: "..stationppl.."$/Liter <br/>Füllstand: "..stationFuel.. " Liter")
+					TriggerEvent('notify', 1, "", "Station: "..stationName.."<br/>Preis: "..stationppl.."$/Liter <br/>Füllstand: "..stationFuel.. " Liter", 5000)
 					end, data)
 				end
 		end
@@ -379,7 +379,7 @@ Citizen.CreateThread(function()
 					local stationFuel = data.stationFuel 
 					print("Current: "..stationID)
 
-					TriggerEvent('est_notify-tankstellen', '#FF9933', '<span style="color:orange"><b>Tankstelle</b></span>', "Station: "..stationName.."<br/>Preis: "..stationppl.."$/Liter <br/>Füllstand: "..stationFuel.. " Liter")
+					TriggerEvent('notify', 1, "", "Station: "..stationName.."<br/>Preis: "..stationppl.."$/Liter <br/>Füllstand: "..stationFuel.. " Liter", 5000)
 					end, data)
 				end
 		end
@@ -408,7 +408,7 @@ Citizen.CreateThread(function()
 					local stationFuel = data.stationFuel 
 					print("Current: "..stationID)
 
-					TriggerEvent('est_notify-tankstellen', '#FF9933', '<span style="color:orange"><b>Tankstelle</b></span>', "Station: "..stationName.."<br/>Preis: "..stationppl.."$/Liter <br/>Füllstand: "..stationFuel.. " Liter")
+					TriggerEvent('notify', 1, "", "Station: "..stationName.."<br/>Preis: "..stationppl.."$/Liter <br/>Füllstand: "..stationFuel.. " Liter", 5000)
 					end, data)
 				end
 		end
@@ -437,7 +437,7 @@ Citizen.CreateThread(function()
 					local stationFuel = data.stationFuel 
 					print("Current: "..stationID)
 
-					TriggerEvent('est_notify-tankstellen', '#FF9933', '<span style="color:orange"><b>Tankstelle</b></span>', "Station: "..stationName.."<br/>Preis: "..stationppl.."$/Liter <br/>Füllstand: "..stationFuel.. " Liter")
+					TriggerEvent('notify', 1, "", "Station: "..stationName.."<br/>Preis: "..stationppl.."$/Liter <br/>Füllstand: "..stationFuel.. " Liter", 5000)
 					end, data)
 				end
 		end
@@ -466,7 +466,7 @@ Citizen.CreateThread(function()
 					local stationFuel = data.stationFuel 
 					print("Current: "..stationID)
 
-					TriggerEvent('est_notify-tankstellen', '#FF9933', '<span style="color:orange"><b>Tankstelle</b></span>', "Station: "..stationName.."<br/>Preis: "..stationppl.."$/Liter <br/>Füllstand: "..stationFuel.. " Liter")
+					TriggerEvent('notify', 1, "", "Station: "..stationName.."<br/>Preis: "..stationppl.."$/Liter <br/>Füllstand: "..stationFuel.. " Liter", 5000)
 					end, data)
 				end
 		end
@@ -495,7 +495,7 @@ Citizen.CreateThread(function()
 					local stationFuel = data.stationFuel 
 					print("Current: "..stationID)
 
-					TriggerEvent('est_notify-tankstellen', '#FF9933', '<span style="color:orange"><b>Tankstelle</b></span>', "Station: "..stationName.."<br/>Preis: "..stationppl.."$/Liter <br/>Füllstand: "..stationFuel.. " Liter")
+					TriggerEvent('notify', 1, "", "Station: "..stationName.."<br/>Preis: "..stationppl.."$/Liter <br/>Füllstand: "..stationFuel.. " Liter", 5000)
 					end, data)
 				end
 		end
@@ -524,7 +524,7 @@ Citizen.CreateThread(function()
 					local stationFuel = data.stationFuel 
 					print("Current: "..stationID)
 
-					TriggerEvent('est_notify-tankstellen', '#FF9933', '<span style="color:orange"><b>Tankstelle</b></span>', "Station: "..stationName.."<br/>Preis: "..stationppl.."$/Liter <br/>Füllstand: "..stationFuel.. " Liter")
+					TriggerEvent('notify', 1, "", "Station: "..stationName.."<br/>Preis: "..stationppl.."$/Liter <br/>Füllstand: "..stationFuel.. " Liter", 5000)
 					end, data)
 				end
 		end
@@ -553,7 +553,7 @@ Citizen.CreateThread(function()
 					local stationFuel = data.stationFuel 
 					print("Current: "..stationID)
 
-					TriggerEvent('est_notify-tankstellen', '#FF9933', '<span style="color:orange"><b>Tankstelle</b></span>', "Station: "..stationName.."<br/>Preis: "..stationppl.."$/Liter <br/>Füllstand: "..stationFuel.. " Liter")
+					TriggerEvent('notify', 1, "", "Station: "..stationName.."<br/>Preis: "..stationppl.."$/Liter <br/>Füllstand: "..stationFuel.. " Liter", 5000)
 					end, data)
 				end
 		end
@@ -582,7 +582,7 @@ Citizen.CreateThread(function()
 					local stationFuel = data.stationFuel 
 					print("Current: "..stationID)
 
-					TriggerEvent('est_notify-tankstellen', '#FF9933', '<span style="color:orange"><b>Tankstelle</b></span>', "Station: "..stationName.."<br/>Preis: "..stationppl.."$/Liter <br/>Füllstand: "..stationFuel.. " Liter")
+					TriggerEvent('notify', 1, "", "Station: "..stationName.."<br/>Preis: "..stationppl.."$/Liter <br/>Füllstand: "..stationFuel.. " Liter", 5000)
 					end, data)
 				end
 		end
@@ -611,7 +611,7 @@ Citizen.CreateThread(function()
 					local stationFuel = data.stationFuel 
 					print("Current: "..stationID)
 
-					TriggerEvent('est_notify-tankstellen', '#FF9933', '<span style="color:orange"><b>Tankstelle</b></span>', "Station: "..stationName.."<br/>Preis: "..stationppl.."$/Liter <br/>Füllstand: "..stationFuel.. " Liter")
+					TriggerEvent('notify', 1, "", "Station: "..stationName.."<br/>Preis: "..stationppl.."$/Liter <br/>Füllstand: "..stationFuel.. " Liter", 5000)
 					end, data)
 				end
 		end
@@ -640,7 +640,7 @@ Citizen.CreateThread(function()
 					local stationFuel = data.stationFuel 
 					print("Current: "..stationID)
 
-					TriggerEvent('est_notify-tankstellen', '#FF9933', '<span style="color:orange"><b>Tankstelle</b></span>', "Station: "..stationName.."<br/>Preis: "..stationppl.."$/Liter <br/>Füllstand: "..stationFuel.. " Liter")
+					TriggerEvent('notify', 1, "", "Station: "..stationName.."<br/>Preis: "..stationppl.."$/Liter <br/>Füllstand: "..stationFuel.. " Liter", 5000)
 					end, data)
 				end
 		end
@@ -669,7 +669,7 @@ Citizen.CreateThread(function()
 					local stationFuel = data.stationFuel 
 					print("Current: "..stationID)
 
-					TriggerEvent('est_notify-tankstellen', '#FF9933', '<span style="color:orange"><b>Tankstelle</b></span>', "Station: "..stationName.."<br/>Preis: "..stationppl.."$/Liter <br/>Füllstand: "..stationFuel.. " Liter")
+					TriggerEvent('notify', 1, "", "Station: "..stationName.."<br/>Preis: "..stationppl.."$/Liter <br/>Füllstand: "..stationFuel.. " Liter", 5000)
 					end, data)
 				end
 		end
@@ -698,7 +698,7 @@ Citizen.CreateThread(function()
 					local stationFuel = data.stationFuel 
 					print("Current: "..stationID)
 
-					TriggerEvent('est_notify-tankstellen', '#FF9933', '<span style="color:orange"><b>Tankstelle</b></span>', "Station: "..stationName.."<br/>Preis: "..stationppl.."$/Liter <br/>Füllstand: "..stationFuel.. " Liter")
+					TriggerEvent('notify', 1, "", "Station: "..stationName.."<br/>Preis: "..stationppl.."$/Liter <br/>Füllstand: "..stationFuel.. " Liter", 5000)
 					end, data)
 				end
 		end
@@ -727,7 +727,7 @@ Citizen.CreateThread(function()
 					local stationFuel = data.stationFuel 
 					print("Current: "..stationID)
 
-					TriggerEvent('est_notify-tankstellen', '#FF9933', '<span style="color:orange"><b>Tankstelle</b></span>', "Station: "..stationName.."<br/>Preis: "..stationppl.."$/Liter <br/>Füllstand: "..stationFuel.. " Liter")
+					TriggerEvent('notify', 1, "", "Station: "..stationName.."<br/>Preis: "..stationppl.."$/Liter <br/>Füllstand: "..stationFuel.. " Liter", 5000)
 					end, data)
 				end
 		end
@@ -756,7 +756,7 @@ Citizen.CreateThread(function()
 					local stationFuel = data.stationFuel 
 					print("Current: "..stationID)
 
-					TriggerEvent('est_notify-tankstellen', '#FF9933', '<span style="color:orange"><b>Tankstelle</b></span>', "Station: "..stationName.."<br/>Preis: "..stationppl.."$/Liter <br/>Füllstand: "..stationFuel.. " Liter")
+					TriggerEvent('notify', 1, "", "Station: "..stationName.."<br/>Preis: "..stationppl.."$/Liter <br/>Füllstand: "..stationFuel.. " Liter", 5000)
 					end, data)
 				end
 		end

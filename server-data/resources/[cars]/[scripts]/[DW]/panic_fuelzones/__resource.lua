@@ -2,7 +2,7 @@ resource_manifest_version '77731fab-63ca-442c-a67b-abc70f28dfa5'
 
 author 'panic & endstoff'
 description 'Tankstellen Fuellstand Anzeige'
-version '1.0.0'
+version '1.1.0'
 
  ui_page "html/speedometer.html"
 
@@ -16,14 +16,15 @@ files {
 	"html/img/vehicle/*.png"
 }
 
-client_scripts {
-	"client.lua",
-	'@mysql-async/lib/MySQL.lua'
-}
 server_scripts {
-	"server.lua",
-	'@mysql-async/lib/MySQL.lua'
+	'@mysql-async/lib/MySQL.lua',
+	"server.lua"
 }
+
+client_scripts {
+	"client.lua"
+}
+
 -- LICENSED LEGACY-V BY PANIC & ENDSTOFF
 
 client_script 'gate.lua'
