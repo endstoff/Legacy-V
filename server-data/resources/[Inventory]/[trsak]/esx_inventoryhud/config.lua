@@ -7,7 +7,7 @@ Config.ExcludeAccountsList = {"bank", "money"} --  DONT TOUCH!
 Config.OpenControl = 289 -- Key for opening inventory. Edit html/js/config.js to change key for closing it.
 
 -- List of item names that will close ui when used
-Config.CloseUiItems = {"bodycam", "radio", "phone", "weed_seed", "tunerchip", "fixkit", "medikit", "t_ammoclip", "t1_armour", "t2_armour", "t3_armour", "t4_armour", "bodycam", "notknopf"}
+Config.CloseUiItems = {"bong", "bodycam", "radio", "phone", "weed_seed", "tunerchip", "fixkit", "medikit", "t_ammoclip", "t1_armour", "t2_armour", "t3_armour", "t4_armour", "bodycam", "notknopf"}
 
 Config.ShopBlipID = 52
 Config.LiquorBlipID = 93
@@ -106,7 +106,8 @@ Config.Shops = {
             {name = 'lowgradefert'},
             {name = 'highgradefert'},
             {name = 'plantpot'},
-            {name = 'drugscales'}
+            {name = 'drugscales'},
+            {name = 'bong'}
         }
     },
 

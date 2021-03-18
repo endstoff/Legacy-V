@@ -271,8 +271,8 @@ function SetVehicleModifications(vehicle, plate, modifications)
     SetVehicleBodyHealth(vehicle, modifications[4])
     SetVehicleEngineHealth(vehicle, modifications[5])
     SetVehiclePetrolTankHealth(vehicle, modifications[6])
-    if (modifications[5] < -3999.0 or modifications[6] < -999.0) then
-        SetEntityRenderScorched(vehicle, true)
+    if (Config.renderScorched and (modifications[5] < -3999.0 or modifications[6] < -999.0)) then
+        TriggerServerEvent("AdvancedParking:renderScorched", NetworkGetNetworkIdFromEntity(vehicle), true)
     end
     
     SetVehicleDirtLevel(vehicle, modifications[7])

@@ -23,6 +23,30 @@ local cokeTime = 0
 local methTime = 0 
 local lsdTime = 0 
 
+local smoke = false
+local bong = false
+local s = false
+
+function CLEAR()
+    weedTime = 0 
+    cokeTime = 0 
+    methTime = 0
+    lsdTime = 0
+    
+    weedLevel = 0 
+    cokeLevel = 0
+    methLevel = 0
+    lsdLevel = 0
+
+    AnimpostfxStopAll()
+    ResetPedMovementClipset(GetPlayerPed(-1))
+    ResetPedWeaponMovementClipset(GetPlayerPed(-1))
+    ResetPedStrafeClipset(GetPlayerPed(-1))
+    ResetExtraTimecycleModifierStrength(0.0)
+    SetTimecycleModifier(false)
+    SetTimecycleModifierStrength(0.0)
+    ShakeGameplayCam("DRUNK_SHAKE", 0.0)
+end
 
 function EndWeedEffect()
     
@@ -142,18 +166,30 @@ function EndLsdEffect()
     end
     lsdTime = 0
 end
-
+Citizen.CreateThread(function()
+    while true do 
+        Citizen.Wait(1)
+        if weedTime == 0 and cokeTime == 0 and methTime == 0 and lsdTime == 0 and s == false then 
+            s = true
+            CLEAR()
+        end
+    end
+end)
 RegisterNetEvent('panic_drugeffects:useWeed')
 AddEventHandler('panic_drugeffects:useWeed', function(source)
     local playerPed = GetPlayerPed(-1)
     
     if weedLevel < 6 then 
     weedLevel = weedLevel + 1 
+    if bong then 
+    else 
     TaskStartScenarioInPlace(playerPed, "WORLD_HUMAN_SMOKING_POT", 0, 1)
+    end
+    bong = false
     Citizen.Wait(3000)
     ClearPedTasksImmediately(playerPed)
     Citizen.Wait(500)
-    TriggerEvent('notify', 1, "", "Du hast ein Joint geraucht")
+    TriggerEvent('notify', 1, "", "Du hast Weed geraucht")
     weedTime = weedTime + 600
     Citizen.Wait(250)
     SetPedMotionBlur(playerPed, true)
@@ -169,6 +205,7 @@ AddEventHandler('panic_drugeffects:useWeed', function(source)
             weedTime = weedTime + 400
         end 
         if (weedLevel > 2) and (weedLevel < 5) then 
+            AnimpostfxPlay("HeistCelebPass", 10000001, true)
             ShakeGameplayCam("DRUNK_SHAKE", 0.5)
             weedTime = weedTime + 245
         end
@@ -182,7 +219,7 @@ AddEventHandler('panic_drugeffects:useWeed', function(source)
         end
     
     else 
-    TriggerEvent('notify', 3, "", "Du hattest bis jetzt zu viel Joints")
+    TriggerEvent('notify', 3, "", "Du hattest bis jetzt zu viel Weed")
     end
 end)
 
@@ -209,7 +246,7 @@ AddEventHandler('panic_drugeffects:useCoke', function()
                 AnimpostfxPlay("LostTimeNight", 10000001, true)
                 Citizen.Wait(2000)
                 AnimpostfxStopAll()
-                AnimpostfxPlay("DrugsTrevorClownsFight")
+                AnimpostfxPlay("DrugsTrevorClownsFight", 10000001, true)
                 AddArmourToPed(playerPed, 30)
                 SetEntityHealth(playerPed, seth)
                 cokeTime = cokeTime + 300
@@ -229,7 +266,7 @@ AddEventHandler('panic_drugeffects:useCoke', function()
                 AnimpostfxPlay("LostTimeNight", 10000001, true)
                 Citizen.Wait(2000)
                 AnimpostfxStopAll()
-                AnimpostfxPlay("DrugsTrevorClownsFight")
+                AnimpostfxPlay("DrugsTrevorClownsFight", 10000001, true)
             end
     else
         TriggerEvent('notify', 3, "", "Du hattest bis jetzt zu viel Kokain")
@@ -282,6 +319,7 @@ AddEventHandler('panic_drugeffects:useLSD', function()
     end
 
 end)
+
 Citizen.CreateThread(function()
     while true do 
         Citizen.Wait(0)
@@ -316,23 +354,51 @@ Citizen.CreateThread(function()
     end
 end)
 
-function CLEAR()
-    weedTime = 0 
-    cokeTime = 0 
-    methTime = 0
-    lsdTime = 0
-    
-    weedLevel = 0 
-    cokeLevel = 0
-    methLevel = 0
-    lsdLevel = 0
+RegisterNetEvent('panic_drugeffects:dBong')
+AddEventHandler('panic_drugeffects:dBong', function()
+         local playerPed = GetPlayerPed(-1)
+         local coords    = GetEntityCoords(playerPed)
 
-    AnimpostfxStopAll()
-    ResetPedMovementClipset(GetPlayerPed(-1))
-    ResetPedWeaponMovementClipset(GetPlayerPed(-1))
-    ResetPedStrafeClipset(GetPlayerPed(-1))
-    ResetExtraTimecycleModifierStrength(0.0)
-    SetTimecycleModifier(false)
-    SetTimecycleModifierStrength(0.0)
-    ShakeGameplayCam("DRUNK_SHAKE", 0.0)
-end
+            Citizen.CreateThread(function()
+            
+            local playerPed  = GetPlayerPed(-1)
+            local coords     = GetEntityCoords(playerPed)
+            local boneIndex  = GetPedBoneIndex(playerPed, 18905)
+            local boneIndex2 = GetPedBoneIndex(playerPed, 57005)
+
+            RequestAnimDict('anim@safehouse@bong')
+                
+            while not HasAnimDictLoaded('anim@safehouse@bong') do
+            Citizen.Wait(0)
+            end
+            
+            ESX.Game.SpawnObject('hei_heist_sh_bong_01', {
+            x = coords.x,
+            y = coords.y,
+            z = coords.z - 3
+            }, function(object)
+
+            ESX.Game.SpawnObject('p_cs_lighter_01', {
+            x = coords.x,
+            y = coords.y,
+            z = coords.z - 3
+            }, function(object2)
+            
+            Citizen.CreateThread(function()
+            
+            TaskPlayAnim(playerPed, "anim@safehouse@bong", "bong_stage1", 3.5, -8, -1, 49, 0, 0, 0, 0)
+            Citizen.Wait(1500)
+            AttachEntityToEntity(object2, playerPed, boneIndex2, 0.10, 0.0, 0, 99.0, 192.0, 180.0, true, true, false, true, 1, true)
+            AttachEntityToEntity(object, playerPed, boneIndex, 0.10, -0.25, 0, 95.0, 190.0, 180.0, true, true, false, true, 1, true)
+            Citizen.Wait(6000)
+            DeleteObject(object)
+            DeleteObject(object2)
+            ClearPedSecondaryTask(playerPed)
+            weedLevel = weedLevel + 1
+            bong = true 
+            TriggerEvent('panic_drugeffects:useWeed')
+            end)
+            end)
+            end)
+    end)
+end)

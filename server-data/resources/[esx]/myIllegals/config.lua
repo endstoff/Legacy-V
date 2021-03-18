@@ -9,7 +9,7 @@ Config.FarmingAreas = {
 
     {requiredJob = nil, xptype = nil, blip = {sprite = -1, color = 7, data = nil}, items = {{name = 'carbatt', label = 'Autobatterie'}}, x = 2334.5830078125, y = 3050.7287597656, z = 48.151702880859, range = 5.0, randoma = 1, randomb = 1, collectingTime = 10, animation = "WORLD_HUMAN_WELDING"},
     {requiredJob = nil, xptype = nil, blip = {sprite = -1, color = 7, data = nil}, items = {{name = 'psiloshroom', label = 'Psilocybine Pilze'}}, x = -2156.1760253906, y = 2441.3217773438, z = 3.2220993041992, range = 20.0, randoma = 1, randomb = 3, collectingTime = 10, animation = "PROP_HUMAN_BUM_BIN"},
-    {requiredJob = nil, xptype = nil, blip = {sprite = -1, color = 7, data = nil}, items = {{name = 'amphetamine', label = 'Amphetamine'}}, x = 2433.11328125, y = 4970.7255859375, z = 42.347602844238, range = 20.0, randoma = 1, randomb = 3, collectingTime = 10, animation = "PROP_HUMAN_BUM_BIN"},
+    {requiredJob = nil, xptype = nil, blip = {sprite = -1, color = 7, data = nil}, items = {{name = 'amphetamine', label = 'Amphetamine'}}, x = 2433.11328125, y = 4970.7255859375, z = 42.347602844238, range = 3.0, randoma = 1, randomb = 3, collectingTime = 10, animation = "PROP_HUMAN_BUM_BIN"},
     {requiredJob = nil, xptype = nil, blip = {sprite = -1, color = 7, data = nil}, items = {{name = 'carton', label = 'Karton'}}, x = -593.12225341797, y = -1607.2611083984, z = 27.010812759399, range = 3.0, randoma = 1, randomb = 3, collectingTime = 10, animation = "PROP_HUMAN_BUM_BIN"},
     {requiredJob = nil, xptype = nil, blip = {sprite = -1, color = 7, data = nil}, items = {{name = 'chemtrash', label = 'Chemieabfälle'}}, x = 3599.6162109375, y = 3669.646484375, z = 33.87174987793, range = 10.0, randoma = 1, randomb = 3, collectingTime = 10, animation = "PROP_HUMAN_BUM_BIN"},
 }
@@ -76,7 +76,7 @@ Config.Items = {
         reqXP = 0,
         giveXP = {type = 'recycle', a = 1, b = 3},
         reqItems = {
-            {item = 'carton', label = 'Karton', amount = 1}},
+            {item = 'carton', label = 'Karton', amount = 5}},
         newitem = {sqlitem = 'lsdsheets', label = 'LSD Bögen'},
         newitemamount = 5,
         craftAmount = 10
@@ -134,7 +134,7 @@ Config.Items = {
         giveXP = {type = 'naturals', a = 1, b = 3},
         reqItems = {
             {item = 'psiloshroom', label = 'Psilocybine Pilze', amount = 10}},
-        newitem = {sqlitem = 'magicshrooms', label = 'Magic Shrooms'},
+        newitem = {sqlitem = 'magicshroom', label = 'Magic Shroom'},
         newitemamount = 1,
         craftAmount = 10
     },
@@ -207,9 +207,9 @@ Config.Items = {
             {item = 'barrel', label = 'Lauf', amount = 1},
             {item = 'semiload', label = 'Semi Mechanismus', amount = 1},
             {item = 'steel', label = 'Stahl', amount = 5}},
-        newitem = {sqlitem = 'weapon_snspistol_mk2', label = 'Billigknarre MK2'},
+        newitem = {sqlitem = 'pistolcaselight', label = 'Pistolen-Koffer Leicht'},
         newitemamount = 1,
-        craftAmount = 10
+        craftAmount = 1
     },
 
     {
@@ -222,9 +222,9 @@ Config.Items = {
             {item = 'semiload', label = 'Semi Mechanismus', amount = 1},
             {item = 'steel', label = 'Stahl', amount = 10},
             {item = 'screws', label = 'Schrauben', amount = 5}},
-        newitem = {sqlitem = 'weapon_heavypistol', label = 'Schwere Pistole'},
+        newitem = {sqlitem = 'pistolcaseheavy', label = 'Pistolen-Koffer Schwer'},
         newitemamount = 1,
-        craftAmount = 10
+        craftAmount = 1
     },
 
     {
@@ -253,9 +253,9 @@ Config.Items = {
             {item = 'grip', label = 'Griff', amount = 1},
             {item = 'screws', label = 'Schrauben', amount = 5},
             {item = 'steel', label = 'Stahl', amount = 50}},
-        newitem = {sqlitem = 'weapon_assaultsmg', label = 'Sturm-MP'},
+        newitem = {sqlitem = 'smgcaseassault', label = 'Sturm-MP-Koffer'},
         newitemamount = 1,
-        craftAmount = 10
+        craftAmount = 1
     },
 
 }
@@ -264,15 +264,15 @@ Config.Items = {
 Config.SellItems = {
 
     {category = 'Chemische Drogen', content = {
-        {sqlitem = 'xtc', label = 'Extacy', priceBuy = 100.0},
+        {sqlitem = 'xtc', label = 'Extacy', priceBuy = 150.0},
         {sqlitem = 'kroko', label = 'Krokodil', priceBuy = 350.0},
     }},
     {category = 'Natürliche Drogen', content = {
-        {sqlitem = 'magicshrooms', label = 'Magic Shrooms', priceBuy = 50.0},
+        {sqlitem = 'magicshroom', label = 'Magic Shroom', priceBuy = 100.0},
         {sqlitem = 'lsd', label = 'LSD', priceBuy = 200.0},
     }},
     {category = 'Schwarzgebrannter', content = {
-        {sqlitem = 'moonshine', label = 'Moonshine', priceBuy = 60.0},
+        {sqlitem = 'moonshine', label = 'Moonshine', priceBuy = 80.0},
     }},
 }
 

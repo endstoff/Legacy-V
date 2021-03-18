@@ -46,7 +46,7 @@ RegisterNetEvent('esx:setJob')
 AddEventHandler('esx:setJob', function(job)
 	ESX.PlayerData.job = job
     PlayerData = ESX.GetPlayerData()
-    loadBlips()
+    --[[loadBlips()]]--
     refreshZones()
 end)
 
@@ -662,7 +662,7 @@ function generateMenu()
 
 end
 
-RegisterNetEvent('myFarming:startCrafting')
+--[[RegisterNetEvent('myFarming:startCrafting')
 AddEventHandler('myFarming:startCrafting', function(itemData, craftAmount)
 
     if not isProcessing then
@@ -704,7 +704,7 @@ AddEventHandler('myFarming:startCrafting', function(itemData, craftAmount)
 
     end
 
-end)
+end)]]--
 
 
 

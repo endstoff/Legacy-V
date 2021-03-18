@@ -44,20 +44,21 @@ function CleanUp()
 
     local toDelete = {}
 
-    for i = 1, #vehicles, 1 do
-        if (vehicles[i].lastUpdate < os.difftime(currentTime, threshold)) then
+    for plate, vehicle in pairs(vehicles) do
+        if (vehicle.lastUpdate < os.difftime(currentTime, threshold)) then
             
             MySQL.Async.execute("DELETE FROM vehicle_parking WHERE plate = @plate",
             {
-                ["@plate"] = vehicles[i].plate
+                ["@plate"] = plate
             })
 
-            table.insert(toDelete, i)
+            table.insert(toDelete, plate)
         end
     end
-
-    for i = #toDelete, 1, -1 do
-        table.remove(vehicles, toDelete[i])
+    
+    for i = 1, #toDelete, 1 do
+        local plate = toDelete[i]
+        vehicles[plate] = nil
     end
 
     Log("CleanUp complete. Deleted " .. #toDelete .. " entries.")
@@ -485,6 +486,14 @@ function TrySpawnVehicles()
     end
 end
 
+RegisterServerEvent("AdvancedParking:setVehicleModsFailed")
+AddEventHandler("AdvancedParking:setVehicleModsFailed", function(plate)
+    if (vehicles[plate] and vehicles[plate].handle and DoesEntityExist(vehicles[plate].handle)) then
+        DeleteEntity(vehicles[plate].handle)
+        vehicles[plate].handle = nil
+    end
+end)
+
 RegisterServerEvent("AdvancedParking:updatePlate")
 AddEventHandler("AdvancedParking:updatePlate", function(oldPlate, newPlate)
     if (oldPlate == nil or newPlate == nil) then
@@ -517,7 +526,7 @@ function UpdateVehicle(plate, position, rotation, modifications)
     vehicles[plate].rotation = rotation
     vehicles[plate].modifications = modifications
 
-    MySQL.Async.execute("UPDATE vehicle_parking SET posX = @posX, posY = @posY, posZ = @posZ, rotX = @rotX, rotY = @rotY, rotZ = @rotZ, modifications = @modifications, lastUpdate = @lastUpdate WHERE plate = @plate",
+    MySQL.Async.execute("UPDATE vehicle_parking SET posX = @posX, posY = @posY, posZ = @posZ, rotX = @rotX, rotY = @rotY, rotZ = @rotZ, modifications = @modifications WHERE plate = @plate",
     {
         ["@posX"]           = vehicles[plate].position.x,
         ["@posY"]           = vehicles[plate].position.y,
@@ -572,3 +581,28 @@ function DeleteAllVehicles()
     
     Log("Deleted " .. tostring(deleted) .. "/" .. tostring(#vehs) .. " vehicles. Took " .. tostring((GetGameTimer() - time) / 1000.0) .. "sec")
 end
+
+-- render entity scorched (trigger with netid of the vehicle and false when repairing)
+RegisterServerEvent("AdvancedParking:renderScorched")
+AddEventHandler("AdvancedParking:renderScorched", function(vehicleNetId, scorched)
+    local vehicleHandle = NetworkGetEntityFromNetworkId(vehicleNetId)
+    if (DoesEntityExist(vehicleHandle)) then
+        TriggerClientEvent("AdvancedParking:renderScorched", -1, vehicleNetId, scorched)
+    end
+end)
+
+-- return all vehicles plates and positions via a search string
+AddEventHandler("AdvancedParking:getVehiclePosition", function(searchString, cb)
+	local foundVehicles = {}
+
+	for plate, veh in pairs(vehicles) do
+		if (plate:find(searchString)) then
+			table.insert(foundVehicles, {
+                plate = plate,
+                position = veh.position
+            })
+		end
+	end
+
+    cb(foundVehicles)
+end)

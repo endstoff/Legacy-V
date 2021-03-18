@@ -1,15 +1,22 @@
 Config = {}
 
 -- set this to true if you want to see debug messages on client and server side
-Config.isDebug = false
+Config.isDebug = true
 
--- this controls the distance at which vehicles will spawn to the closest player (in meters)
+-- this controls the distance at which vehicles will spawn to the closest player 
+-- (in meters)
 Config.spawnDistance = 200.0
 
--- this controls when a vehicle will be removed from the database table when calling the cleanup function (in hours; so 24 * 7 = one week)
+-- this controls when a vehicle will be removed from the database table when 
+-- calling the cleanup function (in hours; so 24 * 7 = one week)
 Config.cleanUpThresholdTime = 24 * 7
 
--- vehicle classes that you do not want to save go here (remove the -- in front of the number if you want it blacklisted)
+-- set this to false if you do not want entities render as scorched when they 
+-- are completely broken
+Config.renderScorched = false
+
+-- vehicle classes that you do not want to save go here (remove the -- in front 
+-- of the number if you want it blacklisted)
 Config.classesBlacklist = {
 	-- 0, -- Compacts  
 	-- 1, -- Sedans  
@@ -34,16 +41,16 @@ Config.classesBlacklist = {
 	--20, -- Commercial  
 	21, -- Trains 
 }
--- other vehicles that you do not want to save can be inserted here (use `MODELNAME` when you put them in there)
+-- other vehicles that you do not want to save can be inserted here (use `MODELNAME` 
+-- when you put them in there)
 Config.vehiclesBlacklist = {
 	--`blista`,
 	--`firetruk`,
 	--`adder`,
-	`bmx`,
-	
 }
 
--- this lets you control if vehicles should be deleted (in minutes; 0 if you do not want to use it; this is useful for large servers with a lot of players)
+-- this lets you control if vehicles should be deleted (in minutes; 0 if you do not 
+-- want to use it; this is useful for large servers with a lot of players)
 Config.deleteTimer = 0
 -- despawns all vehicles that are more than x meters away from a player
 Config.deleteDistance = 25.0

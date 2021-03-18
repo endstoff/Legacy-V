@@ -29,3 +29,27 @@ ESX.RegisterUsableItem('lsd', function(source)
 	TriggerClientEvent('panic_drugeffects:useLSD', source)
 
 end)
+
+ESX.RegisterUsableItem('bong', function(source)
+	local xPlayer = ESX.GetPlayerFromId(source)
+	local itemCount = xPlayer.getInventoryItem('weed_pooch').count
+
+	if itemCount > 0 then 
+		xPlayer.removeInventoryItem('weed_pooch', 1)
+		TriggerClientEvent('panic_drugeffects:dBong', source)
+	else
+		TriggerClientEvent('notify', 4, "", "Du hast zu wenig Weed")
+	end
+end)
+
+RegisterCommand('useBong', function(source)
+	local xPlayer = ESX.GetPlayerFromId(source)
+	local itemCount = xPlayer.getInventoryItem('weed_pooch').count
+
+	if itemCount > 0 then 
+		xPlayer.removeInventoryItem('weed_pooch', 1)
+		TriggerClientEvent('panic_drugeffects:dBong', source)
+	else
+		TriggerClientEvent('notify', 4, "", "Du hast zu wenig Weed")
+	end
+end)
