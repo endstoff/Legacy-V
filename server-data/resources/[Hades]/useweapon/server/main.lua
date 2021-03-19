@@ -5,7 +5,7 @@ TriggerEvent('esx:getSharedObject', function(obj) ESX = obj end)
 ESX.RegisterUsableItem('pistolcaselight', function(source)
 	local xPlayer = ESX.GetPlayerFromId(source)
 	xPlayer.removeInventoryItem('pistolcaselight', 1)
-	local weaponName = 'WEAPON_SNSPISTOL_MK2'
+	local weaponName = 'WEAPON_COMBATPISTOL'
 	if ESX.GetWeapon(weaponName) then
 		weaponName = string.upper(weaponName)
 	end

@@ -162,6 +162,23 @@ ESX.TriggerServerCallback = function(name, requestId, source, cb, ...)
 		print(('[ExtendedMode] [^3WARNING^7] Server callback "%s" does not exist. Make sure that the server sided file really is loading, an error in that file might cause it to not load.'):format(name))
 	end
 end
+--[[
+ESX.SavePlayer = function(xPlayer, cb)
+	if ExM.DatabaseType == "es+esx" then
+		-- Nothing yet ;)
+	elseif ExM.DatabaseType == "newesx" then
+		MySQL.Async.execute('UPDATE users SET accounts = @accounts, job = @job, job_grade = @job_grade, `group` = @group, loadout = @loadout, position = @position, inventory = @inventory WHERE identifier = @identifier', {
+			['@accounts'] = json.encode(xPlayer.getAccounts(true)),
+			['@job'] = xPlayer.job.name,
+			['@job_grade'] = xPlayer.job.grade,
+			['@group'] = xPlayer.getGroup(),
+			['@loadout'] = json.encode(xPlayer.getLoadout(true)),
+			['@position'] = json.encode(xPlayer.getCoords()),
+			['@identifier'] = xPlayer.getIdentifier(),
+			['@inventory'] = json.encode(xPlayer.getInventory(true))
+		}, cb)
+	end
+end]]
 
 ESX.SavePlayer = function(xPlayer, cb)
 	local asyncTasks = {}
@@ -182,7 +199,7 @@ ESX.SavePlayer = function(xPlayer, cb)
 	end)
 
 	Async.parallel(asyncTasks, function(results)
-		print(('[ExtendedMode] [^2INFO^7] Saved player "%s^7"'):format(xPlayer.getName()))
+		print(('[extendedmode] [^2INFO^7] Saved player "%s^7"'):format(xPlayer.getName()))
 
 		if cb then
 			cb()
@@ -190,33 +207,60 @@ ESX.SavePlayer = function(xPlayer, cb)
 	end)
 end
 
-ESX.SavePlayers = function(cb)
-	local xPlayers, asyncTasks = ESX.GetPlayers(), {}
+----------------------------------------------------------------------------
 
-	for i=1, #xPlayers, 1 do
-		table.insert(asyncTasks, function(cb2)
-			local xPlayer = ESX.GetPlayerFromId(xPlayers[i])
-			ESX.SavePlayer(xPlayer, cb2)
-		end)
-	end
+ESX.SavePlayers = function(finishedCB)
+	CreateThread(function()
+		local savedPlayers = 0
+		local playersToSave = #ESX.Players
+		local maxTimeout = 20000
+		local currentTimeout = 0
+	
+		-- Save Each player
+		for _, xPlayer in ipairs(ESX.Players) do
+			ESX.SavePlayer(xPlayer, function(rowsChanged)
+				if rowsChanged == 1 then
+					savedPlayers = savedPlayers	+ 1
+				end
+			end)
+		end
 
-	Async.parallelLimit(asyncTasks, 8, function(results)
-		print(('[ExtendedMode] [^2INFO^7] Saved %s player(s)'):format(#xPlayers))
-		if cb then
-			cb()
+		-- Call the callback when done
+		while true do
+			Citizen.Wait(500)
+			currentTimeout = currentTimeout + 500
+			if playersToSave == savedPlayers then
+				finishedCB(true)
+				break
+			elseif currentTimeout >= maxTimeout then
+				finishedCB(false)
+				break
+			end
 		end
 	end)
 end
+
+----------------------------------------------------------------------------
+local debugsaves = 0 
+local debugnotsaves = 0 
 
 ESX.StartDBSync = function()
 	function saveData()
-		ESX.SavePlayers()
+		ESX.SavePlayers(function(result)
+			if result then
+				debugsaves = debugsaves + 1
+				print('[ExtendedMode] [^2INFO^7] Automatically saved all player data | '..debugsaves..' Saves while Online')
+			else
+				debugnotsaves = debugnotsaves + 1 
+				print('[ExtendedMode] [^3WARNING^7] Failed to automatically save player data! This may be caused by an internal error on the MySQL server. | '..debugnotsaves..' Not Saves while Online')
+			end
+		end)
 		SetTimeout(30 * 1000, saveData)
 	end
 
 	SetTimeout(30 * 1000, saveData)
 end
-
+----------------------------------------------------------------------------
 ESX.GetPlayers = function()
 	local sources = {}
 

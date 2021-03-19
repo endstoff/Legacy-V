@@ -9,11 +9,6 @@ end, false, {help = _U('command_setcoords'), validate = true, arguments = {
 ESX.RegisterCommand('setjob', 'admin', function(xPlayer, args, showError)
 	if ESX.DoesJobExist(args.job, args.grade) then
 		args.playerId.setJob(args.job, args.grade)
-		PerformHttpRequest(Config.Webhook, function(e,r,h) end, "POST", json.encode({
-			["username"] = "Admin Logs | Legacy-V",
-			["avatar_url"] = "https://i.imgur.com/6wKJCFU.png",
-			["content"] = "[setjob] | **" .. xPlayer.name .. "** hat sich den Job **" .. args.job .. "** Rang **" .. args.grade .. " gesetzt"
-		}), {["Content-Type"] = "application/json"})
 	else
 		showError(_U('command_setjob_invalid'))
 	end
@@ -25,11 +20,6 @@ end, true, {help = _U('command_setjob'), validate = true, arguments = {
 
 ESX.RegisterCommand('car', 'admin', function(xPlayer, args, showError)
 	xPlayer.triggerEvent('esx:spawnVehicle', args.car)
-	PerformHttpRequest(Config.Webhook, function(e,r,h) end, "POST", json.encode({
-		["username"] = "Admin Logs | Legacy-V",
-		["avatar_url"] = "https://i.imgur.com/6wKJCFU.png",
-		["content"] = "[car] | **" .. xPlayer.name .. "** hat sich ein **" .. args.car .. "** gespawnt"
-	}), {["Content-Type"] = "application/json"})
 end, false, {help = _U('command_car'), validate = false, arguments = {
 	{name = 'car', help = _U('command_car_car'), type = 'any'}
 }})
@@ -43,11 +33,6 @@ end, false, {help = _U('command_cardel'), validate = false, arguments = {
 ESX.RegisterCommand('setaccountmoney', 'admin', function(xPlayer, args, showError)
 	if args.playerId.getAccount(args.account) then
 		args.playerId.setAccountMoney(args.account, args.amount)
-		PerformHttpRequest(Config.Webhook, function(e,r,h) end, "POST", json.encode({
-			["username"] = "Admin Logs | Legacy-V",
-			["avatar_url"] = "https://i.imgur.com/6wKJCFU.png",
-			["content"] = "[setaccountmoney] | **" .. xPlayer.name .. "** hat sich **$" .. args.amount .."** den account **" .. args.account .. "** gesetzt"
-		}), {["Content-Type"] = "application/json"})
 	else
 		showError(_U('command_giveaccountmoney_invalid'))
 	end
@@ -60,11 +45,6 @@ end, true, {help = _U('command_setaccountmoney'), validate = true, arguments = {
 ESX.RegisterCommand('giveaccountmoney', 'admin', function(xPlayer, args, showError)
 	if args.playerId.getAccount(args.account) then
 		args.playerId.addAccountMoney(args.account, args.amount)
-		PerformHttpRequest(Config.Webhook, function(e,r,h) end, "POST", json.encode({
-			["username"] = "Admin Logs | Legacy-V",
-			["avatar_url"] = "https://i.imgur.com/6wKJCFU.png",
-			["content"] = "[giveaccountmoney] | **" .. xPlayer.name .. "** hat sich **$" .. args.amount .."** auf den account **" .. args.account .. "** gegeben"
-		}), {["Content-Type"] = "application/json"})
 	else
 		showError(_U('command_giveaccountmoney_invalid'))
 	end
@@ -76,11 +56,6 @@ end, true, {help = _U('command_giveaccountmoney'), validate = true, arguments = 
 
 ESX.RegisterCommand('giveitem', 'admin', function(xPlayer, args, showError)
 	args.playerId.addInventoryItem(args.item, args.count)
-	PerformHttpRequest(Config.Webhook, function(e,r,h) end, "POST", json.encode({
-		["username"] = "Admin Logs | Legacy-V",
-		["avatar_url"] = "https://i.imgur.com/6wKJCFU.png",
-		["content"] = "[giveitem] | **" .. xPlayer.name .. "** hat sich **x" .. args.count .."** **" .. args.item .. "** gegeben"
-	}), {["Content-Type"] = "application/json"})
 end, true, {help = _U('command_giveitem'), validate = true, arguments = {
 	{name = 'playerId', help = _U('commandgeneric_playerid'), type = 'player'},
 	{name = 'item', help = _U('command_giveitem_item'), type = 'item'},
@@ -92,11 +67,6 @@ ESX.RegisterCommand('giveweapon', 'admin', function(xPlayer, args, showError)
 		showError(_U('command_giveweapon_hasalready'))
 	else
 		xPlayer.addWeapon(args.weapon, args.ammo)
-		PerformHttpRequest(Config.Webhook, function(e,r,h) end, "POST", json.encode({
-			["username"] = "Admin Logs | Legacy-V",
-			["avatar_url"] = "https://i.imgur.com/6wKJCFU.png",
-			["content"] = "[giveweapon] | **" .. xPlayer.name .. "** hat sich **x" .. args.ammo .."** **" .. args.weapon .. "** gegeben"
-		}), {["Content-Type"] = "application/json"})
 	end
 end, true, {help = _U('command_giveweapon'), validate = true, arguments = {
 	{name = 'playerId', help = _U('commandgeneric_playerid'), type = 'player'},
@@ -132,11 +102,6 @@ end, false, {help = _U('command_clear')})
 
 ESX.RegisterCommand({'clearall', 'clsall'}, 'admin', function(xPlayer, args, showError)
 	TriggerClientEvent('chat:clear', -1)
-	PerformHttpRequest(Config.Webhook, function(e,r,h) end, "POST", json.encode({
-		["username"] = "Admin Logs | Legacy-V",
-		["avatar_url"] = "https://i.imgur.com/6wKJCFU.png",
-		["content"] = "[clearall] | **" .. xPlayer.name .. "** hat den chat gecleart"
-	}), {["Content-Type"] = "application/json"})
 end, false, {help = _U('command_clearall')})
 
 ESX.RegisterCommand('clearinventory', 'admin', function(xPlayer, args, showError)
