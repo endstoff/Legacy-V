@@ -18,8 +18,7 @@ body {
 	font-family:PricedownBL,sans-serif;
 	letter-spacing:.2vh;
 	text-shadow:-.1vh 0 #000,0 .1vh #000,.1vh 0 #000,0 -.1vh #000;
-	color: rgb(4, 110, 0)
-
+	color: rgb(0, 177, 24)
 }
 
 .schwarzmoney {
@@ -32,8 +31,6 @@ body {
 	letter-spacing:.2vh;
 	text-shadow:-.1vh 0 #000,0 .1vh #000,.1vh 0 #000,0 -.1vh #000;
 	color: rgb(255,0,0)
-
-
 }
 
 .voice1 {
