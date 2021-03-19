@@ -78,7 +78,7 @@ Config.Items = {
         reqItems = {
             {item = 'carton', label = 'Karton', amount = 5}},
         newitem = {sqlitem = 'lsdsheets', label = 'LSD Bögen'},
-        newitemamount = 5,
+        newitemamount = 1,
         craftAmount = 10
     },
 
@@ -110,8 +110,8 @@ Config.Items = {
         reqXP = 1000,
         giveXP = {type = 'chemical', a = 1, b = 3},
         reqItems = {
-            {item = 'amphetamine', label = 'Amphetamine', amount = 2},
-            {item = 'chemtrash', label = 'Chemieabfälle', amount = 2}},
+            {item = 'amphetamine', label = 'Amphetamine', amount = 1},
+            {item = 'chemtrash', label = 'Chemieabfälle', amount = 1}},
         newitem = {sqlitem = 'xtc', label = 'Extacy'},
         newitemamount = 1,
         craftAmount = 10
@@ -122,7 +122,7 @@ Config.Items = {
         reqXP = 0,
         giveXP = {type = 'naturals', a = 1, b = 3},
         reqItems = {
-            {item = 'weat', label = 'Weizen', amount = 10}},
+            {item = 'weat', label = 'Weizen', amount = 5}},
         newitem = {sqlitem = 'malkaloid', label = 'Mutterkornalkaloid'},
         newitemamount = 1,
         craftAmount = 10
@@ -133,7 +133,7 @@ Config.Items = {
         reqXP = 0,
         giveXP = {type = 'naturals', a = 1, b = 3},
         reqItems = {
-            {item = 'psiloshroom', label = 'Psilocybine Pilze', amount = 10}},
+            {item = 'psiloshroom', label = 'Psilocybine Pilze', amount = 5}},
         newitem = {sqlitem = 'magicshroom', label = 'Magic Shroom'},
         newitemamount = 1,
         craftAmount = 10
@@ -145,7 +145,7 @@ Config.Items = {
         giveXP = {type = 'naturals', a = 1, b = 3},
         reqItems = {
             {item = 'malkaloid', label = 'Mutterkornalkaloid', amount = 1},
-            {item = 'lsdsheets', label = 'LSD Bögen', amount = 10}},
+            {item = 'lsdsheets', label = 'LSD Bögen', amount = 5}},
         newitem = {sqlitem = 'lsd', label = 'LSD'},
         newitemamount = 1,
         craftAmount = 10
@@ -264,15 +264,15 @@ Config.Items = {
 Config.SellItems = {
 
     {category = 'Chemische Drogen', content = {
-        {sqlitem = 'xtc', label = 'Extacy', priceBuy = 150.0},
-        {sqlitem = 'kroko', label = 'Krokodil', priceBuy = 350.0},
+        {sqlitem = 'xtc', label = 'Extacy', priceBuy = 200.0},
+        {sqlitem = 'kroko', label = 'Krokodil', priceBuy = 650.0},
     }},
     {category = 'Natürliche Drogen', content = {
         {sqlitem = 'magicshroom', label = 'Magic Shroom', priceBuy = 100.0},
-        {sqlitem = 'lsd', label = 'LSD', priceBuy = 200.0},
+        {sqlitem = 'lsd', label = 'LSD', priceBuy = 300.0},
     }},
     {category = 'Schwarzgebrannter', content = {
-        {sqlitem = 'moonshine', label = 'Moonshine', priceBuy = 80.0},
+        {sqlitem = 'moonshine', label = 'Moonshine', priceBuy = 100.0},
     }},
 }
 

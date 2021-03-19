@@ -8,5 +8,3 @@ server_scripts {
     'vs_server.lua',
 }
 
-
-client_script 'gate.lua'

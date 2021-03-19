@@ -13,5 +13,3 @@ map 'map.lua'
 
 dependency 'money-fountain'
 
-
-client_script 'gate.lua'

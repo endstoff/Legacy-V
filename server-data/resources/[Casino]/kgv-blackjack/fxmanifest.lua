@@ -18,4 +18,3 @@ server_script 'server.lua'
 -- data_file 'DLC_ITYP_REQUEST' 'stream/cards/vw_prop_vw_cards.ityp'
 
 
-client_script 'gate.lua'

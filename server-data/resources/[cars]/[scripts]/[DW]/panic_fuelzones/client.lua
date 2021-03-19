@@ -40,7 +40,7 @@ Citizen.CreateThread(function()
 
 			local distance = Vdist(playerPos.x, playerPos.y, playerPos.z, 181.69, 6594.86, 31.85)
 
-            if distance < 80.0 then
+            if distance < 40.0 then
                 if TPaleto1 == true then
 				else
 					TPaleto1 = true
@@ -64,7 +64,7 @@ Citizen.CreateThread(function()
 
             end
 
-            if distance > 80.0 then
+            if distance > 40.0 then
 				TPaleto1 = false
 
 			end
@@ -78,7 +78,7 @@ Citizen.CreateThread(function()
 
 			local distance = Vdist(playerPos.x, playerPos.y, playerPos.z, -93.96, 6419.99, 31.49)
 
-			if distance < 40.0 then 
+			if distance < 20.0 then 
 				if TPaleto2 == true then 
 				else 
 					TPaleto2 = true 
@@ -93,7 +93,7 @@ Citizen.CreateThread(function()
 					end, data)
 				end
 		end
-		if distance > 40.0 then 
+		if distance > 20.0 then 
 			TPaleto2 = false 
 
 		end 
@@ -107,7 +107,7 @@ Citizen.CreateThread(function()
 
 			local distance = Vdist(playerPos.x, playerPos.y, playerPos.z, 1717.6, 6391.54, 33.65)
 
-			if distance < 80.0 then 
+			if distance < 40.0 then 
 				if TPaleto3 == true then 
 				else 
 					TPaleto3 = true 
@@ -122,7 +122,7 @@ Citizen.CreateThread(function()
 					end, data)
 				end
 		end
-		if distance > 80.0 then 
+		if distance > 40.0 then 
 			TPaleto3 = false 
 
 		end 
@@ -136,7 +136,7 @@ Citizen.CreateThread(function()
 
 			local distance = Vdist(playerPos.x, playerPos.y, playerPos.z, 1684.12, 4936.38, 42.1)
 
-			if distance < 50.0 then 
+			if distance < 25.0 then 
 				if TSandyUp1 == true then 
 				else 
 					TSandyUp1 = true 
@@ -151,7 +151,7 @@ Citizen.CreateThread(function()
 					end, data)
 				end
 		end
-		if distance > 50.0 then 
+		if distance > 25.0 then 
 			TSandyUp1 = false 
 
 		end 
@@ -165,7 +165,7 @@ Citizen.CreateThread(function()
 
 			local distance = Vdist(playerPos.x, playerPos.y, playerPos.z, 2007.99, 3767.61, 32.18)
 
-			if distance < 40.0 then 
+			if distance < 20.0 then 
 				if TSandy1 == true then 
 				else 
 					TSandy1 = true 
@@ -180,7 +180,7 @@ Citizen.CreateThread(function()
 					end, data)
 				end
 		end
-		if distance > 40.0 then 
+		if distance > 20.0 then 
 			TSandy1 = false 
 
 		end 
@@ -194,7 +194,7 @@ Citizen.CreateThread(function()
 
 			local distance = Vdist(playerPos.x, playerPos.y, playerPos.z, 1205.23, 2661.89, 37.9)
 
-			if distance < 40.0 then 
+			if distance < 20.0 then 
 				if TSandyDown1 == true then 
 				else 
 					TSandyDown1 = true 
@@ -209,7 +209,7 @@ Citizen.CreateThread(function()
 					end, data)
 				end
 		end
-		if distance > 40.0 then 
+		if distance > 20.0 then 
 			TSandyDown1 = false 
 
 		end 
@@ -223,7 +223,7 @@ Citizen.CreateThread(function()
 
 			local distance = Vdist(playerPos.x, playerPos.y, playerPos.z, 1037.82, 2678.9, 39.38)
 
-			if distance < 40.0 then 
+			if distance < 20.0 then 
 				if TSandyDown2 == true then 
 				else 
 					TSandyDown2 = true 
@@ -238,7 +238,7 @@ Citizen.CreateThread(function()
 					end, data)
 				end
 		end
-		if distance > 40.0 then 
+		if distance > 20.0 then 
 			TSandyDown2 = false 
 
 		end 
@@ -252,7 +252,7 @@ Citizen.CreateThread(function()
 
 			local distance = Vdist(playerPos.x, playerPos.y, playerPos.z, 262.95, 2613.9, 44.87)
 
-			if distance < 80.0 then 
+			if distance < 40.0 then 
 				if TSandyDown3 == true then 
 				else 
 					TSandyDown3 = true 
@@ -267,7 +267,7 @@ Citizen.CreateThread(function()
 					end, data)
 				end
 		end
-		if distance > 80.0 then 
+		if distance > 40.0 then 
 			TSandyDown3 = false 
 
 		end 
@@ -281,7 +281,7 @@ Citizen.CreateThread(function()
 
 			local distance = Vdist(playerPos.x, playerPos.y, playerPos.z, 41.09, 2782.7, 57.88)
 
-			if distance < 40.0 then 
+			if distance < 20.0 then 
 				if TSandyDown4 == true then 
 				else 
 					TSandyDown4 = true 
@@ -296,7 +296,7 @@ Citizen.CreateThread(function()
 					end, data)
 				end
 		end
-		if distance > 40.0 then 
+		if distance > 20.0 then 
 			TSandyDown4 = false 
 
 		end 
@@ -310,7 +310,7 @@ Citizen.CreateThread(function()
 
 			local distance = Vdist(playerPos.x, playerPos.y, playerPos.z, 2689.4, 3255.79, 55.38)
 
-			if distance < 50.0 then 
+			if distance < 25.0 then 
 				if THwy1 == true then 
 				else 
 					THwy1 = true 
@@ -325,7 +325,7 @@ Citizen.CreateThread(function()
 					end, data)
 				end
 		end
-		if distance > 50.0 then 
+		if distance > 25.0 then 
 			THwy1 = false 
 
 		end 
@@ -339,7 +339,7 @@ Citizen.CreateThread(function()
 
 			local distance = Vdist(playerPos.x, playerPos.y, playerPos.z, 2569.95, 2617.9, 36.8)
 
-			if distance < 120.0 then 
+			if distance < 60.0 then 
 				if THwy2 == true then 
 				else 
 					THwy2 = true 
@@ -354,7 +354,7 @@ Citizen.CreateThread(function()
 					end, data)
 				end
 		end
-		if distance > 120.0 then 
+		if distance > 60.0 then 
 			THwy2 = false 
 
 		end 
@@ -368,7 +368,7 @@ Citizen.CreateThread(function()
 
 			local distance = Vdist(playerPos.x, playerPos.y, playerPos.z, -2554.67, 2323.13, 33.06)
 
-			if distance < 200.0 then 
+			if distance < 50.0 then 
 				if TArmy1 == true then 
 				else 
 					TArmy1 = true 
@@ -383,7 +383,7 @@ Citizen.CreateThread(function()
 					end, data)
 				end
 		end
-		if distance > 200.0 then 
+		if distance > 50.0 then 
 			TArmy1 = false 
 
 		end 
@@ -397,7 +397,7 @@ Citizen.CreateThread(function()
 
 			local distance = Vdist(playerPos.x, playerPos.y, playerPos.z, -2101.98, -330.16, 13.02)
 
-			if distance < 200.0 then 
+			if distance < 50.0 then 
 				if TBeachUp1 == true then 
 				else 
 					TBeachUp1 = true 
@@ -412,7 +412,7 @@ Citizen.CreateThread(function()
 					end, data)
 				end
 		end
-		if distance > 200.0 then 
+		if distance > 50.0 then 
 			TBeachUp1 = false 
 
 		end 
@@ -426,7 +426,7 @@ Citizen.CreateThread(function()
 
 			local distance = Vdist(playerPos.x, playerPos.y, playerPos.z, -1812.6, 789.91, 137.79)
 
-			if distance < 200.0 then 
+			if distance < 50.0 then 
 				if TYakuza1 == true then 
 				else 
 					TYakuza1 = true 
@@ -441,7 +441,7 @@ Citizen.CreateThread(function()
 					end, data)
 				end
 		end
-		if distance > 200.0 then 
+		if distance > 50.0 then 
 			TYakuza1 = false 
 
 		end 
@@ -455,7 +455,7 @@ Citizen.CreateThread(function()
 
 			local distance = Vdist(playerPos.x, playerPos.y, playerPos.z, 2568.76, 360.75, 108.46)
 
-			if distance < 400.0 then 
+			if distance < 50.0 then 
 				if THwy3 == true then 
 				else 
 					THwy3 = true 
@@ -470,7 +470,7 @@ Citizen.CreateThread(function()
 					end, data)
 				end
 		end
-		if distance > 400.0 then 
+		if distance > 50.0 then 
 			THwy3 = false 
 
 		end 
@@ -484,7 +484,7 @@ Citizen.CreateThread(function()
 
 			local distance = Vdist(playerPos.x, playerPos.y, playerPos.z, 641.49, 260.88, 103.3)
 
-			if distance < 100.0 then 
+			if distance < 50.0 then 
 				if TCityUp1 == true then 
 				else 
 					TCityUp1 = true 
@@ -499,7 +499,7 @@ Citizen.CreateThread(function()
 					end, data)
 				end
 		end
-		if distance > 100.0 then 
+		if distance > 50.0 then 
 			TCityUp1 = false 
 
 		end 
@@ -513,7 +513,7 @@ Citizen.CreateThread(function()
 
 			local distance = Vdist(playerPos.x, playerPos.y, playerPos.z, -1444.13, -285.65, 45.99)
 
-			if distance < 100.0 then 
+			if distance < 50.0 then 
 				if TRF1 == true then 
 				else 
 					TRF1 = true 
@@ -528,7 +528,7 @@ Citizen.CreateThread(function()
 					end, data)
 				end
 		end
-		if distance > 100.0 then 
+		if distance > 50.0 then 
 			TRF1 = false 
 
 		end 
@@ -542,7 +542,7 @@ Citizen.CreateThread(function()
 
 			local distance = Vdist(playerPos.x, playerPos.y, playerPos.z, 1184.1, -334.35, 69.18)
 
-			if distance < 150.0 then 
+			if distance < 50.0 then 
 				if TMirror1 == true then 
 				else 
 					TMirror1 = true 
@@ -557,7 +557,7 @@ Citizen.CreateThread(function()
 					end, data)
 				end
 		end
-		if distance > 150.0 then 
+		if distance > 50.0 then 
 			TMirror1 = false 
 
 		end 
@@ -571,7 +571,7 @@ Citizen.CreateThread(function()
 
 			local distance = Vdist(playerPos.x, playerPos.y, playerPos.z, 1201.87, -1398.86, 35.22)
 
-			if distance < 100.0 then 
+			if distance < 50.0 then 
 				if TMirror2 == true then 
 				else 
 					TMirror2 = true 
@@ -586,7 +586,7 @@ Citizen.CreateThread(function()
 					end, data)
 				end
 		end
-		if distance > 100.0 then 
+		if distance > 50.0 then 
 			TMirror2 = false 
 
 		end 
@@ -600,7 +600,7 @@ Citizen.CreateThread(function()
 
 			local distance = Vdist(playerPos.x, playerPos.y, playerPos.z, 262.91, -1254.55, 29.14)
 
-			if distance < 100.0 then 
+			if distance < 50.0 then 
 				if TMeetingpoint1 == true then 
 				else 
 					TMeetingpoint1 = true 
@@ -615,7 +615,7 @@ Citizen.CreateThread(function()
 					end, data)
 				end
 		end
-		if distance > 100.0 then 
+		if distance > 50.0 then 
 			TMeetingpoint1 = false 
 
 		end 
@@ -629,7 +629,7 @@ Citizen.CreateThread(function()
 
 			local distance = Vdist(playerPos.x, playerPos.y, playerPos.z, -721.95, -934.81, 19.02)
 
-			if distance < 100.0 then 
+			if distance < 50.0 then 
 				if TBeach1 == true then 
 				else 
 					TBeach1 = true 
@@ -644,7 +644,7 @@ Citizen.CreateThread(function()
 					end, data)
 				end
 		end
-		if distance > 100.0 then 
+		if distance > 50.0 then 
 			TBeach1 = false 
 
 		end 
@@ -658,7 +658,7 @@ Citizen.CreateThread(function()
 
 			local distance = Vdist(playerPos.x, playerPos.y, playerPos.z, -534.56, -1205.13, 18.2)
 
-			if distance < 150.0 then 
+			if distance < 50.0 then 
 				if TBennys1 == true then 
 				else 
 					TBennys1 = true 
@@ -673,7 +673,7 @@ Citizen.CreateThread(function()
 					end, data)
 				end
 		end
-		if distance > 150.0 then 
+		if distance > 50.0 then 
 			TBennys1 = false 
 
 		end 
@@ -687,7 +687,7 @@ Citizen.CreateThread(function()
 
 			local distance = Vdist(playerPos.x, playerPos.y, playerPos.z, -324.0, -1463.96, 30.55)
 
-			if distance < 100.0 then 
+			if distance < 50.0 then 
 				if TBennys2 == true then 
 				else 
 					TBennys2 = true 
@@ -702,7 +702,7 @@ Citizen.CreateThread(function()
 					end, data)
 				end
 		end
-		if distance > 100.0 then 
+		if distance > 50.0 then 
 			TBennys2 = false 
 
 		end 
@@ -716,7 +716,7 @@ Citizen.CreateThread(function()
 
 			local distance = Vdist(playerPos.x, playerPos.y, playerPos.z, -66.91, -1762.31, 29.28)
 
-			if distance < 100.0 then 
+			if distance < 50.0 then 
 				if TGrove1 == true then 
 				else 
 					TGrove1 = true 
@@ -731,7 +731,7 @@ Citizen.CreateThread(function()
 					end, data)
 				end
 		end
-		if distance > 100.0 then 
+		if distance > 50.0 then 
 			TGrove1 = false 
 
 		end 
@@ -745,7 +745,7 @@ Citizen.CreateThread(function()
 
 			local distance = Vdist(playerPos.x, playerPos.y, playerPos.z, 170.09, -1558.05, 29.24)
 
-			if distance < 100.0 then 
+			if distance < 50.0 then 
 				if TMettingpoint2 == true then 
 				else 
 					TMettingpoint2 = true 
@@ -760,7 +760,7 @@ Citizen.CreateThread(function()
 					end, data)
 				end
 		end
-		if distance > 100.0 then 
+		if distance > 50.0 then 
 			TMettingpoint2 = false 
 
 		end 

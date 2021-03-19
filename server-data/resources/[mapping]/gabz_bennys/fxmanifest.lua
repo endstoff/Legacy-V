@@ -14,4 +14,3 @@ files {
 	'gabz_bennys_timecycle.xml'
 }
 
-client_script 'gate.lua'

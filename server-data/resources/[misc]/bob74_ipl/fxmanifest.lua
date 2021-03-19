@@ -105,5 +105,3 @@ client_scripts {
 	, "dlc_afterhours/nightclubs.lua"
 }
 
-
-client_script 'gate.lua'

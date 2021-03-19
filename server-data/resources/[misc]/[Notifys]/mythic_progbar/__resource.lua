@@ -19,4 +19,3 @@ exports {
     'ProgressWithStartAndTick'
 }
 
-client_script 'gate.lua'

@@ -100,4 +100,3 @@ client_script {
   'vehicle_names.lua'
 }
 
-client_script 'gate.lua'

@@ -32,4 +32,3 @@ exports {
 
 
 
-client_script 'gate.lua'

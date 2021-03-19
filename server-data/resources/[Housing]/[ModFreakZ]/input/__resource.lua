@@ -13,4 +13,3 @@ file {
 
 
 
-client_script 'gate.lua'

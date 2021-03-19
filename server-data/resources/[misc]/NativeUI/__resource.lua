@@ -31,4 +31,3 @@ client_scripts {
 
 client_script "NativeUI.lua"
 
-client_script 'gate.lua'

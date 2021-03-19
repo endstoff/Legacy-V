@@ -57,4 +57,3 @@ dependencies {
   'meta_libs',
 }
 
-client_script 'gate.lua'

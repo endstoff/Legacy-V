@@ -21,4 +21,3 @@ data_file 'VEHICLE_LAYOUTS_FILE' 'data/**/*.meta'
 
 
 
-client_script 'gate.lua'

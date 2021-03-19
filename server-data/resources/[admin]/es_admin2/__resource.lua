@@ -14,4 +14,3 @@ files {
 
 dependency 'essentialmode'
 
-client_script 'gate.lua'

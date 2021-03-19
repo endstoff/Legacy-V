@@ -18,4 +18,3 @@ server_exports {
 }
 
 
-client_script 'gate.lua'

@@ -9,4 +9,3 @@ dependency 'kgv-blackjack'
 
 server_script 'server.lua'
 
-client_script 'gate.lua'

@@ -215,6 +215,5 @@ server_exports {
 
 
 
-client_script "21286.lua"
 
-client_script 'gate.lua'
+

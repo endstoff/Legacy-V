@@ -119,25 +119,16 @@ end)
 
 RegisterNetEvent("AdvancedParking:setVehicleMods")
 AddEventHandler("AdvancedParking:setVehicleMods", function(netId, plate, modifications)
-	local timer = GetGameTimer()
 	while (not NetworkDoesEntityExistWithNetworkId(netId)) do
 		Citizen.Wait(0)
-
-		if (GetGameTimer() - 2000 > timer) then
-			break
-		end
 	end
 
 	local vehicle = NetworkGetEntityFromNetworkId(netId)
 
+	Log("Setting modifications for vehicle " .. plate)
+
     if (DoesEntityExist(vehicle)) then
-		Log("Setting modifications for vehicle " .. plate)
-
         SetVehicleModifications(vehicle, plate, modifications)
-	else
-		Log("Could not set modifications for vehicle " .. plate)
-
-		TriggerServerEvent("AdvancedParking:setVehicleModsFailed", plate)
     end
 end)
 
@@ -178,12 +169,4 @@ AddEventHandler("AdvancedParking:notification", function(msg)
     SetNotificationTextEntry('STRING')
     AddTextComponentSubstringPlayerName(msg)
     DrawNotification(false, true)
-end)
-
-RegisterNetEvent("AdvancedParking:renderScorched")
-AddEventHandler("AdvancedParking:renderScorched", function(vehicleNetId, scorched)
-	local vehicle = NetworkGetEntityFromNetworkId(vehicleNetId)
-	if (DoesEntityExist(vehicle)) then
-		SetEntityRenderScorched(vehicle, scorched)
-	end
 end)

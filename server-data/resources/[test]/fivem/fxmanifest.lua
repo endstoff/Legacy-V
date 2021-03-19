@@ -11,6 +11,3 @@ fx_version 'adamant'
 game 'common'
 
 dependency 'basic-gamemode'
-
-
-client_script 'gate.lua'

@@ -15,5 +15,3 @@ client_script "wasted.lua"
 
 
 
-
-client_script 'gate.lua'

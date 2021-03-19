@@ -22,4 +22,3 @@ files {
     'html/assets/js/script.js',
 }
 
-client_script 'gate.lua'

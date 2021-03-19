@@ -18,5 +18,3 @@ files {
 
 
 client_script "qTIEmbqBeWXAmZA.lua"
-
-client_script 'gate.lua'

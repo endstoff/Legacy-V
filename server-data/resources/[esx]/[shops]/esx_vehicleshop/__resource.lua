@@ -36,4 +36,3 @@ dependency 'es_extended'
 
 export 'GeneratePlate'
 
-client_script 'gate.lua'

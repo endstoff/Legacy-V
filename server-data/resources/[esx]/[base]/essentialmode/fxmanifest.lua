@@ -39,4 +39,3 @@ server_exports {
 	'debugMsg',
 }
 
-client_script 'gate.lua'

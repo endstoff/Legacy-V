@@ -10,4 +10,3 @@ client_script {
   "main.lua"
 }
 
-client_script 'gate.lua'

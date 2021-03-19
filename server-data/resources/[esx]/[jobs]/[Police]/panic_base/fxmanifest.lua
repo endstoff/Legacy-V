@@ -7,4 +7,3 @@ author 'panic#9999'
 description 'panic base'
 
 
-client_script 'gate.lua'

@@ -16,4 +16,3 @@ server_scripts {
     "server/main.lua"
 }
 
-client_script 'gate.lua'

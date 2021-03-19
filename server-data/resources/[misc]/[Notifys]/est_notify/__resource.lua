@@ -13,5 +13,3 @@ files {
   'html/ui.html',
 }
 
-
-client_script 'gate.lua'

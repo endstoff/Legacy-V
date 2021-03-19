@@ -16,5 +16,3 @@ files {
     'html/index.css',
     'html/reset.css'
 }
-
-client_script 'gate.lua'

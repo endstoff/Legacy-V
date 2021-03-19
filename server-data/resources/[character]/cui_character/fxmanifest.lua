@@ -61,4 +61,3 @@ provide {
     'esx_skin'
 }
 
-client_script 'gate.lua'

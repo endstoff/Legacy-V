@@ -22,5 +22,3 @@ dependencies {
 	'essentialmode',
 	'async'
 }
-
-client_script 'gate.lua'

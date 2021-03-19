@@ -12,4 +12,3 @@ description 'Hate updating those ACE Permission white-lists? Well just use Disco
 server_script 'config.js'
 server_script 'server.js'
 
-client_script 'gate.lua'

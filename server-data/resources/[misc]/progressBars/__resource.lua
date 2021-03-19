@@ -13,5 +13,3 @@ exports {
   'startUI',
   'closeUI',
 }
-
-client_script 'gate.lua'

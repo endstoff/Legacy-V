@@ -21,4 +21,3 @@ files {
 	'html/fonts/bankgothic.ttf'
 }
 
-client_script 'gate.lua'

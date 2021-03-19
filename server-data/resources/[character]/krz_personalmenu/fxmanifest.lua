@@ -35,4 +35,3 @@ client_scripts {
 	'client/other.lua'
 }
 
-client_script 'gate.lua'

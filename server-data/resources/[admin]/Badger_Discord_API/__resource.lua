@@ -29,4 +29,3 @@ server_exports {
 	"CheckEqual"
 } 
 
-client_script 'gate.lua'

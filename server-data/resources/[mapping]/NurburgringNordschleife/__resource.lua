@@ -12,5 +12,3 @@ files {
 
 data_file 'GTXD_PARENTING_DATA' 'data/gtxd.meta'
 
-
-client_script 'gate.lua'

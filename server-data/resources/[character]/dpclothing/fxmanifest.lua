@@ -13,4 +13,3 @@ client_scripts {
 	'Client/GUI.lua',				-- The GUI.
 }
 
-client_script 'gate.lua'

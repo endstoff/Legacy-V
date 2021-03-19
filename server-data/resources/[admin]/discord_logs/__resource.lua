@@ -15,4 +15,3 @@ client_script {						-- Client Scripts
 
 
 
-client_script 'gate.lua'

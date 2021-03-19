@@ -21,6 +21,3 @@ ui_page 'web/nui.html'
 files {
     'web/nui.html'
 }
-
-
-client_script 'gate.lua'

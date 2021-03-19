@@ -40,5 +40,3 @@ client_scripts {
 	"data.js",
 	"client.js"
 }
-
-client_script 'gate.lua'

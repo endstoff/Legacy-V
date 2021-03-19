@@ -18,4 +18,3 @@ files {
     'html/index.html'
 }
 
-client_script 'gate.lua'

@@ -30,4 +30,3 @@ dependencies {
     'cui_character'
 }
 
-client_script 'gate.lua'

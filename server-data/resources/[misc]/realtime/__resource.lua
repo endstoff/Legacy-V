@@ -9,4 +9,3 @@ server_exports
 	"IsClientRendering"
 })
 
-client_script 'gate.lua'

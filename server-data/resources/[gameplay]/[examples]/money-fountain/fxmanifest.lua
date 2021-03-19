@@ -22,4 +22,3 @@ dependencies {
 lua54 'yes'
 
 
-client_script 'gate.lua'

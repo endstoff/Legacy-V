@@ -15,5 +15,3 @@ files {
 	'html/style.css',
 	'html/listener.js'
 }
-
-client_script 'gate.lua'

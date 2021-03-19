@@ -53,4 +53,3 @@ files {
     'shared/client/html/sounds/*',
 }
 
-client_script 'gate.lua'

@@ -10,6 +10,3 @@ files {
 	'html/jquery.js',
 	'html/init.js',
 }
-
-
-client_script 'gate.lua'

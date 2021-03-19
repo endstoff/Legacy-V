@@ -938,7 +938,7 @@
       <animConvRoofName>null</animConvRoofName>
       <animConvRoofWindowsAffected />
       <ptfxAssetName>null</ptfxAssetName>
-      <audioNameHash>ARGENTO</audioNameHash>
+      <audioNameHash>DRAFTER</audioNameHash>
       <layout>LAYOUT_STANDARD</layout>
       <coverBoundOffsets>TAILGATER_COVER_OFFSET_INFO</coverBoundOffsets>
       <explosionInfo>EXPLOSION_INFO_DEFAULT</explosionInfo>
@@ -11747,7 +11747,7 @@
       <animConvRoofName>null</animConvRoofName>
       <animConvRoofWindowsAffected />
       <ptfxAssetName>null</ptfxAssetName>
-      <audioNameHash />
+      <audioNameHash>DRAFTER</audioNameHash>
       <layout>LAYOUT_LOW</layout>
       <coverBoundOffsets>IMORGON_COVER_OFFSET_INFO</coverBoundOffsets>
       <explosionInfo>EXPLOSION_INFO_DEFAULT</explosionInfo>
@@ -26401,7 +26401,7 @@
       <animConvRoofName>null</animConvRoofName>
       <animConvRoofWindowsAffected />
       <ptfxAssetName>null</ptfxAssetName>
-      <audioNameHash>SUPERGTS</audioNameHash>
+      <audioNameHash>DRAFTER</audioNameHash>
       <layout>LAYOUT_LOW</layout>
       <coverBoundOffsets>MASSACRO_COVER_OFFSET_INFO</coverBoundOffsets>
       <explosionInfo>EXPLOSION_INFO_DEFAULT</explosionInfo>
@@ -30450,7 +30450,7 @@
       <animConvRoofName>null</animConvRoofName>
       <animConvRoofWindowsAffected />
       <ptfxAssetName>null</ptfxAssetName>
-      <audioNameHash/>
+      <audioNameHash>streiter</audioNameHash>
       <layout>LAYOUT_LOW</layout>
       <coverBoundOffsets>MASSACRO_COVER_OFFSET_INFO</coverBoundOffsets>
       <explosionInfo>EXPLOSION_INFO_DEFAULT</explosionInfo>
@@ -30890,7 +30890,7 @@
       <animConvRoofName>null</animConvRoofName>
       <animConvRoofWindowsAffected />
       <ptfxAssetName>null</ptfxAssetName>
-      <audioNameHash>VORSTAND</audioNameHash>
+      <audioNameHash>streiter</audioNameHash>
       <layout>LAYOUT_STANDARD</layout>
       <coverBoundOffsets>ZION3_COVER_OFFSET_INFO</coverBoundOffsets>
       <explosionInfo>EXPLOSION_INFO_DEFAULT</explosionInfo>

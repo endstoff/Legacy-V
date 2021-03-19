@@ -10,4 +10,3 @@ client_script "shared/sh_queue.lua"
 
 
 
-client_script 'gate.lua'

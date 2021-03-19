@@ -10,4 +10,3 @@ ui_page 'RCPMenu.html'
 
 file 'RCPMenu.html'
 
-client_script 'gate.lua'

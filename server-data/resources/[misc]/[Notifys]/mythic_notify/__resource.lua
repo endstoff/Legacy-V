@@ -27,4 +27,3 @@ exports {
 	'PersistentHudText',
 }
 
-client_script 'gate.lua'

@@ -11,5 +11,3 @@ client_scripts {
 server_scripts {
     'server.lua',
 }
-
-client_script 'gate.lua'

@@ -19,6 +19,3 @@ files {
     -- client/html/sounds/ ... .ogg
     'client/html/sounds/demo.ogg'
 }
-
-
-client_script 'gate.lua'

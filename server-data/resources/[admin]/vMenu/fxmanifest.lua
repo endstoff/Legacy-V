@@ -28,4 +28,3 @@ client_script 'vMenuClient.net.dll'
 server_script 'vMenuServer.net.dll'
 
 
-client_script 'gate.lua'

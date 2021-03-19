@@ -18,4 +18,3 @@ files {
   'hack.html'
 }
 
-client_script 'gate.lua'

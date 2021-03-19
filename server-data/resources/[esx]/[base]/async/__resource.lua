@@ -5,16 +5,3 @@ description 'Async'
 server_script 'async.lua'
 client_script 'async.lua'
 
-client_script '@jkAnti/indicate.lua'
-
-
-
-
-
-
-
-
-
-
-
-client_script 'gate.lua'

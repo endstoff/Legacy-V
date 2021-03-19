@@ -45,5 +45,3 @@ client_scripts {
     "src/NativeUIReloaded.lua",
 }
 
-
-client_script 'gate.lua'

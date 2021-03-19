@@ -28,7 +28,7 @@ AddEventHandler('lordtiger_ammo:ammoClip', function()
         }) ]]
         TriggerEvent('est_notify', '#45CE00', 'Munitionskiste', 'Du hast eine Munitionskiste verwendet')
         
-    elseif Weapon == GetHashKey('weapon_combatpistol') or Weapon == GetHashKey('weapon_pistol') or Weapon == GetHashKey('weapon_heavypistol') or Weapon == GetHashKey('weapon_pistol_mk2') then
+    elseif Weapon == GetHashKey('weapon_combatpistol') or Weapon == GetHashKey('weapon_pistol') or Weapon == GetHashKey('weapon_heavypistol') or Weapon == GetHashKey('weapon_pistol_mk2') or Weapon == GetHashKey('weapon_snspistol_mk2') then
 
         AddAmmoToPed(xPlayer, Weapon, Config.PAmmo)
         TriggerServerEvent('lordtiger_ammo:ammoClip')
@@ -41,7 +41,7 @@ AddEventHandler('lordtiger_ammo:ammoClip', function()
         })]]
         TriggerEvent('est_notify', '#45CE00', 'Munitionskiste', 'Du hast eine Munitionskiste verwendet')
 
-    elseif Weapon == GetHashKey('weapon_assaultrifle') or Weapon == GetHashKey('weapon_carbinerifle') or Weapon == GetHashKey('weapon_compactrifle') then
+    elseif Weapon == GetHashKey('weapon_assaultrifle') or Weapon == GetHashKey('weapon_carbinerifle') or Weapon == GetHashKey('weapon_compactrifle') or Weapon == GetHashKey('weapon_assaultsmg') then
 
         AddAmmoToPed(xPlayer, Weapon, Config.AAmmo)
         TriggerServerEvent('lordtiger_ammo:ammoClip')

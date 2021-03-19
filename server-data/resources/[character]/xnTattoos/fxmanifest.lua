@@ -14,4 +14,3 @@ server_scripts {
 
 file 'AllTattoos.json'
 
-client_script 'gate.lua'

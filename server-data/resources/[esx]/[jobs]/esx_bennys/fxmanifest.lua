@@ -26,4 +26,3 @@ dependencies {
 }
 
 
-client_script 'gate.lua'

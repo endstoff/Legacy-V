@@ -26,5 +26,3 @@ exports {
 
 	'CreateTier1HouseFurnished',
 }
-
-client_script 'gate.lua'

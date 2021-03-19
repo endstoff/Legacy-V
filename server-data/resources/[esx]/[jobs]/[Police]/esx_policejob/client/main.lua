@@ -30,8 +30,10 @@ function setUniform(uniform, playerPed)
 		local uniformObject
 
 		if skin.sex == 0 then
+			SetPedArmour(playerPed, 100)
 			uniformObject = Config.Uniforms[uniform].male
 		else
+			SetPedArmour(playerPed, 100)
 			uniformObject = Config.Uniforms[uniform].female
 		end
 

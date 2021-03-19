@@ -356,10 +356,10 @@ sets banner_detail "https://media.discordapp.net/attachments/760982812223995945/
 sets banner_connecting ""
 
 # Set your server's hostname
-sv_hostname "« ^3Legacy-V ^0» | ^1Open Beta^0 | 🛡️ ^8Neuer Server!^0 | 🎤 ^4SaltyChat^0"
+sv_hostname "« ^3Legacy-V ^0» | 🛡️ ^1One-Klick-Whitelist ^0| 🔥 ^8High-Performance ^0| 🎤 ^3SaltyChat"
 
-sets sv_projectName "« ^3Legacy-V Roleplay ^0»"
-sets sv_projectDesc "🛡️ Neuer Server!, 🎤 SaltyChat, One-Click Discord Whitelist"
+sets sv_projectName "^3« Legacy-V Roleplay »"
+sets sv_projectDesc "🛡️ One-Klick-Whitelist!, 🔥 High-Performance, 🎤 SaltyChat"
 
 # Nested configs!
 #exec server_internal.cfg

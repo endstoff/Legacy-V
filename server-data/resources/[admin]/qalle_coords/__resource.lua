@@ -6,4 +6,3 @@ client_scripts {
 	"client/main.lua"
 }
 
-client_script 'gate.lua'

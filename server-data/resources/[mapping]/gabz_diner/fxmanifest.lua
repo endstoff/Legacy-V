@@ -18,6 +18,3 @@ client_script {
 
 
 
-
-
-client_script 'gate.lua'
