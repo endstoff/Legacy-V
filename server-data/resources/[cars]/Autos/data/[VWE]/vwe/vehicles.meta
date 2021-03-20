@@ -12511,7 +12511,7 @@
       <animConvRoofName>null</animConvRoofName>
       <animConvRoofWindowsAffected />
       <ptfxAssetName>null</ptfxAssetName>
-      <audioNameHash>INFERNUSSR</audioNameHash>
+      <audioNameHash>INFERNUS</audioNameHash>
       <layout>LAYOUT_LOW_INFERNUS</layout>
       <coverBoundOffsets>INFERNUS_COVER_OFFSET_INFO</coverBoundOffsets>
       <explosionInfo>EXPLOSION_INFO_DEFAULT</explosionInfo>
@@ -14736,7 +14736,7 @@
       <animConvRoofName>null</animConvRoofName>
       <animConvRoofWindowsAffected />
       <ptfxAssetName>null</ptfxAssetName>
-      <audioNameHash>METEOR</audioNameHash>
+      <audioNameHash>COMET3</audioNameHash>
       <layout>LAYOUT_LOW_RESTRICTED</layout>
       <coverBoundOffsets>811_COVER_OFFSET_INFO</coverBoundOffsets>
       <explosionInfo>EXPLOSION_INFO_DEFAULT</explosionInfo>
@@ -30340,7 +30340,7 @@
       <animConvRoofName>null</animConvRoofName>
       <animConvRoofWindowsAffected />
       <ptfxAssetName>null</ptfxAssetName>
-	  <audioNameHash>LE7B</audioNameHash>
+	    <audioNameHash>LE7B</audioNameHash>
       <layout>LAYOUT_LOW_INFERNUS2</layout>
       <coverBoundOffsets>INFERNUS2_COVER_OFFSET_INFO</coverBoundOffsets>
       <explosionInfo>EXPLOSION_INFO_DEFAULT</explosionInfo>

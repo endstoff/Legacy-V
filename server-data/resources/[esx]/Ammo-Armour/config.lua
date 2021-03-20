@@ -13,6 +13,6 @@ Config.Tier4 = 100  --100 Armour
 -- Ammo
 
 Config.SAmmo = 12 -- How much ammo should the clip give (Shotguns)
-Config.PAmmo = 10 -- How much ammo should the clip give (Pistol)
+Config.PAmmo = 32 -- How much ammo should the clip give (Pistol)
 Config.AAmmo = 32 -- How much ammo should the clip give (Assualt Rifles)
 Config.MAmmo = 20 -- How much ammo should the clip give (Mini smgs)

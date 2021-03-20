@@ -35,7 +35,7 @@ Config.Seatbelt = {
 }
 
 Config.Cruise = {
-    ENABLE = true, --The main toggle for the settings. If disabled, all of the options below in this sub-table will not used.
+    ENABLE = false, --The main toggle for the settings. If disabled, all of the options below in this sub-table will not used.
     command = 'cruise', --Customise the chat command to toggle cruise control.
     key = 'b', --Customise the key to toggle cruise control.
     description = Locales[Config.Language]['cruise_description'], --Customise the description for the chat message.

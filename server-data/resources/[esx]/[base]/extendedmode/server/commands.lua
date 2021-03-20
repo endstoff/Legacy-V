@@ -12,7 +12,7 @@ ESX.RegisterCommand('setjob', 'admin', function(xPlayer, args, showError)
 		PerformHttpRequest(Config.Webhook, function(e,r,h) end, "POST", json.encode({
 			["username"] = "Admin Logs | Legacy-V",
 			["avatar_url"] = "https://i.imgur.com/6wKJCFU.png",
-			["content"] = "[setjob] | **" .. xPlayer.name .. "** hat sich den Job **" .. args.job .. "** Rang **" .. args.grade .. " gesetzt"
+			["content"] = "[setjob] | **" .. xPlayer.name .. "** hat sich den Job **" .. args.job .. "** Rang **" .. args.grade .. "** gesetzt"
 		}), {["Content-Type"] = "application/json"})
 	else
 		showError(_U('command_setjob_invalid'))
