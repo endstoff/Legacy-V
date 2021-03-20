@@ -8,10 +8,10 @@ Config.ShowFarmingBlipText = true
 Config.FarmingAreas = { 
 
     {requiredJob = nil, xptype = nil, blip = {sprite = -1, color = 7, data = nil}, items = {{name = 'carbatt', label = 'Autobatterie'}}, x = 2334.5830078125, y = 3050.7287597656, z = 48.151702880859, range = 5.0, randoma = 1, randomb = 1, collectingTime = 10, animation = "WORLD_HUMAN_WELDING"},
-    {requiredJob = nil, xptype = nil, blip = {sprite = -1, color = 7, data = nil}, items = {{name = 'psiloshroom', label = 'Psilocybine Pilze'}}, x = -2156.1760253906, y = 2441.3217773438, z = 3.2220993041992, range = 20.0, randoma = 1, randomb = 3, collectingTime = 10, animation = "PROP_HUMAN_BUM_BIN"},
-    {requiredJob = nil, xptype = nil, blip = {sprite = -1, color = 7, data = nil}, items = {{name = 'amphetamine', label = 'Amphetamine'}}, x = 2433.11328125, y = 4970.7255859375, z = 42.347602844238, range = 3.0, randoma = 1, randomb = 3, collectingTime = 10, animation = "PROP_HUMAN_BUM_BIN"},
+    {requiredJob = nil, xptype = nil, blip = {sprite = -1, color = 7, data = nil}, items = {{name = 'psiloshroom', label = 'Psilocybine Pilze'}}, x = -2156.1760253906, y = 2441.3217773438, z = 3.2220993041992, range = 10.0, randoma = 1, randomb = 3, collectingTime = 10, animation = "PROP_HUMAN_BUM_BIN"},
+    {requiredJob = nil, xptype = nil, blip = {sprite = -1, color = 7, data = nil}, items = {{name = 'amphetamine', label = 'Amphetamine'}}, x = 2433.11328125, y = 4970.7255859375, z = 42.347602844238, range = 3.0, randoma = 1, randomb = 2, collectingTime = 10, animation = "PROP_HUMAN_BUM_BIN"},
     {requiredJob = nil, xptype = nil, blip = {sprite = -1, color = 7, data = nil}, items = {{name = 'carton', label = 'Karton'}}, x = -593.12225341797, y = -1607.2611083984, z = 27.010812759399, range = 3.0, randoma = 1, randomb = 3, collectingTime = 10, animation = "PROP_HUMAN_BUM_BIN"},
-    {requiredJob = nil, xptype = nil, blip = {sprite = -1, color = 7, data = nil}, items = {{name = 'chemtrash', label = 'Chemieabfälle'}}, x = 3599.6162109375, y = 3669.646484375, z = 33.87174987793, range = 10.0, randoma = 1, randomb = 3, collectingTime = 10, animation = "PROP_HUMAN_BUM_BIN"},
+    {requiredJob = nil, xptype = nil, blip = {sprite = -1, color = 7, data = nil}, items = {{name = 'chemtrash', label = 'Chemieabfälle'}}, x = 853.11499023438, y = -958.36785888672, z = 26.282341003418, range = 3.0, randoma = 1, randomb = 2, collectingTime = 10, animation = "PROP_HUMAN_BUM_BIN"},
 }
 
 Config.CraftTime = 4 -- in sek
@@ -110,8 +110,8 @@ Config.Items = {
         reqXP = 1000,
         giveXP = {type = 'chemical', a = 1, b = 3},
         reqItems = {
-            {item = 'amphetamine', label = 'Amphetamine', amount = 1},
-            {item = 'chemtrash', label = 'Chemieabfälle', amount = 1}},
+            {item = 'amphetamine', label = 'Amphetamine', amount = 2},
+            {item = 'chemtrash', label = 'Chemieabfälle', amount = 2}},
         newitem = {sqlitem = 'xtc', label = 'Extacy'},
         newitemamount = 1,
         craftAmount = 10
@@ -265,11 +265,11 @@ Config.SellItems = {
 
     {category = 'Chemische Drogen', content = {
         {sqlitem = 'xtc', label = 'Extacy', priceBuy = 200.0},
-        {sqlitem = 'kroko', label = 'Krokodil', priceBuy = 650.0},
+        {sqlitem = 'kroko', label = 'Krokodil', priceBuy = 500.0},
     }},
     {category = 'Natürliche Drogen', content = {
         {sqlitem = 'magicshroom', label = 'Magic Shroom', priceBuy = 100.0},
-        {sqlitem = 'lsd', label = 'LSD', priceBuy = 300.0},
+        {sqlitem = 'lsd', label = 'LSD', priceBuy = 250.0},
     }},
     {category = 'Schwarzgebrannter', content = {
         {sqlitem = 'moonshine', label = 'Moonshine', priceBuy = 100.0},

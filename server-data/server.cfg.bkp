@@ -8,31 +8,13 @@ endpoint_add_udp "0.0.0.0:30120"
 +set onesync_forceMigration true
 +set onesync_enabled 1
 
-add_ace identifier.steam:110000113df958c "rtxac.bypass" allow #endstoff
-add_ace identifier.steam:11000013d1c551a "rtxac.bypass" allow #ixinzane
-add_ace identifier.steam:1100001032b0c37 "rtxac.bypass" allow #gargani
-add_ace identifier.steam:1100001074f2d61 "rtxac.bypass" allow #kaba
-add_ace identifier.steam:110000104034487 "rtxac.bypass" allow #Hades
-add_ace identifier.steam:11000010e77bfb7 "rtxac.bypass" allow #Terminal
-add_ace identifier.steam:11000010c661632 "rtxac.bypass" allow #Alexadioz
-
-add_ace identifier.steam:110000113df958c "rtxac.banlist" allow #endstoff
-add_ace identifier.steam:11000013d1c551a "rtxac.banlist" allow #ixinzane
-add_ace identifier.steam:1100001032b0c37 "rtxac.banlist" allow #gargani
-add_ace identifier.steam:1100001074f2d61 "rtxac.banlist" allow #kaba
-add_ace identifier.steam:110000104034487 "rtxac.banlist" allow #Hades
-add_ace identifier.steam:11000010e77bfb7 "rtxac.banlist" allow #Terminal
-add_ace identifier.steam:11000010c661632 "rtxac.banlist" allow #Alexadioz
-
-
-
-sv_maxclients 64
+sv_maxclients 128
 # You probably don't want to change these!
 # Only change them if you're using a server with multiple network interfaces.
 
 
 ## These resources will ensure by default.
-#ensure esx_pinkunicorn
+ensure rammo-ya-salame
 ensure chat
 ensure screenshot-basic
 ensure mapmanager
@@ -146,7 +128,8 @@ ensure V2highendShells
 ##      HUD
 ensure est_hud 
 ensure est_moneyhud
-ensure est_carhud
+ensure cd_carhud
+#ensure est_carhud
 ensure Legacy_Loadingscreen
 #ensure yume_edge
 
@@ -393,7 +376,7 @@ add_ace identifier.steam:110000113df958c "command.hypnonema" allow
 # Hide player endpoints in external log output.
 sv_endpointprivacy true
 
-sets tags ''
+sets tags 'German,Deutsch,Legacy,RP,Roleplay, esx'
 sets 🎧Discord "https://discord.gg/c7WABYqa9K"
 sets 🎧Teamspeak "ts.legacy-v.net"
 sets 🌐Website "https://legacy-v.net"

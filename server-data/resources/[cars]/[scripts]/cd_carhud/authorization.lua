@@ -1,0 +1,6 @@
+--EXAMPLE :
+--Authorization_Token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJjb2Rlc2lnd44trY3JpcHRzQGdtYWlsLmNvbSIsJDFHSKJDFSOGQwZTg0NzZmNjNmMjVhMHTHDFTHFmEzNWMyYzE1OTQwNjM2NGZmNsdfsdfeDNiMTYzZThhZTU5ZjEyYiIsInByb2R1Y3QiOiJ0ZXJtWRWsImEWRWMTYwNTI4NjU5NH0.UoVQt9e-JmQvXFSDFQJJDz6e25CKKDFG"
+
+
+--Enter your Authorization Token inbetween the Quotation Marks. This was provided to you in the purchase ticket in the Codesign Discord  --->  https://discord.gg/codesign
+Authorization_Token = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJyNHYzbjJqQGhvdG1haWwuY29tIiwidG9rZW4iOiJhYjZhNjI1YWVkYzBmZWJlNjIzOTRiMDhiMzQwZDgwOWIwMzNhYWRmNWUzMTE1MjE1ODg3N2MwZThjNmUzZWEzIiwicHJvZHVjdCI6ImNhcmh1ZCJ9.oAaNdM6fzLqJ8We4Lbx9QfRE4vG4Qil_whUqMOh3MKw"

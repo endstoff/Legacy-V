@@ -180,9 +180,9 @@ ESX.SavePlayer = function(xPlayer, cb)
 			cb2()
 		end)
 	end)
-
+	
 	Async.parallel(asyncTasks, function(results)
-		print(('[ExtendedMode] [^2INFO^7] Saved player "%s^7"'):format(xPlayer.getName()))
+	--	print(('[ExtendedMode] [^2INFO^7] Saved player "%s^7"'):format(xPlayer.getName()))
 
 		if cb then
 			cb()
