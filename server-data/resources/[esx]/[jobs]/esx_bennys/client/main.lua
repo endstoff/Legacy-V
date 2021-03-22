@@ -272,7 +272,7 @@ function OpenMobileBennysActionsMenu()
 		elements = {
 			{label = _U('billing'),       value = 'billing'},
 			{label = _U('hijack'),        value = 'hijack_vehicle'},
-			{label = _U('repair'),        value = 'fix_vehicle'},
+		--	{label = _U('repair'),        value = 'fix_vehicle'},
 			{label = _U('clean'),         value = 'clean_vehicle'},
 			{label = _U('imp_veh'),       value = 'del_vehicle'},
 			{label = _U('flat_bed'),      value = 'dep_vehicle'},

@@ -167,7 +167,7 @@ ESX.RegisterUsableItem('ecola', function(source)
 	xPlayer.removeInventoryItem('ecola', 1)
 
 	TriggerClientEvent('esx_status:add', source, 'thirst', 250000)
-	TriggerClientEvent('esx_basicneeds:onEat', source)
+	TriggerClientEvent('esx_basicneeds:onDrink', source)
 --	xPlayer.showNotification(_U('used_ecola'))
 --	TriggerClientEvent('est_notify', source, '#ffffff', 'Lebensmittel', _U('used_ecola'))
 	TriggerClientEvent('notify', source, 1, "", _U('used_ecola'))
