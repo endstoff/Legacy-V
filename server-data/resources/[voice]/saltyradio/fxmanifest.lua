@@ -29,13 +29,3 @@ files {
     'html/img/cursor.png',
     'html/img/radio.png'
 }
-
-
-
-
-
-
-
-
-
-

@@ -5,7 +5,7 @@ ServerConfig.KickBanEmoji = '[🐒]' --You can edit the message when player gets
 ServerConfig.BanSystem = true
 ServerConfig.Webhook = "https://discord.com/api/webhooks/822492321596833862/mJAX0Fee4s2K80DY1ozmh2zQbGga3pi25TwQvP661VgYF72tmFW0EOgKr-H60mE-FIs6" --You should create a text channel on discord and add it's webhook here
 ServerConfig.BlacklistKeyWebhook = "https://discord.com/api/webhooks/822492321596833862/mJAX0Fee4s2K80DY1ozmh2zQbGga3pi25TwQvP661VgYF72tmFW0EOgKr-H60mE-FIs6" -- this is blacklist key log
-ServerConfig.AntiFreeze = true --blocks anti-cheat getting stopped by cheaters(might cause trouble for +300 servers)
+ServerConfig.AntiFreeze = false --blocks anti-cheat getting stopped by cheaters(might cause trouble for +300 servers)
 ServerConfig.ConfigRefreshCommand = 'acconfigrefresh' --when you type this command to console it refresh your config without restarting your server (you can change the command if you want)
 ServerConfig.Whitelist = { --if you add player's hex id or license below they wil bypass the anti-cheat
 "steam:110000113df958c", -- endstoff

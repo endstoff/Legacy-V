@@ -6,7 +6,7 @@ Config.RestrictedChannels = {
   [911] = {
     ['police'] = true
   },
-  [912] = { --Großschadenslage
+  [912] = { 
     ['ambulance'] = true
   },
 }
