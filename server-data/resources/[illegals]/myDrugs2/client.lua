@@ -516,16 +516,8 @@ function generateComputer()
     end
 
 	for k, player in pairs(playersInArea) do
-	
-		local playerInvite
-		if Config.useOneSyncInfinity then
-			playerInvite = NativeUI.CreateItem(player.name, Translation[Config.Locale]['storagemission_invite'] .. player.name .. Translation[Config.Locale]['storagemission_invite_2'])
-			otherBuy:AddItem(playerInvite)
-		else
-			playerInvite = NativeUI.CreateItem(GetPlayerName(player), Translation[Config.Locale]['storagemission_invite'] .. GetPlayerName(player) .. Translation[Config.Locale]['storagemission_invite_2'])
-			otherBuy:AddItem(playerInvite)
-		end
-		
+		local playerInvite = NativeUI.CreateItem(GetPlayerName(player), Translation[Config.Locale]['storagemission_invite'] .. GetPlayerName(player) .. Translation[Config.Locale]['storagemission_invite_2'])
+		otherBuy:AddItem(playerInvite)
 	end
 
     buyStorage.OnItemSelect = function(sender, item, index)
@@ -538,12 +530,8 @@ function generateComputer()
     end
 
     otherBuy.OnItemSelect = function(sender, item, index)
-		if Config.useOneSyncInfinity then
-			TriggerServerEvent('myDrugs:requestMission', playersInArea[index].id, currentFarmData, currentPersonaldata)
-		else
-			TriggerServerEvent('myDrugs:requestMission', GetPlayerServerId(playersInArea[index]), currentFarmData, currentPersonaldata)
-		end
-        
+
+        TriggerServerEvent('myDrugs:requestMission', GetPlayerServerId(playersInArea[index]), currentFarmData, currentPersonaldata)
 
     end
 
@@ -652,22 +640,10 @@ function generateComputer()
 	
 	for k3, player in pairs(playersInArea2) do
 		--if player ~= GetPlayerServerId(-1) then
-		local playeradd
-		if Config.useOneSyncInfinity then
-			playeradd = NativeUI.CreateItem(player.name, Translation[Config.Locale]['menu_access_trust_add'] .. player.name .. Translation[Config.Locale]['menu_access_trust_add_2'])
-			addTrusted:AddItem(playeradd)
-		else
-			playeradd = NativeUI.CreateItem(GetPlayerName(player), Translation[Config.Locale]['menu_access_trust_add'] .. GetPlayerName(player) .. Translation[Config.Locale]['menu_access_trust_add_2'])
-			addTrusted:AddItem(playeradd)
-		end
-		
+		local playeradd = NativeUI.CreateItem(GetPlayerName(player), Translation[Config.Locale]['menu_access_trust_add'] .. GetPlayerName(player) .. Translation[Config.Locale]['menu_access_trust_add_2'])
+		addTrusted:AddItem(playeradd)
 		addTrusted.OnItemSelect = function(sender, item, index)
-			if Config.useOneSyncInfinity then
-				TriggerServerEvent('myDrugs:updateTrusted', "add", playersInArea2[index].id, currentPersonaldata.id)
-			else
-				TriggerServerEvent('myDrugs:updateTrusted', "add", GetPlayerServerId(playersInArea2[index]), currentPersonaldata.id)
-			end
-			
+			TriggerServerEvent('myDrugs:updateTrusted', "add", GetPlayerServerId(playersInArea2[index]), currentPersonaldata.id)
 			_menuPool:CloseAllMenus()
 		end
 		--end
@@ -723,7 +699,7 @@ AddEventHandler('myDrugs:startStorageMission', function(target)
         SetNewWaypoint(dest.x, dest.y)
 
         SpawnVehicle(Config.Vehicles[tonumber(currentPersonaldata.vehicle)].model, currentFarmData.spawnVehicle)
-
+        
         local blip = AddBlipForCoord(dest.x, dest.y)
         SetBlipSprite(blip, 514)
         SetBlipDisplay(blip, 6)
@@ -733,7 +709,7 @@ AddEventHandler('myDrugs:startStorageMission', function(target)
         BeginTextCommandSetBlipName("STRING");
         AddTextComponentString(Translation[Config.Locale]['supplies'])
         EndTextCommandSetBlipName(blip)
-
+        
         local playerCoords = GetEntityCoords(ped)
         startDistance = Vdist(playerCoords, dest.x, dest.y, dest.z)
 
@@ -953,11 +929,11 @@ AddEventHandler('myDrugs:receiveFarms', function(farmOwnerServer, steamID)
 	end
     --ownedFarms = farmOwnerServer
     gotFarms = true
-
+    
     for k, v in pairs(ownedFarms) do
         for k2, farm in pairs(Config.Farms) do
-            if farm.name == v.name then
-                --[[local blip = AddBlipForCoord(farm.enter.x, farm.enter.y)
+            --[[if farm.name == v.name then
+                local blip = AddBlipForCoord(farm.enter.x, farm.enter.y)
                 SetBlipSprite(blip, 140)
                 SetBlipDisplay(blip, 6)
                 SetBlipScale(blip, 1.2)
@@ -966,10 +942,10 @@ AddEventHandler('myDrugs:receiveFarms', function(farmOwnerServer, steamID)
                 BeginTextCommandSetBlipName("STRING");
                 AddTextComponentString(farm.label)
                 EndTextCommandSetBlipName(blip)
-                break]]
-            end
+                break
+            end]]
         end
-
+        
 
     end
     --currentPersonaldata = ownedFarms[1]
@@ -1018,7 +994,7 @@ AddEventHandler('myDrugs:setNewFarmOwned', function(farmOwnerNew, owner_res)
 
     for k2, farm in pairs(Config.Farms) do
         if farm.name == farmOwnerNew.name then
-            --[[local blip = AddBlipForCoord(farm.enter.x, farm.enter.y)
+            local blip = AddBlipForCoord(farm.enter.x, farm.enter.y)
             SetBlipSprite(blip, 140)
             SetBlipDisplay(blip, 6)
             SetBlipScale(blip, 1.2)
@@ -1026,7 +1002,7 @@ AddEventHandler('myDrugs:setNewFarmOwned', function(farmOwnerNew, owner_res)
             SetBlipAsShortRange(blip, true)
             BeginTextCommandSetBlipName("STRING");
             AddTextComponentString(farm.label)
-            EndTextCommandSetBlipName(blip)]]
+            EndTextCommandSetBlipName(blip)
         end
     end
 
@@ -1091,8 +1067,8 @@ function SpawnVehicle(modelHash, loc)
         SetVehicleOnGroundProperly(spawnedVehicle)
         SetPedIntoVehicle(GetPlayerPed(-1), spawnedVehicle, - 1)
 		SetEntityAsMissionEntity(spawnedVehicle)
-		SetVehicleNumberPlateText(spawnedVehicle, "UNKNOWN")
-		--SetVehicleCustomPrimaryColour(spawnedVehicle, 0, 0, 0)
+	--	SetVehicleNumberPlateText(spawnedVehicle, "UNKNOWN")
+	--	SetVehicleCustomPrimaryColour(spawnedVehicle, 0, 0, 0)
     end)
 end
 

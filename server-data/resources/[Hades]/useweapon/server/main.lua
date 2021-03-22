@@ -13,7 +13,7 @@ ESX.RegisterUsableItem('pistolcaselight', function(source)
 	if xPlayer.hasWeapon(weaponName) then
 		TriggerClientEvent('chat:addMessage', source, { args = { '^1SYSTEM', 'Player already has that weapon.' } })
 	else
-		xPlayer.addWeapon(weaponName, 1)
+		xPlayer.addWeapon(weaponName, 250)
 	end
 
 end)
@@ -29,7 +29,7 @@ ESX.RegisterUsableItem('pistolcaseheavy', function(source)
 	if xPlayer.hasWeapon(weaponName) then
 		TriggerClientEvent('chat:addMessage', source, { args = { '^1SYSTEM', 'Player already has that weapon.' } })
 	else
-		xPlayer.addWeapon(weaponName, 1)
+		xPlayer.addWeapon(weaponName, 250)
 	end
 
 end)
@@ -45,7 +45,7 @@ ESX.RegisterUsableItem('smgcaseassault', function(source)
 	if xPlayer.hasWeapon(weaponName) then
 		TriggerClientEvent('chat:addMessage', source, { args = { '^1SYSTEM', 'Player already has that weapon.' } })
 	else
-		xPlayer.addWeapon(weaponName, 1)
+		xPlayer.addWeapon(weaponName, 500)
 	end
 
 end)

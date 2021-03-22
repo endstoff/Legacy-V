@@ -6,7 +6,6 @@ endpoint_add_udp "0.0.0.0:30120"
 
 +set onesync_distanceCullVehicles true
 +set onesync_forceMigration true
-+set onesync_enabled 1
 
 sv_maxclients 128
 # You probably don't want to change these!
@@ -185,7 +184,6 @@ ensure est_dienstausweis_lspd
 ensure panic_drugeffects
 ensure panic_sos-button
 ensure rcpaxon
-
 ##		Scripts
 ensure interact-sound
 
@@ -376,13 +374,12 @@ add_ace identifier.steam:110000113df958c "command.hypnonema" allow
 # Hide player endpoints in external log output.
 sv_endpointprivacy true
 
-sets tags 'German,Deutsch,Legacy,RP,Roleplay, esx'
+sets tags 'German,Deutsch,Legacy,RP,Roleplay,esx'
 sets 🎧Discord "https://discord.gg/c7WABYqa9K"
 sets 🎧Teamspeak "ts.legacy-v.net"
 sets 🌐Website "https://legacy-v.net"
 sets 🔊SaltyChat "✔️ saltmine.de"
 sets 🛡️Mindestalter "16+"
-onesync legacy
 
 #This is an official FiveM server hosted by ZAP-Hosting.com. You do not need to put a license key here.
 #restart sessionmanager

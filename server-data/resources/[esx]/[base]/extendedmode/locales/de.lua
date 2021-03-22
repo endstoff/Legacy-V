@@ -36,7 +36,7 @@ Locales['de'] = {
   ['threw_weapon_already'] = 'Du hast bereits diese Waffe',
   ['threw_cannot_pickup'] = 'Du kannst das nicht aufheben, da dein Inventar voll ist',
   ['threw_pickup_prompt'] = 'drücke ~y~E~s~ um aufzuheben',
-  ['standard_pickup_prompt'] = '~y~E:~s~ Aufheben',
+  ['standard_pickup_prompt'] = 'Drücke ~y~E~s~ zum Aufheben',
 
   -- Key mapping
   ['keymap_showinventory'] = 'inventar anzeigen',
