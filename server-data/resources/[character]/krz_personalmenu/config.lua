@@ -362,7 +362,7 @@ Config.Admin = {
 			SetEntityCoords(closestVeh, newCoords)
 			ESX.ShowNotification(_U('admin_vehicleflip'))
 		end
-	},
+	},--[[
 	{
 		name = 'givemoney',
 		label = _U('admin_givemoney_button'),
@@ -416,7 +416,7 @@ Config.Admin = {
 
 			RageUI.CloseAll()
 		end
-	},
+	},]]
 	{
 		name = 'showxyz',
 		label = _U('admin_showxyz_button'),

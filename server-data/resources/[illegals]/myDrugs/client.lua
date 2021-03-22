@@ -1091,7 +1091,7 @@ function SpawnVehicle(modelHash, loc)
         SetVehicleOnGroundProperly(spawnedVehicle)
         SetPedIntoVehicle(GetPlayerPed(-1), spawnedVehicle, - 1)
 		SetEntityAsMissionEntity(spawnedVehicle)
-		SetVehicleNumberPlateText(spawnedVehicle, "UNKNOWN")
+		--SetVehicleNumberPlateText(spawnedVehicle, "UNKNOWN")
 		--SetVehicleCustomPrimaryColour(spawnedVehicle, 0, 0, 0)
     end)
 end

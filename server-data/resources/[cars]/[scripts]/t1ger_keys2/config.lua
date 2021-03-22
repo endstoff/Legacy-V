@@ -114,10 +114,6 @@ Config.WhitelistCars = {
 	[22] = {model = GetHashKey('flatbed'), job = {"mechanic"}},
 	[23] = {model = GetHashKey('towtruck'), job = {"mechanic"}},
 	[24] = {model = GetHashKey('towtruck2'), job = {"mechanic"}},
-
--- BMEISTER
-	[25] = {model = GetHashKey('cognoscenti'), job = {"bmeister"}},
-
 }
 
 -- Settings for Lockpicking:
