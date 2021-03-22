@@ -7,8 +7,7 @@
   "monitor": {
     "restarterSchedule": [
       "18:00",
-      "06:00",
-      "00:00"
+      "06:00"
     ],
     "restarterScheduleWarnings": [
       60,
@@ -44,7 +43,7 @@
     "serverDataPath": "/LegacyV/server-data/",
     "cfgPath": "server.cfg",
     "commandLine": "+set sv_enforceGameBuild 2060",
-    "onesync": "legacy",
+    "onesync": "on",
     "autostart": false,
     "quiet": false
   }

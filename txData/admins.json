@@ -138,5 +138,24 @@
       "players.warn",
       "players.whitelist"
     ]
+  },
+  {
+    "name": "startstoff",
+    "master": false,
+    "password_hash": "$2a$11$Tyh5sdhJzkxierpeV0HGO.BYAMywfj4ndLq.IY51pQCrLOuls/eEa",
+    "password_temporary": true,
+    "providers": {},
+    "permissions": [
+      "commands.resources",
+      "players.ban",
+      "players.kick",
+      "players.message",
+      "players.warn",
+      "players.whitelist",
+      "console.view",
+      "console.write",
+      "server.cfg.editor",
+      "txadmin.log.view"
+    ]
   }
 ]

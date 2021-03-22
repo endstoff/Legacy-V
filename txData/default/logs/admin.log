@@ -10780,3 +10780,281 @@ Failed to load script server.lua."
 ======== txAdmin starting - 13.3.2021, 12:41:26
 ================================================================
 [12:41:50][84.131.153.214][endstoff] START SERVER
+[14:00:06][84.131.153.214][endstoff] Editing server CFG File.
+[14:00:28][MONITOR] Restarting server (scheduled restart at 14:00).
+[14:18:17][84.131.153.214][endstoff] Changing monitor settings.
+[14:18:17][84.131.153.214][endstoff] Changing monitor settings.
+[16:00:31][MONITOR] Restarting server (scheduled restart at 16:00).
+[17:03:36][84.131.153.214][endstoff] Editing server CFG File.
+[17:03:36][84.131.153.214][endstoff] Editing server CFG File.
+[17:06:46][84.131.153.214][endstoff] Editing server CFG File.
+[17:07:45][84.131.153.214][endstoff] Changing monitor settings.
+[17:15:33][MONITOR] Restarting server (scheduled restart at 17:15).
+[17:30:52][84.131.153.214][endstoff] heartbeat
+[19:03:26][84.131.153.214][endstoff] Changing monitor settings.
+[19:03:26][84.131.153.214][endstoff] Changing monitor settings.
+[02:00:48][MONITOR] Restarting server (scheduled restart at 02:00).
+[14:00:09][MONITOR] Restarting server (scheduled restart at 14:00).
+[15:27:53][178.11.94.138][Hades93] txaBroadcast "Hades93" "Einmal alle Menüs verlassen bitte für 20 Sekunden. Danke lg"
+[15:27:57][91.40.101.30][Gargani] ensure "vMenu"
+[21:08:29][84.131.153.214][endstoff] RESTART SERVER
+[21:09:31][84.131.153.214][endstoff] RESTART SERVER
+[21:13:31][84.131.153.214][endstoff] RESTART SERVER
+[21:17:35][84.131.153.214][endstoff] RESTART SERVER
+[21:23:18][84.131.153.214][endstoff] Editing server CFG File.
+[21:23:18][84.131.153.214][endstoff] Editing server CFG File.
+[21:25:04][84.131.153.214][endstoff] Editing server CFG File.
+[21:25:07][84.131.153.214][endstoff] RESTART SERVER
+[21:27:26][84.131.153.214][endstoff] rconreloadwl
+[21:28:46][84.131.153.214][endstoff] reconreloadwl
+[21:29:55][84.131.153.214][endstoff] RESTART SERVER
+[21:33:58][84.131.153.214][endstoff] RESTART SERVER
+[21:38:25][84.131.153.214][endstoff] RESTART SERVER
+[21:42:15][84.131.153.214][endstoff] RESTART SERVER
+[21:47:46][84.131.153.214][endstoff] RESTART SERVER
+[21:58:21][84.131.153.214][endstoff] rtxacbanlistreload reload
+[22:06:20][84.131.153.214][endstoff] rtxacbanlistreload reload
+[22:09:14][84.131.153.214][endstoff] rtxacbanlistreload reload
+[22:09:32][84.131.153.214][endstoff] RESTART SERVER
+[22:13:11][84.131.153.214][endstoff] rtxacbanlistreload reload
+[22:14:54][84.131.153.214][endstoff] RESTART SERVER
+[22:18:01][84.131.153.214][endstoff] RESTART SERVER
+[22:32:13][84.131.153.214][endstoff] rtxacbanlistreload reload
+[22:51:20][84.131.153.214][endstoff] Editing server CFG File.
+[22:52:52][84.131.153.214][endstoff] Editing server CFG File.
+[22:52:52][84.131.153.214][endstoff] Editing server CFG File.
+[22:53:04][84.131.153.214][endstoff] Editing server CFG File.
+[22:53:04][84.131.153.214][endstoff] Editing server CFG File.
+[22:53:08][84.131.153.214][endstoff] rtxacbanlistreload reload
+[22:53:35][84.131.153.214][endstoff] Editing server CFG File.
+[22:53:35][84.131.153.214][endstoff] Editing server CFG File.
+[22:57:02][84.131.153.214][endstoff] Editing server CFG File.
+[22:57:35][84.131.153.214][endstoff] RESTART SERVER
+[23:02:47][84.131.153.214][endstoff] RESTART SERVER
+[23:11:24][84.131.153.214][endstoff] Editing server CFG File.
+[23:11:27][84.131.153.214][endstoff] Editing server CFG File.
+[23:13:40][84.131.153.214][endstoff] Editing server CFG File.
+[23:13:40][84.131.153.214][endstoff] Editing server CFG File.
+[23:32:25][84.131.153.214][endstoff] Editing server CFG File.
+[23:32:40][84.131.153.214][endstoff] Editing server CFG File.
+[23:32:40][84.131.153.214][endstoff] Editing server CFG File.
+[23:33:49][84.131.153.214][endstoff] RESTART SERVER
+[23:38:30][84.131.153.214][endstoff] RESTART SERVER
+[23:41:18][84.131.153.214][endstoff] RESTART SERVER
+[23:48:39][84.131.153.214][endstoff] RESTART SERVER
+[23:52:22][84.131.153.214][endstoff] RESTART SERVER
+[23:55:56][84.131.153.214][endstoff] Editing server CFG File.
+[23:55:58][84.131.153.214][endstoff] Editing server CFG File.
+[23:56:27][84.131.153.214][endstoff] RESTART SERVER
+[23:58:20][84.131.153.214][endstoff] STOP SERVER
+[00:01:22][84.131.153.214][endstoff] Editing server CFG File.
+[00:01:22][84.131.153.214][endstoff] Editing server CFG File.
+[00:01:30][84.131.153.214][endstoff] Editing server CFG File.
+[00:01:34][84.131.153.214][endstoff] START SERVER
+[00:02:37][84.131.153.214][endstoff] Editing server CFG File.
+[00:02:41][84.131.153.214][endstoff] STOP SERVER
+[00:03:11][84.131.153.214][endstoff] START SERVER
+[00:06:13][84.131.153.214][endstoff] Editing server CFG File.
+[00:06:16][84.131.153.214][endstoff] Editing server CFG File.
+[00:09:03][84.131.153.214][endstoff] RESTART SERVER
+[00:11:30][84.131.153.214][endstoff] STOP SERVER
+[00:12:32][84.131.153.214][endstoff] Editing server CFG File.
+[00:12:32][84.131.153.214][endstoff] Editing server CFG File.
+[00:12:41][84.131.153.214][endstoff] Editing server CFG File.
+[00:12:44][84.131.153.214][endstoff] START SERVER
+[00:12:55][84.131.153.214][endstoff] Editing server CFG File.
+[00:12:55][84.131.153.214][endstoff] Editing server CFG File.
+[00:13:00][84.131.153.214][endstoff] RESTART SERVER
+[00:18:51][84.131.153.214][endstoff] Editing server CFG File.
+[00:18:51][84.131.153.214][endstoff] Editing server CFG File.
+[02:00:29][MONITOR] Restarting server (scheduled restart at 02:00).
+[12:33:22][84.131.153.214][endstoff] Editing server CFG File.
+[12:33:22][84.131.153.214][endstoff] Editing server CFG File.
+[12:33:28][84.131.153.214][endstoff] stop est_wartungen
+[14:00:51][MONITOR] Restarting server (scheduled restart at 14:00).
+[14:27:44][84.131.153.214][endstoff] RESTART SERVER
+[14:36:40][84.131.153.214][endstoff] RESTART SERVER
+[14:41:51][84.131.153.214][endstoff] RESTART SERVER
+[14:48:58][84.131.153.214][endstoff] Changing discordBot settings.
+[14:49:10][84.131.153.214][endstoff] RESTART SERVER
+[14:53:15][84.131.153.214][endstoff] RESTART SERVER
+[14:58:04][84.131.153.214][endstoff] RESTART SERVER
+[15:14:03][84.131.153.214][endstoff] Changing discordBot settings.
+[15:14:43][84.131.153.214][endstoff] Changing Player Controller settings.
+[15:23:11][84.131.153.214][endstoff] rtxacbanlistreload reload
+[16:58:41][178.11.94.138][Hades93] rtxbanlistunban 664292
+[16:59:02][178.11.94.138][Hades93] rtxacbanlistunban 664292
+[16:59:24][178.11.94.138][Hades93] rtxacbanlistreload reload
+[18:31:42][84.131.153.214][endstoff] Banned #19: .
+[18:33:08][84.131.153.214][endstoff] Revoked BDQH-5CC3
+[18:34:23][79.203.169.186][paniceSports] txaBroadcast "paniceSports" "Sry für den CurrentTaskKill :P"
+[23:19:59][84.131.153.214][endstoff] txaBroadcast "endstoff" "Changelog 15.03.2021 - Jetzt Verfügbar"
+[23:33:01][84.131.153.214][endstoff] Changing monitor settings.
+[23:33:05][84.131.153.214][endstoff] Changing monitor settings.
+[02:00:11][MONITOR] Restarting server (scheduled restart at 02:00).
+[06:00:18][MONITOR] Restarting server (scheduled restart at 06:00).
+[14:23:30][84.131.153.214][endstoff] ensure "est_motortoggle"
+[14:24:09][84.131.153.214][endstoff] ensure "est_motortoggle"
+[14:25:00][84.131.153.214][endstoff] ensure est_motortoggle
+[14:25:35][84.131.153.214][endstoff] ensure est_motortoggle
+[14:26:06][84.131.153.214][endstoff] ensure est_motortoggle
+[14:26:26][84.131.153.214][endstoff] ensure est_motortoggle
+[14:27:07][84.131.153.214][endstoff] ensure est_motortoggle
+[14:27:49][84.131.153.214][endstoff] ensure est_motortoggle
+[14:29:53][84.131.153.214][endstoff] ensure est_motortoggle
+[14:30:58][84.131.153.214][endstoff] ensure est_motortoggle
+[14:32:07][84.131.153.214][endstoff] ensure est_motortoggle
+[14:32:49][84.131.153.214][endstoff] ensure est_motortoggle
+[14:36:26][84.131.153.214][endstoff] ensure t1ger_keys
+[14:36:49][84.131.153.214][endstoff] ensure t1ger_keys
+[14:39:45][84.131.153.214][endstoff] ensure t1ger_keys
+[14:40:49][84.131.153.214][endstoff] ensure t1ger_keys
+[14:41:12][84.131.153.214][endstoff] ensure t1ger_keys
+[14:47:35][84.131.153.214][endstoff] ensure esx_inventoryhud
+[14:49:54][84.131.153.214][endstoff] ensure esx_inventoryhud_trunk
+[14:50:10][84.131.153.214][endstoff] ensure esx_inventoryhud
+[14:50:12][84.131.153.214][endstoff] ensure esx_inventoryhud_trunk
+[15:03:45][84.131.153.214][endstoff] ensure xnVending
+[15:04:03][84.131.153.214][endstoff] ensure xnVending
+[15:04:05][84.131.153.214][endstoff] refresh
+[15:04:08][84.131.153.214][endstoff] ensure xnVending
+[15:04:51][84.131.153.214][endstoff] ensure esx_status
+[15:05:00][84.131.153.214][endstoff] ensure est_hud
+[15:05:13][84.131.153.214][endstoff] ensure esx_basicneeds
+[15:08:05][84.131.153.214][endstoff] Changing monitor settings.
+[15:10:29][84.131.153.214][endstoff] ensure esx_basicneeds
+[15:15:35][MONITOR] Restarting server (scheduled restart at 15:15).
+[15:20:24][84.131.153.214][endstoff] ensure 99kr-shops
+[15:25:15][84.131.153.214][endstoff] ensure 99kr-shops
+[15:29:00][84.131.153.214][endstoff] ensure 99kr-shops
+[18:00:39][MONITOR] Restarting server (scheduled restart at 18:00).
+[18:01:31][84.131.153.214][endstoff] Changing monitor settings.
+[18:14:27][178.11.94.138][Hades93] rtxacbanlistunban 657299
+[18:14:44][178.11.94.138][Hades93] rtxacbanlistreload reload
+[18:30:26][84.131.153.214][endstoff] rtxacbanlistunban 583928
+[18:30:38][84.131.153.214][endstoff] rtxacbanlistunban 252719
+[18:30:44][84.131.153.214][endstoff] rtxacbanlistreload
+[18:58:05][84.131.153.214][endstoff] rtxacbanlistunban 686169
+[18:58:11][84.131.153.214][endstoff] rtxacbanlistreload
+[19:00:42][84.131.153.214][endstoff] stop myDrugs
+[19:01:24][84.131.153.214][endstoff] rtxacbanlistunban 155938
+[19:01:34][84.131.153.214][endstoff] rtxacbanlistunban 668823
+[19:01:43][84.131.153.214][endstoff] rtxacbanlistunban 434968
+[19:01:50][84.131.153.214][endstoff] rtxacbanlistunban 768282
+[19:01:55][84.131.153.214][endstoff] rtxacbanlistreload
+[19:04:10][84.131.153.214][endstoff] rtxacbanlistunban 386699
+[19:04:12][84.131.153.214][endstoff] rtxacbanlistreload
+[19:04:32][84.131.153.214][endstoff] Changing monitor settings.
+[19:04:32][84.131.153.214][endstoff] Changing monitor settings.
+[19:04:57][84.131.153.214][endstoff] txaBroadcast "endstoff" "Wir machen um 20 Uhr ein Hotfix Restart"
+[19:05:54][84.131.153.214][endstoff] Editing server CFG File.
+[19:05:54][84.131.153.214][endstoff] Editing server CFG File.
+[19:06:11][84.131.153.214][endstoff] rtxacbanlistunban 617225
+[19:06:16][84.131.153.214][endstoff] rtxacbanlistreload
+[19:09:32][84.131.153.214][endstoff] rtxacbanlistunban 579245
+[19:09:35][84.131.153.214][endstoff] rtxacbanlistreload
+[19:10:39][84.131.153.214][endstoff] txaBroadcast "endstoff" "Wir verschieben den Hotfix restart auf 19:30 Uhr"
+[19:14:41][84.131.153.214][endstoff] rtxacbanlistunban 852311
+[19:14:47][84.131.153.214][endstoff] rtxacbanlistreload
+[19:31:15][84.131.153.214][endstoff] RESTART SERVER
+[19:31:20][84.131.153.214][endstoff] Changing monitor settings.
+[19:37:13][84.131.153.214][endstoff] rtxacbanlistreload
+[20:21:16][91.5.73.239][paniceSports] Editing server CFG File.
+[20:21:19][91.5.73.239][paniceSports] refresh
+[20:21:26][91.5.73.239][paniceSports] ensure "panic_drugeffects"
+[20:36:03][84.131.153.214][endstoff] ensure "myIllegals"
+[20:36:34][84.131.153.214][endstoff] Editing server CFG File.
+[20:36:34][84.131.153.214][endstoff] Editing server CFG File.
+[20:37:58][91.5.73.239][paniceSports] ensure "panic_drugeffects"
+[21:14:23][84.131.153.214][endstoff] Banned #20: Modding
+[21:25:12][84.131.153.214][endstoff] Banned #22: Modding
+[21:25:34][178.11.94.138][Hades93] Banned <license:f54f38078e3bfc942814e99cfab2db289334ce83>: Modding
+[21:32:16][84.131.153.214][endstoff] txaBroadcast "endstoff" "Yoa ne die Peds liegen da halt jetzt einfach ma Ignorieren nech LUL"
+[21:35:36][91.5.73.239][paniceSports] ensure "panic_drugeffects"
+[21:36:01][91.5.73.239][paniceSports] ensure "panic_drugeffects"
+[21:37:13][91.5.73.239][paniceSports] ensure "panic_drugeffects"
+[21:37:26][91.5.73.239][paniceSports] ensure "panic_drugeffects"
+[21:41:43][91.5.73.239][paniceSports] ensure "panic_drugeffects"
+[06:00:00][MONITOR] Restarting server (scheduled restart at 06:00).
+[18:00:20][MONITOR] Restarting server (scheduled restart at 18:00).
+[21:55:25][84.131.153.214][endstoff] Changing monitor settings.
+[22:04:04][84.131.153.214][endstoff] txaBroadcast "endstoff" "PDM ist erstmal Deaktiviert. Restart kommt um 0 Uhr."
+[22:04:59][84.131.153.214][endstoff] txaBroadcast "endstoff" "Und nochmal für Infamous: PDM ist der ganz normale Fahrzeughändler"
+[22:54:05][84.131.153.214][endstoff] Editing server CFG File.
+[00:00:30][MONITOR] Restarting server (scheduled restart at 00:00).
+[00:22:02][91.5.73.239][paniceSports] ensure "panic_drugeffects"
+[00:27:01][91.5.73.239][paniceSports] ensure "panic_drugeffects"
+[00:29:25][91.5.73.239][paniceSports] ensure "panic_drugeffects"
+[03:34:28][178.11.94.138][Hades93] Editing server CFG File.
+[03:34:29][178.11.94.138][Hades93] Editing server CFG File.
+[06:00:41][MONITOR] Restarting server (scheduled restart at 06:00).
+[14:06:49][178.11.94.138][Hades93] txaBroadcast "Hades93" "Der Server wird in 5 Minuten für einen Hotfix restarted!"
+[14:09:13][178.11.94.138][Hades93] RESTART SERVER
+[14:22:55][178.11.94.138][Hades93] RESTART SERVER
+[18:00:02][MONITOR] Restarting server (scheduled restart at 18:00).
+[18:40:43][84.131.153.214][endstoff] heartbeat
+[19:43:19][84.131.153.214][endstoff] Changing monitor settings.
+[20:37:14][91.5.73.239][paniceSports] ensure "panic_drugeffects"
+[22:29:19][84.131.153.214][endstoff] Changing monitor settings.
+[00:00:13][MONITOR] Restarting server (scheduled restart at 00:00).
+[06:00:23][MONITOR] Restarting server (scheduled restart at 06:00).
+[15:52:04][84.131.153.214][endstoff] Editing server CFG File.
+[15:53:39][84.131.153.214][endstoff] Editing server CFG File.
+[15:55:44][84.131.153.214][endstoff] Editing server CFG File.
+[15:56:30][84.131.153.214][endstoff] Editing server CFG File.
+[15:56:37][84.131.153.214][endstoff] Editing server CFG File.
+[16:15:55][84.131.153.214][endstoff] Warned #10: OOC Talk
+[18:00:43][MONITOR] Restarting server (scheduled restart at 18:00).
+[18:07:40][84.131.153.214][endstoff] unban
+[18:07:43][84.131.153.214][endstoff] mixas
+[18:09:31][84.131.153.214][endstoff] acconfigrefresh
+[18:11:52][84.131.153.214][endstoff] acconfigrefresh
+[19:18:40][84.131.153.214][endstoff] acconfigrefresh
+[23:26:36][84.131.153.214][endstoff] Editing server CFG File.
+[23:29:56][84.131.153.214][endstoff] Editing server CFG File.
+[23:31:14][84.131.153.214][endstoff] Editing server CFG File.
+[23:31:21][84.131.153.214][endstoff] Editing server CFG File.
+[00:00:54][MONITOR] Restarting server (scheduled restart at 00:00).
+[00:02:22][84.131.153.214][endstoff] heartbeat
+[00:04:20][84.131.153.214][endstoff] Editing server CFG File.
+[00:04:21][84.131.153.214][endstoff] Editing server CFG File.
+[06:00:05][MONITOR] Restarting server (scheduled restart at 06:00).
+[11:18:49][84.131.153.214][endstoff] Changing monitor settings.
+[11:20:26][84.131.153.214][endstoff] Editing server CFG File.
+[11:20:47][84.131.153.214][endstoff] Changing fxRunner settings.
+[11:21:35][84.131.153.214][endstoff] Changing monitor settings.
+[14:00:20][MONITOR] Restarting server (scheduled restart at 14:00).
+[14:02:32][84.131.153.214][endstoff] Changing fxRunner settings.
+[14:02:32][84.131.153.214][endstoff] Changing fxRunner settings.
+[14:02:35][84.131.153.214][endstoff] RESTART SERVER
+[14:03:20][84.131.153.214][endstoff] Editing server CFG File.
+[14:03:29][84.131.153.214][endstoff] Changing fxRunner settings.
+[14:03:29][84.131.153.214][endstoff] Changing fxRunner settings.
+[14:03:32][84.131.153.214][endstoff] RESTART SERVER
+[17:46:41][178.11.94.138][Hades93] Adding admin 'startstoff'.
+[18:00:27][MONITOR] Restarting server (scheduled restart at 18:00).
+[18:09:37][178.11.94.138][Hades93] Editing server CFG File.
+[18:09:38][178.11.94.138][Hades93] Editing server CFG File.
+[20:17:45][84.131.153.214][endstoff] Changing monitor settings.
+[20:28:44][84.131.153.214][endstoff] ensure "esx_policejob"
+[21:40:01][84.131.153.214][endstoff] Banned #24: Modding
+[22:58:00][84.131.153.214][endstoff] Changing monitor settings.
+[23:58:02][84.131.153.214][endstoff] Changing fxRunner settings.
+[23:58:05][84.131.153.214][endstoff] Changing fxRunner settings.
+[23:58:36][84.131.153.214][endstoff] Editing server CFG File.
+[23:58:44][84.131.153.214][endstoff] Editing server CFG File.
+[00:00:37][MONITOR] Restarting server (scheduled restart at 00:00).
+[00:08:24][84.131.153.214][endstoff] Editing server CFG File.
+[02:22:45][84.131.153.214][endstoff] Changing monitor settings.
+[02:29:08][91.5.73.239][paniceSports] Editing server CFG File.
+[02:30:42][MONITOR] Restarting server (scheduled restart at 02:30).
+[02:37:50][91.5.73.239][paniceSports] stop "buyselltablet"
+[04:24:21][91.5.73.239][paniceSports] Editing server CFG File.
+[06:00:48][MONITOR] Restarting server (scheduled restart at 06:00).
+[13:50:38][84.131.153.214][endstoff] ensure "myDrugs"
+[14:04:09][84.131.153.214][endstoff] Editing server CFG File.
+[18:00:08][MONITOR] Restarting server (scheduled restart at 18:00).
+[22:50:35][91.5.73.239][paniceSports] refresh
+[01:30:39][84.131.153.214][endstoff] Changing monitor settings.
+[01:31:04][84.131.153.214][endstoff] txaBroadcast "endstoff" "Ne es kommt kein restart um 02:30. War noch eingetragen von gestern"
+[06:00:28][MONITOR] Restarting server (scheduled restart at 06:00).
