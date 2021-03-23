@@ -1,11 +1,11 @@
 ESX = nil
 
 TriggerEvent('esx:getSharedObject', function(obj) ESX = obj end)
-
+--[[
 TriggerEvent('esx_phone:registerNumber', 'sandy_mechanic', _U('alert_mechanic'), true, true)
 TriggerEvent('esx_phone:registerNumber', 'fib', _U('alert_fib'), true, true)
-
-TriggerEvent('esx_society:registerSociety', 'sandy_mechanic', 'Sandy_mechanic', 'society_sandy_mechanic', 'society_sandy_mechanic', 'society_sandy_mechanic', {type = 'public'})
+]]
+TriggerEvent('esx_society:registerSociety', 'yakuza', 'Yakuza', 'society_yakuza', 'society_yakuza', 'society_yakuza', {type = 'public'})
 TriggerEvent('esx_society:registerSociety', 'bmeister', 'Bürgermeister', 'society_bmeister', 'society_bmeister', 'society_bmeister', {type = 'public'})
 
 RegisterNetEvent('sqz_unijob:Server:CanPlayerCarryItem')
