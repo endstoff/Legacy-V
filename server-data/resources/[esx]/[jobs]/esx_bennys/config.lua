@@ -23,45 +23,12 @@ Config.Vehicles = {
 Config.Zones = {
 
 	BennysActions = {
-		Pos   = { x = 1766.05, y = 3321.02, z = 41.44 },
-		Size  = { x = 1.0, y = 1.0, z = 1.0 },
-		Color = { r = 204, g = 204, b = 0 },
-		Type  = 22
-	},
-
-	Garage = {
-		Pos   = { x = -206.65, y = -1341.53, z = 34.89 },
-		Size  = { x = 1.0, y = 1.0, z = 1.0 },
-		Color = { r = 204, g = 204, b = 0 },
-		Type  = 22
-	},
-
-	Craft = {
 		Pos   = { x = -198.21, y = -1317.65, z = 31.09 },
 		Size  = { x = 1.0, y = 1.0, z = 1.0 },
 		Color = { r = 204, g = 204, b = 0 },
 		Type  = 22
 	},
 
-	VehicleSpawnPoint = {
-		Pos   = { x = -182.66, y = -1339.0, z = 31.3 },
-		Size  = { x = 1.5, y = 1.5, z = 1.0 },
-		Type  = -1
-	},
-
-	VehicleDeleter = {
-		Pos   = { x = -182.23, y = -1312.22, z = 30.3 },
-		Size  = { x = 3.0, y = 3.0, z = 1.0 },
-		Color = { r = 204, g = 204, b = 0 },
-		Type  = 1
-	},
-
-	VehicleDelivery = {
-		Pos   = { x = -160.31, y = -1305.77, z = 30.35 },
-		Size  = { x = 20.0, y = 20.0, z = 3.0 },
-		Color = { r = 204, g = 204, b = 0 },
-		Type  = -1
-	}
 }
 
 Config.Towables = {

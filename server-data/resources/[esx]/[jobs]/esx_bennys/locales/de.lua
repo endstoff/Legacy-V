@@ -1,5 +1,5 @@
 Locales['de'] = {
-  ['blip']                  = 'Flywheels',
+  ['blip']                  = 'Bennys',
   ['drive_to_indicated']        = '~y~Drive~s~ to the indicated location.',
   ['mission_canceled']          = 'Mission ~r~canceled~s~',
   ['vehicle_list']              = 'Fahrzeug Liste',

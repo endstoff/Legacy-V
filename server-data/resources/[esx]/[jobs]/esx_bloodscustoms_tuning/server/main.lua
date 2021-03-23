@@ -12,7 +12,7 @@ AddEventHandler('esx_bloodscustoms_tuning:buyMod', function(price)
 	if Config.IsMechanicJobOnly then
 		local societyAccount
 
-		TriggerEvent('esx_addonaccount:getSharedAccount', 'society_cardealer', function(account)
+		TriggerEvent('esx_addonaccount:getSharedAccount', 'society_bcustoms', function(account)
 			societyAccount = account
 		end)
 

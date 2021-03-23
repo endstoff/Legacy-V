@@ -6,7 +6,7 @@ Config.IsMechanicJobOnly = true
 Config.Zones = {
 
 	ls1 = {
-		Pos   = { x = 925.44, y = -971.09, z = 39.83},
+		Pos   = { x = 1765.6469726562, y = 3330.2893066406, z = 41.438529968262},
 		Size  = {x = 20.0, y = 20.0, z = 0.2},
 		Color = {r = 204, g = 204, b = 0},
 		Marker= 1,
@@ -14,31 +14,13 @@ Config.Zones = {
 	},
 
 	ls2 = {
-		Pos   = { x = 922.15, y = -981.84, z = 39.79},
+		Pos   = { x = 1735.8458251953, y = 3301.0627441406, z = 41.206218719482},
 		Size  = {x = 3.0, y = 3.0, z = 0.2},
 		Color = {r = 204, g = 204, b = 0},
 		Marker= 1,
 		Hint  = _U('press_custom')
 	},
 
-	ls3 = {
-		Pos   = { x = 108.59, y = 6626.64, z = 31.79},
-		Size  = {x = 3.0, y = 3.0, z = 0.2},
-		Color = {r = 204, g = 204, b = 0},
-		Marker= 1,
-		Name  = _U('blip_name'),
-		Hint  = _U('press_custom')
-	},
-
-	ls4 = {
-		Pos   = { x = 104.11, y = 6633.02, z = 31.45},
-		Size  = {x = 3.0, y = 3.0, z = 0.2},
-		Color = {r = 204, g = 204, b = 0},
-		Marker= 1,
-		Name  = _U('blip_name'),
-		Hint  = _U('press_custom')
-		
-	},
 }
 
 	
@@ -433,57 +415,11 @@ end
 
 Config.Menus = {
 	main = {
-		label		= 'Bloods Customs',
+		label		= 'FlyWheels',
 		parent		= nil,
-		upgrades	= _U('upgrades'),
 		cosmetics	= _U('cosmetics')
 	},
-	upgrades = {
-		label			= _U('upgrades'),
-		parent			= 'main',
-		modEngine		= _U('engine'),
-		modBrakes		= _U('brakes'),
-		modTransmission	= _U('transmission'),
-		modSuspension	= _U('suspension'),
-		modArmor		= _U('armor'),
-		modTurbo		= _U('turbo')
-	},
-	modEngine = {
-		label = _U('engine'),
-		parent = 'upgrades',
-		modType = 11,
-		price = {1.00, 1.00, 1.00, 1.00}
-	},
-	modBrakes = {
-		label = _U('brakes'),
-		parent = 'upgrades',
-		modType = 12,
-		price = {1.00, 1.00, 1.00, 1.00}
-	},
-	modTransmission = {
-		label = _U('transmission'),
-		parent = 'upgrades',
-		modType = 13,
-		price = {1.00, 1.00, 1.00}
-	},
-	modSuspension = {
-		label = _U('suspension'),
-		parent = 'upgrades',
-		modType = 15,
-		price = {1.00, 1.00, 1.00, 1.00, 1.00}
-	},
-	modArmor = {
-		label = _U('armor'),
-		parent = 'upgrades',
-		modType = 16,
-		price = {1.00, 1.00, 1.00, 1.00, 1.00, 1.00}
-	},
-	modTurbo = {
-		label = _U('turbo'),
-		parent = 'upgrades',
-		modType = 17,
-		price = {1.81}
-	},
+	
 	cosmetics = {
 		label				= _U('cosmetics'),
 		parent				= 'main',

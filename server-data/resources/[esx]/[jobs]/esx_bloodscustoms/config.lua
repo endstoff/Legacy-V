@@ -21,45 +21,12 @@ Config.Vehicles = {
 Config.Zones = {
 
 	BcustomsActions = {
-		Pos   = { x = 951.65, y = -964.41, z = 39.51 },
+		Pos   = { x = 1765.7409667969, y = 3320.8698730469, z = 41.438484191895 },
 		Size  = { x = 1.0, y = 1.0, z = 1.0 },
 		Color = { r = 204, g = 204, b = 0 },
 		Type  = 22
 	},
 
-	Garage = {
-		Pos   = { x = -11.5, y = -1277.65, z = 28.4 },
-		Size  = { x = 1.5, y = 1.5, z = 1.0 },
-		Color = { r = 204, g = 204, b = 0 },
-		Type  = 1
-	},
-
-	Craft = {
-		Pos   = { x = -323.140, y = -129.882, z = 0 },
-		Size  = { x = 1.5, y = 1.5, z = 1.0 },
-		Color = { r = 204, g = 204, b = 0 },
-		Type  = 1
-	},
-
-	VehicleSpawnPoint = {
-		Pos   = { x = 880.4, y= -889.6, z= 26.12 },
-		Size  = { x = 1.5, y = 1.5, z = 1.0 },
-		Type  = -1
-	},
-
-	VehicleDeleter = {
-		Pos   = { x = 854.73, y = -892.8, z = 24.36 },
-		Size  = { x = 4.0, y = 4.0, z = 1.0 },
-		Color = { r = 255, g = 0, b = 0 },
-		Type  = 1
-	},
-
-	VehicleDelivery = {
-		Pos   = { x = -377.59, y = -1385.67, z = 30.26 },
-		Size  = { x = 20.0, y = 20.0, z = 3.0 },
-		Color = { r = 204, g = 204, b = 0 },
-		Type  = -1
-	}
 }
 
 Config.Towables = {

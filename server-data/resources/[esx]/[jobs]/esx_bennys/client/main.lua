@@ -68,7 +68,7 @@ end
 
 function OpenBennysActionsMenu()
 	local elements = {
-		{label = _U('vehicle_list'),   value = 'vehicle_list'},
+		--{label = _U('vehicle_list'),   value = 'vehicle_list'},
 		{label = _U('deposit_stock'),  value = 'put_stock'},
 		{label = _U('withdraw_stock'), value = 'get_stock'}
 	}
@@ -272,11 +272,11 @@ function OpenMobileBennysActionsMenu()
 		elements = {
 			{label = _U('billing'),       value = 'billing'},
 			{label = _U('hijack'),        value = 'hijack_vehicle'},
-		--	{label = _U('repair'),        value = 'fix_vehicle'},
+			--{label = _U('repair'),        value = 'fix_vehicle'},
 			{label = _U('clean'),         value = 'clean_vehicle'},
-			{label = _U('imp_veh'),       value = 'del_vehicle'},
-			{label = _U('flat_bed'),      value = 'dep_vehicle'},
-			{label = _U('place_objects'), value = 'object_spawner'}
+			--{label = _U('imp_veh'),       value = 'del_vehicle'},
+			--{label = _U('flat_bed'),      value = 'dep_vehicle'},
+			--{label = _U('place_objects'), value = 'object_spawner'}
 	}}, function(data, menu)
 		if isBusy then return end
 
