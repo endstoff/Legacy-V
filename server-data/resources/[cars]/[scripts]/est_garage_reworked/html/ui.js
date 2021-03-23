@@ -11,7 +11,7 @@ $(document).ready(function(){
         $('.Rechteck_7').fadeOut();
         $('.Rechteck_6').fadeOut();
         $('body').fadeIn();
-        $('#Vorname_Nachname').text('Garage | ProjectV');
+        $('#Vorname_Nachname').text('Garage');
       } else if (event.data.action == 'add') {
                 
         AddCar(event.data.plate, event.data.model);        
@@ -113,7 +113,7 @@ $(document).ready(function(){
         <div class="vehicle" onclick="parkOut('` + plate + `');" data-plate="` + plate + `">
           <div class="vehicle-inner">
               <img class="inner-icon" src="car.png">
-              <p style="margin-left:110px;margin-top:-100px;" class="inner-label-knz">Modell: ` + model + " <br> Kennzeichen: " + plate + `</p>
+              <p style="margin-left:110px;margin-top:-100px;color:white;" class="inner-label-knz">Modell: ` + model + " <br> Kennzeichen: " + plate + `</p>
           </div>
         </div>
   

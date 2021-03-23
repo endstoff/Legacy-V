@@ -28,81 +28,43 @@ Citizen.CreateThread(function()
 end)
 
 local garages = {
-
-    {vector3(-1519.98, 80.26, 56.73), vector3(-1531.92, 83.11, 56.74), 323.64 },
-    {vector3(100.97, -1073.49, 29.37), vector3(117.73, -1081.17, 29.22), 0.01 },
-    {vector3(213.59, -809.34, 31.01), vector3(232.98, -790.3, 30.6), 161.46 },
-    {vector3(-899.275, -153.0, 41.88), vector3(-901.989, -159.28, 41.46), 204.0},
-    {vector3(275.182, -345.534, 45.173), vector3(266.498, -332.475, 43.43), 251.0},
+    {vector3(-619.18, -80.9, 41.2), vector3(-632.93, -75.36, 40.40), 357.97},
+    {vector3(213.182, -809.534, 31.03), vector3(234.498, -805.475, 31.43), 64.0},
     {vector3(-833.255, -2351.34, 14.57), vector3(-823.68, -2342.975, 13.803), 147.0},
     {vector3(721.95, -2016.379, 29.43), vector3(728.567, -2033.28, 28.87), 354.0},
     {vector3(-2162.82, -377.15,13.28), vector3(-2169.21, -372.25, 13.08), 158.18},
     {vector3(-400.74, 1209.87, 325.92), vector3(-406.82, 1207.15, 325.664), 167.65},
     {vector3(112.23, 6619.66, 31.82), vector3(115.81,6599.34, 32.01), 265.81},
-    {vector3(2768.34, 3462.92, 55.63), vector3(2772.88, 3472.32, 55.46), 241.84},
     {vector3(1951.79, 3750.95, 32.16), vector3(1949.57, 3759.33, 32.21), 34.16},
-    {vector3(1899.46, 2605.26, 45.97), vector3(1875.88, 2595.20, 45.67), 267.31},
-    {vector3(889.24, -53.87, 78.91), vector3(886.12, -62.68, 78.76), 236.43},
-    {vector3(-1184.85, -1510.05, 4.65), vector3(-1183.01, -1495.34, 4.38), 125.56},
-    {vector3(362.28, 298.39, 103.88), vector3(377.9, 288.46, 103.17), 71.04},
-    {vector3(2434.69, 5011.78, 64.84), vector3(2451.71, 5033.78, 54.91), 225.04},
-    {vector3(-73.28, -1835.79, 26.94), vector3(-60.76, -1834.67, 26.75), 234.56},
-    {vector3(1036.67, -763.43, 57.99), vector3(1020.1, -766.99, 57.93), 323.98},
-    {vector3(1366.22, -1833.79, 57.92), vector3(1359.46, -1849.11, 57.23), 5.91},
-    {vector3(-316.38, -2748.19, 6), vector3(-335.81, -2738.82, 6.03), 5.91},
-    {vector3(-73.04, 909.85, 235.63), vector3(-68.1, 897.9, 235.56), 111.54},
-    {vector3(-1928.43, 2060.01, 140.84), vector3(-1919.91, 2057.23, 140.74), 260.28},
-    {vector3(2763, 1346.56, 24.52), vector3(2732.62, 1329.28, 24.52), 3.22},
-    {vector3(570.24, 2797.07, 42.01), vector3(588.78, 2791.1, 42.16), 359.84},
-    {vector3(-945.09, 312.55, 71.35), vector3(-939.29, 294.72, 70.7), 261.51},
-    {vector3(-1380.3, 735.68, 182.97), vector3(-1399.03, 738.99, 183.06), 67.58},
-    {vector3(162.92, -680.19, 33.12), vector3(154.85, -692.05, 33.13), 160.41}
-
-
-
-
-
+    {vector3(615.15, 2785.41, 43.48), vector3(595.16, 2789.47, 42.19), 5.76},
+    {vector3(-1681.48, 56.48, 63.96), vector3(-1685.45, 48.77, 63.62), 161.99},
+    {vector3(-1184.28, -1509.79, 4.65), vector3(-1191.71, -1504.35, 3.94), 304.94},
+    {vector3(889.24, -53.87, 78.91), vector3(886.12, -62.68, 78.76), 236.43}
 }
 
 local coordinate = {
-    { -1519.98, 80.26, 56.73, nil, 21.85, nil, -100858228},
-    { 213.59, -809.34, 31.01, nil, 0.0, nil, -1176698112},
-    { -899.275, -153.0, 41.88, nil, 121.86, nil, 436345731},
-    { 275.182, -345.534, 45.173, nil, 0.0, nil, 216536661},
-    { -833.255, -2351.34, 14.57, nil, 284.43, nil, -1549575121},
-    { 721.95, -2016.379, 29.43, nil, 264.04, nil, 131961260},
-    { -2162.82, -377.15,13.28, nil, 165.99, nil, 377976310},
-    { -400.74, 1209.87, 325.92, nil, 178.25, nil, 1641152947},
-    { 112.23, 6619.66, 31.82, nil, 237.14, nil, 331645324},
-    { 2768.34, 3462.92, 55.63, nil, 241.17, nil, -1519253631},
-    { 1951.79, 3750.95, 32.16, nil, 118.06, nil, 1169888870},
-    { 1899.46, 2605.26, 45.97, nil, 266.95, nil, 1096929346},
-    { 889.24, -53.87, 78.91, nil, 0.0, nil, 1822107721},
-    { -1184.85, -1510.05, 4.65, nil, 300.03, nil, -995747907},
-    { 362.28, 298.39, 103.88, nil, 249.97, nil, 436345731},
-    { 2435.68, 5012.13, 46.87, nil, 309.63, nil, -1806291497},
-    { -73.28, -1835.79, 26.94, nil, 317.45, nil, -449965460},
-    { 1036.67, -763.43, 57.99, nil, 240.62, nil, -929103484},
-    { 1366.22, -1833.79, 57.92, nil, 98.89, nil, 68070371},
-    { -316.38, -2748.19, 6, nil, 39.39, nil, 436345731},
-    { -73.04, 909.85, 235.63, nil, 207.55, nil, 2093736314},
-    { -1928.43, 2060.01, 140.84, nil, 347.41, nil, -1217776881},
-    { 2763, 1346.56, 24.52, nil, 92.62, nil, -72125238},
-    { 570.24, 2797.07, 42.01, nil, 278.44, nil, 1380197501},
-    { -945.09, 312.55, 71.35, nil, 180.36, nil, 1380197501},
-    { -1380.3, 735.68, 182.97, nil, 350.69, nil, 1464257942},
-    { 162.92, -680.19, 33.12, nil, 156.96, nil, 1558115333},
-    {100.97, -1073.49, 29.37, nil, 73.88, nil, -1806291497}  
+    { -619.18, -80.9, 41.2, nil, 21.85, nil, -100858228},
+    { 213.182, -809.534, 31.03, nil, 0.0, nil, -1176698112},
+    { -833.255, -2351.34, 14.57, nil, 121.86, nil, 436345731},
+    { 721.95, -2016.379, 29.43, nil, 0.0, nil, 216536661},
+    { -2162.82, -377.15,13.28, nil, 284.43, nil, -1549575121},
+    { -400.74, 1209.87, 325.92, nil, 264.04, nil, 131961260},
+    { 112.23, 6619.66, 31.82, nil, 165.99, nil, 377976310},
+    { 1951.79, 3750.95, 32.16, nil, 178.25, nil, 1641152947},
+    { 615.15, 2785.41, 43.48, nil, 237.14, nil, 331645324},
+    { -1681.48, 56.48, 63.96, nil, 241.17, nil, -1519253631},
+    { -1184.28, -1509.79, 4.65, nil, 118.06, nil, 1169888870},
+    { 889.24, -53.87, 78.91, nil, 266.95, nil, 1096929346},
 }
 
 
-
+--[[
 local ImpoundBlip = {
     {title="Abschlepper", colour=5, id=477, x = 408.61, y = -1625.47, z = 28.29},
     {title="Abschlepper", colour=5, id=477, x = 1651.38, y = 3804.84, z = 37.65},               --https://docs.fivem.net/docs/game-references/blips/
     {title="Abschlepper", colour=5, id=477, x = -234.82, y = 6198.65, z = 30.94}
 }
-
+]]
 
 Citizen.CreateThread(function()
 
@@ -126,7 +88,7 @@ end)
 local enableField = false
 
 function AddCar(plate, model)
-    print("AddCar")
+--  print("AddCar")
     SendNUIMessage({
         action = 'add',
         plate = plate,
@@ -172,7 +134,7 @@ RegisterNUICallback('enable-parkout', function(data, cb)
 		if #ownedCars == 0 then
 			ESX.ShowNotification("Du hast keine Fahrzeuge")
         else
-            print(ownedCars)
+        --  print(ownedCars)
             for _,v in pairs(ownedCars) do
             local hashVehicule = v.vehicle.model
 			local aheadVehName = GetDisplayNameFromVehicleModel(hashVehicule)
@@ -223,7 +185,7 @@ RegisterNUICallback('park-out', function(data, cb)
         }, garages[usedGarage][3], function(callback_vehicle)
             ESX.Game.SetVehicleProperties(callback_vehicle, props)
             SetVehRadioStation(callback_vehicle, "OFF")
-            TaskWarpPedIntoVehicle(GetPlayerPed(-1), callback_vehicle, -1)
+        --  TaskWarpPedIntoVehicle(GetPlayerPed(-1), callback_vehicle, -1)
         end)
 
     end, data.plate)
@@ -292,7 +254,7 @@ Citizen.CreateThread(function()
     end
 end)
 
-
+--[[
 Citizen.CreateThread(function()
 
     for _, info in pairs(ImpoundBlip) do
@@ -504,6 +466,6 @@ function SpawnPoundedVehicle(vehicle, plate)
 	}, this_Garage.SpawnPunkt.h, function(callback_vehicle)
 		ESX.Game.SetVehicleProperties(callback_vehicle, vehicle)
 		SetVehRadioStation(callback_vehicle, "OFF")
-		TaskWarpPedIntoVehicle(GetPlayerPed(-1), callback_vehicle, -1)
+	--	TaskWarpPedIntoVehicle(GetPlayerPed(-1), callback_vehicle, -1)
 	end)
-end
+end]]
