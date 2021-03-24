@@ -146,6 +146,7 @@ ensure esx_nutzfahrzeugshop
 ensure esx_weaponshop
 ensure esx_ammo-armor-shop
 ensure 99kr-shops
+ensure esx_motorradshop
 
 ensure esx_handyladen
 ensure esx_baumarkt
@@ -238,7 +239,7 @@ ensure est_notification
 ensure est_notify
 ensure est_notify-werbung
 ensure est_notify-broadcast
-ensure est_notify-tankstellen
+#ensure est_notify-tankstellen
 
 ensure mythic_notify
 ensure pNotify
