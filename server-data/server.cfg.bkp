@@ -223,6 +223,7 @@ ensure VehicleTransport
 ensure orp-banking
 
 ensure bob74_ipl
+ensure core_deskbell
 #ensure fivem-ipl
 
 ensure pausemenu-title
@@ -345,7 +346,7 @@ sets banner_connecting ""
 sv_hostname "« ^3Legacy-V ^0» | 🛡️ ^1One-Klick-Whitelist ^0| 🔥 ^8High-Performance ^0| 🎤 ^3SaltyChat"
 
 sets sv_projectName "^3« Legacy-V Roleplay »"
-sets sv_projectDesc "🛡️ One-Klick-Whitelist!, 🔥 High-Performance, 🎤 SaltyChat"
+sets sv_projectDesc "🛑16+, 🛡️ One-Klick-Whitelist!, 🔥 High-Performance, 🚗 Kein Fahrzeug Despawn"
 
 # Nested configs!
 #exec server_internal.cfg

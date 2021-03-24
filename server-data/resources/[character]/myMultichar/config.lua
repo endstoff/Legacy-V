@@ -31,11 +31,13 @@ Config.Tables = {
     {table = "phone_twitter_accounts", column = "identifier"},
     {table = "phone_twitter_likes", column = "identifier"},
     {table = "phone_twitter_messages", column = "identifier"},
+    {table = "phone_banking", column = "identifier"},
     {table = "stations", column = "stationOwner"},
     {table = "t1ger_mechanic", column = "identifier"},
     {table = "user_licenses", column = "owner"},
     {table = "owned_vehicles", column = "owner"},
-    {table = "phone_banking", column = "identifier"},
+    {table = "allhousing", column = "owner"},
+    
 }
 
 Config.SpawnLocations = {

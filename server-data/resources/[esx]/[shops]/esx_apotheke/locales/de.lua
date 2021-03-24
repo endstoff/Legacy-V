@@ -1,5 +1,5 @@
 Locales['de'] = {
-  ['shop'] = 'geschäft',
+  ['shop'] = 'Apotheke',
   ['shops'] = 'Apotheke',
   ['press_menu'] = 'Drücke ~INPUT_CONTEXT~ um auf die ~g~Apotheke~s~ zuzugreifen.',
   ['shop_item'] = '$%s',
