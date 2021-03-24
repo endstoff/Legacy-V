@@ -151,7 +151,13 @@ UseWebhook = true,
 			{
 				model = 'cognoscenti', -- Vehicle spawn model
 				label = 'Cognoscenti', -- Vehicle menu label
-				props = {plate = '1234567', modXenon = true} -- Here you can add all vehicle mods you want, documentation can be found here: https://esx-framework.github.io/es_extended/client/functions/game/setvehicleproperties/#valid-table-content
+				props = {plate = 'State01', modXenon = true} -- Here you can add all vehicle mods you want, documentation can be found here: https://esx-framework.github.io/es_extended/client/functions/game/setvehicleproperties/#valid-table-content
+
+			},
+			{
+				model = 'drafter', -- Vehicle spawn model
+				label = 'Drafter', -- Vehicle menu label
+				props = {plate = 'State02', modXenon = true} -- Here you can add all vehicle mods you want, documentation can be found here: https://esx-framework.github.io/es_extended/client/functions/game/setvehicleproperties/#valid-table-content
 
 			},
 		},

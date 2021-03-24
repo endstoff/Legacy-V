@@ -13,7 +13,7 @@ if Config.MaxInService ~= -1 then
 end
 
 TriggerEvent('esx_phone:registerNumber', 'bennys', _U('bennys_customer'), true, true)
-TriggerEvent('esx_society:registerSociety', 'bennys', 'bennys', 'society_bennys', 'society_bennys', 'society_bennys', {type = 'private'})
+TriggerEvent('esx_society:registerSociety', 'bennys', 'bennys', 'society_bennys', 'society_bennys', 'society_bennys', {type = 'public'})
 
 local function Harvest(source)
 	SetTimeout(4000, function()

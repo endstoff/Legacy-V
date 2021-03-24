@@ -87,12 +87,12 @@ Config.Weapons.Reticle = {
 -- Pick and choose which effects using the list below. Remember to add ','s where needed.
 Config.BloodEffects = {
 	'Skin_Melee_0',
-	'Useful_Bits',
-	'Explosion_Med',
-	'BigHitByVehicle',
-	'Car_Crash_Heavy',
-	'HitByVehicle',
-	'BigRunOverByVehicle'
+--	'Useful_Bits',
+--	'Explosion_Med',
+--	'BigHitByVehicle',
+--	'Car_Crash_Heavy',
+--	'HitByVehicle',
+--	'BigRunOverByVehicle'
 }
 
 -- Blood Effects

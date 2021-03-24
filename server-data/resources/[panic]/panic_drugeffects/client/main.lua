@@ -247,7 +247,7 @@ AddEventHandler('panic_drugeffects:useCoke', function()
                 Citizen.Wait(2000)
                 AnimpostfxStopAll()
                 AnimpostfxPlay("DrugsTrevorClownsFight", 10000001, true)
-                AddArmourToPed(playerPed, 30)
+                AddArmourToPed(playerPed, 50)
                 SetEntityHealth(playerPed, seth)
                 cokeTime = cokeTime + 300
                 if armor > 100 then 
@@ -256,12 +256,12 @@ AddEventHandler('panic_drugeffects:useCoke', function()
             end 
             if cokeLevel > 1 then 
                 cokeTime = cokeTime + 400
-                AddArmourToPed(playerPed, 30)
+                AddArmourToPed(playerPed, 50)
                 SetEntityHealth(playerPed, seth)
                 if armor > 100 then 
                     SetPedArmour(playerPed, 100)
                 end
-                AddArmourToPed(playerPed, 30)
+                AddArmourToPed(playerPed, 50)
                 ShakeGameplayCam("DRUNK_SHAKE", 0.3)
                 AnimpostfxPlay("LostTimeNight", 10000001, true)
                 Citizen.Wait(2000)

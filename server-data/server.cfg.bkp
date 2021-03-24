@@ -53,7 +53,7 @@ ensure d-phone
 ensure saltyradio
 
 ##      Admin
-ensure Badger_Discord_API
+ensure mxs-adminmenu
 ensure discordroles
 ensure DiscordWhitelist
 #ensure EasyAdmin
@@ -167,13 +167,14 @@ ensure visn_are
 
 ensure t1ger_mechanicjob
 
-ensure est_bmeister
+#ensure est_bmeister
+ensure sqz_unijob
 
 ensure esx_bennys
 ensure esx_bennys_tuning
 
-#ensure esx_bloodscustoms
-#ensure esx_bloodscustoms_tuning
+ensure esx_bloodscustoms
+ensure esx_bloodscustoms_tuning
 
 ensure myFarming
 
@@ -255,7 +256,8 @@ ensure myIllegals
 ensure Autos
 
 ## 		Cars Scripts
-ensure est_garage
+#ensure est_garage
+ensure est_garage_reworked
 ensure est_impound
 
 ensure esx_legacyfuel
@@ -291,7 +293,7 @@ ensure wnewsv2
 #ensure pharmacy_paleto
 #ensure smedical-mlo
 
-#ensure gabz_bennys
+ensure gabz_bennys
 ensure gabz_diner
 #ensure gabz_imp_garage
 #ensure gabz_pacific_bank
@@ -313,6 +315,9 @@ ensure LegacyMaps
 ensure forest
 #ensure bennyspatochev2_1
 ensure flywheels
+
+ensure 247_zancudo
+ensure gabz_247
 
 
 # This allows players to use scripthook based plugins such as lambda menu.
