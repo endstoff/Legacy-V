@@ -44,7 +44,7 @@ $('document').ready(function() {
             } else if (event.data.text == "Unlocked") {
                 event.data.text = '<i style="color:limegreen" class="fas fa-unlock"></i>'
             } else if (event.data.text == "Locking") {
-                event.data.text = '<i style="color:orange" class="fas fa-lock"><br>Abschließvorgang</i>'
+                event.data.text = '<i style="color:orange" class="fas fa-lock"><br>Locking</i>'
             }
 
             event.x = (event.data.x * 100) + '%';

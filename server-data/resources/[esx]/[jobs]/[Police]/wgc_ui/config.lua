@@ -24,7 +24,7 @@ Animation beim öffnen des Tablets?
 Ja = true
 Nein = false
 ]]
-Config.Animation = true
+Config.Animation = false
 
 --[[
 Befehl "/copnet"?

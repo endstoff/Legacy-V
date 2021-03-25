@@ -147,7 +147,6 @@ Config.DoorList = {
 		authorizedJobs = { ['police']=0 },
 		locked = true,
 		maxDistance = 2.0,
-		fixText = true,
 	},
 
 	-- gabz_mrpd	CELL ENTRANCE 1
@@ -295,9 +294,9 @@ Config.DoorList = {
 		objHeading = 134.7,
 		objCoords = vector3(475.8323, -990.4839, 26.40548),
 		authorizedJobs = { ['police']=0 },
-		fixText = true,
 		locked = true,
-		maxDistance = 2.0,	
+		maxDistance = 2.0,
+		fixText = true
 	},
 
 	-- gabz_mrpd	ARMOURY 1
@@ -729,7 +728,7 @@ table.insert(Config.DoorList, {
 
 -- Flywheels Büro
 table.insert(Config.DoorList, {
-	authorizedJobs = { ['bennys']=0 },
+	authorizedJobs = { ['bcustoms']=0 },
 	audioRemote = false,
 	objCoords = vector3(1775.62, 3327.711, 41.45468),
 	lockpick = false,
@@ -747,7 +746,7 @@ table.insert(Config.DoorList, {
 })
 
 table.insert(Config.DoorList, {
-	authorizedJobs = { ['bennys']=0 },
+	authorizedJobs = { ['bcustoms']=0 },
 	audioRemote = false,
 	objCoords = vector3(1756.851, 3311.377, 40.25931),
 	lockpick = false,
@@ -766,7 +765,7 @@ table.insert(Config.DoorList, {
 
 -- Flywheels Büro innen
 table.insert(Config.DoorList, {
-	authorizedJobs = { ['bennys']=0 },
+	authorizedJobs = { ['bcustoms']=0 },
 	locked = true,
 	slides = false,
 	objHash = -129553421,
@@ -855,6 +854,63 @@ table.insert(Config.DoorList, {
 	lockpick = false,
 	locked = true,
 	slides = true,		
+	-- oldMethod = true,
+	-- audioLock = {['file'] = 'metal-locker.ogg', ['volume'] = 0.6},
+	-- audioUnlock = {['file'] = 'metallic-creak.ogg', ['volume'] = 0.7},
+	-- autoLock = 1000
+})
+
+-- Toni´s Garage
+table.insert(Config.DoorList, {
+	objHash = 634017584,
+	garage = true,
+	audioRemote = false,
+	lockpick = false,
+	maxDistance = 4.0,
+	slides = 6.0,
+	fixText = false,
+	locked = true,
+	objHeading = 303.88256835938,
+	objCoords = vector3(-1744.944, 368.6532, 90.06159),
+	authorizedJobs = { ['bcustoms']=0 },		
+	-- oldMethod = true,
+	-- audioLock = {['file'] = 'metal-locker.ogg', ['volume'] = 0.6},
+	-- audioUnlock = {['file'] = 'metallic-creak.ogg', ['volume'] = 0.7},
+	-- autoLock = 1000
+})
+
+-- Tonis Garagen Tür
+table.insert(Config.DoorList, {
+	objHash = -826011544,
+	objCoords = vector3(-1740.882, 364.8894, 89.08959),
+	slides = false,
+	fixText = true,
+	maxDistance = 1.0,
+	objHeading = 304.17541503906,
+	garage = false,
+	authorizedJobs = { ['bcustoms']=0 },	
+	locked = true,
+	lockpick = false,
+	audioRemote = false,		
+	-- oldMethod = true,
+	-- audioLock = {['file'] = 'metal-locker.ogg', ['volume'] = 0.6},
+	-- audioUnlock = {['file'] = 'metallic-creak.ogg', ['volume'] = 0.7},
+	-- autoLock = 1000
+})
+
+-- 
+table.insert(Config.DoorList, {
+	objHash = -826011544,
+	objCoords = vector3(-1732.162, 379.0208, 90.08658),
+	slides = false,
+	fixText = true,
+	maxDistance = 1.0,
+	objHeading = 27.7866172,
+	garage = false,
+	authorizedJobs = { ['bcustoms']=0 },	
+	locked = true,
+	lockpick = false,
+	audioRemote = false,		
 	-- oldMethod = true,
 	-- audioLock = {['file'] = 'metal-locker.ogg', ['volume'] = 0.6},
 	-- audioUnlock = {['file'] = 'metallic-creak.ogg', ['volume'] = 0.7},

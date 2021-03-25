@@ -23,9 +23,9 @@
     height: 25px;
     width: 25px;
     border: none;
-    background-color: rgba(38, 143, 58, 0.8);
-    border-left: 1px solid rgba(210, 210, 210, 0.8);
-    border-bottom: 1px solid rgba(210, 210, 210, 0.8);
+    background-color: rgba(60, 60, 60, 0.97);
+    border-left: 1px solid rgba(172, 118, 39, 1);
+    border-bottom: 1px solid rgba(172, 118, 39, 1);
     color: white;
     transition: 0.4s ease-in-out background-color;
 }
@@ -38,10 +38,11 @@
     display: block;
     margin: auto;
     text-align: center;
+    color: white;
     width: 950px;
     height: 390px;
-    background-color: rgba(227, 227, 226, 0.97);
-    border: 3px solid rgba(38, 143, 58, 0.8);
+    background-color: rgba(60, 60, 60, 0.97);
+    border: 3px solid rgba(172, 118, 39, 0.8);
     margin-top: 15%;
     font-family: 'Montserrat', sans-serif;
 }
@@ -94,22 +95,22 @@
     font-size: 21px;
     font-weight: bold;
     letter-spacing: -1.5px;
-    color: rgba(38, 143, 58, 1);
+    color: rgba(76, 205, 65, 0.9);
     text-align: center;
 }
 
 .blue-color {
-    color: #3a526c;
+    color: rgba(76, 205, 65, 0.9);
 }
 
 .red-color {
-    color: #a23935;
+    color: rgba(76, 205, 65, 0.9);
 }
 
 .balance, .creation {
     font-size: 20px;
     text-align: center;
-    color: black;
+    color: white;
     display: inline-block;
     margin-left: 5px;
     font-weight: bold;
@@ -129,10 +130,10 @@
     height: 40px;
     width: 150px;
     border: none;
-    background-color: #268f3a;
+    background-color: rgba(172, 118, 39, 1);
     color: white;
     border-radius: 2px;
-    border: 1px solid #176325;
+    border: 1px solid black;
     transition: 0.2s ease-in-out all;
 }
 
@@ -177,20 +178,22 @@ input[type="number"] {
     margin: 0 auto;
     width: 200px;
     height: 40px;
-    background-color: #268f3a;
-    color: white;
+    background-color: rgba(172, 118, 39, 1);
+    color: rgb(255, 255, 255);
     border-radius: 2px;
-    border: 1px solid #176325;
+    border: 0.1vh solid black;
     transition: 0.2s ease-in-out all;
 }
 
 .blue-btn {
     background-color: #3a526c;
+    color: white;
     border: 1px solid #233344;
 }
 
 .red-btn {
-    background-color: #ee222e;
+    background-color: rgba(177, 30, 33, 0.9);
+    color: white;
     border: 1px solid #80121a;
 }
 
@@ -203,19 +206,27 @@ input[type="number"] {
 }
 
 .btn:hover, .btn-quick:hover {
-    border: 3px solid green;
+    border: 2px solid white;
 }
 
 .red-btn:hover {
-    border: 3px solid #80121a;
+    border: 2px solid #80121a;
+}
+
+.blue-btn:hover {
+    border: 2px solid white;
 }
 
 .red-close {
-    background-color: #ee222e;
+    background-color: rgba(60, 60, 60, 0.97);
+    border-left: 1px solid #80121a;
+    border-bottom: 1px solid #80121a;
 }
 
 .blue-close {
-    background-color: #3a526c;
+    background-color: rgba(60, 60, 60, 0.97);
+    border-left: 1px solid #3a526c;
+    border-bottom: 1px solid #3a526c;
 }
 
 .column-2nd {

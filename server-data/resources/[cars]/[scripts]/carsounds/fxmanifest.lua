@@ -56,7 +56,9 @@ files {
   'audioconfig/demonv8_sounds.dat54.nametable',
   'audioconfig/demonv8_sounds.dat54.rel',
   'sfx/dlc_demonv8/demonv8.awc',
-  'sfx/dlc_demonv8/demonv8_npc.awc'
+  'sfx/dlc_demonv8/demonv8_npc.awc',
+
+  'sfx/dlc_tempesta/tempesta.awc'
 }
 
 data_file 'AUDIO_GAMEDATA' 'audioconfig/lambov10_game.dat'
@@ -95,6 +97,8 @@ data_file 'AUDIO_WAVEPACK' 'sfx/dlc_m297zonda'
 data_file 'AUDIO_GAMEDATA' 'audioconfig/demonv8_game.dat'
 data_file 'AUDIO_SOUNDDATA' 'audioconfig/demonv8_sounds.dat'
 data_file 'AUDIO_WAVEPACK' 'sfx/dlc_demonv8'
+
+data_file 'AUDIO_WAVEPACK' 'sfx/dlc_tempesta'
 
 client_script {
   'vehicle_names.lua'

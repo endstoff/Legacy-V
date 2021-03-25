@@ -474,7 +474,7 @@ Config.CustomPeds = {
 Config.Uniforms = {
 	cadet = {
 		male = {
-			tshirt_1 = 58,  tshirt_2 = 0,
+			tshirt_1 = 38,  tshirt_2 = 1,
 			torso_1 = 55,   torso_2 = 0,
 			decals_1 = 8,   decals_2 = 3,
 			arms = 41,
@@ -501,7 +501,7 @@ Config.Uniforms = {
 
 	officer = {
 		male = {
-			tshirt_1 = 58,  tshirt_2 = 0,
+			tshirt_1 = 38,  tshirt_2 = 1,
 			torso_1 = 55,   torso_2 = 0,
 			decals_1 = 8,   decals_2 = 3,
 			arms = 41,
@@ -528,7 +528,7 @@ Config.Uniforms = {
 
 	detective = {
 		male = {
-			tshirt_1 = 58,  tshirt_2 = 0,
+			tshirt_1 = 38,  tshirt_2 = 1,
 			torso_1 = 55,   torso_2 = 0,
 			decals_1 = 8,   decals_2 = 3,
 			arms = 41,
@@ -555,7 +555,7 @@ Config.Uniforms = {
 
 	sergeant = {
 		male = {
-			tshirt_1 = 58,  tshirt_2 = 0,
+			tshirt_1 = 38,  tshirt_2 = 1,
 			torso_1 = 55,   torso_2 = 0,
 			decals_1 = 8,   decals_2 = 3,
 			arms = 41,
@@ -582,7 +582,7 @@ Config.Uniforms = {
 
 	firstsergeant = {
 		male = {
-			tshirt_1 = 58,  tshirt_2 = 0,
+			tshirt_1 = 38,  tshirt_2 = 1,
 			torso_1 = 55,   torso_2 = 0,
 			decals_1 = 8,   decals_2 = 3,
 			arms = 41,
@@ -609,7 +609,7 @@ Config.Uniforms = {
 
 	lieutenant = {
 		male = {
-			tshirt_1 = 58,  tshirt_2 = 0,
+			tshirt_1 = 38,  tshirt_2 = 1,
 			torso_1 = 55,   torso_2 = 0,
 			decals_1 = 8,   decals_2 = 3,
 			arms = 41,
@@ -636,7 +636,7 @@ Config.Uniforms = {
 
 	commissioner = {
 		male = {
-			tshirt_1 = 58,  tshirt_2 = 0,
+			tshirt_1 = 38,  tshirt_2 = 1,
 			torso_1 = 55,   torso_2 = 0,
 			decals_1 = 8,   decals_2 = 3,
 			arms = 41,
@@ -663,7 +663,7 @@ Config.Uniforms = {
 
 	instructor = {
 		male = {
-			tshirt_1 = 58,  tshirt_2 = 0,
+			tshirt_1 = 38,  tshirt_2 = 1,
 			torso_1 = 55,   torso_2 = 0,
 			decals_1 = 8,   decals_2 = 3,
 			arms = 41,
@@ -690,7 +690,7 @@ Config.Uniforms = {
 
 	chiefofacademy = {
 		male = {
-			tshirt_1 = 58,  tshirt_2 = 0,
+			tshirt_1 = 38,  tshirt_2 = 1,
 			torso_1 = 55,   torso_2 = 0,
 			decals_1 = 8,   decals_2 = 3,
 			arms = 41,
@@ -717,7 +717,7 @@ Config.Uniforms = {
 
 	chiefofdepartment = {
 		male = {
-			tshirt_1 = 58,  tshirt_2 = 0,
+			tshirt_1 = 38,  tshirt_2 = 1,
 			torso_1 = 55,   torso_2 = 0,
 			decals_1 = 8,   decals_2 = 3,
 			arms = 41,
@@ -744,7 +744,7 @@ Config.Uniforms = {
 
 	boss = {
 		male = {
-			tshirt_1 = 58,  tshirt_2 = 0,
+			tshirt_1 = 38,  tshirt_2 = 1,
 			torso_1 = 55,   torso_2 = 0,
 			decals_1 = 8,   decals_2 = 3,
 			arms = 41,

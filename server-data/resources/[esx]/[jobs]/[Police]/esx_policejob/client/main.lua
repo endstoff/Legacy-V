@@ -258,7 +258,7 @@ function OpenPoliceActionsMenu()
 			{label = _U('citizen_interaction'), value = 'citizen_interaction'},
             {label = _U('dienstausweis_aktion'), value = 'dienstausweis_aktion'},
 			{label = _U('vehicle_interaction'), value = 'vehicle_interaction'},
-		--	{label = _U('object_spawner'), value = 'object_spawner'}
+			--{label = _U('object_spawner'), value = 'object_spawner'}
 	}}, function(data, menu)
 		if data.current.value == 'citizen_interaction' then
 			local elements = {
@@ -403,8 +403,8 @@ function OpenPoliceActionsMenu()
 					{label = _U('cone'), model = 'prop_roadcone02a'},
 					{label = _U('barrier'), model = 'prop_barrier_work05'},
 					{label = _U('spikestrips'), model = 'p_ld_stinger_s'},
-					{label = _U('box'), model = 'prop_boxpile_07d'},
-					{label = _U('cash'), model = 'hei_prop_cash_crate_half_full'}
+					--{label = _U('box'), model = 'prop_boxpile_07d'},
+					--{label = _U('cash'), model = 'hei_prop_cash_crate_half_full'}
 			}}, function(data2, menu2)
 				local playerPed = PlayerPedId()
 				local coords, forward = GetEntityCoords(playerPed), GetEntityForwardVector(playerPed)

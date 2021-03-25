@@ -1087,7 +1087,7 @@ end
 Citizen.CreateThread(function()
 	local blip = AddBlipForCoord(Config.Zones.ShopEntering.Pos.x, Config.Zones.ShopEntering.Pos.y, Config.Zones.ShopEntering.Pos.z)
 
-	SetBlipSprite (blip, 326)
+	SetBlipSprite (blip, 226)
 	SetBlipDisplay(blip, 4)
 	SetBlipScale  (blip, 0.8)
 	SetBlipAsShortRange(blip, true)
