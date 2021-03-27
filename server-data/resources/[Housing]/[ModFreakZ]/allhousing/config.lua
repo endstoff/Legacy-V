@@ -4,7 +4,7 @@ Config = {
 
   UseMLO      = true,  -- MLO support?
   MLOHash     = true,  -- true = use interior name hash to verify if player is inside house, false = use interior ID (false = legacy).
-  UseDoors    = true,  -- Can be paired with MLO support, must have "ModFreakz: Doors" mod from https://modit.store
+  UseDoors    = false,  -- Can be paired with MLO support, must have "ModFreakz: Doors" mod from https://modit.store
 
   AllowHouseSales = true,                   -- can players sell their house after purchase?
   SpawnOffset     = vector3(0.0,0.0,0.0),   -- global house spawn offset (location + SpawnOffset) (use negative z-value to lower the shells position)
@@ -15,7 +15,7 @@ Config = {
 
   -- FRAMEWORK
   UsingESX          = true,   -- Recommended, otherwise you have LOTS to change.
-  UsingVSync        = true,   -- Really only applies if you're using the modified vSync provided, else set false.
+  UsingVSync        = false,   -- Really only applies if you're using the modified vSync provided, else set false.
 
   -- SOUND FILE NOT SUPPLIED.
   UsingInteractSound = false,
@@ -168,10 +168,10 @@ Config = {
   -- These jobs also receive all notifications regarding police
   PoliceJobs = {
     police = {      -- JOB NAME
-      minRank = 3,  -- min rank to raid house
+      minRank = 0,  -- min rank to raid house
     },
-    police2 = {     -- JOB NAME
-      minRank = 1,  -- min rank to raid house
+    bmeister = {     -- JOB NAME
+      minRank = 0,  -- min rank to raid house
     }
   },
 }
