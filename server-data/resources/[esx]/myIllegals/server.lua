@@ -36,11 +36,15 @@ end)
 
 RegisterServerEvent('myIllegals:getJobXP')
 AddEventHandler('myIllegals:getJobXP', function()
-
-    local steamid = GetPlayerIdentifiers(source)[1]
-
+	--local xPlayer = ESX.GetPlayerFromId(source)
+    --local steamid = GetPlayerIdentifiers(source)[1]
+	local steamID = GetPlayerIdentifiers(source)[1]
+	if Config.useNewESX then
+		steamID = string.gsub(GetPlayerIdentifiers(source)[2], "license:", "")
+	end
+	
     for k, v in pairs(playerXP) do
-        if v.steamID == steamid then
+        if v.steamID == steamID then
             TriggerClientEvent('myIllegals:receiveJobXP', source, v.xp)
         end
     end
@@ -195,7 +199,7 @@ AddEventHandler('myIllegals:sellItems', function(item, amount, price)
     local xPlayer   = ESX.GetPlayerFromId(_source)
     local itemCount = xPlayer.getInventoryItem(item).count
 
-    if itemCount >= amount then
+    if itemCount > 0 and itemCount >= amount then
         --print('test')
         xPlayer.removeInventoryItem(item, amount)
         xPlayer.addMoney(price * amount)
@@ -305,14 +309,19 @@ end)
 
 function addJobXP(_source, typec, amountc)
 
-    local steamid = GetPlayerIdentifiers(_source)[1]
-	
+	--local xPlayer = ESX.GetPlayerFromId(_source)
+	local steamID = GetPlayerIdentifiers(_source)[1]
+	print('got steamID: ' .. GetPlayerIdentifiers(_source)[1])
+	if Config.useNewESX then
+		steamID = string.gsub(GetPlayerIdentifiers(_source)[2], "license:", "")
+		print('updated to license: ' .. steamID)
+	end
 	--print('set ' .. _source .. ' ' .. typec .. amountc )
 	
     if #playerXP > 0 then
         print('case 0')
 		for k, v in pairs(playerXP) do
-            if v.steamID == steamid then
+            if v.steamID == steamID then
 				if #v.xp > 0 then
 					for k2, v2 in pairs(v.xp) do
 						if v2.type == typec then
@@ -333,7 +342,7 @@ function addJobXP(_source, typec, amountc)
 				end
 				MySQL.Async.execute(
 					'UPDATE job_xp SET xp=@xp WHERE steamID=@steamID', {
-					['@steamID'] = steamid,
+					['@steamID'] = steamID,
 					['@xp'] = json.encode(v.xp),
 				})
 				
@@ -342,7 +351,7 @@ function addJobXP(_source, typec, amountc)
                 
             elseif k == #playerXP then
 
-                createPlayer(steamid)
+                createPlayer(steamID)
 
                 local xp = {}
                 table.insert(xp, {
@@ -352,7 +361,7 @@ function addJobXP(_source, typec, amountc)
 
                 MySQL.Async.execute(
 					'UPDATE job_xp SET xp=@xp WHERE steamID=@steamID', {
-					['@steamID'] = steamid,
+					['@steamID'] = steamID,
 					['@xp'] = json.encode(xp),
 				})
 				
@@ -363,6 +372,23 @@ function addJobXP(_source, typec, amountc)
 			
 		end
 		
+	else
+		createPlayer(steamID)
+
+		local xp = {}
+		table.insert(xp, {
+			type = typec,
+			amount = amountc,
+		})
+
+		MySQL.Async.execute(
+			'UPDATE job_xp SET xp=@xp WHERE steamID=@steamID', {
+			['@steamID'] = steamID,
+			['@xp'] = json.encode(xp),
+		})
+		
+		TriggerClientEvent('myIllegals:receiveJobXP', _source, xp)
+		return
 	end
 
 end

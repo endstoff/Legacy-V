@@ -35,10 +35,10 @@ RegisterNetEvent('esx:playerLoaded')
 AddEventHandler('esx:playerLoaded', function(xPlayer)
     ESX.PlayerData = xPlayer
     print('registered Job: ' .. xPlayer.job.name)
-    TriggerServerEvent('myFarming:getJobXP')
+    TriggerServerEvent('myIllegals:getJobXP')
     randomizePriceModifiers()
-    TriggerServerEvent('myFarming:setRandomAssignments')
-    --[[loadBlips()]]--
+    TriggerServerEvent('myIllegals:setRandomAssignments')
+    loadBlips()
     refreshZones()
 end)
 
@@ -46,7 +46,7 @@ RegisterNetEvent('esx:setJob')
 AddEventHandler('esx:setJob', function(job)
 	ESX.PlayerData.job = job
     PlayerData = ESX.GetPlayerData()
-    --[[loadBlips()]]--
+    loadBlips()
     refreshZones()
 end)
 
@@ -84,7 +84,7 @@ function refreshZones()
 
 end
 
---[[function loadBlips()
+function loadBlips()
 
     for k, v in pairs(Config.FarmingAreas) do
         if v.blip.data ~= nil then
@@ -151,7 +151,7 @@ end
             EndTextCommandSetBlipName(blip)
         end
     end
-end]]--
+end
 
 local blipLoaded = false
 local blipRange = nil
@@ -162,15 +162,15 @@ Citizen.CreateThread(function()
 
     --DEBUG 
 	--
-    TriggerServerEvent('myFarming:getJobXP')
+    TriggerServerEvent('myIllegals:getJobXP')
     randomizePriceModifiers()
-    TriggerServerEvent('myFarming:setRandomAssignments')
+    TriggerServerEvent('myIllegals:setRandomAssignments')
     
 
     -- PlayerData.job = {}
     -- PlayerData.job.name = 'police'
-
-    --[[loadBlips()]]--
+	--Citizen.Wait(10000)
+    loadBlips()
     refreshZones()
 	--
     while true do
@@ -281,7 +281,7 @@ Citizen.CreateThread(function()
             if distance < 1.4 then
                 isDoingDelivery = false
                 RemoveBlip(deliveryBlip)
-                TriggerServerEvent('myFarming:finishDelivery', currentDelivery)
+                TriggerServerEvent('myIllegals:finishDelivery', currentDelivery)
             end
 
         end
@@ -327,11 +327,11 @@ Citizen.CreateThread(function()
 								PlayerSkin = skin
 							end)
 							if PlayerSkin ~= nil and PlayerSkin['bags_1'] ~= 0 then
-								TriggerServerEvent('myFarming:collectItems', currentArea.items[1].name, currentArea.items[1].label, random, true, currentArea.xptype)
+								TriggerServerEvent('myIllegals:collectItems', currentArea.items[1].name, currentArea.items[1].label, random, true, currentArea.xptype)
 							else	
-								TriggerServerEvent('myFarming:collectItems', currentArea.items[1].name, currentArea.items[1].label, random, false, currentArea.xptype)
+								TriggerServerEvent('myIllegals:collectItems', currentArea.items[1].name, currentArea.items[1].label, random, false, currentArea.xptype)
 							end--]]
-                            TriggerServerEvent('myFarming:collectItems', currentArea.items[1].name, currentArea.items[1].label, random, currentArea.xptype)
+                            TriggerServerEvent('myIllegals:collectItems', currentArea.items[1].name, currentArea.items[1].label, random, currentArea.xptype)
                         else
                             local randomPercentage = math.random(1, 100)
 
@@ -344,18 +344,18 @@ Citizen.CreateThread(function()
 									end)
 									print('Bag' .. PlayerSkin['bags_1'])
 									if PlayerSkin ~= nil and PlayerSkin['bags_1'] ~= 0 then
-										TriggerServerEvent('myFarming:collectItems', currentArea.items[i].name, currentArea.items[i].label, random, true, currentArea.xptype)
+										TriggerServerEvent('myIllegals:collectItems', currentArea.items[i].name, currentArea.items[i].label, random, true, currentArea.xptype)
 									else
-										TriggerServerEvent('myFarming:collectItems', currentArea.items[i].name, currentArea.items[i].label, random, false, currentArea.xptype)
+										TriggerServerEvent('myIllegals:collectItems', currentArea.items[i].name, currentArea.items[i].label, random, false, currentArea.xptype)
 									end--]]
-									TriggerServerEvent('myFarming:collectItems', currentArea.items[i].name, currentArea.items[i].label, random, currentArea.xptype)
+									TriggerServerEvent('myIllegals:collectItems', currentArea.items[i].name, currentArea.items[i].label, random, currentArea.xptype)
                                     
                                     break
                                 end
                             end
                         end
 						--Abfrage Inventarlimit
-						--TriggerServerEvent('myFarming:addJobXP', currentArea.name, random)
+						--TriggerServerEvent('myIllegals:addJobXP', currentArea.name, random)
 						--ShowNotification('~g~' .. random .. 'x ' .. currentArea.label .. ' ~s~gesammelt.')
 						isCollecting = false
 					end
@@ -391,7 +391,7 @@ function generateLocalShopMenu()
     _menuPool:Remove()
     collectgarbage()
 
-    local sellMenu = NativeUI.CreateMenu(currentSeller.label, Translation[Config.Locale]['info_available_missions'])
+    local sellMenu = NativeUI.CreateMenu(currentSeller.label, Translation[Config.Locale]['info_available_missions'], Config.MenuPosition.x, Config.MenuPosition.y)
     _menuPool:Add(sellMenu)
 
     if isDoingDelivery then
@@ -432,7 +432,7 @@ function generateLocalShopMenu()
 
             if item == abort then
                 isDoingDelivery = false
-                TriggerServerEvent('myFarming:abortMission', currentDelivery.id)
+                TriggerServerEvent('myIllegals:abortMission', currentDelivery.id)
                 sellMenu:Visible(false)
                 ShowNotification(Translation[Config.Locale]['info_abort_confirm'])
             elseif item == dest then
@@ -447,7 +447,7 @@ function generateLocalShopMenu()
         --sellMenu:AddItem(privateItems)
 
         gotContent = false
-        TriggerServerEvent('myFarming:getShopContent')
+        TriggerServerEvent('myIllegals:getShopContent')
 
         while not gotContent do
             Wait(10)
@@ -517,7 +517,7 @@ function generateLocalShopMenu()
             sub.OnItemSelect = function(sender, item, index)
 
                 if item == submit then
-                    TriggerServerEvent('myFarming:startDelivery', v)
+                    TriggerServerEvent('myIllegals:startDelivery', v)
                 elseif item == dest then
                     SetNewWaypoint(v.destination.x, v.destination.y)
                 end
@@ -558,7 +558,7 @@ function generateSellMenu()
 
     
 
-    local sellMenu = NativeUI.CreateMenu(currentSeller.label, nil)
+    local sellMenu = NativeUI.CreateMenu(currentSeller.label, nil, Config.MenuPosition.x, Config.MenuPosition.y)
     _menuPool:Add(sellMenu)
 
     for k, v in pairs(Config.SellItems) do
@@ -583,7 +583,7 @@ function generateSellMenu()
                     if tonumber(res_amount) then
                         local quantity = tonumber(res_amount)
                         --print(v2.sqlitem)
-                        TriggerServerEvent('myFarming:sellItems', v2.sqlitem, quantity, currentSeller.priceModifier * v2.priceBuy)
+                        TriggerServerEvent('myIllegals:sellItems', v2.sqlitem, quantity, currentSeller.priceModifier * v2.priceBuy)
                     end
                     
                 end
@@ -614,7 +614,7 @@ function generateMenu()
     end
 
 
-    local processorMenu = NativeUI.CreateMenu(currentProcessor.label, xpProcess .. Translation[Config.Locale]['xp'])
+    local processorMenu = NativeUI.CreateMenu(currentProcessor.label, xpProcess .. Translation[Config.Locale]['xp'], Config.MenuPosition.x, Config.MenuPosition.y)
     _menuPool:Add(processorMenu)
 
 
@@ -638,8 +638,8 @@ function generateMenu()
                 craftItem.OnItemSelect = function(sender, item, index)
 
                     if item == startCrafting then
-                        TriggerServerEvent('myFarming:craftItem', cfg)
-                        --TriggerServerEvent('myFarming:craftItem', cfg.reqItems, cfg.newitem, cfg.newitemamount)
+                        TriggerServerEvent('myIllegals:craftItem', cfg)
+                        --TriggerServerEvent('myIllegals:craftItem', cfg.reqItems, cfg.newitem, cfg.newitemamount)
                     end
 
                 end
@@ -662,8 +662,8 @@ function generateMenu()
 
 end
 
---[[RegisterNetEvent('myFarming:startCrafting')
-AddEventHandler('myFarming:startCrafting', function(itemData, craftAmount)
+RegisterNetEvent('myIllegals:startCrafting')
+AddEventHandler('myIllegals:startCrafting', function(itemData, craftAmount)
 
     if not isProcessing then
         
@@ -693,7 +693,7 @@ AddEventHandler('myFarming:startCrafting', function(itemData, craftAmount)
                     break
                 elseif time == Config.CraftTime * craftAmount then
 
-                    TriggerServerEvent('myFarming:finishedCrafting', itemData, craftAmount)
+                    TriggerServerEvent('myIllegals:finishedCrafting', itemData, craftAmount)
                     isProcessing = false
                     break
                 end
@@ -704,12 +704,12 @@ AddEventHandler('myFarming:startCrafting', function(itemData, craftAmount)
 
     end
 
-end)]]--
+end)
 
 
 
-RegisterNetEvent('myFarming:startDelivery_cl')
-AddEventHandler('myFarming:startDelivery_cl', function(deliveryData)
+RegisterNetEvent('myIllegals:startDelivery_cl')
+AddEventHandler('myIllegals:startDelivery_cl', function(deliveryData)
 
     isDoingDelivery = true
     currentDelivery = deliveryData
@@ -734,8 +734,8 @@ AddEventHandler('myFarming:startDelivery_cl', function(deliveryData)
 end)
 
 
-RegisterNetEvent('myFarming:receiveJobXP')
-AddEventHandler('myFarming:receiveJobXP', function(xp)
+RegisterNetEvent('myIllegals:receiveJobXP')
+AddEventHandler('myIllegals:receiveJobXP', function(xp)
 
     jobXP = xp
 
@@ -743,16 +743,16 @@ AddEventHandler('myFarming:receiveJobXP', function(xp)
 
 end)
 
-RegisterNetEvent('myFarming:receiveShopContent')
-AddEventHandler('myFarming:receiveShopContent', function(content)
+RegisterNetEvent('myIllegals:receiveShopContent')
+AddEventHandler('myIllegals:receiveShopContent', function(content)
 
     shopContent = content
     gotContent = true
 
 end)
 
-RegisterNetEvent('myFarming:msg')
-AddEventHandler('myFarming:msg', function(msg)
+RegisterNetEvent('myIllegals:msg')
+AddEventHandler('myIllegals:msg', function(msg)
 
     ShowNotification(msg)
 

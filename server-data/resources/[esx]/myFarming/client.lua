@@ -169,7 +169,7 @@ Citizen.CreateThread(function()
 
     -- PlayerData.job = {}
     -- PlayerData.job.name = 'police'
-
+	--Citizen.Wait(10000)
     loadBlips()
     refreshZones()
 	--
@@ -391,7 +391,7 @@ function generateLocalShopMenu()
     _menuPool:Remove()
     collectgarbage()
 
-    local sellMenu = NativeUI.CreateMenu(currentSeller.label, Translation[Config.Locale]['info_available_missions'])
+    local sellMenu = NativeUI.CreateMenu(currentSeller.label, Translation[Config.Locale]['info_available_missions'], Config.MenuPosition.x, Config.MenuPosition.y)
     _menuPool:Add(sellMenu)
 
     if isDoingDelivery then
@@ -558,7 +558,7 @@ function generateSellMenu()
 
     
 
-    local sellMenu = NativeUI.CreateMenu(currentSeller.label, nil)
+    local sellMenu = NativeUI.CreateMenu(currentSeller.label, nil, Config.MenuPosition.x, Config.MenuPosition.y)
     _menuPool:Add(sellMenu)
 
     for k, v in pairs(Config.SellItems) do
@@ -614,7 +614,7 @@ function generateMenu()
     end
 
 
-    local processorMenu = NativeUI.CreateMenu(currentProcessor.label, xpProcess .. Translation[Config.Locale]['xp'])
+    local processorMenu = NativeUI.CreateMenu(currentProcessor.label, xpProcess .. Translation[Config.Locale]['xp'], Config.MenuPosition.x, Config.MenuPosition.y)
     _menuPool:Add(processorMenu)
 
 
