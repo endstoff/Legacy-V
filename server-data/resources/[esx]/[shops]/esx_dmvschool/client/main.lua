@@ -75,7 +75,7 @@ function StartDriveTest(type)
 		SetVehicleFuelLevel(vehicle, 100.0)
 		DecorSetFloat(vehicle, "_FUEL_LEVEL", GetVehicleFuelLevel(vehicle))
 	end)
-
+	
 	TriggerServerEvent('esx_dmvschool:pay', Config.Prices[type])
 end
 

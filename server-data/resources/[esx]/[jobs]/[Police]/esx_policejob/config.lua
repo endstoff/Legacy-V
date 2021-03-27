@@ -483,7 +483,9 @@ Config.Uniforms = {
 			helmet_1 = -1,  helmet_2 = 0,
 			chain_1 = 0,    chain_2 = 0,
 			ears_1 = 2,     ears_2 = 0,
-			bproof_1 = 12,	bproof_2 = 3
+			bproof_1 = 12,	bproof_2 = 3,
+			lefthand_1 = -1,	lefthand_2 = 0,
+			righthand_1 = -1,	righthand_2 = 0
 		},
 		female = {
 			tshirt_1 = 35,  tshirt_2 = 0,
@@ -510,7 +512,9 @@ Config.Uniforms = {
 			helmet_1 = -1,  helmet_2 = 0,
 			chain_1 = 0,    chain_2 = 0,
 			ears_1 = 2,     ears_2 = 0,
-			bproof_1 = 12,	bproof_2 = 3
+			bproof_1 = 12,	bproof_2 = 3,
+			lefthand_1 = -1,	lefthand_2 = 0,
+			righthand_1 = -1,	righthand_2 = 0
 		},
 		female = {
 			tshirt_1 = 35,  tshirt_2 = 0,
@@ -537,7 +541,9 @@ Config.Uniforms = {
 			helmet_1 = -1,  helmet_2 = 0,
 			chain_1 = 0,    chain_2 = 0,
 			ears_1 = 2,     ears_2 = 0,
-			bproof_1 = 12,	bproof_2 = 3
+			bproof_1 = 12,	bproof_2 = 3,
+			lefthand_1 = -1,	lefthand_2 = 0,
+			righthand_1 = -1,	righthand_2 = 0
 		},
 		female = {
 			tshirt_1 = 35,  tshirt_2 = 0,
@@ -564,7 +570,9 @@ Config.Uniforms = {
 			helmet_1 = -1,  helmet_2 = 0,
 			chain_1 = 0,    chain_2 = 0,
 			ears_1 = 2,     ears_2 = 0,
-			bproof_1 = 12,	bproof_2 = 3
+			bproof_1 = 12,	bproof_2 = 3,
+			lefthand_1 = -1,	lefthand_2 = 0,
+			righthand_1 = -1,	righthand_2 = 0
 		},
 		female = {
 			tshirt_1 = 35,  tshirt_2 = 0,
@@ -591,7 +599,9 @@ Config.Uniforms = {
 			helmet_1 = -1,  helmet_2 = 0,
 			chain_1 = 0,    chain_2 = 0,
 			ears_1 = 2,     ears_2 = 0,
-			bproof_1 = 12,	bproof_2 = 3
+			bproof_1 = 12,	bproof_2 = 3,
+			lefthand_1 = -1,	lefthand_2 = 0,
+			righthand_1 = -1,	righthand_2 = 0
 		},
 		female = {
 			tshirt_1 = 35,  tshirt_2 = 0,
@@ -618,7 +628,9 @@ Config.Uniforms = {
 			helmet_1 = -1,  helmet_2 = 0,
 			chain_1 = 0,    chain_2 = 0,
 			ears_1 = 2,     ears_2 = 0,
-			bproof_1 = 12,	bproof_2 = 3
+			bproof_1 = 12,	bproof_2 = 3,
+			lefthand_1 = -1,	lefthand_2 = 0,
+			righthand_1 = -1,	righthand_2 = 0
 		},
 		female = {
 			tshirt_1 = 35,  tshirt_2 = 0,
@@ -645,7 +657,9 @@ Config.Uniforms = {
 			helmet_1 = -1,  helmet_2 = 0,
 			chain_1 = 0,    chain_2 = 0,
 			ears_1 = 2,     ears_2 = 0,
-			bproof_1 = 12,	bproof_2 = 3
+			bproof_1 = 12,	bproof_2 = 3,
+			lefthand_1 = -1,	lefthand_2 = 0,
+			righthand_1 = -1,	righthand_2 = 0
 		},
 		female = {
 			tshirt_1 = 35,  tshirt_2 = 0,
@@ -672,7 +686,9 @@ Config.Uniforms = {
 			helmet_1 = -1,  helmet_2 = 0,
 			chain_1 = 0,    chain_2 = 0,
 			ears_1 = 2,     ears_2 = 0,
-			bproof_1 = 12,	bproof_2 = 3
+			bproof_1 = 12,	bproof_2 = 3,
+			lefthand_1 = -1,	lefthand_2 = 0,
+			righthand_1 = -1,	righthand_2 = 0
 		},
 		female = {
 			tshirt_1 = 35,  tshirt_2 = 0,
@@ -699,7 +715,9 @@ Config.Uniforms = {
 			helmet_1 = -1,  helmet_2 = 0,
 			chain_1 = 0,    chain_2 = 0,
 			ears_1 = 2,     ears_2 = 0,
-			bproof_1 = 12,	bproof_2 = 3
+			bproof_1 = 12,	bproof_2 = 3,
+			lefthand_1 = -1,	lefthand_2 = 0,
+			righthand_1 = -1,	righthand_2 = 0
 		},
 		female = {
 			tshirt_1 = 35,  tshirt_2 = 0,
@@ -726,7 +744,9 @@ Config.Uniforms = {
 			helmet_1 = -1,  helmet_2 = 0,
 			chain_1 = 0,    chain_2 = 0,
 			ears_1 = 2,     ears_2 = 0,
-			bproof_1 = 12,	bproof_2 = 3
+			bproof_1 = 12,	bproof_2 = 3,
+			lefthand_1 = -1,	lefthand_2 = 0,
+			righthand_1 = -1,	righthand_2 = 0
 		},
 		female = {
 			tshirt_1 = 35,  tshirt_2 = 0,
@@ -753,7 +773,9 @@ Config.Uniforms = {
 			helmet_1 = -1,  helmet_2 = 0,
 			chain_1 = 0,    chain_2 = 0,
 			ears_1 = 2,     ears_2 = 0,
-			bproof_1 = 12,	bproof_2 = 3
+			bproof_1 = 12,	bproof_2 = 3,
+			lefthand_1 = -1,	lefthand_2 = 0,
+			righthand_1 = -1,	righthand_2 = 0
 		},
 		female = {
 			tshirt_1 = 35,  tshirt_2 = 0,

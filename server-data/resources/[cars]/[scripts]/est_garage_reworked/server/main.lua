@@ -31,7 +31,7 @@ ESX.RegisterServerCallback('est_garage:loadVehicle', function(source, cb, plate)
 		cb(vehicle)
 	end)
 end)
-
+--[[
 MySQL.ready(function()
 
 	MySQL.Async.execute('UPDATE owned_vehicles SET `stored` = true WHERE `stored` = @stored', {
@@ -42,7 +42,7 @@ MySQL.ready(function()
 		end
 	end)
 end)
-
+]]
 
 ESX.RegisterServerCallback('est_garage:isOwned', function(source, cb, plate)
 	

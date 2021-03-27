@@ -43,7 +43,7 @@
           "dependencies": {
             "CitizenFX.Core.Server": {
               "target": "Package",
-              "version": "[1.0.1883, )"
+              "version": "[1.0.3563, )"
             },
             "Microsoft.CSharp": {
               "target": "Package",

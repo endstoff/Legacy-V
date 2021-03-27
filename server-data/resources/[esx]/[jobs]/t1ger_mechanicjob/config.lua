@@ -28,27 +28,27 @@ Config.EngineDisable			= true		-- Set to false to disable engine being disabled,
 Config.WaitCountForHealth		= 60		-- Set amount of seconds to wait, until health part damage effects applies to vehicle.
 Config.AmountPartsDamage		= 3			-- Set amount of parts to take damage, upon crash. Default; 3 parts.
 Config.DegradeValue = {min = 5, max = 25}	-- Set min and max degrade value, upon crash. 5 is 0.5, 25 is 2.5. Between 0 and 100.
-Config.Blacklisted_VehicleDMG = {"packer", "pounder", "biff", "ripley"}
+Config.Blacklisted_VehicleDMG = {"packer", "pounder", "biff", "ripley", "benson"}
 
 Config.MechanicShops = {
---[[[1] = {	
-		price = 265000,
-		menuPos = {-1142.9487304688,-1997.7072753906,13.184844017029},
-		storage = {-1147.8872070312,-2023.5710449219,13.180222511292},
-		workbench = {-1158.9262695312,-2002.7347412109,13.180219650269},
+[2] = {	
+		price = 1,
+		menuPos = {1769.6766357422,3323.9809570312,41.423931121826},
+		storage = {1767.1079101562,3318.7692871094,41.438484191895},
+		workbench = {1764.6774902344,3323.5383300781,41.438529968262},
 		lifts = {
 			[1] = {
-				entry = {-1155.9791259766,-2016.2868652344,13.180228233337,271.14},
-				pos = {-1153.8071289062,-2018.4254150391,13.250348091125,50.67},
-				control = {-1155.7126464844,-2020.4481201172,13.180230140686,179.55},
-				marker = {enable = true, drawDist = 6.0, type = 36, scale = {x = 0.4, y = 0.4, z = 0.4}, color = {r = 240, g = 52, b = 52, a = 100}},
-				minValue = 12.55, maxValue = 14.55,
+				entry = {1780.1654052734,3330.8156738281,40.826171875,28.68},
+				pos = {1781.5284423828,3328.2687988281,40.860782623291,28.68},
+				control = {1778.7435302734,3324.5959472656,41.433292388916,67.39},
+				marker = {enable = true, drawDist = 8.0, type = 36, scale = {x = 0.4, y = 0.4, z = 0.4}, color = {r = 240, g = 52, b = 52, a = 100}},
+				minValue = 40.860782623291, maxValue = 43.1,
 				currentVeh = nil,
 				inUse = false,
 				player = nil
 			},
 		},
-	}, ]]
+	},
 	[1] = { 
 		price = 265000,
 		menuPos = {-351.76455688477,-129.30741882324,39.014865875244},
@@ -161,4 +161,4 @@ Config.PropEmotes = {
 }
 
 -- Config blacklist vehicle on lift / carjack:
-Config.Blacklisted_Lift = {"packer", "pounder", "biff", "ripley", "rumpo3"}
+Config.Blacklisted_Lift = {"packer", "pounder", "biff", "ripley", "rumpo3", "benson"}

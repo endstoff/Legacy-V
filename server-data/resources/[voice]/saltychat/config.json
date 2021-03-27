@@ -2,7 +2,7 @@
   // Variables Guide: https://github.com/saltminede/saltychat-docs/blob/master/setup.md#config-variables
   "VoiceEnabled": true,
   "ServerUniqueIdentifier": "GaJ0hjhZvm9jbv8pvGa9zksYFkA=",
-  "MinimumPluginVersion": "2.2.0",
+  "MinimumPluginVersion": "2.2.4",
   "SoundPack": "default",
   "IngameChannelId": 93,
   "IngameChannelPassword": "5V88FWWME615",

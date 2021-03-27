@@ -849,7 +849,7 @@ Citizen.CreateThread(function()
 		end
 	end
 end)
-
+--[[
 -- Create Blips
 Citizen.CreateThread(function()
 	local blip = AddBlipForCoord(Config.Zones.BcustomsActions.Pos.x, Config.Zones.BcustomsActions.Pos.y, Config.Zones.BcustomsActions.Pos.z)
@@ -864,7 +864,7 @@ Citizen.CreateThread(function()
 	AddTextComponentSubstringPlayerName(_U('bcustoms'))
 	EndTextCommandSetBlipName(blip)
 end)
-
+]]
 -- Display markers
 Citizen.CreateThread(function()
 	while true do

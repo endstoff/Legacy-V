@@ -6,6 +6,8 @@ Config.Locale = 'de' -- de or en
 
 Config.useOneSyncInfinity = true
 
+Config.areFarmsUnique = true -- should farms only be sold one time?
+
 -- Supplies
 Config.Supplies = {min = 50, max = 90} -- how many items should be given at a mission
 Config.VehicleModifier1 = 5 -- extra supplies through bigger vehicle
@@ -258,7 +260,7 @@ Translation = {
         ['you_only_have_items2'] = 'x ~y~with you',
         ['seller_title'] = 'Seller',
         ['input_howmuch'] = 'How much should be sold?',
-        ['menu_sell_desc'] = 'Sell the farm for ~g~',
+        ['menu_sell_desc'] = 'Sell the farmDiese Farm ist nicht mehr verfügbar!',
 
     },
 
@@ -389,6 +391,7 @@ Translation = {
         ['seller_title'] = 'Händler',
         ['input_howmuch'] = 'Wie viel soll verkauft werden?',
         ['menu_sell_desc'] = 'Sell the farm for ~g~',
+        ['farm_already_owned'] = '~r~Diese Farm ist nicht mehr verfügbar!',
 
     }
 

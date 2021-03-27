@@ -13,6 +13,7 @@ AddEventHandler('SyncAdvert', function(inputText)
 		TriggerClientEvent('DisplayAdvert', -1, inputText, xPlayer.getName())
 				PerformHttpRequest(Config.Webhook, function(e,r,h) end, "POST", json.encode({
 					["username"] = "Weazel News",
+					["avatar_url"] = "https://prnt.sc/10x68gf",
 					["content"] = "```diff\n+ [Weazel News] " .. xPlayer.name .. " hat werbung geschaltet: " .. inputText .."```"
 				}), {["Content-Type"] = "application/json"})
 		local xPlayer = ESX.GetPlayerFromId(source)

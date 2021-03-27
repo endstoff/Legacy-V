@@ -6,13 +6,13 @@ local useBlips = false -- OPTIONS: (true/false)
 local alertPolice = false -- OPTIONS: (true/false)
 local alertSpeed = 150 -- OPTIONS: (1-5000 KMH)
 
-local defaultPrice60 = 300 -- THIS IS THE DEFAULT PRICE WITHOUT EXTRA COST FOR 60 ZONES
-local defaultPrice80 = 500 -- THIS IS THE DEFAULT PRICE WITHOUT EXTRA COST FOR 80 ZONES
-local defaultPrice180 = 1000 -- THIS IS THE DEFAULT PRICE WITHOUT EXTRA COST FOR 180 ZONES
+local defaultPrice60 = 500 -- THIS IS THE DEFAULT PRICE WITHOUT EXTRA COST FOR 60 ZONES
+local defaultPrice80 = 800 -- THIS IS THE DEFAULT PRICE WITHOUT EXTRA COST FOR 80 ZONES
+local defaultPrice250 = 1500 -- THIS IS THE DEFAULT PRICE WITHOUT EXTRA COST FOR 250 ZONES
 
-local extraZonePrice10 = 200 -- THIS IS THE EXTRA COST IF 10 KM/H ABOVE LIMIT (REQUIRES "useBilling" to be set to true)
-local extraZonePrice20 = 500 -- THIS IS THE EXTRA COST IF 20 KM/H ABOVE LIMIT (REQUIRES "useBilling" to be set to true)
-local extraZonePrice30 = 1500 -- THIS IS THE EXTRA COST IF 30 KM/H ABOVE LIMIT (REQUIRES "useBilling" to be set to true)
+local extraZonePrice10 = 500 -- THIS IS THE EXTRA COST IF 10 KM/H ABOVE LIMIT (REQUIRES "useBilling" to be set to true)
+local extraZonePrice20 = 700 -- THIS IS THE EXTRA COST IF 20 KM/H ABOVE LIMIT (REQUIRES "useBilling" to be set to true)
+local extraZonePrice30 = 2000 -- THIS IS THE EXTRA COST IF 30 KM/H ABOVE LIMIT (REQUIRES "useBilling" to be set to true)
 -- ABOVE IS YOUR SETTINGS, CHANGE THEM TO WHATEVER YOU'D LIKE & MORE SETTINGS WILL COME IN THE FUTURE!  --
 
 ESX = nil
@@ -40,17 +40,17 @@ end
 -- BLIP FOR SPEEDCAMERAS
 local blips = {
 	-- 60KM/H ZONES
-	{title="Blitzer (60KM/H)", colour=1, id=1, x = -524.2645, y = -1776.3569, z = 21.3384}, -- 60KM/H ZONE
+	--{title="Blitzer (60KM/H)", colour=1, id=1, x = -524.2645, y = -1776.3569, z = 21.3384}, -- 60KM/H ZONE
 	
 	-- 80KM/H ZONES
 	{title="Blitzer (80KM/H)", colour=1, id=1, x = 2506.0671, y = 4145.2431, z = 38.1054}, -- 80KM/H ZONE
-	{title="Blitzer (80KM/H)", colour=1, id=1, x = 1258.2006, y = 789.4199, z = 104.2190}, -- 80KM/H ZONE
+	{title="Blitzer (80KM/H)", colour=1, id=1, x = 1258.2006, y = 789.4199, z = 104.2261}, -- 80KM/H ZONE
 	{title="Blitzer (80KM/H)", colour=1, id=1, x = 980.9982, y = 407.4164, z = 92.2374}, -- 80KM/H ZONE
 	
-	-- 180KM/H ZONES
-	{title="Blitzer (180KM/H)", colour=1, id=1, x = 1584.9281, y = -993.4557, z = 59.3923}, -- 180KM/H ZONE
-	{title="Blitzer (180KM/H)", colour=1, id=1, x = 2442.2006, y = -134.6004, z = 88.7765}, -- 180KM/H ZONE
-	{title="Blitzer (180KM/H)", colour=1, id=1, x = 2871.7951, y = 3540.5795, z = 53.0930} -- 180KM/H ZONE
+	-- 250KM/H ZONES
+	{title="Blitzer (250KM/H)", colour=1, id=1, x = 1584.9281, y = -993.4557, z = 59.3923}, -- 250KM/H ZONE
+	{title="Blitzer (250KM/H)", colour=1, id=1, x = 2442.2006, y = -134.6004, z = 88.7765}, -- 250KM/H ZONE
+	{title="Blitzer (250KM/H)", colour=1, id=1, x = 2871.7951, y = 3540.5795, z = 53.0930} -- 250KM/H ZONE
 }
 
 Citizen.CreateThread(function()
@@ -76,11 +76,11 @@ local Speedcamera60Zone = {
 
 local Speedcamera80Zone = {
     {x = 2506.0671,y = 4145.2431,z = 38.1054},
-    {x = 1258.2006,y = 789.4199,z = 103.2190},
+    {x = 1258.2006,y = 789.4199,z = 103.2261},
     {x = 980.9982,y = 407.4164,z = 92.2374}
 }
 
-local Speedcamera180Zone = {
+local Speedcamera250Zone = {
     {x = 1584.9281,y = -993.4557,z = 59.3923},
     {x = 2442.2006,y = -134.6004,z = 88.7765},
     {x = 2871.7951,y = 3540.5795,z = 53.0930}
@@ -101,7 +101,7 @@ Citizen.CreateThread(function()
 				local playerCar = GetVehiclePedIsIn(playerPed, false)
 				local veh = GetVehiclePedIsIn(playerPed)
 				local SpeedKM = GetEntitySpeed(playerPed)*3.6
-				local maxSpeed = 70.0 -- THIS IS THE MAX SPEED IN KM/H
+				local maxSpeed = 71.0 -- THIS IS THE MAX SPEED IN KM/H
 				
 				if SpeedKM > maxSpeed then
 					if IsPedInAnyVehicle(playerPed, false) then
@@ -183,7 +183,7 @@ Citizen.CreateThread(function()
 				local playerCar = GetVehiclePedIsIn(playerPed, false)
 				local veh = GetVehiclePedIsIn(playerPed)
 				local SpeedKM = GetEntitySpeed(playerPed)*3.6
-				local maxSpeed = 90.0 -- THIS IS THE MAX SPEED IN KM/H
+				local maxSpeed = 91.0 -- THIS IS THE MAX SPEED IN KM/H
 				
 				if SpeedKM > maxSpeed then
 					if IsPedInAnyVehicle(playerPed, false) then
@@ -254,17 +254,17 @@ Citizen.CreateThread(function()
             end
         end
 		
-		-- 180 zone
-		for k in pairs(Speedcamera180Zone) do
+		-- 250 zone
+		for k in pairs(Speedcamera250Zone) do
             local plyCoords = GetEntityCoords(GetPlayerPed(-1), false)
-            local dist = Vdist(plyCoords.x, plyCoords.y, plyCoords.z, Speedcamera180Zone[k].x, Speedcamera180Zone[k].y, Speedcamera180Zone[k].z)
+            local dist = Vdist(plyCoords.x, plyCoords.y, plyCoords.z, Speedcamera250Zone[k].x, Speedcamera250Zone[k].y, Speedcamera250Zone[k].z)
 
             if dist <= 20.0 then
 				local playerPed = GetPlayerPed(-1)
 				local playerCar = GetVehiclePedIsIn(playerPed, false)
 				local veh = GetVehiclePedIsIn(playerPed)
 				local SpeedKM = GetEntitySpeed(playerPed)*3.6
-				local maxSpeed = 190.0 -- THIS IS THE MAX SPEED IN KM/H
+				local maxSpeed = 261.0 -- THIS IS THE MAX SPEED IN KM/H
 				
 				if SpeedKM > maxSpeed then
 					if IsPedInAnyVehicle(playerPed, false) then
@@ -304,24 +304,24 @@ Citizen.CreateThread(function()
 									end
 									-- FLASHING EFFECT (END)
 								
-								--	TriggerEvent("pNotify:SendNotification", {text = "You've been caught by the speedcamera in a 180 zone! Your speed: " .. math.floor(SpeedKM) .. " KM/H", type = "error", timeout = 5000, layout = "centerLeft"})
-									TriggerEvent('est_notify-werbung', '#FF0000', 'Blitzer', 'Du wurdest in einer 180er Zone geblitzt! Geblitzt mit: ' .. math.floor(SpeedKM) .. ' KM/H')	
+								--	TriggerEvent("pNotify:SendNotification", {text = "You've been caught by the speedcamera in a 250 zone! Your speed: " .. math.floor(SpeedKM) .. " KM/H", type = "error", timeout = 5000, layout = "centerLeft"})
+									TriggerEvent('est_notify-werbung', '#FF0000', 'Blitzer', 'Du wurdest in einer 250er Zone geblitzt! Geblitzt mit: ' .. math.floor(SpeedKM) .. ' KM/H')	
 									
 									
 									if useBilling == true then
 										if SpeedKM >= maxSpeed + 30 then
-											finalBillingPrice = defaultPrice180 + extraZonePrice30
+											finalBillingPrice = defaultPrice250 + extraZonePrice30
 										elseif SpeedKM >= maxSpeed + 20 then
-											finalBillingPrice = defaultPrice180 + extraZonePrice20
+											finalBillingPrice = defaultPrice250 + extraZonePrice20
 										elseif SpeedKM >= maxSpeed + 10 then
-											finalBillingPrice = defaultPrice180 + extraZonePrice10
+											finalBillingPrice = defaultPrice250 + extraZonePrice10
 										else
-											finalBillingPrice = defaultPrice180
+											finalBillingPrice = defaultPrice250
 										end
 									
-										TriggerServerEvent('esx_billing:sendBill', GetPlayerServerId(PlayerId()), 'society_police', 'Blitzer (180KM/H) - Geblitzt mit: ' .. math.floor(SpeedKM) .. ' KM/H - ', finalBillingPrice) -- Sends a bill from the police
+										TriggerServerEvent('esx_billing:sendBill', GetPlayerServerId(PlayerId()), 'society_police', 'Blitzer (250KM/H) - Geblitzt mit: ' .. math.floor(SpeedKM) .. ' KM/H - ', finalBillingPrice) -- Sends a bill from the police
 									else
-										TriggerServerEvent('esx_speedcamera:PayBill180Zone')
+										TriggerServerEvent('esx_speedcamera:PayBill250Zone')
 									end
 										
 									hasBeenCaught = true

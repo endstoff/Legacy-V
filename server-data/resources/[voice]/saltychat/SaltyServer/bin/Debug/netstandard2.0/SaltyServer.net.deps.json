@@ -9,7 +9,7 @@
     ".NETStandard,Version=v2.0/": {
       "SaltyServer.net/1.0.0": {
         "dependencies": {
-          "CitizenFX.Core.Server": "1.0.1883",
+          "CitizenFX.Core.Server": "1.0.3563",
           "Microsoft.CSharp": "4.7.0",
           "NETStandard.Library": "2.0.3",
           "Newtonsoft.Json": "11.0.0.0"
@@ -18,7 +18,7 @@
           "SaltyServer.net.dll": {}
         }
       },
-      "CitizenFX.Core.Server/1.0.1883": {
+      "CitizenFX.Core.Server/1.0.3563": {
         "runtime": {
           "lib/netstandard20/CitizenFX.Core.Server.dll": {
             "assemblyVersion": "0.0.0.0",
@@ -56,12 +56,12 @@
       "serviceable": false,
       "sha512": ""
     },
-    "CitizenFX.Core.Server/1.0.1883": {
+    "CitizenFX.Core.Server/1.0.3563": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-D9pGnp/wdxdCyLySbaK87JyWdlcgp9LQzOrmXf5d73x0AST2k7t1LlcwRflielP9yfyWMrFGhJ9Do6h5Kcd61Q==",
-      "path": "citizenfx.core.server/1.0.1883",
-      "hashPath": "citizenfx.core.server.1.0.1883.nupkg.sha512"
+      "sha512": "sha512-CtrHwyQyshApdPV6gc2baBn22ChOkbxA9WbW0VhaA3MXF1WKxuNjWA1t/O8l8MDLT9dcuuvHiriKxrWWeY0srw==",
+      "path": "citizenfx.core.server/1.0.3563",
+      "hashPath": "citizenfx.core.server.1.0.3563.nupkg.sha512"
     },
     "Microsoft.CSharp/4.7.0": {
       "type": "package",

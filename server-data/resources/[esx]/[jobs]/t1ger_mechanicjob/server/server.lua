@@ -558,7 +558,7 @@ AddEventHandler('t1ger_mechanicjob:sendBill',function(target, amount)
                 local tPlayer = ESX.GetPlayerFromId(xPlayers[i])
                 if tPlayer.source == target then
                     tPlayer.removeAccountMoney('bank', tonumber(amount))
-                    TriggerClientEvent('t1ger_mechanicjob:ShowNotifyESX', tPlayer.source, "You paid the invoice of ~g~$"..amount.."~s~ to the mechanic.")
+                    TriggerClientEvent('t1ger_mechanicjob:ShowNotifyESX', tPlayer.source, "Du hast die Rechnung in höhe von ~g~$"..amount.."~s~ dem Mechaniker gezahlt.")
                     if Config.BillingToMechAccount then
                         local identifierMatch = false
                         local accountAmount = tonumber(amount * Config.BillingPercentToAcc)

@@ -89,6 +89,23 @@ AddEventHandler('myDrugs:getFarmsFromPlayer', function()
 
 end)
 
+ESX.RegisterServerCallback('myDrugs:IsFarmAlreadyOwned', function(source, cb, farmname)
+
+    if #farmOwner > 0 then
+        for k, v in pairs(farmOwner) do
+            if v.name == farmname then
+                cb(true)
+                break
+            elseif k == #farmOwner then
+                cb(false)
+            end
+        end
+    else
+        cb(false)
+    end
+
+end)
+
 RegisterServerEvent('myDrugs:setLastLogin')
 AddEventHandler('myDrugs:setLastLogin', function(farmData)
     

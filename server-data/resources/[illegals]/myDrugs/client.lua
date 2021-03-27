@@ -149,11 +149,28 @@ Citizen.CreateThread(function()
 										selectMenu:Visible(not selectMenu:Visible())
 										_menuPool:RefreshIndex()
 										_menuPool:MouseEdgeEnabled (false)
-									else
-										buyFarmMenu(farm)
-									end
+									elseif Config.areFarmsUnique then
+                                        ESX.TriggerServerCallback('myDrugs:IsFarmAlreadyOwned', function(isOwned)
+                                            if isOwned then
+                                                ShowNotification(Translation[Config.Locale]['farm_already_owned'])
+                                            else
+                                                buyFarmMenu(farm)
+                                            end
+                                        end, farm.name)
+                                    else
+                                        buyFarmMenu(farm)
+                                    end
                                 end
                             end
+                        elseif Config.areFarmsUnique then
+                            ESX.TriggerServerCallback('myDrugs:IsFarmAlreadyOwned', function(isOwned)
+                                print(isOwned)
+                                if isOwned then
+                                    ShowNotification(Translation[Config.Locale]['farm_already_owned'])
+                                else
+                                    buyFarmMenu(farm)
+                                end
+                            end, farm.name)
                         else
                             buyFarmMenu(farm)
                         end
@@ -503,8 +520,8 @@ function generateComputer()
 
     local gotOSResult = false
     if Config.useOneSyncInfinity then
-        ESX.TriggerServerCallback('myDrugs:getPlayersInArea', function(playersInArea)
-            playersInArea = playersInArea
+        ESX.TriggerServerCallback('myDrugs:getPlayersInArea', function(playersInArea_res)
+            playersInArea = playersInArea_res
             gotOSResult = true
         end, currentFarmData.enter, 10.0)
     end
@@ -638,8 +655,8 @@ function generateComputer()
 
     local gotOSResult = false
     if Config.useOneSyncInfinity then
-        ESX.TriggerServerCallback('myDrugs:getPlayersInArea', function(playersInArea)
-            playersInArea2 = playersInArea
+        ESX.TriggerServerCallback('myDrugs:getPlayersInArea', function(playersInArea_res)
+            playersInArea2 = playersInArea_res
             gotOSResult = true
         end, currentFarmData.enter, 10.0)
     end

@@ -28,7 +28,7 @@ Config.Processor = {
     {requiredJob = nil, ItemsId = 6, label = 'Salat Manufaktur', XPType = 'salad', ped = "a_m_m_farmer_01", x = -1693.92, y = -1085.12, z = 13.15, rot = 130.0},
     {requiredJob = nil, ItemsId = 7, label = 'Schmelze', XPType = 'stone', ped = "ig_chef2", x = 1078.8861083984, y = -1979.7579345703, z = 31.471523284912, rot = 238.72868347168},
     {requiredJob = nil, ItemsId = 8, label = 'Juwelier', XPType = 'jewellery', ped = "u_f_y_jewelass_01", x = -622.05590820313, y = -232.09861755371, z = 38.057010650635, rot = 126.61913299561},
-    {requiredJob = nil, ItemsId = 9, label = 'Vodka Manufaktur', XPType = 'potato', ped = "a_m_m_farmer_01", x = 1459.3967285156, y = -1930.6866455078, z = 71.804565429688, rot = 268.56},
+    {requiredJob = nil, ItemsId = 9, label = 'Wodka Manufaktur', XPType = 'potato', ped = "a_m_m_farmer_01", x = 1459.3967285156, y = -1930.6866455078, z = 71.804565429688, rot = 268.56},
     {requiredJob = nil, ItemsId = 10, label = 'Schlosserei', XPType = 'smith', ped = "ig_chef2", x = 944.125, y = -1697.728515625, z = 30.090450286865, rot = 269.33},
 }
 
@@ -246,7 +246,7 @@ Config.Items = {
         giveXP = {type = 'potato', a = 3, b = 4},
         reqItems = {
             {item = 'potato', label = 'Kartoffel', amount = 2}},
-        newitem = {sqlitem = 'vodka', label = 'Vodka'},
+        newitem = {sqlitem = 'vodka', label = 'Wodka'},
         newitemamount = 1,
         craftAmount = 10
     },
@@ -255,7 +255,7 @@ Config.Items = {
         reqXP = 500,
         giveXP = {type = 'potato', a = 3, b = 4},
         reqItems = {
-            {item = 'vodka', label = 'Vodka', amount = 2},
+            {item = 'vodka', label = 'Wodka', amount = 2},
             {item = 'grapperaisin', label = 'Traube', amount = 4}},
         newitem = {sqlitem = 'vodkafruit', label = 'Frucht Wodka'},
         newitemamount = 1,
@@ -266,7 +266,7 @@ Config.Items = {
         reqXP = 1000,
         giveXP = {type = 'potato', a = 3, b = 4},
         reqItems = {
-            {item = 'vodka', label = 'Vodka', amount = 2},
+            {item = 'vodka', label = 'Wodka', amount = 2},
             {item = 'bolcacahuetes', label = 'Erdnuss', amount = 4}},
         newitem = {sqlitem = 'vodkapeanut', label = 'Nuss Nougat Wodka'},
         newitemamount = 1,
