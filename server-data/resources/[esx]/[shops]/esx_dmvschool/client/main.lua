@@ -38,7 +38,7 @@ function StartTheoryTest()
 		SetNuiFocus(true, true)
 	end)
 
-
+	TriggerServerEvent('esx_dmvschool:pay', Config.Prices['dmv'])
 end
 
 function StopTheoryTest(success)
@@ -75,6 +75,8 @@ function StartDriveTest(type)
 		SetVehicleFuelLevel(vehicle, 100.0)
 		DecorSetFloat(vehicle, "_FUEL_LEVEL", GetVehicleFuelLevel(vehicle))
 	end)
+	
+	TriggerServerEvent('esx_dmvschool:pay', Config.Prices[type])
 end
 
 function StopDriveTest(success)
@@ -144,26 +146,9 @@ function OpenDMVSchoolMenu()
 	}, function(data, menu)
 		if data.current.value == 'theory_test' then
 			menu.close()
-			ESX.TriggerServerCallback('esx_dmvschool:canYouPay', function(haveMoney)
-				if haveMoney then
-					StartTheoryTest()
-				else
-					ESX.ShowNotification(_U('not_enough_money'))
-				end
-			end, 'dmv')
+			StartTheoryTest()
 		elseif data.current.value == 'drive_test' then
-			if ESX.Game.IsSpawnPointClear(Config.Zones.VehicleSpawnPoint.Pos, 5.0) then
-				menu.close()
-				ESX.TriggerServerCallback('esx_dmvschool:canYouPay', function(haveMoney)
-					if haveMoney then
-						StartDriveTest(data.current.type)
-					else
-						ESX.ShowNotification(_U('not_enough_money'))
-					end
-				end, data.current.type)
-			else
-				ESX.ShowNotification(_U('spawnpoint_blocked'))
-			end
+			StartDriveTest(data.current.type)
 		end
 	end, function(data, menu)
 		menu.close()
