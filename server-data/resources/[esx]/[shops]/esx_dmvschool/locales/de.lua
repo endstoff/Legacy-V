@@ -1,6 +1,6 @@
 Locales['de'] = {
   ['you_paid'] = 'Du hast ~g~$%s~s~ gezahlt.',
-  ['not_enough'] = 'Du hast nicht genug Geld dabei!',
+  ['not_enough_money'] = 'Du hast nicht genug Geld!',
   ['go_next_point'] = 'Fahr zum nächsten Punkt!',
   ['in_town_speed'] = 'Stadt betreten, beachte deine Geschwindigkeit! Erlaubte höchstgeschwindigkeit: ~y~%s~s~ km/h',
   ['next_point_speed'] = 'Fahr zum nächsten Punkt! Erlaubte höchstgeschwindigkeit: ~y~%s~s~ km/h',
@@ -26,4 +26,5 @@ Locales['de'] = {
   ['driving_too_fast'] = '~r~Du fährst zu schnell,~s~ Erlaubte höchstgeschwindigkeit: ~y~%s~s~ km/h!',
   ['errors'] = 'Fehler: ~r~%s~s~/%s',
   ['you_damaged_veh'] = 'Du hast das Fahrzeug beschädigt',
+  ['spawnpoint_blocked'] = 'Der Ausparkpunkt ist ~r~blockiert!'
 }

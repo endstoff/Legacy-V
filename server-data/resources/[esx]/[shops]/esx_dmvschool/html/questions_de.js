@@ -72,11 +72,11 @@ var tableauQuestion = [
 	},
 
 	{
-		question: "Sie fahren auf einem Highway der eine Höchstgeschwindigkeit von 250 km/h vorgibt. Aber die meisten fahren 260 km/h, also sollten sie nicht schneller fahren als:",
-		propositionA: "250 km/h",
-		propositionB: "245 km/h",
-		propositionC: "260 km/h",
-		propositionD: "230 km/h",
+		question: "Sie fahren auf einem Highway der eine Höchstgeschwindigkeit von 180 km/h anzeigt. Aber die meisten fahren 185 km/h, also sollten sie nicht schneller fahren als:",
+		propositionA: "180 km/h",
+		propositionB: "145 km/h",
+		propositionC: "130 km/h",
+		propositionD: "120 km/h",
 		reponse: "A"
 	},
 
