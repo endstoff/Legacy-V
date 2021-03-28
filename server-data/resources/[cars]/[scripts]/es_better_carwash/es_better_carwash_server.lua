@@ -1,16 +1,18 @@
-ESX             = nil
+ESX = nil
 
 TriggerEvent('esx:getSharedObject', function(obj) ESX = obj end)
 
 RegisterServerEvent('es_better_carwash:checkmoney')
 AddEventHandler('es_better_carwash:checkmoney', function()
-	local xPlayer = ESX.GetPlayerFromId(source)
-		if xPlayer.getMoney() >= 25 then
-			xPlayer.removeMoney(25)
-			TriggerClientEvent('es_better_carwash:success', source)
-		else
-			local missingMoney = 25 - xPlayer.getMoney()
-			TriggerClientEvent('es_better_carwash:notenoughmoney', source, missingMoney)
-		end
-	end)
+	local _source = source
+	local xPlayer = ESX.GetPlayerFromId(_source)
+	local price = 25
+
+	if xPlayer.getMoney() >= price then
+		xPlayer.removeMoney(price)
+		TriggerClientEvent('es_better_carwash:success', _source)
+	else
+		local missingMoney = price - xPlayer.getMoney()
+		TriggerClientEvent('es_better_carwash:notenoughmoney', _source, missingMoney)
+	end	
 end)
