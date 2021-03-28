@@ -118,10 +118,10 @@ AddEventHandler('es_better_carwash:success', function (price)
 end)
 
 RegisterNetEvent('es_better_carwash:notenoughmoney')
-AddEventHandler('es_better_carwash:notenoughmoney', function (moneyleft)
+AddEventHandler('es_better_carwash:notenoughmoney', function (missingMoney)
 	--TriggerEvent("pNotify:SendNotification", {text = "Du hast nicht genug Geld! Du brauchst:" .. moneyleft .."$ mehr.", type = "warning", queue = "global", timeout = 5000, layout = "centerLeft"}) 
 	--exports['mythic_notify']:DoHudText('error', 'Du hast nicht genug Geld! Du brauchst:' .. moneyleft .. '$ mehr')
-	TriggerEvent("notify", 4, "Waschanlage", "Du hast nicht genug Geld! Du brauchst:" .. moneyleft .. "$ mehr", 2500)
+	TriggerEvent("notify", 4, "Waschanlage", "Du hast nicht genug Geld! Du brauchst:" .. missingMoney .. "$ mehr", 2500)
 end)
 
 function DrawText3D(x, y, z, text)

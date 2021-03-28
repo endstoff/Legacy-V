@@ -38,7 +38,7 @@ AddEventHandler('esx:playerLoaded', function(xPlayer)
     TriggerServerEvent('myIllegals:getJobXP')
     randomizePriceModifiers()
     TriggerServerEvent('myIllegals:setRandomAssignments')
-    loadBlips()
+    --loadBlips()
     refreshZones()
 end)
 
@@ -46,7 +46,7 @@ RegisterNetEvent('esx:setJob')
 AddEventHandler('esx:setJob', function(job)
 	ESX.PlayerData.job = job
     PlayerData = ESX.GetPlayerData()
-    loadBlips()
+    --loadBlips()
     refreshZones()
 end)
 
@@ -83,9 +83,9 @@ function refreshZones()
 
 
 end
-
+--[[
 function loadBlips()
-
+    
     for k, v in pairs(Config.FarmingAreas) do
         if v.blip.data ~= nil then
             RemoveBlip(v.blip.data)
@@ -132,7 +132,7 @@ function loadBlips()
             EndTextCommandSetBlipName(blip)
         end
     end
-
+    
     for k3, v3 in pairs(Config.Seller) do
 
         if blipData['seller'][k3] ~= nil then
@@ -152,7 +152,7 @@ function loadBlips()
         end
     end
 end
-
+]]
 local blipLoaded = false
 local blipRange = nil
 local messageSent = false
@@ -170,7 +170,7 @@ Citizen.CreateThread(function()
     -- PlayerData.job = {}
     -- PlayerData.job.name = 'police'
 	--Citizen.Wait(10000)
-    loadBlips()
+    --loadBlips()
     refreshZones()
 	--
     while true do
