@@ -276,6 +276,17 @@ ESX.RegisterUsableItem('zigarette', function(source)
 	TriggerClientEvent('notify', source, 1, "", _U('used_cigarette'))
 end)
 
+ESX.RegisterUsableItem('coffee', function(source)
+	local xPlayer = ESX.GetPlayerFromId(source)
+	xPlayer.removeInventoryItem('coffee', 1)
+
+	TriggerClientEvent('esx_status:add', source, 'thirst', 150000)
+	TriggerClientEvent('esx_basicneeds:onDrink', source)
+--	xPlayer.showNotification(_U('used_coffee'))
+--	TriggerClientEvent('est_notify', source, '#ffffff', 'Lebensmittel', _U('used_coffee'))
+	TriggerClientEvent('notify', source, 1, "", _U('used_coffee'))
+end)
+
 ESX.RegisterCommand('heal', 'admin', function(xPlayer, args, showError)
 	args.playerId.triggerEvent('esx_basicneeds:healPlayer')
 	args.playerId.triggerEvent('chat:addMessage', {args = {'^5HEAL', 'You have been healed.'}})

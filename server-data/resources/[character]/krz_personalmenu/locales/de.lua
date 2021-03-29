@@ -101,7 +101,7 @@ Locales['de'] = {
 	['accessories_mask'] = 'Maske',
 
 	-- Animation Menu
-	['animation_title'] = 'Animations',
+	['animation_title'] = 'Animationen',
 
 	['animation_party_title'] = 'Festivals',
 	['animation_party_smoke'] = 'Smoking a cigarette',

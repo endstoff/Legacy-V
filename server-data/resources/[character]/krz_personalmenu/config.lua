@@ -362,61 +362,7 @@ Config.Admin = {
 			SetEntityCoords(closestVeh, newCoords)
 			ESX.ShowNotification(_U('admin_vehicleflip'))
 		end
-	},--[[
-	{
-		name = 'givemoney',
-		label = _U('admin_givemoney_button'),
-		groups = {'_dev', 'owner', 'superadmin'},
-		command = function()
-			local amount = KeyboardInput('KORIOZ_BOX_AMOUNT', _U('dialogbox_amount'), '', 8)
-
-			if amount ~= nil then
-				amount = tonumber(amount)
-
-				if type(amount) == 'number' then
-					TriggerServerEvent('KorioZ-PersonalMenu:Admin_giveCash', amount)
-				end
-			end
-
-			RageUI.CloseAll()
-		end
 	},
-	{
-		name = 'givebank',
-		label = _U('admin_givebank_button'),
-		groups = {'_dev', 'owner', 'superadmin'},
-		command = function()
-			local amount = KeyboardInput('KORIOZ_BOX_AMOUNT', _U('dialogbox_amount'), '', 8)
-
-			if amount ~= nil then
-				amount = tonumber(amount)
-
-				if type(amount) == 'number' then
-					TriggerServerEvent('KorioZ-PersonalMenu:Admin_giveBank', amount)
-				end
-			end
-
-			RageUI.CloseAll()
-		end
-	},
-	{
-		name = 'givedirtymoney',
-		label = _U('admin_givedirtymoney_button'),
-		groups = {'_dev', 'owner', 'superadmin'},
-		command = function()
-			local amount = KeyboardInput('KORIOZ_BOX_AMOUNT', _U('dialogbox_amount'), '', 8)
-
-			if amount ~= nil then
-				amount = tonumber(amount)
-
-				if type(amount) == 'number' then
-					TriggerServerEvent('KorioZ-PersonalMenu:Admin_giveDirtyMoney', amount)
-				end
-			end
-
-			RageUI.CloseAll()
-		end
-	},]]
 	{
 		name = 'showxyz',
 		label = _U('admin_showxyz_button'),

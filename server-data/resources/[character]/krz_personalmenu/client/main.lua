@@ -100,7 +100,7 @@ Citizen.CreateThread(function()
 --	RMenu.Add('personal', 'billing', RageUI.CreateSubMenu(RMenu.Get('rageui', 'personal'), _U('bills_title')))
 --	RMenu.Add('personal', 'clothes', RageUI.CreateSubMenu(RMenu.Get('rageui', 'personal'), _U('clothes_title')))
 --	RMenu.Add('personal', 'accessories', RageUI.CreateSubMenu(RMenu.Get('rageui', 'personal'), _U('accessories_title')))
---	RMenu.Add('personal', 'animation', RageUI.CreateSubMenu(RMenu.Get('rageui', 'personal'), _U('animation_title')))
+	RMenu.Add('personal', 'animation', RageUI.CreateSubMenu(RMenu.Get('rageui', 'personal'), _U('animation_title')))
 	RMenu.Add('personal', 'vehicle', RageUI.CreateSubMenu(RMenu.Get('rageui', 'personal'), _U('vehicle_title')), function()
 		if IsPedSittingInAnyVehicle(plyPed) then
 			if (GetPedInVehicleSeat(GetVehiclePedIsIn(plyPed, false), -1) == plyPed) then
@@ -138,11 +138,11 @@ Citizen.CreateThread(function()
 
 		return false
 	end)
-
+	--[[
 	RMenu.Add('inventory', 'actions', RageUI.CreateSubMenu(RMenu.Get('personal', 'inventory'), _U('inventory_actions_title')))
 	RMenu.Get('inventory', 'actions').Closed = function()
 		PersonalMenu.ItemSelected = nil
-	end
+	end]]
 
 	RMenu.Add('loadout', 'actions', RageUI.CreateSubMenu(RMenu.Get('personal', 'loadout'), _U('loadout_actions_title')))
 	RMenu.Get('loadout', 'actions').Closed = function()
@@ -1210,7 +1210,9 @@ Citizen.CreateThread(function()
 		end
 
 		if RageUI.Visible(RMenu.Get('personal', 'animation')) then
-			RenderAnimationMenu()
+		--	RenderAnimationMenu()
+			RageUI.CloseAll()
+			TriggerEvent('dp:RecieveMenu')
 		end
 
 		if RageUI.Visible(RMenu.Get('personal', 'vehicle')) then

@@ -319,6 +319,8 @@ Config.SellItems = {
         {sqlitem = 'bolcacahuetes', label = 'Erdnuss', priceBuy = 3.0},
         {sqlitem = 'stone', label = 'Stein', priceBuy = 2.0},
         {sqlitem = 'coal', label = 'Kohle', priceBuy = 10.0},
+        {sqlitem = 'ironore', label = 'Eisenerz', priceBuy = 8.0},
+        {sqlitem = 'bauxit', label = 'Bauxit', priceBuy = 12.0},
         {sqlitem = 'silver', label = 'Silber', priceBuy = 24.0},
         {sqlitem = 'gold', label = 'Gold', priceBuy = 40.0},
     }},
@@ -336,8 +338,16 @@ Config.SellItems = {
     {category = 'Schmelzen', content = {
         {sqlitem = 'concrete', label = 'Beton', priceBuy = 13.0},
         {sqlitem = 'coalingot', label = 'Kohlebrikett', priceBuy = 45.0},
+        {sqlitem = 'aluminium', label = 'Aluminium', priceBuy = 50.0},
+        {sqlitem = 'ironingot', label = 'Eisenbarren', priceBuy = 60.0},
+        {sqlitem = 'steel', label = 'Stahl', priceBuy = 80.0},
         {sqlitem = 'silveringot', label = 'Silberbarren', priceBuy = 90.0},
         {sqlitem = 'goldingot', label = 'Goldbarren', priceBuy = 180.0},
+    }},
+    {category = 'Schlosserei', content = {
+        {sqlitem = 'screws', label = 'Schrauben', priceBuy = 65.0},
+        {sqlitem = 'bolt', label = 'Bolzen', priceBuy = 85.0},
+        {sqlitem = 'spring', label = 'Feder', priceBuy = 110.0},
     }},
     {category = 'Juwelen', content = { 
         {sqlitem = 'ironbraclet', label = 'Silberarmband', priceBuy = 300.0},
