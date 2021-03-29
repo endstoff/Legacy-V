@@ -11747,7 +11747,7 @@
       <animConvRoofName>null</animConvRoofName>
       <animConvRoofWindowsAffected />
       <ptfxAssetName>null</ptfxAssetName>
-      <audioNameHash>DRAFTER</audioNameHash>
+      <audioNameHash>ELEGY2</audioNameHash>
       <layout>LAYOUT_LOW</layout>
       <coverBoundOffsets>IMORGON_COVER_OFFSET_INFO</coverBoundOffsets>
       <explosionInfo>EXPLOSION_INFO_DEFAULT</explosionInfo>
@@ -22895,7 +22895,7 @@
       <animConvRoofName>null</animConvRoofName>
       <animConvRoofWindowsAffected />
       <ptfxAssetName>null</ptfxAssetName>
-      <audioNameHash>ELEGY2</audioNameHash>
+      <audioNameHash>KURUMA</audioNameHash>
       <layout>LAYOUT_LOW</layout>
       <coverBoundOffsets>SENTINEL_COVER_OFFSET_INFO</coverBoundOffsets>
       <explosionInfo>EXPLOSION_INFO_DEFAULT</explosionInfo>

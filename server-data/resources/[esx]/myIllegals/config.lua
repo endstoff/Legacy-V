@@ -214,7 +214,7 @@ Config.Items = {
 
     {
         id = 4,
-        reqXP = 10000,
+        reqXP = 8000,
         giveXP = {type = 'weapon', a = 10, b = 30},
         reqItems = {
             {item = 'grip', label = 'Griff', amount = 1},
@@ -229,7 +229,7 @@ Config.Items = {
 
     {
         id = 4,
-        reqXP = 50000,
+        reqXP = 20000,
         giveXP = {type = 'weapon', a = 10, b = 30},
         reqItems = {
             {item = 'highpress', label = 'Hochdruckventil', amount = 1},
@@ -240,6 +240,22 @@ Config.Items = {
         newitem = {sqlitem = 'autoload', label = 'Gasdruck Mechanismus'},
         newitemamount = 1,
         craftAmount = 10
+    },
+
+    {
+        id = 4,
+        reqXP = 25000,
+        giveXP = {type = 'weapon', a = 10, b = 30},
+        reqItems = {
+            {item = 'autoload', label = 'Gasdruck Mechanismus', amount = 1},
+            {item = 'spring', label = 'Feder', amount = 1},
+            {item = 'barrel', label = 'Lauf', amount = 1},
+            {item = 'grip', label = 'Griff', amount = 1},
+            {item = 'screws', label = 'Schrauben', amount = 5},
+            {item = 'steel', label = 'Stahl', amount = 5}},
+        newitem = {sqlitem = 'smgcaselight', label = 'SMG-Koffer-Leicht'},
+        newitemamount = 1,
+        craftAmount = 1
     },
 
     {

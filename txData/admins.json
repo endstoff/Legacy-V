@@ -129,8 +129,7 @@
   {
     "name": "Kabafeld",
     "master": false,
-    "password_hash": "$2a$11$Faq.Qb29GF3q7m6qxGkNhuq2s/m8k/PXlkidlMSq6Q3DAuZvLoCou",
-    "password_temporary": true,
+    "password_hash": "$2a$11$yL.HHCNsvtyPC1mQG4aFRujz9txT4selJTYaJnONYNS1uCJlD9hHa",
     "providers": {},
     "permissions": [
       "players.ban",

@@ -258,7 +258,7 @@ function OpenPoliceActionsMenu()
 			{label = _U('citizen_interaction'), value = 'citizen_interaction'},
             {label = _U('dienstausweis_aktion'), value = 'dienstausweis_aktion'},
 			{label = _U('vehicle_interaction'), value = 'vehicle_interaction'},
-			--{label = _U('object_spawner'), value = 'object_spawner'}
+		--	{label = _U('object_spawner'), value = 'object_spawner'}
 	}}, function(data, menu)
 		if data.current.value == 'citizen_interaction' then
 			local elements = {
@@ -270,7 +270,7 @@ function OpenPoliceActionsMenu()
 				{label = _U('out_the_vehicle'), value = 'out_the_vehicle'},
 				{label = _U('fine'), value = 'fine'},
 				{label = _U('unpaid_bills'), value = 'unpaid_bills'},
-				{label = _U('Jail'), value = 'jail_menu'}
+				{label = _U('Jail'), value = 'jail_menu'},
 			}
 
 			if Config.EnableLicenses then
@@ -306,7 +306,7 @@ function OpenPoliceActionsMenu()
 					elseif action == 'unpaid_bills' then
 						OpenUnpaidBillsMenu(closestPlayer)
 					elseif action == 'jail_menu' then
-						JailPlayer(GetPlayerServerId(closestPlayer))
+						exports.esx_extendedjail:OpenJailMenu('prison')
 					end
 				else
 					ESX.ShowNotification(_U('no_players_nearby'))
@@ -403,8 +403,8 @@ function OpenPoliceActionsMenu()
 					{label = _U('cone'), model = 'prop_roadcone02a'},
 					{label = _U('barrier'), model = 'prop_barrier_work05'},
 					{label = _U('spikestrips'), model = 'p_ld_stinger_s'},
-					--{label = _U('box'), model = 'prop_boxpile_07d'},
-					--{label = _U('cash'), model = 'hei_prop_cash_crate_half_full'}
+					{label = _U('box'), model = 'prop_boxpile_07d'},
+					{label = _U('cash'), model = 'hei_prop_cash_crate_half_full'}
 			}}, function(data2, menu2)
 				local playerPed = PlayerPedId()
 				local coords, forward = GetEntityCoords(playerPed), GetEntityForwardVector(playerPed)
@@ -721,22 +721,6 @@ function OpenUnpaidBillsMenu(player)
 			menu.close()
 		end)
 	end, GetPlayerServerId(player))
-end
-
-function JailPlayer(player)
-	ESX.UI.Menu.Open('dialog', GetCurrentResourceName(), 'jail_menu', {
-		title = _U('jail_menu_info'),
-	}, function (data2, menu)
-		local JailTime = tonumber(data2.value)
-		if JailTime == nil then
-			ESX.ShowNotification('Virheellinen aika')
-		else
-			TriggerServerEvent('esx_extendedjail:jailplayer_server', player, JailTime, 'prison')
-			menu.close()
-		end
-	end, function (data2, menu)
-		menu.close()
-	end)
 end
 
 function OpenVehicleInfosMenu(vehicleData)

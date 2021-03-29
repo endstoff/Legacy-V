@@ -309,7 +309,7 @@ ESX.RegisterServerCallback('myDrugs:getPlayersInArea', function(source, cb, posi
         end
     end
     cb(players)
-  end)
+end)
   
   
   --

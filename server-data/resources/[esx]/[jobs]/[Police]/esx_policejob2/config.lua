@@ -13,7 +13,7 @@ Config.EnableLicenses             = true -- Enable if you're using esx_license.
 Config.EnableHandcuffTimer        = false -- Enable handcuff timer? will unrestrain player after the time ends.
 Config.HandcuffTimer              = 10 * 60000 -- 10 minutes.
 
-Config.EnableJobBlip              = true -- Enable blips for cops on duty, requires esx_society.
+Config.EnableJobBlip              = false -- Enable blips for cops on duty, requires esx_society.
 Config.EnableCustomPeds           = false -- Enable custom peds in cloak room? See Config.CustomPeds below to customize peds.
 
 Config.EnableESXService           = false -- Enable esx service?
@@ -121,7 +121,7 @@ Config.PoliceStations = {
 
 Config.AuthorizedWeapons = {
 	cadet = {
-		{weapon = 'WEAPON_STUNGUN', price = 1500},
+		{weapon = 'WEAPON_STUNGUN', price = 500},
 		{weapon = 'WEAPON_FLASHLIGHT', price = 80},
 		{weapon = 'WEAPON_NIGHTSTICK', price = 130},
 		{weapon = 'WEAPON_PETROLCAN', price = 150},
@@ -130,8 +130,8 @@ Config.AuthorizedWeapons = {
 	},
 
 	officer = {
-		{weapon = 'WEAPON_STUNGUN', price = 1500},
-		{weapon = 'WEAPON_PISTOL_MK2', price = 12500},
+		{weapon = 'WEAPON_STUNGUN', price = 500},
+		{weapon = 'WEAPON_PISTOL_MK2', price = 1000},
 		{weapon = 'WEAPON_FLASHLIGHT', price = 80},
 		{weapon = 'WEAPON_NIGHTSTICK', price = 130},
 		{weapon = 'WEAPON_PETROLCAN', price = 150},
@@ -140,9 +140,9 @@ Config.AuthorizedWeapons = {
 	},
 
 	detective = {
-		{weapon = 'WEAPON_STUNGUN', price = 1500},
-		{weapon = 'WEAPON_PISTOL_MK2', price = 12500},
-		{weapon = 'WEAPON_SMG', price = 16500},
+		{weapon = 'WEAPON_STUNGUN', price = 500},
+		{weapon = 'WEAPON_PISTOL_MK2', price = 1000},
+		{weapon = 'WEAPON_SMG', price = 2500},
 		{weapon = 'WEAPON_FLASHLIGHT', price = 80},
 		{weapon = 'WEAPON_NIGHTSTICK', price = 130},
 		{weapon = 'WEAPON_PETROLCAN', price = 150},
@@ -151,10 +151,10 @@ Config.AuthorizedWeapons = {
 	},
 
 	sergeant = {
-		{weapon = 'WEAPON_STUNGUN', price = 1500},
-		{weapon = 'WEAPON_PISTOL_MK2', price = 12500},
-		{weapon = 'WEAPON_SMG', price = 16500},
-		{weapon = 'WEAPON_PUMPSHOTGUN', price = 19500},
+		{weapon = 'WEAPON_STUNGUN', price = 500},
+		{weapon = 'WEAPON_PISTOL_MK2', price = 1000},
+		{weapon = 'WEAPON_SMG', price = 2500},
+		{weapon = 'WEAPON_PUMPSHOTGUN', price = 3500},
 		{weapon = 'WEAPON_FLASHLIGHT', price = 80},
 		{weapon = 'WEAPON_NIGHTSTICK', price = 130},
 		{weapon = 'WEAPON_PETROLCAN', price = 150},
@@ -163,10 +163,10 @@ Config.AuthorizedWeapons = {
 	},
 
 	sergeant = {
-		{weapon = 'WEAPON_STUNGUN', price = 1500},
-		{weapon = 'WEAPON_PISTOL_MK2', price = 12500},
-		{weapon = 'WEAPON_SMG', price = 16500},
-		{weapon = 'WEAPON_PUMPSHOTGUN', price = 19500},
+		{weapon = 'WEAPON_STUNGUN', price = 500},
+		{weapon = 'WEAPON_PISTOL_MK2', price = 1000},
+		{weapon = 'WEAPON_SMG', price = 2500},
+		{weapon = 'WEAPON_PUMPSHOTGUN', price = 3500},
 		{weapon = 'WEAPON_FLASHLIGHT', price = 80},
 		{weapon = 'WEAPON_NIGHTSTICK', price = 130},
 		{weapon = 'WEAPON_PETROLCAN', price = 150},
@@ -175,10 +175,10 @@ Config.AuthorizedWeapons = {
 	},
 
 	lieutenant = {
-		{weapon = 'WEAPON_STUNGUN', price = 1500},
-		{weapon = 'WEAPON_PISTOL_MK2', price = 12500},
-		{weapon = 'WEAPON_SMG', price = 16500},
-		{weapon = 'WEAPON_PUMPSHOTGUN', price = 19500},
+		{weapon = 'WEAPON_STUNGUN', price = 500},
+		{weapon = 'WEAPON_PISTOL_MK2', price = 1000},
+		{weapon = 'WEAPON_SMG', price = 2500},
+		{weapon = 'WEAPON_PUMPSHOTGUN', price = 3500},
 		{weapon = 'WEAPON_FLASHLIGHT', price = 80},
 		{weapon = 'WEAPON_NIGHTSTICK', price = 130},
 		{weapon = 'WEAPON_PETROLCAN', price = 150},
@@ -187,11 +187,11 @@ Config.AuthorizedWeapons = {
 	},
 
 	commissioner = {
-		{weapon = 'WEAPON_STUNGUN', price = 1500},
-		{weapon = 'WEAPON_PISTOL_MK2', price = 12500},
-		{weapon = 'WEAPON_SMG', price = 16500},
-		{weapon = 'WEAPON_PUMPSHOTGUN', price = 19500},
-		{weapon = 'WEAPON_CARBINERIFLE', price = 24500},
+		{weapon = 'WEAPON_STUNGUN', price = 500},
+		{weapon = 'WEAPON_PISTOL_MK2', price = 1000},
+		{weapon = 'WEAPON_SMG', price = 2500},
+		{weapon = 'WEAPON_PUMPSHOTGUN', price = 3500},
+		{weapon = 'WEAPON_CARBINERIFLE', price = 5000},
 		{weapon = 'WEAPON_FLASHLIGHT', price = 80},
 		{weapon = 'WEAPON_NIGHTSTICK', price = 130},
 		{weapon = 'WEAPON_PETROLCAN', price = 150},
@@ -200,11 +200,11 @@ Config.AuthorizedWeapons = {
 	},
 
 	instructor = {
-		{weapon = 'WEAPON_STUNGUN', price = 1500},
-		{weapon = 'WEAPON_PISTOL_MK2', price = 12500},
-		{weapon = 'WEAPON_SMG', price = 16500},
-		{weapon = 'WEAPON_PUMPSHOTGUN', price = 19500},
-		{weapon = 'WEAPON_CARBINERIFLE', price = 24500},
+		{weapon = 'WEAPON_STUNGUN', price = 500},
+		{weapon = 'WEAPON_PISTOL_MK2', price = 1000},
+		{weapon = 'WEAPON_SMG', price = 2500},
+		{weapon = 'WEAPON_PUMPSHOTGUN', price = 3500},
+		{weapon = 'WEAPON_CARBINERIFLE', price = 5000},
 		{weapon = 'WEAPON_FLASHLIGHT', price = 80},
 		{weapon = 'WEAPON_NIGHTSTICK', price = 130},
 		{weapon = 'WEAPON_PETROLCAN', price = 150},
@@ -213,11 +213,11 @@ Config.AuthorizedWeapons = {
 	},
 
 	chiefofacademy = {
-		{weapon = 'WEAPON_STUNGUN', price = 1500},
-		{weapon = 'WEAPON_PISTOL_MK2', price = 12500},
-		{weapon = 'WEAPON_SMG', price = 16500},
-		{weapon = 'WEAPON_PUMPSHOTGUN', price = 19500},
-		{weapon = 'WEAPON_CARBINERIFLE', price = 24500},
+		{weapon = 'WEAPON_STUNGUN', price = 500},
+		{weapon = 'WEAPON_PISTOL_MK2', price = 1000},
+		{weapon = 'WEAPON_SMG', price = 2500},
+		{weapon = 'WEAPON_PUMPSHOTGUN', price = 3500},
+		{weapon = 'WEAPON_CARBINERIFLE', price = 5000},
 		{weapon = 'WEAPON_FLASHLIGHT', price = 80},
 		{weapon = 'WEAPON_NIGHTSTICK', price = 130},
 		{weapon = 'WEAPON_PETROLCAN', price = 150},
@@ -226,11 +226,11 @@ Config.AuthorizedWeapons = {
 	},
 
 	chiefofdepartment = {
-		{weapon = 'WEAPON_STUNGUN', price = 1500},
-		{weapon = 'WEAPON_PISTOL_MK2', price = 12500},
-		{weapon = 'WEAPON_SMG', price = 16500},
-		{weapon = 'WEAPON_PUMPSHOTGUN', price = 19500},
-		{weapon = 'WEAPON_CARBINERIFLE', price = 24500},
+		{weapon = 'WEAPON_STUNGUN', price = 500},
+		{weapon = 'WEAPON_PISTOL_MK2', price = 1000},
+		{weapon = 'WEAPON_SMG', price = 2500},
+		{weapon = 'WEAPON_PUMPSHOTGUN', price = 3500},
+		{weapon = 'WEAPON_CARBINERIFLE', price = 5000},
 		{weapon = 'WEAPON_FLASHLIGHT', price = 80},
 		{weapon = 'WEAPON_NIGHTSTICK', price = 130},
 		{weapon = 'WEAPON_PETROLCAN', price = 150},
@@ -239,11 +239,11 @@ Config.AuthorizedWeapons = {
 	},
 
 	boss = {
-		{weapon = 'WEAPON_STUNGUN', price = 1500},
-		{weapon = 'WEAPON_PISTOL_MK2', price = 12500},
-		{weapon = 'WEAPON_SMG', price = 16500},
-		{weapon = 'WEAPON_PUMPSHOTGUN', price = 19500},
-		{weapon = 'WEAPON_CARBINERIFLE', price = 24500},
+		{weapon = 'WEAPON_STUNGUN', price = 500},
+		{weapon = 'WEAPON_PISTOL_MK2', price = 1000},
+		{weapon = 'WEAPON_SMG', price = 2500},
+		{weapon = 'WEAPON_PUMPSHOTGUN', price = 3500},
+		{weapon = 'WEAPON_CARBINERIFLE', price = 5000},
 		{weapon = 'WEAPON_FLASHLIGHT', price = 80},
 		{weapon = 'WEAPON_NIGHTSTICK', price = 130},
 		{weapon = 'WEAPON_PETROLCAN', price = 150},
@@ -260,70 +260,153 @@ Config.AuthorizedVehicles = {
 
 		officer = {
 			{model = 'dw_lspd1', label = 'Vapid Cruiser', price = 5000},
+
 			{model = 'dw_lspd2', label = 'Bravado Buffalo', price = 5000},
 		},
 
 		detective = {
 			{model = 'dw_lspd1', label = 'Vapid Cruiser', price = 5000},
+
 			{model = 'dw_lspd2', label = 'Bravado Buffalo', price = 5000},
+			
 			{model = 'dw_police42', label = 'Bravado Buffalo UM', price = 5000},
+			{model = 'dw_lspd4', label = 'Vapid UM', price = 5000},
+
 		},
 
 		sergeant = {
 			{model = 'dw_lspd1', label = 'Vapid Cruiser', price = 5000},
+
 			{model = 'dw_lspd2', label = 'Bravado Buffalo', price = 5000},
-			{model = 'dw_lspd3', label = 'Bravado Buffalo', price = 5000},
+			{model = 'dw_lspd3', label = 'Vapid Interceptor', price = 5000},
 		},
 
 		firstsergeant = {
 			{model = 'dw_lspd1', label = 'Vapid Cruiser', price = 5000},
+
 			{model = 'dw_lspd2', label = 'Bravado Buffalo', price = 5000},
-			{model = 'dw_lspd3', label = 'Bravado Buffalo', price = 5000},
+			{model = 'dw_lspd3', label = 'Vapid Interceptor', price = 5000},
+			{model = 'pdrafter', label = 'Drafter', price = 5000},
 
 		},
 
 		lieutenant = {
 			{model = 'dw_lspd1', label = 'Vapid Cruiser', price = 5000},
+
 			{model = 'dw_lspd2', label = 'Bravado Buffalo', price = 5000},
-			{model = 'dw_lspd3', label = 'Bravado Buffalo', price = 5000},
+			{model = 'dw_lspd3', label = 'Vapid Interceptor', price = 5000},
+			{model = 'pdrafter', label = 'Drafter', price = 5000},
+
+			{model = 'dw_pscout', label = 'Vapid Scout', price = 5000},
+			{model = 'dw_polspeedo', label = 'Van', price = 5000},
+
+			{model = 'dw_lspdb', label = 'Police Bike', price = 5000},
+
+			{model = 'dw_polriot', label = 'Riot', price = 10000},
 
 		},
 
 		commissioner = {
 			{model = 'dw_lspd1', label = 'Vapid Cruiser', price = 5000},
+
 			{model = 'dw_lspd2', label = 'Bravado Buffalo', price = 5000},
-			{model = 'dw_lspd3', label = 'Bravado Buffalo', price = 5000},
+			{model = 'dw_lspd3', label = 'Vapid Interceptor', price = 5000},
+			{model = 'pdrafter', label = 'Drafter', price = 5000},
+
+			{model = 'dw_police42', label = 'Bravado Buffalo UM', price = 5000},
+			{model = 'dw_lspd4', label = 'Vapid UM', price = 5000},
+
+			{model = 'dw_beachp', label = 'Vapid Contender', price = 5000},
+			{model = 'dw_pscout', label = 'Vapid Scout', price = 5000},
+			{model = 'dw_polspeedo', label = 'Van', price = 5000},
+
+			{model = 'dw_lspdb', label = 'Police Bike', price = 5000},
+
+			{model = 'dw_polriot', label = 'Riot', price = 10000},
+			
 		},
 
 		instructor = {
 			{model = 'dw_lspd1', label = 'Vapid Cruiser', price = 5000},
+
 			{model = 'dw_lspd2', label = 'Bravado Buffalo', price = 5000},
-			{model = 'dw_lspd3', label = 'Bravado Buffalo', price = 5000},
+			{model = 'dw_lspd3', label = 'Vapid Interceptor', price = 5000},
+			{model = 'pdrafter', label = 'Drafter', price = 5000},
+
 			{model = 'dw_police42', label = 'Bravado Buffalo UM', price = 5000},
+			{model = 'dw_lspd4', label = 'Vapid UM', price = 5000},
+
+			{model = 'dw_beachp', label = 'Vapid Contender', price = 5000},
+			{model = 'dw_pscout', label = 'Vapid Scout', price = 5000},
+			{model = 'dw_polspeedo', label = 'Van', price = 5000},
+
+			{model = 'dw_lspdb', label = 'Police Bike', price = 5000},
+
+			{model = 'dw_polriot', label = 'Riot', price = 10000},
+			
 
 		},
 
 		chiefofacademy = {
 			{model = 'dw_lspd1', label = 'Vapid Cruiser', price = 5000},
+
 			{model = 'dw_lspd2', label = 'Bravado Buffalo', price = 5000},
-			{model = 'dw_lspd3', label = 'Bravado Buffalo', price = 5000},
+			{model = 'dw_lspd3', label = 'Vapid Interceptor', price = 5000},
+			{model = 'pdrafter', label = 'Drafter', price = 5000},
+
 			{model = 'dw_police42', label = 'Bravado Buffalo UM', price = 5000},
+			{model = 'dw_lspd4', label = 'Vapid UM', price = 5000},
+
+			{model = 'dw_beachp', label = 'Vapid Contender', price = 5000},
+			{model = 'dw_pscout', label = 'Vapid Scout', price = 5000},
+			{model = 'dw_polspeedo', label = 'Van', price = 5000},
+
+			{model = 'dw_lspdb', label = 'Police Bike', price = 5000},
+
+			{model = 'dw_polriot', label = 'Riot', price = 10000},
+			
 
 		},
 
 		chiefofdepartment = {
 			{model = 'dw_lspd1', label = 'Vapid Cruiser', price = 5000},
+
 			{model = 'dw_lspd2', label = 'Bravado Buffalo', price = 5000},
-			{model = 'dw_lspd3', label = 'Bravado Buffalo', price = 5000},
+			{model = 'dw_lspd3', label = 'Vapid Interceptor', price = 5000},
+			{model = 'pdrafter', label = 'Drafter', price = 5000},
+
 			{model = 'dw_police42', label = 'Bravado Buffalo UM', price = 5000},
+			{model = 'dw_lspd4', label = 'Vapid UM', price = 5000},
+
+			{model = 'dw_beachp', label = 'Vapid Contender', price = 5000},
+			{model = 'dw_pscout', label = 'Vapid Scout', price = 5000},
+			{model = 'dw_polspeedo', label = 'Van', price = 5000},
+
+			{model = 'dw_lspdb', label = 'Police Bike', price = 5000},
+
+			{model = 'dw_polriot', label = 'Riot', price = 10000},
+			
 
 		},
 
 		boss = {
 			{model = 'dw_lspd1', label = 'Vapid Cruiser', price = 5000},
+
 			{model = 'dw_lspd2', label = 'Bravado Buffalo', price = 5000},
-			{model = 'dw_lspd3', label = 'Bravado Buffalo', price = 5000},
+			{model = 'dw_lspd3', label = 'Vapid Interceptor', price = 5000},
+			{model = 'pdrafter', label = 'Drafter', price = 5000},
+
 			{model = 'dw_police42', label = 'Bravado Buffalo UM', price = 5000},
+			{model = 'dw_lspd4', label = 'Vapid UM', price = 5000},
+
+			{model = 'dw_beachp', label = 'Vapid Contender', price = 5000},
+			{model = 'dw_pscout', label = 'Vapid Scout', price = 5000},
+			{model = 'dw_polspeedo', label = 'Van', price = 5000},
+
+			{model = 'dw_lspdb', label = 'Police Bike', price = 5000},
+
+			{model = 'dw_polriot', label = 'Riot', price = 10000},
+			
 		}
 	},
 
@@ -391,265 +474,18 @@ Config.CustomPeds = {
 Config.Uniforms = {
 	cadet = {
 		male = {
-			tshirt_1 = 59,  tshirt_2 = 1,
-			torso_1 = 55,   torso_2 = 0,
-			decals_1 = 0,   decals_2 = 0,
-			arms = 41,
-			pants_1 = 31,   pants_2 = 0,
-			shoes_1 = 25,   shoes_2 = 0,
-			helmet_1 = 46,  helmet_2 = 0,
-			chain_1 = 0,    chain_2 = 0,
-			ears_1 = 2,     ears_2 = 0
-		},
-		female = {
-			tshirt_1 = 36,  tshirt_2 = 1,
-			torso_1 = 48,   torso_2 = 0,
-			decals_1 = 0,   decals_2 = 0,
-			arms = 44,
-			pants_1 = 34,   pants_2 = 0,
-			shoes_1 = 27,   shoes_2 = 0,
-			helmet_1 = 45,  helmet_2 = 0,
-			chain_1 = 0,    chain_2 = 0,
-			ears_1 = 2,     ears_2 = 0
-		}
-	},
-
-	officer = {
-		male = {
-			tshirt_1 = 58,  tshirt_2 = 0,
-			torso_1 = 55,   torso_2 = 0,
-			decals_1 = 0,   decals_2 = 0,
-			arms = 41,
-			pants_1 = 31,   pants_2 = 0,
-			shoes_1 = 25,   shoes_2 = 0,
-			helmet_1 = -1,  helmet_2 = 0,
-			chain_1 = 0,    chain_2 = 0,
-			ears_1 = 2,     ears_2 = 0
-		},
-		female = {
-			tshirt_1 = 35,  tshirt_2 = 0,
-			torso_1 = 48,   torso_2 = 0,
-			decals_1 = 0,   decals_2 = 0,
-			arms = 44,
-			pants_1 = 34,   pants_2 = 0,
-			shoes_1 = 27,   shoes_2 = 0,
-			helmet_1 = -1,  helmet_2 = 0,
-			chain_1 = 0,    chain_2 = 0,
-			ears_1 = 2,     ears_2 = 0
-		}
-	},
-
-	detective = {
-		male = {
-			tshirt_1 = 58,  tshirt_2 = 0,
-			torso_1 = 55,   torso_2 = 0,
-			decals_1 = 8,   decals_2 = 1,
-			arms = 41,
-			pants_1 = 31,   pants_2 = 0,
-			shoes_1 = 25,   shoes_2 = 0,
-			helmet_1 = -1,  helmet_2 = 0,
-			chain_1 = 0,    chain_2 = 0,
-			ears_1 = 2,     ears_2 = 0
-		},
-		female = {
-			tshirt_1 = 35,  tshirt_2 = 0,
-			torso_1 = 48,   torso_2 = 0,
-			decals_1 = 7,   decals_2 = 1,
-			arms = 44,
-			pants_1 = 34,   pants_2 = 0,
-			shoes_1 = 27,   shoes_2 = 0,
-			helmet_1 = -1,  helmet_2 = 0,
-			chain_1 = 0,    chain_2 = 0,
-			ears_1 = 2,     ears_2 = 0
-		}
-	},
-
-	sergeant = {
-		male = {
-			tshirt_1 = 58,  tshirt_2 = 0,
-			torso_1 = 55,   torso_2 = 0,
-			decals_1 = 8,   decals_2 = 2,
-			arms = 41,
-			pants_1 = 31,   pants_2 = 0,
-			shoes_1 = 25,   shoes_2 = 0,
-			helmet_1 = -1,  helmet_2 = 0,
-			chain_1 = 0,    chain_2 = 0,
-			ears_1 = 2,     ears_2 = 0
-		},
-		female = {
-			tshirt_1 = 35,  tshirt_2 = 0,
-			torso_1 = 48,   torso_2 = 0,
-			decals_1 = 7,   decals_2 = 2,
-			arms = 44,
-			pants_1 = 34,   pants_2 = 0,
-			shoes_1 = 27,   shoes_2 = 0,
-			helmet_1 = -1,  helmet_2 = 0,
-			chain_1 = 0,    chain_2 = 0,
-			ears_1 = 2,     ears_2 = 0
-		}
-	},
-
-	firstsergeant = {
-		male = {
-			tshirt_1 = 58,  tshirt_2 = 0,
-			torso_1 = 55,   torso_2 = 0,
-			decals_1 = 8,   decals_2 = 2,
-			arms = 41,
-			pants_1 = 31,   pants_2 = 0,
-			shoes_1 = 25,   shoes_2 = 0,
-			helmet_1 = -1,  helmet_2 = 0,
-			chain_1 = 0,    chain_2 = 0,
-			ears_1 = 2,     ears_2 = 0
-		},
-		female = {
-			tshirt_1 = 35,  tshirt_2 = 0,
-			torso_1 = 48,   torso_2 = 0,
-			decals_1 = 7,   decals_2 = 2,
-			arms = 44,
-			pants_1 = 34,   pants_2 = 0,
-			shoes_1 = 27,   shoes_2 = 0,
-			helmet_1 = -1,  helmet_2 = 0,
-			chain_1 = 0,    chain_2 = 0,
-			ears_1 = 2,     ears_2 = 0
-		}
-	},
-
-	lieutenant = {
-		male = {
-			tshirt_1 = 58,  tshirt_2 = 0,
-			torso_1 = 55,   torso_2 = 0,
-			decals_1 = 8,   decals_2 = 2,
-			arms = 41,
-			pants_1 = 31,   pants_2 = 0,
-			shoes_1 = 25,   shoes_2 = 0,
-			helmet_1 = -1,  helmet_2 = 0,
-			chain_1 = 0,    chain_2 = 0,
-			ears_1 = 2,     ears_2 = 0
-		},
-		female = {
-			tshirt_1 = 35,  tshirt_2 = 0,
-			torso_1 = 48,   torso_2 = 0,
-			decals_1 = 7,   decals_2 = 2,
-			arms = 44,
-			pants_1 = 34,   pants_2 = 0,
-			shoes_1 = 27,   shoes_2 = 0,
-			helmet_1 = -1,  helmet_2 = 0,
-			chain_1 = 0,    chain_2 = 0,
-			ears_1 = 2,     ears_2 = 0
-		}
-	},
-
-	commissioner = {
-		male = {
-			tshirt_1 = 58,  tshirt_2 = 0,
-			torso_1 = 55,   torso_2 = 0,
-			decals_1 = 8,   decals_2 = 2,
-			arms = 41,
-			pants_1 = 31,   pants_2 = 0,
-			shoes_1 = 25,   shoes_2 = 0,
-			helmet_1 = -1,  helmet_2 = 0,
-			chain_1 = 0,    chain_2 = 0,
-			ears_1 = 2,     ears_2 = 0
-		},
-		female = {
-			tshirt_1 = 35,  tshirt_2 = 0,
-			torso_1 = 48,   torso_2 = 0,
-			decals_1 = 7,   decals_2 = 2,
-			arms = 44,
-			pants_1 = 34,   pants_2 = 0,
-			shoes_1 = 27,   shoes_2 = 0,
-			helmet_1 = -1,  helmet_2 = 0,
-			chain_1 = 0,    chain_2 = 0,
-			ears_1 = 2,     ears_2 = 0
-		}
-	},
-
-	instructor = {
-		male = {
-			tshirt_1 = 58,  tshirt_2 = 0,
-			torso_1 = 55,   torso_2 = 0,
-			decals_1 = 8,   decals_2 = 2,
-			arms = 41,
-			pants_1 = 31,   pants_2 = 0,
-			shoes_1 = 25,   shoes_2 = 0,
-			helmet_1 = -1,  helmet_2 = 0,
-			chain_1 = 0,    chain_2 = 0,
-			ears_1 = 2,     ears_2 = 0
-		},
-		female = {
-			tshirt_1 = 35,  tshirt_2 = 0,
-			torso_1 = 48,   torso_2 = 0,
-			decals_1 = 7,   decals_2 = 2,
-			arms = 44,
-			pants_1 = 34,   pants_2 = 0,
-			shoes_1 = 27,   shoes_2 = 0,
-			helmet_1 = -1,  helmet_2 = 0,
-			chain_1 = 0,    chain_2 = 0,
-			ears_1 = 2,     ears_2 = 0
-		}
-	},
-
-	chiefofacademy = {
-		male = {
-			tshirt_1 = 58,  tshirt_2 = 0,
-			torso_1 = 55,   torso_2 = 0,
-			decals_1 = 8,   decals_2 = 2,
-			arms = 41,
-			pants_1 = 31,   pants_2 = 0,
-			shoes_1 = 25,   shoes_2 = 0,
-			helmet_1 = -1,  helmet_2 = 0,
-			chain_1 = 0,    chain_2 = 0,
-			ears_1 = 2,     ears_2 = 0
-		},
-		female = {
-			tshirt_1 = 35,  tshirt_2 = 0,
-			torso_1 = 48,   torso_2 = 0,
-			decals_1 = 7,   decals_2 = 2,
-			arms = 44,
-			pants_1 = 34,   pants_2 = 0,
-			shoes_1 = 27,   shoes_2 = 0,
-			helmet_1 = -1,  helmet_2 = 0,
-			chain_1 = 0,    chain_2 = 0,
-			ears_1 = 2,     ears_2 = 0
-		}
-	},
-
-	chiefofdepartment = {
-		male = {
-			tshirt_1 = 58,  tshirt_2 = 0,
-			torso_1 = 55,   torso_2 = 0,
-			decals_1 = 8,   decals_2 = 2,
-			arms = 41,
-			pants_1 = 31,   pants_2 = 0,
-			shoes_1 = 25,   shoes_2 = 0,
-			helmet_1 = -1,  helmet_2 = 0,
-			chain_1 = 0,    chain_2 = 0,
-			ears_1 = 2,     ears_2 = 0
-		},
-		female = {
-			tshirt_1 = 35,  tshirt_2 = 0,
-			torso_1 = 48,   torso_2 = 0,
-			decals_1 = 7,   decals_2 = 2,
-			arms = 44,
-			pants_1 = 34,   pants_2 = 0,
-			shoes_1 = 27,   shoes_2 = 0,
-			helmet_1 = -1,  helmet_2 = 0,
-			chain_1 = 0,    chain_2 = 0,
-			ears_1 = 2,     ears_2 = 0
-		}
-	},
-
-	boss = {
-		male = {
-			tshirt_1 = 58,  tshirt_2 = 0,
+			tshirt_1 = 38,  tshirt_2 = 1,
 			torso_1 = 55,   torso_2 = 0,
 			decals_1 = 8,   decals_2 = 3,
 			arms = 41,
-			pants_1 = 31,   pants_2 = 0,
+			pants_1 = 25,   pants_2 = 0,
 			shoes_1 = 25,   shoes_2 = 0,
 			helmet_1 = -1,  helmet_2 = 0,
 			chain_1 = 0,    chain_2 = 0,
-			ears_1 = 2,     ears_2 = 0
+			ears_1 = 2,     ears_2 = 0,
+			bproof_1 = 12,	bproof_2 = 3,
+			lefthand_1 = -1,	lefthand_2 = 0,
+			righthand_1 = -1,	righthand_2 = 0
 		},
 		female = {
 			tshirt_1 = 35,  tshirt_2 = 0,
@@ -660,7 +496,298 @@ Config.Uniforms = {
 			shoes_1 = 27,   shoes_2 = 0,
 			helmet_1 = -1,  helmet_2 = 0,
 			chain_1 = 0,    chain_2 = 0,
-			ears_1 = 2,     ears_2 = 0
+			ears_1 = 2,     ears_2 = 0,
+			bproof_1 = 13,	bproof_2 = 1
+		}
+	},
+
+	officer = {
+		male = {
+			tshirt_1 = 38,  tshirt_2 = 1,
+			torso_1 = 55,   torso_2 = 0,
+			decals_1 = 8,   decals_2 = 3,
+			arms = 41,
+			pants_1 = 25,   pants_2 = 0,
+			shoes_1 = 25,   shoes_2 = 0,
+			helmet_1 = -1,  helmet_2 = 0,
+			chain_1 = 0,    chain_2 = 0,
+			ears_1 = 2,     ears_2 = 0,
+			bproof_1 = 12,	bproof_2 = 3,
+			lefthand_1 = -1,	lefthand_2 = 0,
+			righthand_1 = -1,	righthand_2 = 0
+		},
+		female = {
+			tshirt_1 = 35,  tshirt_2 = 0,
+			torso_1 = 48,   torso_2 = 0,
+			decals_1 = 7,   decals_2 = 3,
+			arms = 44,
+			pants_1 = 34,   pants_2 = 0,
+			shoes_1 = 27,   shoes_2 = 0,
+			helmet_1 = -1,  helmet_2 = 0,
+			chain_1 = 0,    chain_2 = 0,
+			ears_1 = 2,     ears_2 = 0,
+			bproof_1 = 13,	bproof_2 = 1
+		}
+	},
+
+	detective = {
+		male = {
+			tshirt_1 = 38,  tshirt_2 = 1,
+			torso_1 = 55,   torso_2 = 0,
+			decals_1 = 8,   decals_2 = 3,
+			arms = 41,
+			pants_1 = 25,   pants_2 = 0,
+			shoes_1 = 25,   shoes_2 = 0,
+			helmet_1 = -1,  helmet_2 = 0,
+			chain_1 = 0,    chain_2 = 0,
+			ears_1 = 2,     ears_2 = 0,
+			bproof_1 = 12,	bproof_2 = 3,
+			lefthand_1 = -1,	lefthand_2 = 0,
+			righthand_1 = -1,	righthand_2 = 0
+		},
+		female = {
+			tshirt_1 = 35,  tshirt_2 = 0,
+			torso_1 = 48,   torso_2 = 0,
+			decals_1 = 7,   decals_2 = 3,
+			arms = 44,
+			pants_1 = 34,   pants_2 = 0,
+			shoes_1 = 27,   shoes_2 = 0,
+			helmet_1 = -1,  helmet_2 = 0,
+			chain_1 = 0,    chain_2 = 0,
+			ears_1 = 2,     ears_2 = 0,
+			bproof_1 = 13,	bproof_2 = 1
+		}
+	},
+
+	sergeant = {
+		male = {
+			tshirt_1 = 38,  tshirt_2 = 1,
+			torso_1 = 55,   torso_2 = 0,
+			decals_1 = 8,   decals_2 = 3,
+			arms = 41,
+			pants_1 = 25,   pants_2 = 0,
+			shoes_1 = 25,   shoes_2 = 0,
+			helmet_1 = -1,  helmet_2 = 0,
+			chain_1 = 0,    chain_2 = 0,
+			ears_1 = 2,     ears_2 = 0,
+			bproof_1 = 12,	bproof_2 = 3,
+			lefthand_1 = -1,	lefthand_2 = 0,
+			righthand_1 = -1,	righthand_2 = 0
+		},
+		female = {
+			tshirt_1 = 35,  tshirt_2 = 0,
+			torso_1 = 48,   torso_2 = 0,
+			decals_1 = 7,   decals_2 = 3,
+			arms = 44,
+			pants_1 = 34,   pants_2 = 0,
+			shoes_1 = 27,   shoes_2 = 0,
+			helmet_1 = -1,  helmet_2 = 0,
+			chain_1 = 0,    chain_2 = 0,
+			ears_1 = 2,     ears_2 = 0,
+			bproof_1 = 13,	bproof_2 = 1
+		}
+	},
+
+	firstsergeant = {
+		male = {
+			tshirt_1 = 38,  tshirt_2 = 1,
+			torso_1 = 55,   torso_2 = 0,
+			decals_1 = 8,   decals_2 = 3,
+			arms = 41,
+			pants_1 = 25,   pants_2 = 0,
+			shoes_1 = 25,   shoes_2 = 0,
+			helmet_1 = -1,  helmet_2 = 0,
+			chain_1 = 0,    chain_2 = 0,
+			ears_1 = 2,     ears_2 = 0,
+			bproof_1 = 12,	bproof_2 = 3,
+			lefthand_1 = -1,	lefthand_2 = 0,
+			righthand_1 = -1,	righthand_2 = 0
+		},
+		female = {
+			tshirt_1 = 35,  tshirt_2 = 0,
+			torso_1 = 48,   torso_2 = 0,
+			decals_1 = 7,   decals_2 = 3,
+			arms = 44,
+			pants_1 = 34,   pants_2 = 0,
+			shoes_1 = 27,   shoes_2 = 0,
+			helmet_1 = -1,  helmet_2 = 0,
+			chain_1 = 0,    chain_2 = 0,
+			ears_1 = 2,     ears_2 = 0,
+			bproof_1 = 13,	bproof_2 = 1
+		}
+	},
+
+	lieutenant = {
+		male = {
+			tshirt_1 = 38,  tshirt_2 = 1,
+			torso_1 = 55,   torso_2 = 0,
+			decals_1 = 8,   decals_2 = 3,
+			arms = 41,
+			pants_1 = 25,   pants_2 = 0,
+			shoes_1 = 25,   shoes_2 = 0,
+			helmet_1 = -1,  helmet_2 = 0,
+			chain_1 = 0,    chain_2 = 0,
+			ears_1 = 2,     ears_2 = 0,
+			bproof_1 = 12,	bproof_2 = 3,
+			lefthand_1 = -1,	lefthand_2 = 0,
+			righthand_1 = -1,	righthand_2 = 0
+		},
+		female = {
+			tshirt_1 = 35,  tshirt_2 = 0,
+			torso_1 = 48,   torso_2 = 0,
+			decals_1 = 7,   decals_2 = 3,
+			arms = 44,
+			pants_1 = 34,   pants_2 = 0,
+			shoes_1 = 27,   shoes_2 = 0,
+			helmet_1 = -1,  helmet_2 = 0,
+			chain_1 = 0,    chain_2 = 0,
+			ears_1 = 2,     ears_2 = 0,
+			bproof_1 = 13,	bproof_2 = 1
+		}
+	},
+
+	commissioner = {
+		male = {
+			tshirt_1 = 38,  tshirt_2 = 1,
+			torso_1 = 55,   torso_2 = 0,
+			decals_1 = 8,   decals_2 = 3,
+			arms = 41,
+			pants_1 = 25,   pants_2 = 0,
+			shoes_1 = 25,   shoes_2 = 0,
+			helmet_1 = -1,  helmet_2 = 0,
+			chain_1 = 0,    chain_2 = 0,
+			ears_1 = 2,     ears_2 = 0,
+			bproof_1 = 12,	bproof_2 = 3,
+			lefthand_1 = -1,	lefthand_2 = 0,
+			righthand_1 = -1,	righthand_2 = 0
+		},
+		female = {
+			tshirt_1 = 35,  tshirt_2 = 0,
+			torso_1 = 48,   torso_2 = 0,
+			decals_1 = 7,   decals_2 = 3,
+			arms = 44,
+			pants_1 = 34,   pants_2 = 0,
+			shoes_1 = 27,   shoes_2 = 0,
+			helmet_1 = -1,  helmet_2 = 0,
+			chain_1 = 0,    chain_2 = 0,
+			ears_1 = 2,     ears_2 = 0,
+			bproof_1 = 13,	bproof_2 = 1
+		}
+	},
+
+	instructor = {
+		male = {
+			tshirt_1 = 38,  tshirt_2 = 1,
+			torso_1 = 55,   torso_2 = 0,
+			decals_1 = 8,   decals_2 = 3,
+			arms = 41,
+			pants_1 = 25,   pants_2 = 0,
+			shoes_1 = 25,   shoes_2 = 0,
+			helmet_1 = -1,  helmet_2 = 0,
+			chain_1 = 0,    chain_2 = 0,
+			ears_1 = 2,     ears_2 = 0,
+			bproof_1 = 12,	bproof_2 = 3,
+			lefthand_1 = -1,	lefthand_2 = 0,
+			righthand_1 = -1,	righthand_2 = 0
+		},
+		female = {
+			tshirt_1 = 35,  tshirt_2 = 0,
+			torso_1 = 48,   torso_2 = 0,
+			decals_1 = 7,   decals_2 = 3,
+			arms = 44,
+			pants_1 = 34,   pants_2 = 0,
+			shoes_1 = 27,   shoes_2 = 0,
+			helmet_1 = -1,  helmet_2 = 0,
+			chain_1 = 0,    chain_2 = 0,
+			ears_1 = 2,     ears_2 = 0,
+			bproof_1 = 13,	bproof_2 = 1
+		}
+	},
+
+	chiefofacademy = {
+		male = {
+			tshirt_1 = 38,  tshirt_2 = 1,
+			torso_1 = 55,   torso_2 = 0,
+			decals_1 = 8,   decals_2 = 3,
+			arms = 41,
+			pants_1 = 25,   pants_2 = 0,
+			shoes_1 = 25,   shoes_2 = 0,
+			helmet_1 = -1,  helmet_2 = 0,
+			chain_1 = 0,    chain_2 = 0,
+			ears_1 = 2,     ears_2 = 0,
+			bproof_1 = 12,	bproof_2 = 3,
+			lefthand_1 = -1,	lefthand_2 = 0,
+			righthand_1 = -1,	righthand_2 = 0
+		},
+		female = {
+			tshirt_1 = 35,  tshirt_2 = 0,
+			torso_1 = 48,   torso_2 = 0,
+			decals_1 = 7,   decals_2 = 3,
+			arms = 44,
+			pants_1 = 34,   pants_2 = 0,
+			shoes_1 = 27,   shoes_2 = 0,
+			helmet_1 = -1,  helmet_2 = 0,
+			chain_1 = 0,    chain_2 = 0,
+			ears_1 = 2,     ears_2 = 0,
+			bproof_1 = 13,	bproof_2 = 1
+		}
+	},
+
+	chiefofdepartment = {
+		male = {
+			tshirt_1 = 38,  tshirt_2 = 1,
+			torso_1 = 55,   torso_2 = 0,
+			decals_1 = 8,   decals_2 = 3,
+			arms = 41,
+			pants_1 = 25,   pants_2 = 0,
+			shoes_1 = 25,   shoes_2 = 0,
+			helmet_1 = -1,  helmet_2 = 0,
+			chain_1 = 0,    chain_2 = 0,
+			ears_1 = 2,     ears_2 = 0,
+			bproof_1 = 12,	bproof_2 = 3,
+			lefthand_1 = -1,	lefthand_2 = 0,
+			righthand_1 = -1,	righthand_2 = 0
+		},
+		female = {
+			tshirt_1 = 35,  tshirt_2 = 0,
+			torso_1 = 48,   torso_2 = 0,
+			decals_1 = 7,   decals_2 = 3,
+			arms = 44,
+			pants_1 = 34,   pants_2 = 0,
+			shoes_1 = 27,   shoes_2 = 0,
+			helmet_1 = -1,  helmet_2 = 0,
+			chain_1 = 0,    chain_2 = 0,
+			ears_1 = 2,     ears_2 = 0,
+			bproof_1 = 13,	bproof_2 = 1
+		}
+	},
+
+	boss = {
+		male = {
+			tshirt_1 = 38,  tshirt_2 = 1,
+			torso_1 = 55,   torso_2 = 0,
+			decals_1 = 8,   decals_2 = 3,
+			arms = 41,
+			pants_1 = 25,   pants_2 = 0,
+			shoes_1 = 25,   shoes_2 = 0,
+			helmet_1 = -1,  helmet_2 = 0,
+			chain_1 = 0,    chain_2 = 0,
+			ears_1 = 2,     ears_2 = 0,
+			bproof_1 = 12,	bproof_2 = 3,
+			lefthand_1 = -1,	lefthand_2 = 0,
+			righthand_1 = -1,	righthand_2 = 0
+		},
+		female = {
+			tshirt_1 = 35,  tshirt_2 = 0,
+			torso_1 = 48,   torso_2 = 0,
+			decals_1 = 7,   decals_2 = 3,
+			arms = 44,
+			pants_1 = 34,   pants_2 = 0,
+			shoes_1 = 27,   shoes_2 = 0,
+			helmet_1 = -1,  helmet_2 = 0,
+			chain_1 = 0,    chain_2 = 0,
+			ears_1 = 2,     ears_2 = 0,
+			bproof_1 = 13,	bproof_2 = 1
 		}
 	},
 

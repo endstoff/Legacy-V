@@ -30,8 +30,10 @@ function setUniform(uniform, playerPed)
 		local uniformObject
 
 		if skin.sex == 0 then
+			SetPedArmour(playerPed, 100)
 			uniformObject = Config.Uniforms[uniform].male
 		else
+			SetPedArmour(playerPed, 100)
 			uniformObject = Config.Uniforms[uniform].female
 		end
 
@@ -53,8 +55,8 @@ function OpenCloakroomMenu()
 
 	local elements = {
 		{label = _U('citizen_wear'), value = 'citizen_wear'},
-		{label = _U('bullet_wear'), uniform = 'bullet_wear'},
-		{label = _U('gilet_wear'), uniform = 'gilet_wear'},
+		--{label = _U('bullet_wear'), uniform = 'bullet_wear'},
+		--{label = _U('gilet_wear'), uniform = 'gilet_wear'},
 		{label = _U('police_wear'), uniform = grade}
 	}
 
@@ -250,13 +252,13 @@ function OpenPoliceActionsMenu()
 	ESX.UI.Menu.CloseAll()
 
 	ESX.UI.Menu.Open('default', GetCurrentResourceName(), 'police_actions', {
-		title    = 'Police',
+		title    = 'LSPD',
 		align    = 'top-left',
 		elements = {
 			{label = _U('citizen_interaction'), value = 'citizen_interaction'},
             {label = _U('dienstausweis_aktion'), value = 'dienstausweis_aktion'},
 			{label = _U('vehicle_interaction'), value = 'vehicle_interaction'},
-		--	{label = _U('object_spawner'), value = 'object_spawner'}
+			--{label = _U('object_spawner'), value = 'object_spawner'}
 	}}, function(data, menu)
 		if data.current.value == 'citizen_interaction' then
 			local elements = {
@@ -267,38 +269,14 @@ function OpenPoliceActionsMenu()
 				{label = _U('put_in_vehicle'), value = 'put_in_vehicle'},
 				{label = _U('out_the_vehicle'), value = 'out_the_vehicle'},
 				{label = _U('fine'), value = 'fine'},
-				{label = _U('unpaid_bills'), value = 'unpaid_bills'}
+				{label = _U('unpaid_bills'), value = 'unpaid_bills'},
+				{label = _U('Jail'), value = 'jail_menu'}
 			}
 
 			if Config.EnableLicenses then
 				table.insert(elements, {label = _U('license_check'), value = 'license'})
 			end
             --
-            if data.current.value == 'dienstausweis_aktion' then
-			local elements = {
-				{label = _U('dienstausweisgeben'), value = 'dienstausweisgeben'}
-			} 
-            end
-
-            ESX.UI.Menu.Open('default', GetCurrentResourceName(), 'dienstausweis_aktion', {
-				title    = _U('dienstausweis_aktion'),
-				align    = 'top-left',
-				elements = elements
-			}, function(data2, menu2)
-				local player, distance = ESX.Game.GetClosestPlayer()
-				local action = data2.current.value
-				
-				if distance ~= -1 and distance <= 3.0 then   
-					if action == 'dienstausweisgeben' then
-						TriggerServerEvent('est_dienstausweis_lspd:open', GetPlayerServerId(PlayerId()), GetPlayerServerId(player))
-						TriggerEvent('est_notify', "#eb4034", "Ausweis", "Du hast jemanden dein Dienstausweis gezeigt")
-					end
-				else
-					ESX.ShowNotification(_U('no_players_nearby'))
-				end
-			end, function(data2, menu2)
-				menu2.close()
-			end)
 
 			ESX.UI.Menu.Open('default', GetCurrentResourceName(), 'citizen_interaction', {
 				title    = _U('citizen_interaction'),
@@ -327,6 +305,8 @@ function OpenPoliceActionsMenu()
 						ShowPlayerLicense(closestPlayer)
 					elseif action == 'unpaid_bills' then
 						OpenUnpaidBillsMenu(closestPlayer)
+					elseif action == 'jail_menu' then
+						JailPlayer(GetPlayerServerId(closestPlayer))
 					end
 				else
 					ESX.ShowNotification(_U('no_players_nearby'))
@@ -385,6 +365,10 @@ function OpenPoliceActionsMenu()
 						currentTask.task = ESX.SetTimeout(10000, function()
 							ClearPedTasks(playerPed)
 							ImpoundVehicle(vehicle)
+							if (NetworkGetEntityIsNetworked(vehicle)) then
+								TriggerServerEvent("AdvancedParking:deleteVehicle", GetVehicleNumberPlateText(vehicle), true)
+								Citizen.Wait(300)
+							end
 							Citizen.Wait(100) -- sleep the entire script to let stuff sink back to reality
 						end)
 
@@ -419,8 +403,8 @@ function OpenPoliceActionsMenu()
 					{label = _U('cone'), model = 'prop_roadcone02a'},
 					{label = _U('barrier'), model = 'prop_barrier_work05'},
 					{label = _U('spikestrips'), model = 'p_ld_stinger_s'},
-					{label = _U('box'), model = 'prop_boxpile_07d'},
-					{label = _U('cash'), model = 'hei_prop_cash_crate_half_full'}
+					--{label = _U('box'), model = 'prop_boxpile_07d'},
+					--{label = _U('cash'), model = 'hei_prop_cash_crate_half_full'}
 			}}, function(data2, menu2)
 				local playerPed = PlayerPedId()
 				local coords, forward = GetEntityCoords(playerPed), GetEntityForwardVector(playerPed)
@@ -433,6 +417,34 @@ function OpenPoliceActionsMenu()
 			end, function(data2, menu2)
 				menu2.close()
 			end)
+
+		elseif data.current.value == 'dienstausweis_aktion' then
+			local elements = {
+				{label = _U('dienstausweisgeben'), value = 'dienstausweisgeben'},
+			}
+
+            ESX.UI.Menu.Open('default', GetCurrentResourceName(), 'dienstausweis_aktion', {
+				title    = _U('dienstausweis_aktion'),
+				align    = 'top-left',
+				elements = elements
+			}, function(data2, menu2)
+				local player, distance = ESX.Game.GetClosestPlayer()
+				local action = data2.current.value
+				
+				if distance ~= -1 and distance <= 3.0 then   
+					if action == 'dienstausweisgeben' then
+						TriggerServerEvent('est_dienstausweis_lspd:open', GetPlayerServerId(PlayerId()), GetPlayerServerId(player))
+						TriggerEvent('est_notify', "#eb4034", "Ausweis", "Du hast jemanden dein Dienstausweis gezeigt")
+					end
+				else
+					ESX.ShowNotification(_U('no_players_nearby'))
+				end
+			end, function(data2, menu2)
+				menu2.close()
+			end)
+
+			
+
 		end
 	end, function(data, menu)
 		menu.close()
@@ -443,7 +455,7 @@ function OpenIdentityCardMenu(player)
 	ESX.TriggerServerCallback('esx_policejob:getOtherPlayerData', function(data)
 		local elements = {
 			{label = _U('name', data.name)},
-			{label = _U('job', ('%s - %s'):format(data.job, data.grade))}
+		--	{label = _U('job', ('%s - %s'):format(data.job, data.grade))}
 		}
 
 		if Config.EnableESXIdentity then
@@ -531,19 +543,60 @@ function OpenBodySearchMenu(player)
 end
 
 function OpenFineMenu(player)
-	ESX.UI.Menu.Open('default', GetCurrentResourceName(), 'fine', {
-		title    = _U('fine'),
-		align    = 'top-left',
-		elements = {
-			{label = _U('traffic_offense'), value = 0},
-			{label = _U('minor_offense'),   value = 1},
-			{label = _U('average_offense'), value = 2},
-			{label = _U('major_offense'),   value = 3}
-	}}, function(data, menu)
-		OpenFineCategoryMenu(player, data.current.value)
-	end, function(data, menu)
-		menu.close()
-	end)
+    --[[
+    ESX.UI.Menu.Open('default', GetCurrentResourceName(), 'fine', {
+        title    = _U('fine'),
+        align    = 'top-left',
+        elements = {
+            {label = _U('traffic_offense'), value = 0},
+            {label = _U('minor_offense'),   value = 1},
+            {label = _U('average_offense'), value = 2},
+            {label = _U('major_offense'),   value = 3}
+    }}, function(data, menu)
+        OpenFineCategoryMenu(player, data.current.value)
+    end, function(data, menu)
+        menu.close()
+    end)]]
+ 
+    ESX.UI.Menu.CloseAll()
+ 
+    ESX.UI.Menu.Open('default', GetCurrentResourceName(), 'mobile_taxi_actions', {
+        title    = '',
+        align    = 'top-left',
+        elements = {
+            {label = 'Rechnung',   value = 'billing'},
+    }}, function(data, menu)
+        if data.current.value == 'billing' then
+ 
+            ESX.UI.Menu.Open('dialog', GetCurrentResourceName(), 'billing', {
+                title = 'Rechnung - Betrag'
+            }, function(data, menu)
+ 
+                local amount = tonumber(data.value)
+                if amount == nil then
+                --  ESX.ShowNotification('Ungültiger Betrag')
+                    TriggerEvent('est_notify', "#eb4034", "LSPD", _U('invalid_amount'))
+                else
+                    menu.close()
+                    local closestPlayer, closestDistance = ESX.Game.GetClosestPlayer()
+                    if closestPlayer == -1 or closestDistance > 3.0 then
+                    --  ESX.ShowNotification('Keine Spieler in der Nähe')
+                        TriggerEvent('est_notify', "#eb4034", "LSPD", _U('no_players_nearby'))
+                    else
+                        TriggerServerEvent('esx_billing:sendBill', GetPlayerServerId(closestPlayer), 'society_police', 'LSPD', amount)
+                    --  ESX.ShowNotification('Rechnung ausgestellt')
+                    TriggerEvent('est_notify', "#45CE00", "LSPD", _U('invoice_issued'))
+                    end
+ 
+                end
+ 
+            end, function(data, menu)
+                menu.close()
+            end)
+        end
+    end, function(data, menu)
+        menu.close()
+    end)
 end
 
 function OpenFineCategoryMenu(player, category)
@@ -668,6 +721,22 @@ function OpenUnpaidBillsMenu(player)
 			menu.close()
 		end)
 	end, GetPlayerServerId(player))
+end
+
+function JailPlayer(player)
+	ESX.UI.Menu.Open('dialog', GetCurrentResourceName(), 'jail_menu', {
+		title = _U('jail_menu_info'),
+	}, function (data2, menu)
+		local JailTime = tonumber(data2.value)
+		if JailTime == nil then
+			ESX.ShowNotification('Virheellinen aika')
+		else
+			TriggerServerEvent('esx_extendedjail:jailplayer_server', player, JailTime, 'prison')
+			menu.close()
+		end
+	end, function (data2, menu)
+		menu.close()
+	end)
 end
 
 function OpenVehicleInfosMenu(vehicleData)
@@ -1062,7 +1131,7 @@ AddEventHandler('esx_policejob:handcuff', function()
 		DisablePlayerFiring(playerPed, true)
 		SetCurrentPedWeapon(playerPed, GetHashKey('WEAPON_UNARMED'), true) -- unarm player
 		SetPedCanPlayGestureAnims(playerPed, false)
-		FreezeEntityPosition(playerPed, true)
+	--	FreezeEntityPosition(playerPed, true)
 		DisplayRadar(false)
 
 		if Config.EnableHandcuffTimer then
@@ -1196,10 +1265,10 @@ Citizen.CreateThread(function()
 			DisableControlAction(0, 257, true) -- Attack 2
 			DisableControlAction(0, 25, true) -- Aim
 			DisableControlAction(0, 263, true) -- Melee Attack 1
-			DisableControlAction(0, 32, true) -- W
-			DisableControlAction(0, 34, true) -- A
-			DisableControlAction(0, 31, true) -- S
-			DisableControlAction(0, 30, true) -- D
+		--	DisableControlAction(0, 32, true) -- W
+		--	DisableControlAction(0, 34, true) -- A
+		--	DisableControlAction(0, 31, true) -- S
+		--	DisableControlAction(0, 30, true) -- D
 
 			DisableControlAction(0, 45, true) -- Reload
 			DisableControlAction(0, 22, true) -- Jump
@@ -1212,9 +1281,9 @@ Citizen.CreateThread(function()
 			DisableControlAction(0, 170, true) -- Animations
 			DisableControlAction(0, 167, true) -- Job
 
-			DisableControlAction(0, 0, true) -- Disable changing view
-			DisableControlAction(0, 26, true) -- Disable looking behind
-			DisableControlAction(0, 73, true) -- Disable clearing animation
+		--	DisableControlAction(0, 0, true) -- Disable changing view
+		--	DisableControlAction(0, 26, true) -- Disable looking behind
+		--	DisableControlAction(0, 73, true) -- Disable clearing animation
 			DisableControlAction(2, 199, true) -- Disable pause screen
 
 			DisableControlAction(0, 59, true) -- Disable steering in vehicle
@@ -1286,15 +1355,17 @@ Citizen.CreateThread(function()
 					end
 				end
 
-				for i=1, #v.Armories, 1 do
-					local distance = #(playerCoords - v.Armories[i])
+				if ESX.PlayerData.job.grade_name == 'instructor' or ESX.PlayerData.job.grade_name == 'chiefofacademy' or ESX.PlayerData.job.grade_name == 'chiefofdepartment' or ESX.PlayerData.job.grade_name == 'boss' then
+					for i=1, #v.Armories, 1 do
+						local distance = #(playerCoords - v.Armories[i])
 
-					if distance < Config.DrawDistance then
-						DrawMarker(Config.MarkerType.Armories, v.Armories[i], 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.5, 0.5, 0.5, Config.MarkerColor.r, Config.MarkerColor.g, Config.MarkerColor.b, 100, false, true, 2, true, false, false, false)
-						letSleep = false
+						if distance < Config.DrawDistance then
+							DrawMarker(Config.MarkerType.Armories, v.Armories[i], 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.5, 0.5, 0.5, Config.MarkerColor.r, Config.MarkerColor.g, Config.MarkerColor.b, 100, false, true, 2, true, false, false, false)
+							letSleep = false
 
-						if distance < Config.MarkerSize.x then
+							if distance < Config.MarkerSize.x then
 							isInMarker, currentStation, currentPart, currentPartNum = true, k, 'Armory', i
+							end
 						end
 					end
 				end

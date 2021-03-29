@@ -74,7 +74,7 @@ Locales['de'] = {
   ['drag'] = 'Tragen',
   ['put_in_vehicle'] = 'In Fahrzeug setzen',
   ['out_the_vehicle'] = 'Aus dem Fahrzeug holen',
-  ['fine'] = 'Strafe',
+  ['fine'] = 'Rechnung Austellen',
   ['unpaid_bills'] = 'Strafzettel anzeigen',
   ['invoice_issued'] = 'Rechnung ausgestellt',
   ['license_check'] = 'Lizenz Manager',
@@ -118,7 +118,7 @@ Locales['de'] = {
   -- Body Search Menu
   ['guns_label'] = '--- Waffen ---',
   ['inventory_label'] = '--- Inventar ---',
-  ['license_label'] = ' --- Licenses ---',
+  ['license_label'] = ' --- Lizenzen ---',
   ['confiscate'] = 'konfeszieren %s',
   ['confiscate_weapon'] = 'Konfisziere %s mit %s Munition',
   ['confiscate_inv'] = 'konfeziere %sx %s',
@@ -153,4 +153,7 @@ Locales['de'] = {
   -- Notifications
   ['alert_police'] = 'Polizei Alamieren',
   ['phone_police'] = 'Polizei',
+
+  ['Jail'] = 'Inhaftieren',
+  ['jail_menu_info'] = 'Haftzeit',
 }
