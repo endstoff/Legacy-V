@@ -54,9 +54,34 @@ TriggerConfig.ProtectedEvents = { --cheat example ; example: TriggerServerEvent(
     "esx_tankerjob:pay",
     "LegacyFuel:PayFuel",
 }
+
+
 --
+TriggerConfig.AntiMessage = true
+TriggerConfig.AntiMessageKick = true
+TriggerConfig.AntiMessageBan =  false
+TriggerConfig.MessageEvents = { -- Dont change it
+"esx_policejob:message",
+"esx_sheriffjob:message",
+"esx_taxijob:message",
+"esx_mechanicjob:message",
+"esx_vehicleshop:message",
+"esx_bankerjob:message",
+"esx_unicornjob:message",
+"esx_fibjob:message",
+"esx_mafia:message",
+"esx_truckerjob:message",
+"esx_security:message",
+"esx_traffic:message",
+"esx_ranger:message",
+"esx_cartel:message",
+}
+TriggerConfig.BlacklistedMessages = { -- If cheaters write blacklisted keywords they will get banned
+    "MIXAS",
+}
+
 TriggerConfig.PhoneMessageTrigger = 'gcPhone:sendMessage' --you can add or remove events on phone's **message** system below (key words to avoid ads etc.)
-TriggerConfig.PhoneBLMessage = true
+TriggerConfig.PhoneBLMessage = false
 TriggerConfig.PhoneBLMessages = { --
     'discord.gg',
     'roleplay',

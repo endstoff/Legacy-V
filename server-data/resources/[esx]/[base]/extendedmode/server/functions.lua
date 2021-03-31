@@ -311,3 +311,7 @@ if ExM.IsOneSync then
 		return CreateObjectNoOffset(model, coords.xyz, true, dynamic)
 	end
 end
+
+ESX.GetJobs = function()
+    return ESX.Jobs
+end

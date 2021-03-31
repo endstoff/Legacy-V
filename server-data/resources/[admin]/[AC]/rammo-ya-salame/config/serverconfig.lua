@@ -1,12 +1,14 @@
 print("^2 [MIXAS AntiCheat] ^5 ServerConfig Refresh ^0")
 ServerConfig = {}
-ServerConfig.KickBanMessage = 'Cheating' --You can edit the message when player gets kicked
-ServerConfig.KickBanEmoji = '[🐒]' --You can edit the message when player gets kicked
+ServerConfig.KickBanMessage = 'Cheating' -- You can edit the message when player gets kicked
+ServerConfig.KickBanEmoji = '[🐒]' -- You can edit the message when player gets kicked
 ServerConfig.BanSystem = true
-ServerConfig.Webhook = "https://discord.com/api/webhooks/822492321596833862/mJAX0Fee4s2K80DY1ozmh2zQbGga3pi25TwQvP661VgYF72tmFW0EOgKr-H60mE-FIs6" --You should create a text channel on discord and add it's webhook here
+ServerConfig.Webhook = "https://discord.com/api/webhooks/822492321596833862/mJAX0Fee4s2K80DY1ozmh2zQbGga3pi25TwQvP661VgYF72tmFW0EOgKr-H60mE-FIs6" -- You should create a text channel on discord and add it's webhook here
 ServerConfig.BlacklistKeyWebhook = "https://discord.com/api/webhooks/822492321596833862/mJAX0Fee4s2K80DY1ozmh2zQbGga3pi25TwQvP661VgYF72tmFW0EOgKr-H60mE-FIs6" -- this is blacklist key log
-ServerConfig.AntiFreeze = false --blocks anti-cheat getting stopped by cheaters(might cause trouble for +300 servers)
-ServerConfig.ConfigRefreshCommand = 'acconfigrefresh' --when you type this command to console it refresh your config without restarting your server (you can change the command if you want)
+ServerConfig.JoinLog = true -- Join log edit next line
+ServerConfig.JoinLogWebhook = 'https://discord.com/api/webhooks/822492786929565706/2H63Gs7QVVx6UfwyPVbijwZ9hyKktpzI12MiWLAoquVaLfxAWOumJ6iWQHrobr6OKBV1' --this is blacklist join log
+ServerConfig.ConfigRefreshCommand = 'acconfigrefresh' -- when you type this command to console it refresh your config without restarting your server (you can change the command if you want),
+ServerConfig.DontTouch = -1 -- Don't touch [!!!!!!!]
 ServerConfig.Whitelist = { --if you add player's hex id or license below they wil bypass the anti-cheat
 "steam:110000113df958c", -- endstoff
 "steam:11000013d1c551a", -- ixinzane
@@ -20,19 +22,14 @@ ServerConfig.BlacklistNickname = true
 ServerConfig.BlacklistNickNames = {
   "administrator", "admin", "adm1n", "adm!n", "admln", "moderator", "owner", "nigger", "n1gger", "moderator", "eulencheats", "lynxmenu", "atgmenu", "hacker", "bastard", "hamhaxia", "333gang", "ukrp", "eguk", "n1gger", "n1ga", "nigga", "n1gga", "nigg3r",
   "nig3r", "shagged", "4dm1n", "4dmin", "m0d3r4t0r", "n199er", "n1993r", "rustchance.com", "rustchance", "hellcase.com", "hellcase", "youtube.com", "youtu.be", "youtube", "twitch.tv", "twitch", "anticheat.gg", "anticheat", "fucking", "ψ", "@", "&", "{", "}", ";", "ϟ", "♕", "Æ", "Œ", "‰", "™", "š", "œ", "Ÿ", "µ", "ß",
-  "±", "¦", "»", "«", "¼", "½", "¾", "¬", "¿", "Ñ", "®", "©", "²", "·", "•", "°", "þ", "ベ", "ル", "ろ", "ぬ", "ふ", "う", "え", "お", "や", "ゆ", "よ", "わ", "ほ", "へ", "た", "て", "い", "す", "か", "ん", "な", "に", "ら", "ぜ", "む",
-  "ち", "と", "し", "は", "き", "く", "ま", "の", "り", "れ", "け", "む", "つ", "さ", "そ", "ひ", "こ", "み", "も", "ね", "る", "め", "ロ", "ヌ", "フ", "ア", "ウ", "エ", "オ", "ヤ", "ユ", "ヨ", "ワ", "ホ", "ヘ", "タ", "テ", "イ", "ス", "カ", "ン",
-  "ナ", "ニ", "ラ", "セ", "ム", "チ", "ト", "シ", "ハ", "キ", "ク", "マ", "ノ", "リ", "レ", "ケ", "ム", "ツ", "サ", "ソ", "ヒ", "コ", "ミ", "モ", "ネ", "ル", "メ", "✪", "Ä", "ƒ", "Ã", "¢", "?", "†", "€", "웃", "и", "】", "【", "j4p.pl", "ֆ", "ȶ",
-  "你", "好", "爱", "幸", "福", "猫", "狗", "微", "笑", "中", "安", "東", "尼", "杰", "诶", "西", "开", "陈", "瑞", "华", "馬", "塞", "洛", "ダ", "仇", "觉", "感", "衣", "德", "曼", "L͙", "a͙", "l͙", "ľ̶̚͝", "Ḩ̷̤͚̤͑͂̎̎͆", "a̸̢͉̠͎͒͌͐̑̇", "♚", "я", "Ʒ", "Ӂ̴", "Ƹ̴", "≋",
+  "±", "¦", "»", "«", "¼", "½", "¾", "¬", "¿", "Ñ", "®", "©", "²", "·", "•", "°", "þ",  "✪", "Ä", "ƒ", "Ã", "¢", "?", "†", "€", "웃", "и", "】", "【", "j4p.pl", "ֆ", "ȶ", "L͙", "a͙", "l͙", "ľ̶̚͝", "Ḩ̷̤͚̤͑͂̎̎͆", "a̸̢͉̠͎͒͌͐̑̇", "♚", "я", "Ʒ", "Ӂ̴", "Ƹ̴", "≋",
   "chocohax", "civilgamers.com", "civilgamers", "csgoempire.com", "csgoempire", "g4skins.com", "g4skins", "gameodds.gg", "duckfuck.com", "crysishosting.com", "crysishosting", "key-drop.com", "key-drop.pl", "skinhub.com", "skinhub", "`", "¤", "¡",
   "<",">"
 }
 ServerConfig.VPNBlock = true
-ServerConfig.ClearPedTaskMethod = true -- Anti Kick Vehicle
-ServerConfig.CPTMethodKick = true -- Anti Kick Vehicle KICK
+ServerConfig.ClearPedTaskMethod = false -- Anti Kick Vehicle
+ServerConfig.CPTMethodKick = false -- Anti Kick Vehicle KICK
 ServerConfig.CPTMethodBan = false -- Anti Kick Vehicle BAN
-ServerConfig.JoinLog = true -- Join log edit next line
-ServerConfig.JoinLogWebhook = 'https://discord.com/api/webhooks/822492786929565706/2H63Gs7QVVx6UfwyPVbijwZ9hyKktpzI12MiWLAoquVaLfxAWOumJ6iWQHrobr6OKBV1' --this is blacklist join log
 ServerConfig.AntiExplosions = true 
 ServerConfig.ExplosionKick = true
 ServerConfig.ExplosionBan = false

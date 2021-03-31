@@ -30,6 +30,13 @@ ESX.RegisterUsableItem('lsd', function(source)
 
 end)
 
+ESX.RegisterUsableItem('kroko', function(source)
+	local xPlayer = ESX.GetPlayerFromId(source)
+	xPlayer.removeInventoryItem('kroko', 1)
+	TriggerClientEvent('panic_drugeffects:useKroko')
+	
+end)
+
 ESX.RegisterUsableItem('bong', function(source)
 	local xPlayer = ESX.GetPlayerFromId(source)
 	local itemCount = xPlayer.getInventoryItem('weed_pooch').count

@@ -1,63 +1,30 @@
 print("^2 [MIXAS AntiCheat] ^5 ClientConfig Refresh ^0")
 ClientConfig = {} 
+ClientConfig.MIXASKey = '825100945531600988/VqQYepxZU7ZfTaMIF4lxWHazDuCYBFacgg2WNgJNZ7DJfdhXdUmD_ZSPqj0kx6LHkL-b' --don't change it
 ClientConfig.EMethods = true -- it blocks eulen (you cant start or restart scripts when server is on, which means you should wait until restart of server)
 ClientConfig.EMethodCheck = 10000 -- default 10000 (we dont recommend you to change it)
 ClientConfig.AntiStopper = true -- it blocks cheaters to stop scripts (when its on you cant stop scripts you should wait until restart of server)
 ClientConfig.AntiSpectate = true -- Cheater cant spectate when its on (dont forget to add your admin's hex ids or licences to ServerConfig.Whitelist so they can spectate !)
-ClientConfig.SpectateTime = 2000 -- don't change it
-ClientConfig.FreeCamBlock = false -- Cheater cant freecam when its on (we recommend you to keep it false)
-ClientConfig.FreecamX = 50 -- don't change it
-ClientConfig.FreecamY = -50 -- don't change it
-ClientConfig.FreeCamTime = 160000 -- don't change it
 ClientConfig.DevToolNuiMethod = true -- Cheater cant open dev tool/nui when its on
-ClientConfig.BlacklistKey = true --don't change it
+ClientConfig.AntiParticle = true -- It blocks cheaters to create particles on your map/server
+ClientConfig.AntiGodMode = false -- Some scripts use godmode (ex : cardealer etc.) so make sure you don't have these kind of scripts (default false)
+ClientConfig.MaxPlayerHealth = 200 -- Max healt for a player if player have more healt then this he gets banned  
+ClientConfig.BlacklistKey = true -- if it's enabled it will use blacklisted keys and screenshot system 
 ClientConfig.BlacklistKeyCoolDown = 60000 --don't change it
 ClientConfig.BlacklistKeys = { -- you can add or remove blacklisted keys below // EDIT IT FOR YOUR SERVER !
  {key = 121, name = 'INSERT'},
  {key = 212, name = 'HOME'},
 }
 ClientConfig.Safe = true -- it blocks cheater to burn people
-ClientConfig.AntiFreeze = true -- blocks anti-cheat getting stopped by cheaters(might cause trouble for +300 servers)
 ClientConfig.WeaponBlacklist = true -- if true, you activate blacklisted weapon option. (we recommend you to keep it true)
-ClientConfig.WeaponCheck = 4000 -- don't change it
 ClientConfig.RemoveAllWeapons = true -- when it detects blacklisted weapon in player's or cheater's inventory it deletes all weapons on him (we recommend you to keep it true)
 ClientConfig.BLWeaponLog = true -- it shows on logs(webhook on discord) use of blacklisted weapons
 ClientConfig.BlacklistedWeapons = { -- you can add or remove blacklisted weapons below // EDIT IT FOR YOUR SERVER !
-    GetHashKey("WEAPON_HAMMER"),
-    GetHashKey("WEAPON_GOLFCLUB"),
-    GetHashKey("WEAPON_SAWNOFFSHOTGUN"),
-    GetHashKey("WEAPON_BULLPUPSHOTGUN"),
-    GetHashKey("WEAPON_GRENADELAUNCHER"),
-    GetHashKey("WEAPON_GRENADELAUNCHER_SMOKE"),
-    GetHashKey("WEAPON_RPG"),
-    GetHashKey("WEAPON_STINGER"),
-    GetHashKey("WEAPON_MINIGUN"),
-    GetHashKey("WEAPON_GRENADE"),
-    GetHashKey("WEAPON_BALL"),
-    GetHashKey("WEAPON_BOTTLE"),
-    GetHashKey("WEAPON_HEAVYSHOTGUN"),
-    GetHashKey("WEAPON_GARBAGEBAG"),
-    GetHashKey("WEAPON_RAILGUN"),
-    GetHashKey("WEAPON_RAILPISTOL"),
-    GetHashKey("WEAPON_RAYPISTOL"), 
-    GetHashKey("WEAPON_RAYCARBINE"), 
-    GetHashKey("WEAPON_RAYMINIGUN"),
-    GetHashKey("WEAPON_DIGISCANNER"),
-    GetHashKey("WEAPON_SPECIALCARBINE_MK2"),
-    GetHashKey("WEAPON_BULLPUPRIFLE_MK2"),
-    GetHashKey("WEAPON_PUMPSHOTGUN_MK2"),
-    GetHashKey("WEAPON_MARKSMANRIFLE_MK2"),
-    GetHashKey("WEAPON_COMPACTLAUNCHER"),
---  GetHashKey("WEAPON_SNSPISTOL_MK2"),
-    GetHashKey("WEAPON_REVOLVER_MK2"),
-    GetHashKey("WEAPON_FIREWORK"),
-    GetHashKey("WEAPON_HOMINGLAUNCHER"),
-    GetHashKey("WEAPON_SMG_MK2")
+"WEAPON_RPG",
 }
---
 ClientConfig.AntiExplosiveWeapons = true -- if true, you block explosive weapons
 ClientConfig.AntiWeaponDamageModifier = true -- if true, cheater cant change damage of explosive weapons
-ClientConfig.WeaponDamageTime = 10000 -- don't change it. 
+ClientConfig.WeaponDamageTime = 10000 -- don't change it.
 ClientConfig.WeaponDamages = { -- here is a list of default damages of weapons, YOU CAN CHANGE IT IF YOU WANT
     [-1357824103] = 34, -- AdvancedRifle
     [453432689] = 26, -- Pistol

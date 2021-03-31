@@ -4,7 +4,7 @@ Config = {
 
   UseMLO      = true,  -- MLO support?
   MLOHash     = true,  -- true = use interior name hash to verify if player is inside house, false = use interior ID (false = legacy).
-  UseDoors    = false,  -- Can be paired with MLO support, must have "ModFreakz: Doors" mod from https://modit.store
+  UseDoors    = true,  -- Can be paired with MLO support, must have "ModFreakz: Doors" mod from https://modit.store
 
   AllowHouseSales = true,                   -- can players sell their house after purchase?
   SpawnOffset     = vector3(0.0,0.0,0.0),   -- global house spawn offset (location + SpawnOffset) (use negative z-value to lower the shells position)

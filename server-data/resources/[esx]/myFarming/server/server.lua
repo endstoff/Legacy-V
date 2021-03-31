@@ -195,7 +195,7 @@ AddEventHandler('myFarming:sellItems', function(item, amount, price)
     local xPlayer   = ESX.GetPlayerFromId(_source)
     local itemCount = xPlayer.getInventoryItem(item).count
 
-    if itemCount >= amount then
+    if itemCount > 0 and itemCount >= amount then
         --print('test')
         xPlayer.removeInventoryItem(item, amount)
         xPlayer.addMoney(price * amount)

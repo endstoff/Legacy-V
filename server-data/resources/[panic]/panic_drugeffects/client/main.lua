@@ -17,11 +17,13 @@ local weedLevel = 0
 local cokeLevel = 0 
 local methLevel = 0 
 local lsdLevel = 0 
+local krokoLevel = 0
 
 local weedTime = 0 
 local cokeTime = 0 
 local methTime = 0 
 local lsdTime = 0 
+local krokoLevel = 0
 
 local smoke = false
 local bong = false
@@ -32,11 +34,13 @@ function CLEAR()
     cokeTime = 0 
     methTime = 0
     lsdTime = 0
-    
+    krokoTime = 0
+
     weedLevel = 0 
     cokeLevel = 0
     methLevel = 0
     lsdLevel = 0
+    krokoLevel = 0
 
     AnimpostfxStopAll()
     ResetPedMovementClipset(GetPlayerPed(-1))
@@ -47,16 +51,13 @@ function CLEAR()
     SetTimecycleModifierStrength(0.0)
     ShakeGameplayCam("DRUNK_SHAKE", 0.0)
 end
-
 function EndWeedEffect()
-    
     if weedLevel == 1 then 
         ShakeGameplayCam("DRUNK_SHAKE", 0.0)
         SetPedMotionBlur(playerPed, false)
         SetTimecycleModifierStrength(0.0)
         weedLevel = 0
     end 
-    
     if weedLevel == 2 then 
         ShakeGameplayCam("DRUNK_SHAKE", 0.0)
         SetPedMotionBlur(playerPed, false)
@@ -64,7 +65,6 @@ function EndWeedEffect()
         SetTimecycleModifierStrength(0.0)
         weedLevel = 0
     end
-    
     if weedLevel > 2 then 
         ShakeGameplayCam("DRUNK_SHAKE", 0.0)
         SetPedMotionBlur(playerPed, false)
@@ -74,9 +74,7 @@ function EndWeedEffect()
     end 
     weedTime = 0
 end
-
 function EndCokeEffect()
-
     if cokeLevel == 1 then 
         cokeLevel = 0
         ShakeGameplayCam("DRUNK_SHAKE", 0.0)
@@ -84,7 +82,6 @@ function EndCokeEffect()
         AnimpostfxStopAll()
         SetTimecycleModifierStrength(0.0)
     end
-    
     if cokeLevel == 2 then 
         cokeLevel = 0
         ShakeGameplayCam("DRUNK_SHAKE", 0.0)
@@ -92,7 +89,6 @@ function EndCokeEffect()
         AnimpostfxStopAll()
         SetTimecycleModifierStrength(0.0)
     end
-    
     if cokeLevel == 3 then 
         cokeLevel = 0
         ShakeGameplayCam("DRUNK_SHAKE", 0.0)
@@ -103,14 +99,11 @@ function EndCokeEffect()
     end
     cokeTime = 0 
     local arm = GetPedArmour(GetPlayerPed(-1))
-
     if arm > 0 then 
         SetPedArmour(GetPlayerPed(-1), 0)
     end 
 end
-
 function EndMethEffect()
-
     if methLevel == 1 then 
         methLevel = 0
         ShakeGameplayCam("DRUNK_SHAKE", 0.0)
@@ -118,7 +111,6 @@ function EndMethEffect()
         AnimpostfxStopAll()
         SetTimecycleModifierStrength(0.0)
     end
-    
     if methLevel == 2 then 
         methLevel = 0
         ShakeGameplayCam("DRUNK_SHAKE", 0.0)
@@ -126,20 +118,16 @@ function EndMethEffect()
         AnimpostfxStopAll()
         SetTimecycleModifierStrength(0.0)
     end
-    
     if methLevel == 3 then 
         methLevel = 0
         ShakeGameplayCam("DRUNK_SHAKE", 0.0)
         SetPedMotionBlur(playerPed, false)
         AnimpostfxStopAll()
         SetTimecycleModifierStrength(0.0)
-    
     end
     methTime = 0
 end
-
 function EndLsdEffect()
-
     if lsdLevel == 1 then 
         lsdLevel = 0
         ShakeGameplayCam("DRUNK_SHAKE", 0.0)
@@ -147,7 +135,6 @@ function EndLsdEffect()
         AnimpostfxStopAll()
         SetTimecycleModifierStrength(0.0)
     end
-    
     if lsdLevel == 2 then 
         lsdLevel = 0
         ShakeGameplayCam("DRUNK_SHAKE", 0.0)
@@ -155,21 +142,27 @@ function EndLsdEffect()
         AnimpostfxStopAll()
         SetTimecycleModifierStrength(0.0)
     end
-    
     if lsdLevel == 3 then 
         lsdLevel = 0
         ShakeGameplayCam("DRUNK_SHAKE", 0.0)
         SetPedMotionBlur(playerPed, false)
         AnimpostfxStopAll()
         SetTimecycleModifierStrength(0.0)
-    
     end
     lsdTime = 0
+end
+function EndKrokoEffect()
+    if krokoLevel > 0 then 
+        ShakeGameplayCam("DRUNK_SHAKE", 0.0)
+        SetPedMotionBlur(playerPed, false)
+        SetTimecycleModifierStrength(0.0)
+        krokoLevel = 0
+    end
 end
 Citizen.CreateThread(function()
     while true do 
         Citizen.Wait(1)
-        if weedTime == 0 and cokeTime == 0 and methTime == 0 and lsdTime == 0 and s == false then 
+        if weedTime == 0 and cokeTime == 0 and methTime == 0 and lsdTime == 0 and krokoLevel == 0 and s == false and bong == false then 
             s = true
             CLEAR()
         end
@@ -178,7 +171,6 @@ end)
 RegisterNetEvent('panic_drugeffects:useWeed')
 AddEventHandler('panic_drugeffects:useWeed', function(source)
     local playerPed = GetPlayerPed(-1)
-    
     if weedLevel < 6 then 
     weedLevel = weedLevel + 1 
     if bong then 
@@ -217,7 +209,6 @@ AddEventHandler('panic_drugeffects:useWeed', function(source)
             AnimpostfxStopAll()
             AnimpostfxPlay("HeistCelebPass", 10000001, true)
         end
-    
     else 
     TriggerEvent('notify', 3, "", "Du hattest bis jetzt zu viel Weed")
     end
@@ -268,9 +259,9 @@ AddEventHandler('panic_drugeffects:useCoke', function()
                 AnimpostfxStopAll()
                 AnimpostfxPlay("DrugsTrevorClownsFight", 10000001, true)
             end
-    else
-        TriggerEvent('notify', 3, "", "Du hattest bis jetzt zu viel Kokain")
-    end  
+        else
+            TriggerEvent('notify', 3, "", "Du hattest bis jetzt zu viel Kokain")
+        end  
 end)
 
 RegisterNetEvent('panic_drugeffects:useMeth')
@@ -320,6 +311,40 @@ AddEventHandler('panic_drugeffects:useLSD', function()
 
 end)
 
+RegisterNetEvent('panic_drugeffects:useKroko')
+AddEventHandler('panic_drugeffects:useKroko', function()
+    local playerPed = GetPlayerPed(-1)
+    if krokoLevel < 4 then 
+        krokoLevel = krokoLevel + 1 
+        TaskStartScenarioInPlace(playerPed, "WORLD_HUMAN_SMOKING_POT", 0, 1)
+        Citizen.Wait(3000)
+        ClearPedTasksImmediately(playerPed)
+        Citizen.Wait(500)
+        TriggerEvent('notify', 1, "", "Du hast Krokodil genommen")
+        Citizen.Wait(250)
+        SetPedMotionBlur(playerPed, true)
+        if krokoLevel > 0 then 
+            if krokoLevel < 2 then 
+            krokoTime = krokoTime + 420
+            end  
+            krokoTime = krokoTime + 30
+            ShakeGameplayCam("DRUNK_SHAKE", 0.4)
+            Citizen.Wait(1500)
+            AnimpostfxPlay("LostTimeNight", 10000001, true)
+            Citizen.Wait(3500)
+            AnimpostfxPlay("DrugsTrevorClownsFight", 10000001, true)
+            Citizen.Wait(2000)
+            AnimpostfxStopAll()
+            AnimpostfxPlay("DrugsTrevorClownsFight", 10000001, true)
+            if krokoLevel > 1 then 
+                krokoTime = krokoTime + 400
+            end
+        end
+    else 
+        TriggerEvent('notify', 3, "", "Du hattest bis jetzt zu viel Krokodil")
+    end
+end)
+
 Citizen.CreateThread(function()
     while true do 
         Citizen.Wait(0)
@@ -349,6 +374,13 @@ Citizen.CreateThread(function()
             lsdTime = lsdTime - 1 
             if lsdTime == 0 then 
                 EndLsdEffect()
+            end
+        end
+        if krokoTime > 0 then 
+            Citizen.Wait(1000)
+            krokoTime = krokoTime - 1 
+            if krokoTime == 0 then 
+                EndKrokoEffect()
             end
         end
     end

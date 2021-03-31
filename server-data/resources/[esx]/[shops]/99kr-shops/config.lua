@@ -373,6 +373,7 @@ Config = {
         ["snacks"] = {
             {label = "Ps & Qs", item = "p&qs", price = 2},
             {label = "Phatchips", item = "phatchips", price = 2},
+            {label = "Donut", item = "donut", price = 10},
         --  {label = "OLW Ostbågar", item = "cheesebows", price = 12},
         --  {label = "OLW 3xLök Chips", item = "chips", price = 12},
         --  {label = "Marabou Mjölkchoklad", item = "marabou", price = 12},

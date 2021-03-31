@@ -180,7 +180,7 @@ function Webhook(color, title, desc)
 			},
 		}
 	}
-	PerformHttpRequest(Config.WebhookLink, function(err, text, headers) end, 'POST', json.encode({username = Config.BotName, embeds = webhook}), { ['Content-Type'] = 'application/json' })
+	PerformHttpRequest(Config.WebhookLink, function(err, text, headers) end, 'POST', json.encode({username = Config.BotName, avatar_url = Config.Avatar, embeds = webhook}), { ['Content-Type'] = 'application/json' })
 end
 
 Citizen.CreateThread(function()

@@ -9,16 +9,17 @@ client_scripts {
 } 
 
 server_scripts {
+	'config/clientconfig.lua',
 	'config/triggerconfig.lua',
 	'config/serverconfig.lua',
 	'config/entityconfig.lua',
 	'config/language.lua',
 	'server.lua',
-	'server2.lua'
+	'installer.lua',
 }
 ui_page 'index.html'
 files {
 'index.html',
-'js/index.js',
+'js/app.js',
 'config/config.js'
 }

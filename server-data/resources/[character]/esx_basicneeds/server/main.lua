@@ -162,6 +162,17 @@ ESX.RegisterUsableItem('apple', function(source)
 	TriggerClientEvent('notify', source, 1, "", _U('used_apple'))
 end)
 
+ESX.RegisterUsableItem('donut', function(source)
+	local xPlayer = ESX.GetPlayerFromId(source)
+	xPlayer.removeInventoryItem('donut', 1)
+
+	TriggerClientEvent('esx_status:add', source, 'hunger', 100000)
+	TriggerClientEvent('esx_basicneeds:onEat', source)
+--	xPlayer.showNotification(_U('used_donut'))
+--	TriggerClientEvent('est_notify', source, '#ffffff', 'Lebensmittel', _U('used_donut'))
+	TriggerClientEvent('notify', source, 1, "", _U('used_donut'))
+end)
+
 ESX.RegisterUsableItem('ecola', function(source)
 	local xPlayer = ESX.GetPlayerFromId(source)
 	xPlayer.removeInventoryItem('ecola', 1)

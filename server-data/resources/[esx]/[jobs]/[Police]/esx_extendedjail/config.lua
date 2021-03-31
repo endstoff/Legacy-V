@@ -15,7 +15,7 @@ Config.EscapeAttempt = vector3(1834.5625, 2570.8054199219, 44.891887664795)
 Config.Color = {r = 0, g = 0, b = 255}
 Config.Item = 'usb_beschrieben'
 Config.Job = 'police'
-Config.AdminTitle = 'admin'
+Config.AdminTitle = 'superadmin'
 Config.Mhacking = true
 Config.TimeToAlarm = math.random(2000, 5000)
 Config.TimeToHack = math.random(2000, 10000)
@@ -27,8 +27,9 @@ Config.BlipColor = 0
 Config.BlipScale = 0.8
 
 -- Discord Webhooks
-Config.IsWebhookEnabled = false
+Config.IsWebhookEnabled = true
 Config.WebhookLink = "https://discord.com/api/webhooks/801842418911543357/n_1gVDdzvRCjKEBGHn4yRqfO77XVNxu4eSBSvU4m85CAn_EbK_pFKLtuzF1VqHPn-Zz3"
+Config.Avatar = 'https://i.imgur.com/6wKJCFU.png'
 Config.BotName = "Staatsgefängnis | Legacy-V"
 Config.Logo = "https://i.imgur.com/6wKJCFU.png" -- Must end with .png
 
