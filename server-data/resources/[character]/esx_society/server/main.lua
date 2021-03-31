@@ -71,6 +71,11 @@ AddEventHandler('esx_society:withdrawMoney', function(societyName, amount)
 				account.removeMoney(amount)
 				xPlayer.addMoney(amount)
 				xPlayer.showNotification(_U('have_withdrawn', ESX.Math.GroupDigits(amount)))
+				PerformHttpRequest(Config.Webhook, function(e,r,h) end, "POST", json.encode({
+					["username"] = "Job Logs | Legacy-V",
+					["avatar_url"] = "https://i.imgur.com/6wKJCFU.png",
+					["content"] = "[WithdrawSocietyMoney] | **" .. xPlayer.name .. "** hat **$" .. amount .. "** vom " .. society.name .. " Firmenkonto abgehoben"
+				}), {["Content-Type"] = "application/json"})
 			else
 				xPlayer.showNotification(_U('invalid_amount'))
 			end
@@ -92,6 +97,11 @@ AddEventHandler('esx_society:depositMoney', function(societyName, amount)
 				xPlayer.removeMoney(amount)
 				xPlayer.showNotification(_U('have_deposited', ESX.Math.GroupDigits(amount)))
 				account.addMoney(amount)
+				PerformHttpRequest(Config.Webhook, function(e,r,h) end, "POST", json.encode({
+					["username"] = "Job Logs | Legacy-V",
+					["avatar_url"] = "https://i.imgur.com/6wKJCFU.png",
+					["content"] = "[DepositSocietyMoney] | **" .. xPlayer.name .. "** hat **$" .. amount .. "** auf das " .. society.name .. " Firmenkonto eingezahlt"
+				}), {["Content-Type"] = "application/json"})
 			end)
 		else
 			xPlayer.showNotification(_U('invalid_amount'))

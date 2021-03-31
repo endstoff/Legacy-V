@@ -60,5 +60,8 @@ Locales['en'] = {
     ['gotfired'] =  "You got fired",
     ['recruit'] =  "You successfully recruited him. His rank is %s",
     ['gotrecruit'] = "You got recruited to %s, your rank is %s" ,
+
+        -- 0.615
+        ['phoneloading'] = "Your phone is still starting, wait a moment" ,
 }
 

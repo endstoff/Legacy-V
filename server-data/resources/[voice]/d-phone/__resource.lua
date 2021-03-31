@@ -16,6 +16,7 @@ client_script {
   'locales/de.lua',
   "config/config.lua",
   "client/client.lua",
+  "client/user.lua",
   "client/animation.lua",
   "client/photo.lua",
 }

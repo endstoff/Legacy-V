@@ -51,8 +51,8 @@ CREATE TABLE IF NOT EXISTS `phone_information` (
 
 CREATE TABLE IF NOT EXISTS `phone_messages` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `sender` varchar(10) NOT NULL,
-  `receiver` varchar(10) NOT NULL,
+  `sender` varchar(50) NOT NULL,
+  `receiver` varchar(50) NOT NULL,
   `message` varchar(500) NOT NULL DEFAULT '0',
   `date` varchar(50) NOT NULL DEFAULT 'current_timestamp()',
   `isgps` varchar(500) NOT NULL DEFAULT '0',

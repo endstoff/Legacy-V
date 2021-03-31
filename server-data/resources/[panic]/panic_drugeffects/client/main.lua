@@ -231,13 +231,14 @@ AddEventHandler('panic_drugeffects:useCoke', function()
         SetPedMotionBlur(playerPed, true)
             if cokeLevel == 1 then 
                 cokeTime = cokeTime + 420
-                ShakeGameplayCam("DRUNK_SHAKE", 0.2)
+                ShakeGameplayCam("DRUNK_SHAKE", 0.6)
                 Citizen.Wait(1500)
-                ShakeGameplayCam("DRUNK_SHAKE", 0.2)
+                ShakeGameplayCam("DRUNK_SHAKE", 0.1)
                 AnimpostfxPlay("LostTimeNight", 10000001, true)
                 Citizen.Wait(2000)
                 AnimpostfxStopAll()
-                AnimpostfxPlay("DrugsTrevorClownsFight", 10000001, true)
+                AnimpostfxPlay("HeistCelebPass", 10000001, true)
+                --AnimpostfxPlay("DrugsTrevorClownsFight", 10000001, true)
                 AddArmourToPed(playerPed, 50)
                 SetEntityHealth(playerPed, seth)
                 cokeTime = cokeTime + 300
@@ -246,18 +247,19 @@ AddEventHandler('panic_drugeffects:useCoke', function()
                 end
             end 
             if cokeLevel > 1 then 
-                cokeTime = cokeTime + 400
+                cokeTime = cokeTime + 200
                 AddArmourToPed(playerPed, 50)
                 SetEntityHealth(playerPed, seth)
                 if armor > 100 then 
                     SetPedArmour(playerPed, 100)
                 end
                 AddArmourToPed(playerPed, 50)
-                ShakeGameplayCam("DRUNK_SHAKE", 0.3)
+                ShakeGameplayCam("DRUNK_SHAKE", 0.1)
                 AnimpostfxPlay("LostTimeNight", 10000001, true)
                 Citizen.Wait(2000)
                 AnimpostfxStopAll()
-                AnimpostfxPlay("DrugsTrevorClownsFight", 10000001, true)
+                AnimpostfxPlay("HeistCelebPass", 10000001, true)
+                --AnimpostfxPlay("DrugsTrevorClownsFight", 10000001, true)
             end
         else
             TriggerEvent('notify', 3, "", "Du hattest bis jetzt zu viel Kokain")

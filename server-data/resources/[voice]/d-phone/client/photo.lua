@@ -1,6 +1,6 @@
 phone = false
 phoneId = 0
-
+local phoneanimation = false
 
 RegisterNetEvent('camera:phone')
 AddEventHandler('camera:phone', function()		
@@ -32,49 +32,59 @@ Citizen.CreateThread(function()
 DestroyMobilePhone()
 	while true do
 		Citizen.Wait(0)
-		
-		if IsControlJustPressed(0, 27) and phone == true then -- SELFIE MODE
-			frontCam = not frontCam
-			CellFrontCamActivate(frontCam)
-		end
-		
-		if phone == true then
-			AddTextEntry(GetCurrentResourceName(), _U("cameracontrol"))
-			DisplayHelpTextThisFrame(GetCurrentResourceName(), false)
-		end
+		--if phoneanimation == true then
+				if IsControlJustPressed(0, 27) and phone == true then -- SELFIE MODE
+					frontCam = not frontCam
+					CellFrontCamActivate(frontCam)
+				end
+				
+				if phone == true then
+					AddTextEntry(GetCurrentResourceName(), _U("cameracontrol"))
+					DisplayHelpTextThisFrame(GetCurrentResourceName(), false)
+				end
 
-		if IsControlJustPressed(0, 177) and phone == true then -- CLOSE PHONE
-			DestroyMobilePhone()
-			phone = false
-			CellCamActivate(false, false)
-			newPhoneProp()
-			DoPhoneAnimation('cellphone_text_in')
-			TriggerServerEvent("d-phone:server:getphonedata", GetPlayerServerId(PlayerId()))
-		end
-		
-		if IsControlJustPressed(0, 176) and phone == true then -- TAKE.. PIC
-			TakePhoto()
-			if (WasPhotoTaken() and SavePhoto(-1)) then
-				-- SetLoadingPromptTextEntry("CELL_278")
-				-- ShowLoadingPrompt(1)
-				ClearPhoto()
+				if IsControlJustPressed(0, 177) and phone == true then -- CLOSE PHONE
+					DestroyMobilePhone()
+					phone = false
+					CellCamActivate(false, false)
+					DoPhoneAnimation('cellphone_text_out')
+					SetTimeout(400, function()
+						StopAnimTask(PlayerPedId(), PhoneData.AnimationData.lib, PhoneData.AnimationData.anim, 2.5)
+						deletePhone()
+						PhoneData.AnimationData.lib = nil
+						PhoneData.AnimationData.anim = nil
+					end)
+					Wait(500)
+					local playerPed = PlayerPedId()
+					TaskStartScenarioInPlace(playerPed, 'WORLD_HUMAN_STAND_MOBILE', 0, true)
+					TriggerServerEvent("d-phone:server:getphonedata", GetPlayerServerId(PlayerId()))
+					phoneanimation = false
+				end
+				
+				if IsControlJustPressed(0, 176) and phone == true then -- TAKE.. PIC
+					TakePhoto()
+					if (WasPhotoTaken() and SavePhoto(-1)) then
+						-- SetLoadingPromptTextEntry("CELL_278")
+						-- ShowLoadingPrompt(1)
+						ClearPhoto()
+					end
+				end
+					
+				if phone == true then
+					HideHudComponentThisFrame(7)
+					HideHudComponentThisFrame(8)
+					HideHudComponentThisFrame(9)
+					HideHudComponentThisFrame(6)
+					HideHudComponentThisFrame(19)
+					HideHudAndRadarThisFrame()
+				end
+					
+				-- ren = GetMobilePhoneRenderId()
+				-- SetTextRenderId(ren)
+				
+				-- Everything rendered inside here will appear on your phone.
+				
+				-- SetTextRenderId(1) -- NOTE: 1 is default
 			end
-		end
-			
-		if phone == true then
-			HideHudComponentThisFrame(7)
-			HideHudComponentThisFrame(8)
-			HideHudComponentThisFrame(9)
-			HideHudComponentThisFrame(6)
-			HideHudComponentThisFrame(19)
-			HideHudAndRadarThisFrame()
-		end
-			
-		-- ren = GetMobilePhoneRenderId()
-		-- SetTextRenderId(ren)
-		
-		-- Everything rendered inside here will appear on your phone.
-		
-		-- SetTextRenderId(1) -- NOTE: 1 is default
-	end
+	--end
 end)

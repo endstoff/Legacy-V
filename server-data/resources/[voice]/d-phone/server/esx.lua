@@ -32,3 +32,23 @@ ESX.RegisterCommand('sca', 'user', function(xPlayer, args, showError)
   ESX.RegisterCommand('scd', 'user', function(xPlayer, args, showError)
     TriggerClientEvent("d-phone:client:declinesharecontact", xPlayer.source)
   end)
+
+
+  function getPhoneRandomNumber()
+    local numBase0 = math.random(Config.LowerPrefix, Config.HigherPrefix)
+    local numBase1 = math.random(Config.LowerNumber, Config.HigherNumber)
+    local num
+    if Config.Prefix == true then
+        num = string.format(numBase0.. ""..numBase1)
+    else
+        num = string.format(numBase1)
+    end
+	return num
+end
+
+function getRandomCardNumber()
+    local numBase0 = math.random(1000000000000000, 9999999999999999)
+    local num = string.format(numBase0)
+
+	return num
+end

@@ -483,6 +483,7 @@ function loadbusinessmessages(html, div) {
     $(".phone-recent-businessapp-sector").hide();
     $(".phone-businessapp-message").fadeIn(250);
     $(".phone-businessapp-chat").scrollTop($(".phone-businessapp-chat")[0].scrollHeight);
+    lastwindow = "businessmessage"
 }
 
 $(document).on('click', '#phone-businessapp-send', function() {
@@ -512,6 +513,8 @@ $(document).on('click', '#phone-businessapp-return', function() {
     $(".phone-businessapp").hide();
 
     $(".phone-applications").fadeIn(250);
+
+    lastwindow = null
 });
 
 $(document).on('click', '#enablejobnumber', function() {
