@@ -253,11 +253,11 @@ namespace SaltyClient
         #endregion
 
         #region CTOR
-        public SelfState(CitizenFX.Core.Vector3 position, float rotation, bool echo = false)
+        public SelfState(CitizenFX.Core.Vector3 position, float rotation, bool isAlive, bool echo = false)
         {
             this.Position = new Vector3(position.X, position.Y, position.Z);
             this.Rotation = rotation;
-            this.IsAlive = true;
+            this.IsAlive = isAlive;
 
             if (echo)
                 this.Echo = new EchoEffect();
@@ -545,6 +545,30 @@ namespace SaltyClient
         public bool IsSending { get; set; }
         public bool IsPrimaryChannel { get; set; }
         public string ActiveRelay { get; set; }
+        #endregion
+    }
+
+    public class RadioTraffic
+    {
+        #region Props/Fields
+        public string Name { get; set; }
+        public bool IsSending { get; set; }
+        public string RadioChannelName { get; set; }
+        public RadioType SenderRadioType { get; set; }
+        public RadioType ReceiverRadioType { get; set; }
+        public string[] Relays { get; set; }
+        #endregion
+
+        #region CTOR
+        public RadioTraffic(string playerName, bool isSending, string radioChannelName, RadioType senderType, RadioType receiverType, string[] relays)
+        {
+            this.Name = playerName;
+            this.IsSending = isSending;
+            this.RadioChannelName = radioChannelName;
+            this.SenderRadioType = senderType;
+            this.ReceiverRadioType = receiverType;
+            this.Relays = relays;
+        }
         #endregion
     }
 

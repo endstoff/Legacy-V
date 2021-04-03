@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "WWWh0XoTDYcRvvjEi5J3SOXR0YezqlcUhEojCyOJLVDzlPppR+rpZ2x75b3wCs8pdZ7qWZ6EBOGcfhUhvX9hkA==",
+  "dgSpecHash": "8YtNlmcBrnY6N8U3+4Gk8Yp3LcerHIdnBbIJ4t5PCOmtldS/Ahnr9KhxXTT+lv9nzjWgd6yB3JNZoNuxgbdjvg==",
   "success": true,
-  "projectFilePath": "F:\\[FiveM]\\[Scripting]\\saltychat\\SaltyServer\\SaltyServer.csproj",
+  "projectFilePath": "C:\\Users\\Semir\\Documents\\saltychat\\SaltyServer\\SaltyServer.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Semir\\.nuget\\packages\\citizenfx.core.server\\1.0.3563\\citizenfx.core.server.1.0.3563.nupkg.sha512",
     "C:\\Users\\Semir\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",

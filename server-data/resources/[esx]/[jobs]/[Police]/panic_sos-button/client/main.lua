@@ -73,7 +73,7 @@ Citizen.CreateThread(function()
     end
 end)
 ]]
-local emsEmoji = "🚨"
+local emsEmoji = "[NOTKNOPF]"
 local usePD = "Ein Officer hat den Panic Button betätigt"
 local useMD = "Ein Mediziner hat den Panic Button betätigt"
 local labeltoSend = "LSPD"
@@ -91,13 +91,15 @@ function useIt()
                -- TriggerServerEvent("d-phone:server:sendservicemessage", GetPlayerServerId(PlayerId()), "Officer hat einen Notknopf gedrückt", "LSPD", 0, 1, position, "5")
                -- TriggerEvent("d-notification", "Notruf Gesendet", 5000,  "rgba(255, 0, 0, 0.8)")
                 if (ESX.PlayerData.job.label == 'LSPD') then  
-                TriggerServerEvent("d-phone:server:sendservicemessage", GetPlayerServerId(PlayerId()), usePD, labeltoSend, 0, 1, position, "5")
+               -- TriggerServerEvent("d-phone:server:sendservicemessage", GetPlayerServerId(PlayerId()), usePD, labeltoSend, 0, 1, position, "5")
+                TriggerServerEvent("d-phone:server:sendgps", GetPlayerServerId(PlayerId()), num, position)
                 Citizen.Wait(500)
                 TriggerServerEvent("d-phone:server:sendmessage", GetPlayerServerId(PlayerId()), emsEmoji..' '..usePD, num)
                 sended = true  
                 end 
                 if (ESX.PlayerData.job.label == 'Notdienst') then 
-                TriggerServerEvent("d-phone:server:sendservicemessage", GetPlayerServerId(PlayerId()), useMD, labeltoSend, 0, 1, position, "5")
+               -- TriggerServerEvent("d-phone:server:sendservicemessage", GetPlayerServerId(PlayerId()), useMD, labeltoSend, 0, 1, position, "5")
+                TriggerServerEvent("d-phone:server:sendgps", GetPlayerServerId(PlayerId()), num, position)
                 Citizen.Wait(500)
                 TriggerServerEvent("d-phone:server:sendmessage", GetPlayerServerId(PlayerId()), emsEmoji..' '..useMD, num)
                 sended = true 

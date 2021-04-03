@@ -29,6 +29,7 @@ namespace SaltyClient
         public bool IsNuiReady { get; private set; }
 
         public string TeamSpeakName { get; private set; }
+        public bool IsAlive => Game.Player.State[State.SaltyChat_IsAlive] == true;
         public Configuration Configuration { get; private set; }
 
         public VoiceClient[] VoiceClients => this._voiceClients.Values.ToArray();
@@ -39,8 +40,90 @@ namespace SaltyClient
 
         public string WebSocketAddress { get; private set; } = "lh.saltmine.de:38088";
         public float VoiceRange { get; private set; }
+        public bool _canSendRadioTraffic = true;
+        public bool CanSendRadioTraffic
+        {
+            get => this._canSendRadioTraffic;
+            private set
+            {
+                if (this._canSendRadioTraffic == value || !this.Configuration.EnableRadioHardcoreMode)
+                    return;
+
+                this._canSendRadioTraffic = value;
+
+                if (!value)
+                {
+                    foreach (RadioTraffic radioTraffic in this.RadioTrafficStates.ToArray())
+                    {
+                        if (radioTraffic.Name == this.TeamSpeakName)
+                        {
+                            if (radioTraffic.RadioChannelName == this.PrimaryRadioChannel)
+                                this.OnPrimaryRadioReleased();
+                            else if (radioTraffic.RadioChannelName == this.SecondaryRadioChannel)
+                                this.OnSecondaryRadioReleased();
+                        }
+                    }
+                }
+            }
+        }
+        public bool _canReceiveRadioTraffic = true;
+        public bool CanReceiveRadioTraffic
+        {
+            get => this._canReceiveRadioTraffic;
+            private set
+            {
+                if (this._canReceiveRadioTraffic == value || !this.Configuration.EnableRadioHardcoreMode)
+                    return;
+
+                this._canReceiveRadioTraffic = value;
+
+                if (value)
+                {
+                    foreach (RadioTraffic radioTraffic in this.RadioTrafficStates.ToArray().Where(r => r.Name != this.TeamSpeakName))
+                    {
+                        this.ExecuteCommand(
+                            new PluginCommand(
+                                Command.RadioCommunicationUpdate,
+                                this.Configuration.ServerUniqueIdentifier,
+                                new RadioCommunication(
+                                    radioTraffic.Name,
+                                    radioTraffic.SenderRadioType,
+                                    radioTraffic.ReceiverRadioType,
+                                    false,
+                                    radioTraffic.RadioChannelName == this.PrimaryRadioChannel || radioTraffic.RadioChannelName == this.SecondaryRadioChannel,
+                                    radioTraffic.RadioChannelName == this.SecondaryRadioChannel,
+                                    radioTraffic.Relays,
+                                    this.RadioVolume
+                                )
+                            )
+                        );
+                    }
+                }
+                else
+                {
+                    foreach (RadioTraffic radioTraffic in this.RadioTrafficStates.ToArray().Where(r => r.Name != this.TeamSpeakName))
+                    {
+                        this.ExecuteCommand(
+                            new PluginCommand(
+                                Command.StopRadioCommunication,
+                                this.Configuration.ServerUniqueIdentifier,
+                                new RadioCommunication(
+                                    radioTraffic.Name,
+                                    RadioType.None,
+                                    RadioType.None,
+                                    false,
+                                    radioTraffic.RadioChannelName == this.PrimaryRadioChannel || radioTraffic.RadioChannelName == this.SecondaryRadioChannel,
+                                    radioTraffic.RadioChannelName == this.SecondaryRadioChannel
+                                )
+                            )
+                        );
+                    }
+                }
+            }
+        }
         public string PrimaryRadioChannel { get; private set; }
         public string SecondaryRadioChannel { get; private set; }
+        public List<RadioTraffic> RadioTrafficStates { get; private set; } = new List<RadioTraffic>();
         private bool IsUsingMegaphone { get; set; }
 
         public bool IsMicrophoneMuted { get; private set; }
@@ -229,6 +312,17 @@ namespace SaltyClient
             this.IsRadioSpeakerEnabled = isRadioSpeakerEnabled;
         }
 
+        [EventHandler(Event.SaltyChat_ChannelInUse)]
+        private void OnChannelBlocked(string channelName)
+        {
+            this.PlaySound("offMicClick", false, "radio"); // offMicClick is just a placeholder, need to add a new sound to the default sound pack
+
+            if (channelName == this.PrimaryRadioChannel)
+                this.OnPrimaryRadioReleased();
+            else if (channelName == this.SecondaryRadioChannel)
+                this.OnSecondaryRadioReleased();
+        }
+
         [EventHandler(Event.SaltyChat_SetRadioChannel)]
         private void OnSetRadioChannel(string radioChannel, bool isPrimary)
         {
@@ -264,6 +358,16 @@ namespace SaltyClient
             if (!Int32.TryParse(handle, out int serverId))
                 return;
 
+            lock (this.RadioTrafficStates)
+            {
+                RadioTraffic radioTraffic = this.RadioTrafficStates.FirstOrDefault(r => r.Name == teamSpeakName && r.RadioChannelName == radioChannel);
+
+                if (isSending && radioTraffic == null)
+                    this.RadioTrafficStates.Add(new RadioTraffic(teamSpeakName, isSending, radioChannel, (RadioType)this.Configuration.RadioType, (RadioType)this.Configuration.RadioType, relays.Select(r => (string)r).ToArray()));
+                else if (radioTraffic != null)
+                    this.RadioTrafficStates.Remove(radioTraffic);
+            }
+
             if (serverId == Game.Player.ServerId)
             {
                 if (isSending)
@@ -274,8 +378,8 @@ namespace SaltyClient
                             this.Configuration.ServerUniqueIdentifier,
                             new RadioCommunication(
                                 this.TeamSpeakName,
-                                RadioType.LongRange,
-                                RadioType.LongRange,
+                                (RadioType)this.Configuration.RadioType,
+                                (RadioType)this.Configuration.RadioType,
                                 stateChange,
                                 direct,
                                 this.SecondaryRadioChannel == radioChannel,
@@ -311,7 +415,7 @@ namespace SaltyClient
                     client.SendPlayerStateUpdate(this);
                 }
 
-                if (isSending)
+                if (isSending && this.CanReceiveRadioTraffic)
                 {
                     this.ExecuteCommand(
                         new PluginCommand(
@@ -319,8 +423,8 @@ namespace SaltyClient
                             this.Configuration.ServerUniqueIdentifier,
                             new RadioCommunication(
                                 client.TeamSpeakName,
-                                RadioType.LongRange,
-                                RadioType.LongRange,
+                                (RadioType)this.Configuration.RadioType,
+                                (RadioType)this.Configuration.RadioType,
                                 stateChange,
                                 direct,
                                 this.SecondaryRadioChannel == radioChannel,
@@ -330,7 +434,7 @@ namespace SaltyClient
                         )
                     );
                 }
-                else
+                else if (!isSending)
                 {
                     this.ExecuteCommand(
                         new PluginCommand(
@@ -515,7 +619,7 @@ namespace SaltyClient
                                     new RadioTower(this.RadioTowers)
                                 )
                             );
-                        }   
+                        }
 
                         break;
                     }
@@ -537,6 +641,15 @@ namespace SaltyClient
                     {
                         if (pluginCommand.TryGetPayload(out InstanceState instanceState))
                             this.PlguinState = instanceState.State;
+
+                        if (this.PlguinState == GameInstanceState.Ingame)
+                        {
+                            BaseScript.TriggerEvent("SaltyNUI:TsActive");
+                        }
+                        else
+                        {
+                            BaseScript.TriggerEvent("SaltyNUI:TsNotActive");
+                        }
 
                         break;
                     }
@@ -586,7 +699,7 @@ namespace SaltyClient
                     {
                         if (pluginCommand.TryGetPayload(out RadioTrafficState radioTrafficState))
                             BaseScript.TriggerEvent(Event.SaltyChat_RadioTrafficStateChanged, radioTrafficState.Name, radioTrafficState.IsSending, radioTrafficState.IsPrimaryChannel, radioTrafficState.ActiveRelay);
-                        
+
                         break;
                     }
             }
@@ -626,11 +739,108 @@ namespace SaltyClient
         }
         #endregion
 
+        #region Keybindings
+        private void OnVoiceRangePressed()
+        {
+            if (!this.IsEnabled)
+                return;
+
+            this.ToggleVoiceRange();
+        }
+
+        private void OnVoiceRangeReleased()
+        {
+            // Empty dummy, so /-voiceRange isn't spammed in the chat
+        }
+
+        private void OnPrimaryRadioPressed()
+        {
+            Ped playerPed = Game.PlayerPed;
+
+            if (!this.IsEnabled || !playerPed.IsAlive || String.IsNullOrWhiteSpace(this.PrimaryRadioChannel) || !this.CanSendRadioTraffic)
+                return;
+
+            BaseScript.TriggerServerEvent(Event.SaltyChat_IsSending, this.PrimaryRadioChannel, true);
+            Game.PlayerPed.Task.PlayAnimation("random@arrests", "generic_radio_enter", -2f, -1, (AnimationFlags)50);
+        }
+
+        private void OnPrimaryRadioReleased()
+        {
+            if (!this.IsEnabled || String.IsNullOrWhiteSpace(this.PrimaryRadioChannel))
+                return;
+
+            BaseScript.TriggerServerEvent(Event.SaltyChat_IsSending, this.PrimaryRadioChannel, false);
+            Game.PlayerPed.Task.ClearAnimation("random@arrests", "generic_radio_enter");
+        }
+
+        private void OnSecondaryRadioPressed()
+        {
+            Ped playerPed = Game.PlayerPed;
+
+            if (!this.IsEnabled || !playerPed.IsAlive || String.IsNullOrWhiteSpace(this.SecondaryRadioChannel) || !this.CanSendRadioTraffic)
+                return;
+
+            BaseScript.TriggerServerEvent(Event.SaltyChat_IsSending, this.SecondaryRadioChannel, true);
+            Game.PlayerPed.Task.PlayAnimation("random@arrests", "generic_radio_enter", -2f, -1, (AnimationFlags)50);
+        }
+
+        private void OnSecondaryRadioReleased()
+        {
+            if (!this.IsEnabled || String.IsNullOrWhiteSpace(this.SecondaryRadioChannel))
+                return;
+
+            BaseScript.TriggerServerEvent(Event.SaltyChat_IsSending, this.SecondaryRadioChannel, false);
+            Game.PlayerPed.Task.ClearAnimation("random@arrests", "generic_radio_enter");
+        }
+
+        private void OnMegaphonePressed()
+        {
+            Ped playerPed = Game.PlayerPed;
+
+            if (!this.IsEnabled || !playerPed.IsAlive || !playerPed.IsInPoliceVehicle)
+                return;
+
+            Vehicle vehicle = playerPed.CurrentVehicle;
+
+            if (vehicle.GetPedOnSeat(VehicleSeat.Driver) == playerPed || vehicle.GetPedOnSeat(VehicleSeat.Passenger) == playerPed)
+            {
+                BaseScript.TriggerServerEvent(Event.SaltyChat_IsUsingMegaphone, true);
+                this.IsUsingMegaphone = true;
+            }
+        }
+
+        private void OnMegaphoneReleased()
+        {
+            if (!this.IsEnabled || !this.IsUsingMegaphone)
+                return;
+
+            BaseScript.TriggerServerEvent(Event.SaltyChat_IsUsingMegaphone, false);
+            this.IsUsingMegaphone = false;
+        }
+        #endregion
+
         #region Tick
         [Tick]
         private async Task FirstTick()
         {
             this.Configuration = JsonConvert.DeserializeObject<Configuration>(API.LoadResourceFile(API.GetCurrentResourceName(), "config.json"));
+
+            // Register commands and key mappings
+            API.RegisterCommand("+voiceRange", new Action(this.OnVoiceRangePressed), false);
+            API.RegisterCommand("-voiceRange", new Action(this.OnVoiceRangeReleased), false);
+            API.RegisterKeyMapping("+voiceRange", "Toggle Voice Range", "keyboard", this.Configuration.ToggleRange);
+
+            API.RegisterCommand("+primaryRadio", new Action(this.OnPrimaryRadioPressed), false);
+            API.RegisterCommand("-primaryRadio", new Action(this.OnPrimaryRadioReleased), false);
+            API.RegisterKeyMapping("+primaryRadio", "Use Primary Radio", "keyboard", this.Configuration.TalkPrimary);
+
+            API.RegisterCommand("+secondaryRadio", new Action(this.OnSecondaryRadioPressed), false);
+            API.RegisterCommand("-secondaryRadio", new Action(this.OnSecondaryRadioReleased), false);
+            API.RegisterKeyMapping("+secondaryRadio", "Use Secondary Radio", "keyboard", this.Configuration.TalkSecondary);
+
+            API.RegisterCommand("+megaphone", new Action(this.OnMegaphonePressed), false);
+            API.RegisterCommand("-megaphone", new Action(this.OnMegaphoneReleased), false);
+            API.RegisterKeyMapping("+megaphone", "Use Megaphone", "keyboard", this.Configuration.TalkMegaphone);
 
             BaseScript.TriggerServerEvent(Event.SaltyChat_Initialize);
 
@@ -644,71 +854,14 @@ namespace SaltyClient
         {
             Ped playerPed = Game.PlayerPed;
 
-            if (this.IsEnabled && playerPed != null && playerPed.IsAlive)
+            if (this.IsEnabled && playerPed != null)
             {
-                Game.DisableControlThisFrame(0, (Control)this.Configuration.ToggleRange);
+                // Game.DisableControlThisFrame(0, Control.PushToTalk);
 
-                if (Game.IsControlJustPressed(0, (Control)this.Configuration.ToggleRange))
-                {
-                    this.ToggleVoiceRange();
-                }
-
-                if (playerPed.IsInPoliceVehicle)
-                {
-                    Vehicle vehicle = playerPed.CurrentVehicle;
-
-                    if (vehicle.GetPedOnSeat(VehicleSeat.Driver) == playerPed || vehicle.GetPedOnSeat(VehicleSeat.Passenger) == playerPed)
-                    {
-                        // Game.DisableControlThisFrame(0, (Control)this.Configuration.TalkMegaphone);
-
-                        if (Game.IsControlJustPressed(0, (Control)this.Configuration.TalkMegaphone))
-                        {
-                            BaseScript.TriggerServerEvent(Event.SaltyChat_IsUsingMegaphone, true);
-                            this.IsUsingMegaphone = true;
-                        }
-                        else if (Game.IsControlJustReleased(0, (Control)this.Configuration.TalkMegaphone))
-                        {
-                            BaseScript.TriggerServerEvent(Event.SaltyChat_IsUsingMegaphone, false);
-                            this.IsUsingMegaphone = false;
-                        }
-                    }
-                }
-                else if (this.IsUsingMegaphone)
+                if (!playerPed.IsInPoliceVehicle && this.IsUsingMegaphone)
                 {
                     BaseScript.TriggerServerEvent(Event.SaltyChat_IsUsingMegaphone, false);
                     this.IsUsingMegaphone = false;
-                }
-
-                if (this.PrimaryRadioChannel != null)
-                {
-                    // Game.DisableControlThisFrame(0, (Control)this.Configuration.TalkPrimary);
-
-                    if (Game.IsControlJustPressed(0, (Control)this.Configuration.TalkPrimary))
-                    {
-                        BaseScript.TriggerServerEvent(Event.SaltyChat_IsSending, this.PrimaryRadioChannel, true);
-                        Game.PlayerPed.Task.PlayAnimation("random@arrests", "generic_radio_enter", 2f, -1, (AnimationFlags)50);
-                    }
-                    else if (Game.IsControlJustReleased(0, (Control)this.Configuration.TalkPrimary))
-                    {
-                        BaseScript.TriggerServerEvent(Event.SaltyChat_IsSending, this.PrimaryRadioChannel, false);
-                        Game.PlayerPed.Task.ClearAnimation("random@arrests", "generic_radio_enter");
-                    }
-                }
-
-                if (this.SecondaryRadioChannel != null)
-                {
-                    // Game.DisableControlThisFrame(0, (Control)this.Configuration.TalkSecondary);
-
-                    if (Game.IsControlJustPressed(0, (Control)this.Configuration.TalkSecondary))
-                    {
-                        BaseScript.TriggerServerEvent(Event.SaltyChat_IsSending, this.SecondaryRadioChannel, true);
-                        Game.PlayerPed.Task.PlayAnimation("random@arrests", "generic_radio_enter", 2f, -1, (AnimationFlags)50);
-                    }
-                    else if (Game.IsControlJustReleased(0, (Control)this.Configuration.TalkSecondary))
-                    {
-                        BaseScript.TriggerServerEvent(Event.SaltyChat_IsSending, this.SecondaryRadioChannel, false);
-                        Game.PlayerPed.Task.ClearAnimation("random@arrests", "generic_radio_enter");
-                    }
                 }
             }
 
@@ -718,9 +871,10 @@ namespace SaltyClient
         [Tick]
         private async Task OnStateUpdateTick()
         {
+            Ped playerPed = Game.PlayerPed;
+
             if (this.IsConnected && this.PlguinState == GameInstanceState.Ingame)
             {
-                Ped playerPed = Game.PlayerPed;
                 CitizenFX.Core.Vector3 playerPosition = playerPed.Position;
                 int playerRoomId = API.GetRoomKeyFromEntity(playerPed.Handle);
                 Vehicle playerVehicle = playerPed.CurrentVehicle;
@@ -806,11 +960,44 @@ namespace SaltyClient
                             playerStates,
                             new SelfState(
                                 playerPosition,
-                                API.GetGameplayCamRot(0).Z
+                                API.GetGameplayCamRot(0).Z,
+                                this.IsAlive
                             )
                         )
                     )
                 );
+            }
+
+            if (this.IsAlive)
+            {
+                bool isUnderWater = playerPed.IsSwimmingUnderWater;
+                bool isSwimming = isUnderWater || playerPed.IsSwimming;
+
+                if (isUnderWater)
+                {
+                    this.CanSendRadioTraffic = false;
+                    this.CanReceiveRadioTraffic = false;
+                }
+                else if (isSwimming && API.GetEntitySpeed(playerPed.Handle) <= 2f)
+                {
+                    this.CanSendRadioTraffic = true;
+                    this.CanReceiveRadioTraffic = true;
+                }
+                else if (isSwimming)
+                {
+                    this.CanSendRadioTraffic = false;
+                    this.CanReceiveRadioTraffic = true;
+                }
+                else
+                {
+                    this.CanSendRadioTraffic = true;
+                    this.CanReceiveRadioTraffic = true;
+                }
+            }
+            else
+            {
+                this.CanSendRadioTraffic = false;
+                this.CanReceiveRadioTraffic = false;
             }
 
             await BaseScript.Delay(280);
@@ -867,10 +1054,13 @@ namespace SaltyClient
             BaseScript.TriggerServerEvent(Event.SaltyChat_SetVoiceRange, this.VoiceRange);
             BaseScript.TriggerEvent(Event.SaltyChat_VoiceRangeChanged, this.VoiceRange, index, this.Configuration.VoiceRanges.Length);
 
-            if (this.RangeNotification != null)
-                this.RangeNotification.Hide();
+            if (this.Configuration.EnableVoiceRangeNotification)
+            {
+                if (this.RangeNotification != null)
+                    this.RangeNotification.Hide();
 
-            this.RangeNotification = CitizenFX.Core.UI.Screen.ShowNotification($"Deine neue Sprachreichweite beträgt {this.VoiceRange} meter.");
+                this.RangeNotification = CitizenFX.Core.UI.Screen.ShowNotification(this.Configuration.VoiceRangeNotification.Replace("{voicerange}", this.VoiceRange.ToString()));
+            }
         }
         #endregion
 

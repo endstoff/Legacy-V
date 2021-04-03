@@ -7,13 +7,13 @@ Config.MaxInService               = -1
 Config.Locale                     = 'de'
 Config.UseAnimations			  = true -- Enables/Diasbles animations for fixing vehicle, writing bills and etc. ...
 Config.UseMythic_Progressbar	  = false -- Enables/Diasbles opening Mythic progress bar while doing an animation
-Config.NeedItemCuffs			  = false -- Enables/Diasbles requirement of handcuffs as item
-Config.UseLegacyFuel			  = true -- If true, your vehicle after taking it from garage will have 100% fuel (requires LegacyFuel script)
+Config.NeedItemCuffs			  = true -- Enables/Diasbles requirement of handcuffs as item
+Config.UseLegacyFuel			  = false -- If true, your vehicle after taking it from garage will have 100% fuel (requires LegacyFuel script)
 Config.ShowImpoundNotification	  = true -- Choose, if you want to play an animation while impounding a vehicle
 Config.ImpoundAnimationWaitTime	  = 10 * 1000 -- Time, how long the animation for impounding a vehicle will be
 Config.EnableLicenses			  = true
 Config.MenuAlign 				  = 'top-left' -- Position of ESX Menu
-Config.CuffItemName				  = 'cuffs' -- The item name in database you need to have in your inventory to bee able to cuff somebody
+Config.CuffItemName				  = 'ziptie' -- The item name in database you need to have in your inventory to bee able to cuff somebody
 Config.GetClientESXEvent  		  = 'esx:getSharedObject' -- Client get ESX event name
 Config.FontId					  = 4 -- Config Text Font Id, which is used in DrawText3Ds, you can change it, but must be a number
 
@@ -27,9 +27,7 @@ Config.UseCustomGetWeaponsMenu = false -- Change to true if you want to use cust
 Config.UseCustomMarkers = false -- If using custom markers editable in client/edit.lua
 Config.CustomMarkerDistance = 2.0 -- Distance in GTA units you need to be close to the marker to be drawn
 
---Animation names
-Config.HandsUPAnimationDictionary = 'mp_arresting'
-Config.HandsUPAnimationName = 'idle'
+Config.UseCustomGarageEvents = false -- Enable this if you do not want to use the default, sqz_unijob menu and you want to use your custom, check edit.lua for this
 
 -- Custom events (edit in case you use any custom events)
 Config.customEvents = {
@@ -38,13 +36,14 @@ Config.customEvents = {
 	['esx:setJob'] = 'esx:setJob',
 	['esx_ambulancejob:revive'] = 'esx_ambulancejob:revive',
 	['mythic_progressbar:client:progress'] = 'mythic_progbar:client:progress',
-	['esx_eden_clotheshop:getPlayerDressing'] = 'cui_wardrobe:getOutfitInSlot'
+	['esx_eden_clotheshop:getPlayerDressing'] = 'esx_eden_clotheshop:getPlayerDressing'
 }
 
 Config.AlloweAccountsToDeposit = { -- The account name which is allowed to be deposit to the vault
-	["bank"] = true, -- Just remove any of these if you do not want to use them
+	["bank"] = false, -- Just remove any of these if you do not want to use them
 	["black_money"] = false
 }
+
 
 Config.Blips = {
 	bmeister = {
@@ -151,13 +150,7 @@ UseWebhook = true,
 			{
 				model = 'cognoscenti', -- Vehicle spawn model
 				label = 'Cognoscenti', -- Vehicle menu label
-				props = {plate = 'State01', modXenon = true} -- Here you can add all vehicle mods you want, documentation can be found here: https://esx-framework.github.io/es_extended/client/functions/game/setvehicleproperties/#valid-table-content
-
-			},
-			{
-				model = 'drafter', -- Vehicle spawn model
-				label = 'Drafter', -- Vehicle menu label
-				props = {plate = 'State02', modXenon = true} -- Here you can add all vehicle mods you want, documentation can be found here: https://esx-framework.github.io/es_extended/client/functions/game/setvehicleproperties/#valid-table-content
+				props = {plate = '1234567', modXenon = true} -- Here you can add all vehicle mods you want, documentation can be found here: https://esx-framework.github.io/es_extended/client/functions/game/setvehicleproperties/#valid-table-content
 
 			},
 		},
@@ -194,7 +187,7 @@ UseWebhook = true,
 		}
 	},
 }
-
+--[[
 Config.Jobs.yakuza = { -- This is name of job you have in your database
 Webhook = 'https://discord.com/api/webhooks/814214959323152404/tHXOPUGhcNLGKoDHGXWoO-qR8jFrQt-nTvnMZQg0RjzAjdnn7VBWaZ7dKwIPuzFrKffn', -- Name of the webhook if lower is UseWebhook true
 UseWebhook = true,
@@ -219,6 +212,97 @@ UseWebhook = true,
 	--Cloakroom = {},
 	BossActions = {
 			Pos = {x = -1520.3865966797, y = 848.99780273438, z = 181.59471130371}, -- This is the place where you open BossMenu (only grade with name boss is allowed (depends on your esx_society edits)
+			Size = {x = 0.7, y = 0.7, z = 0.7},
+			Color = {r = 255, g = 255, b = 255},
+			Direction = {x = 0.0, y = 0.0, z = 0.0},
+			Rotation = {x = 0.0, y = 0.0, z = 0.0},
+			BouncingMarker = false,
+			RotatingMarker = true,
+			Marker = 22,
+			Type = 'BossActions',
+			Draw3DText = true,
+			MotionText = _U('bossmenu_open'),
+	},
+	--Crafting = {}, -- If you do not want to use the Crafting menu, you can disable it like it is here, otherwise use it as above
+
+	--Selling = {}, -- If you do not want to use the Selling menu, you can disable it like it is here, otherwise use it as above
+
+	Vehicles = {
+			Pos = {x = 0, y = 0, z = 0}, -- This is the spawnpoint where you see menu with vehicles which you can spawn
+			Size = {x = 0.7, y = 0.7, z = 0.7},
+			Color = {r = 255, g = 255, b = 255},
+			Direction = {x = 0.0, y = 0.0, z = 0.0},
+			Rotation = {x = 0.0, y = 0.0, z = 0.0},
+			BouncingMarker = false,
+			RotatingMarker = true,
+			Marker = 36,
+			MotionText = _U('vehicles_open'),
+			Type = 'Vehicles',
+			Draw3DText = true,
+			SpawnPoints = { -- Here you configure spawnpoints, where the vehicle will be spawned (Chcecks if the spawnpoint is clear), you can add as much as you want
+					{coords = vector3(-1543.6083984375, -583.17895507812, 25.707921981812), heading = 31.58, radius = 3.0},
+					{coords = vector3(-1546.3911132812, -584.81561279297, 25.707921981812), heading = 31.58, radius = 3.0}
+		}
+		},	
+	VehicleDeletePoint = { -- here you add vehicle deleter points. It can delete helicopters, car, bikes, boats...
+			Pos = {x = 0, y = 0, z = 0}, 
+			Size = {x = 3.5, y = 3.5, z = 1.0},
+			Color = {r = 255, g = 0, b = 0},
+			Direction = {x = 0.0, y = 0.0, z = 0.0},
+			Rotation = {x = 0.0, y = 0.0, z = 0.0},
+			BouncingMarker = false,
+			RotatingMarker = true,
+			Marker = 1,
+			Type = 'VehicleDeleter',
+			Draw3DText = true,
+			MotionText = _U('vehicles_open_park'),	
+		},			
+	--HeliSpawn = {},
+	},
+
+	CollectPoints = {}, -- If you do not want to use Collect Points, set it like this
+
+	-- End of zones and start of authorized vehicles
+	--AuthorizedVehicles = {},
+	-- End of Authorized vehicles and start of Allowed Actions
+	AllowedActions = {
+		Billing = false, -- Adds "Billing" to the interaction menu, the society is society_*player_job_name* (players job is police -> society is society_police)
+		HasBodyActions = true, -- Adds Body Action such as Cuffing, Dragging, Taking out of vehicle, Putting in vehicle ...
+		HasMechanicActions = false, -- This allows vehicle interaction in F6 menu
+		CanRevive = false, -- This adds revive possibility to F6 menu
+		CanWash = false, -- This manages if the boss can wash dirty money in BossMenu
+		CustomMenuElement = false,
+	},
+	-- End of Authorized actions and start of authorized Weapons for the job
+	--AuthorizedWeapons = {},
+	-- End of authorized Weapons and Start of authorized AirCrafts
+	--AuthorizedAirCrafts = {},
+}]]
+
+Config.Jobs.blackwater = { -- This is name of job you have in your database
+Webhook = 'https://discord.com/api/webhooks/814214959323152404/tHXOPUGhcNLGKoDHGXWoO-qR8jFrQt-nTvnMZQg0RjzAjdnn7VBWaZ7dKwIPuzFrKffn', -- Name of the webhook if lower is UseWebhook true
+UseWebhook = true,
+	Zones = {
+		armory = {
+			Pos = {x = 1394.8665771484, y = 1152.6690673828, z = 114.39182281494},  
+			Size = {x = 0.7, y = 0.7, z = 0.7},
+			Color = {r = 255, g = 255, b = 255},
+			Direction = {x = 0.0, y = 0.0, z = 0.0},
+			Rotation = {x = 0.0, y = 0.0, z = 0.0},
+			BouncingMarker = false,
+			RotatingMarker = true,
+			Marker = 22,
+			Type = 'Armory',
+			Draw3DText = true,
+			MotionText = _U('armory_open'),
+			BuyWeapon = false, -- This allows you to buy weapons in this Armory (if you have multiple armories and you do not want to have buy weapon in all of them, simply cahnge it to false
+			BuyWeaponGrade = 0, -- This is the least grade you must have to be allowed to buy weapons ( grade 0, 1, 2, 3, 4, 5, ... is now able to buy weapons)
+			GetWeaponGrade = 0, -- This is the least grade you must have to be able to withdraw weapons from the armory (at some servers I have see that somebody was stealing thing from armories :D ( grade 0, 1, 2, 3, 4, 5, ... is now able to witdraw weapons) (Everybody can deposit weapons)
+			GetStockGrade = 0, -- This is the least grade you must have to be able to withdraw things from the armory (at some servers I have see that somebody was stealing thing from armories :D ( grade 0, 1, 2, 3, 4, 5, ... is now able to witdraw weapons) (Everybody can deposit weapons)
+		},	  	
+	--Cloakroom = {},
+	BossActions = {
+			Pos = {x = 1395.4466552734, y = 1141.7427978516, z = 114.6402053833},  -- 1This is the place where you open BossMenu (only grade with name boss is allowed (depends on your esx_society edits)
 			Size = {x = 0.7, y = 0.7, z = 0.7},
 			Color = {r = 255, g = 255, b = 255},
 			Direction = {x = 0.0, y = 0.0, z = 0.0},

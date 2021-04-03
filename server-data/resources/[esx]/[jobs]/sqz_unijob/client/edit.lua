@@ -119,6 +119,34 @@ AddEventHandler('sqz_unijob:CustomElementInPersonalMenu', function()
 
 end)
 
+RegisterNetEvent('sqz_unijob:CustomVehicleSpawnerEvent')
+AddEventHandler('sqz_unijob:CustomVehicleSpawnerEvent', function(index)
+
+    -- This event is triggered when a players open garage menu and Config.UseCustomGarageEvents is enabled
+    -- This event is for vehicles
+    -- The index is index of the table in the Config of your job (Like Vehicles, Vehicles2 ...)
+    ESX.UI.Menu.CloseAll() -- To close all the menu before opening a new one
+
+end)
+
+
+RegisterNetEvent('sqz_unijob:CustomAirCraftSpawnerEvent')
+AddEventHandler('sqz_unijob:CustomAirCraftSpawnerEvent', function(index)
+
+    -- This event is triggered when a players open garage menu and Config.UseCustomGarageEvents is enabled
+    -- This event is for AirPlanes and helicopters
+    -- The index is index of the table in the Config of your job (Like AirCrafts, AirCrafts2 ...)
+    ESX.UI.Menu.CloseAll() -- To close all the menu before opening a new one
+
+end)
+
+RegisterNetEvent('sqz_unijob:StoreVehicleCustom')
+AddEventHandler('sqz_unijob:StoreVehicleCustom', function()
+
+    -- This event is triggered when a players tries to store a vehicle and Config.UseCustomGarageEvents is enabled
+
+end)
+
 RegisterNetEvent('sqz_unijob:DrawText3Ds')
 AddEventHandler('sqz_unijob:DrawText3Ds', function(x,y,z, text)
 	local onScreen,_x,_y=World3dToScreen2d(x,y,z)

@@ -20,7 +20,7 @@ ESX.RegisterServerCallback('est_impound:loadVehicles', function(source, cb)
 	local s = source
 	local x = ESX.GetPlayerFromId(s)
 	
-	MySQL.Async.fetchAll('SELECT plate FROM owned_vehicles WHERE owner = @owner AND state = 1', {['@owner'] = x.identifier}, function(vehicles)
+	MySQL.Async.fetchAll('SELECT plate FROM owned_vehicles WHERE owner = @owner AND stored = 0', {['@owner'] = x.identifier}, function(vehicles)
 		cb(vehicles)
 	end)
 end)
@@ -56,7 +56,7 @@ end)
 
 RegisterNetEvent('est_impound:changeState')
 AddEventHandler('est_impound:changeState', function(plate, state)
-	MySQL.Sync.execute("UPDATE owned_vehicles SET state=@state = '0' WHERE plate=@plate", {['@state'] = state, ['@plate'] = plate})
+	MySQL.Sync.execute("UPDATE owned_vehicles SET stored=@stored = '1' WHERE plate=@plate", {['@state'] = state, ['@plate'] = plate})
 end)
 
 RegisterNetEvent('est_impound:saveProps')

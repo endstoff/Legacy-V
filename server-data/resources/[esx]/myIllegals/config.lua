@@ -12,6 +12,7 @@ Config.FarmingAreas = {
     {requiredJob = nil, xptype = nil, blip = {sprite = -1, color = 7, data = nil}, items = {{name = 'amphetamine', label = 'Amphetamine'}}, x = 2433.11328125, y = 4970.7255859375, z = 42.347602844238, range = 3.0, randoma = 1, randomb = 1, collectingTime = 10, animation = "PROP_HUMAN_BUM_BIN"},
     {requiredJob = nil, xptype = nil, blip = {sprite = -1, color = 7, data = nil}, items = {{name = 'carton', label = 'Karton'}}, x = -593.12225341797, y = -1607.2611083984, z = 27.010812759399, range = 3.0, randoma = 1, randomb = 3, collectingTime = 10, animation = "PROP_HUMAN_BUM_BIN"},
     {requiredJob = nil, xptype = nil, blip = {sprite = -1, color = 7, data = nil}, items = {{name = 'chemtrash', label = 'Chemieabfälle'}}, x = 853.11499023438, y = -958.36785888672, z = 26.282341003418, range = 3.0, randoma = 1, randomb = 1, collectingTime = 10, animation = "PROP_HUMAN_BUM_BIN"},
+    {requiredJob = nil, xptype = nil, blip = {sprite = -1, color = 7, data = nil}, items = {{name = 'malware', label = 'Malware Diskette'}}, x = -1044.8726806641, y = -240.38133239746, z = 37.964935302734, range = 1.0, randoma = 1, randomb = 1, collectingTime = 120, animation = "PROP_HUMAN_PARKING_METER"},
 }
 
 Config.CraftTime = 4 -- in sek
@@ -23,11 +24,14 @@ Config.Processor = {
     {requiredJob = nil, ItemsId = 2, label = 'Küche', XPType = 'chemical', ped = "csb_ortega", x = 1390.3225097656, y = 3606.9924316406, z = 38.941898345947, rot = 20.27},
     {requiredJob = nil, ItemsId = 3, label = 'Redneck', XPType = 'naturals', ped = "s_m_m_trucker_01", x = 1444.5367431641, y = 6333.451171875, z = 23.87401008606, rot = 87.94},
     {requiredJob = nil, ItemsId = 4, label = 'Waffenmanufaktur', XPType = 'weapon', ped = "csb_mweather", x = -1805.1008300781, y = 3088.8745117188, z = 32.841800689697, rot = 322.74},
+    {requiredJob = nil, ItemsId = 5, label = 'Utensilien', XPType = 'hacking', ped = "ig_lestercrest", x = 1275.7425537109, y = -1710.4105224609, z = 54.771446228027, rot = 190.98},
+    {requiredJob = nil, ItemsId = 6, label = 'Produkt verpacken', XPType = 'packing', ped = "g_m_m_chemwork_01", x = 153.86578369141, y = -3214.4899902344, z = 5.9286022186279, rot = 82.32},
 
 }
 
 Config.Seller = {
     {requiredJob = nil, isExport = true, label = 'Pablo', priceModifier = 20.0, x = -1153.1656494141, y = -1521.837890625, z = 10.642493247986, rot = 67.39},
+    {requiredJob = nil, isExport = false, label = 'Vermittler', priceModifier = 20.0, x = -445.00210571289, y = -2183.5539550781, z = 10.318190574646, rot = 67.39},
 }
 
 
@@ -87,7 +91,7 @@ Config.Items = {
         reqXP = 0,
         giveXP = {type = 'recycle', a = 1, b = 3},
         reqItems = {
-            {item = 'repairkit', label = 'Werkzeugkasten', amount = 1}},
+            {item = 'fixkit', label = 'Werkzeugkasten', amount = 1}},
         newitem = {sqlitem = 'highpress', label = 'Hochdruckventil'},
         newitemamount = 1,
         craftAmount = 10
@@ -214,8 +218,8 @@ Config.Items = {
 
     {
         id = 4,
-        reqXP = 8000,
-        giveXP = {type = 'weapon', a = 10, b = 30},
+        reqXP = 6000,
+        giveXP = {type = 'weapon', a = 100, b = 300},
         reqItems = {
             {item = 'grip', label = 'Griff', amount = 1},
             {item = 'barrel', label = 'Lauf', amount = 1},
@@ -229,7 +233,7 @@ Config.Items = {
 
     {
         id = 4,
-        reqXP = 20000,
+        reqXP = 10000,
         giveXP = {type = 'weapon', a = 10, b = 30},
         reqItems = {
             {item = 'highpress', label = 'Hochdruckventil', amount = 1},
@@ -245,14 +249,13 @@ Config.Items = {
     {
         id = 4,
         reqXP = 25000,
-        giveXP = {type = 'weapon', a = 10, b = 30},
+        giveXP = {type = 'weapon', a = 100, b = 300},
         reqItems = {
-            {item = 'autoload', label = 'Gasdruck Mechanismus', amount = 1},
-            {item = 'spring', label = 'Feder', amount = 1},
-            {item = 'barrel', label = 'Lauf', amount = 1},
             {item = 'grip', label = 'Griff', amount = 1},
-            {item = 'screws', label = 'Schrauben', amount = 5},
-            {item = 'steel', label = 'Stahl', amount = 5}},
+            {item = 'barrel', label = 'Lauf', amount = 1},
+            {item = 'autoload', label = 'Gasdruck Mechanismus', amount = 1},
+            {item = 'steel', label = 'Stahl', amount = 10},
+            {item = 'screws', label = 'Schrauben', amount = 5}},
         newitem = {sqlitem = 'smgcaselight', label = 'SMG-Koffer-Leicht'},
         newitemamount = 1,
         craftAmount = 1
@@ -260,7 +263,7 @@ Config.Items = {
 
     {
         id = 4,
-        reqXP = 55000,
+        reqXP = 45000,
         giveXP = {type = 'weapon', a = 10, b = 30},
         reqItems = {
             {item = 'autoload', label = 'Gasdruck Mechanismus', amount = 1},
@@ -273,6 +276,110 @@ Config.Items = {
         newitemamount = 1,
         craftAmount = 1
     },
+
+    {
+        id = 5,
+        reqXP = 0,
+        giveXP = {type = 'hacking', a = 10, b = 30},
+        reqItems = {
+            {item = 'usb_unbeschrieben', label = 'USB Stick - Unbeschrieben', amount = 1},
+            {item = 'malware', label = 'Malware Diskette', amount = 1}},
+        newitem = {sqlitem = 'usb_beschrieben', label = 'USB Stick - Beschrieben'},
+        newitemamount = 1,
+        craftAmount = 1
+    },
+
+    {
+        id = 5,
+        reqXP = 0,
+        giveXP = {type = 'hacking', a = 10, b = 30},
+        reqItems = {
+            {item = 'laptop', label = 'laptop', amount = 1},
+            {item = 'usb_cable', label = 'USB Kabel', amount = 1},
+            {item = 'malware', label = 'Malware Diskette', amount = 1}},
+        newitem = {sqlitem = 'hacking_laptop', label = 'Laptop'},
+        newitemamount = 1,
+        craftAmount = 1
+    },
+
+    {
+        id = 6,
+        reqXP = 0,
+        giveXP = {type = 'packing', a = 200, b = 300},
+        reqItems = {
+            {item = 'weed_pooch', label = 'Abgepacktes Weed', amount = 100}},
+        newitem = {sqlitem = 'weed_brick', label = 'Weed Paket'},
+        newitemamount = 1,
+        craftAmount = 1
+    },
+
+    {
+        id = 6,
+        reqXP = 0,
+        giveXP = {type = 'packing', a = 200, b = 300},
+        reqItems = {
+            {item = 'meth_pooch', label = 'Abgepacktes Meth', amount = 100}},
+        newitem = {sqlitem = 'meth_brick', label = 'Meth Paket'},
+        newitemamount = 1,
+        craftAmount = 1
+    },
+
+    {
+        id = 6,
+        reqXP = 0,
+        giveXP = {type = 'packing', a = 200, b = 300},
+        reqItems = {
+            {item = 'coke_pooch', label = 'Abgepacktes Kokain', amount = 100}},
+        newitem = {sqlitem = 'coke_brick', label = 'Kokain Paket'},
+        newitemamount = 1,
+        craftAmount = 1
+    },
+
+    {
+        id = 6,
+        reqXP = 0,
+        giveXP = {type = 'packing', a = 100, b = 200},
+        reqItems = {
+            {item = 'xtc', label = 'Extacy', amount = 100}},
+        newitem = {sqlitem = 'xtc_brick', label = 'Extacy Paket'},
+        newitemamount = 1,
+        craftAmount = 1
+    },
+
+    {
+        id = 6,
+        reqXP = 0,
+        giveXP = {type = 'packing', a = 100, b = 200},
+        reqItems = {
+            {item = 'lsd', label = 'LSD', amount = 100}},
+        newitem = {sqlitem = 'lsd_brick', label = 'LSD Paket'},
+        newitemamount = 1,
+        craftAmount = 1
+    },
+
+    {
+        id = 6,
+        reqXP = 0,
+        giveXP = {type = 'packing', a = 100, b = 200},
+        reqItems = {
+            {item = 'magicshroom', label = 'Magic Mushroom', amount = 100}},
+        newitem = {sqlitem = 'shroom_brick', label = 'Shroom Paket'},
+        newitemamount = 1,
+        craftAmount = 1
+    },
+
+    {
+        id = 6,
+        reqXP = 0,
+        giveXP = {type = 'packing', a = 100, b = 200},
+        reqItems = {
+            {item = 'kroko', label = 'Krokodil', amount = 100}},
+        newitem = {sqlitem = 'kroko_brick', label = 'Krokodil Paket'},
+        newitemamount = 1,
+        craftAmount = 1
+    },
+
+
 
 }
 
@@ -315,103 +422,136 @@ INSERT INTO `items` (`name`, `label`, `limit`, `rare`, `can_remove`) VALUES
 	('goldingot', 'Gold ingot', 60, 0, 1);
 ]]
 
-Config.RandomPickAmountOnStart = 7
+Config.RandomPickAmountOnStart = 5
 
 Config.LocalItems = {
-    {id = 1, label = 'Panic Catering', 
-    price = 155,
+    {id = 1, label = 'Weed Lieferung', 
+    price = 50000,
     requires = {
-        {item = 'flour', label = 'Mehl', amount = 6},
-        {item = 'apple', label = 'Äpfel', amount = 8},
+        {item = 'weed_brick', label = 'Weed Paket', amount = 1},
     }, 
-    destination = {x = -278.05, y = -2037.44, z = 30.15},
+    destination = {x = 2482.5847167969, y = 3722.2109375, z = 43.92163848877},
     state = 0,
     recommendJob = nil},
 
-    {id = 2, label = 'Richman Breakfast', 
-    price = 116, 
+    {id = 2, label = 'Meth Lieferung', 
+    price = 65000,
     requires = {
-        {item = 'mixedsalad', label = 'Gemischter Salat', amount = 3},
+        {item = 'meth_brick', label = 'Meth Paket', amount = 1},
     }, 
-    destination = {x = -1274.4, y = 314.91, z = 65.51},
+    destination = {x = 1592.8076171875, y = 3597.6745605469, z = 35.479736328125},
     state = 0,
     recommendJob = nil},
 
-    {id = 3, label = 'Richman Happy Hour', 
-    price = 685, 
+    {id = 3, label = 'Kokain Lieferung', 
+    price = 75000,
     requires = {
-        {item = 'bolcacahuetes', label = 'Peanuts', amount = 20},
-        {item = 'vodkapeanut', label = 'Nuss Nougat Wodka', amount = 10},
-        {item = 'vodkafruit', label = 'Frucht Wodka', amount = 10},
+        {item = 'coke_brick', label = 'Kokain Paket', amount = 1},
     }, 
-    destination = {x = -1274.4, y = 314.91, z = 65.51},
+    destination = {x = -1889.0581054688, y = 2050.7204589844, z = 140.98512268066},
     state = 0,
     recommendJob = nil},
 
-    {id = 4, label = 'Shark Bites Beach', 
-    price = 465, 
+    {id = 4, label = 'Extacy Lieferung', 
+    price = 8000,
     requires = {
-        {item = 'applejuice', label = 'Apfelsaft', amount = 8},
-        {item = 'berriesjuice', label = 'Beerensaft', amount = 8},
+        {item = 'xtc_brick', label = 'Extacy Paket', amount = 1},
     }, 
-    destination = {x = -1298.01, y = -1387.61, z = 4.54},
+    destination = {x = 126.75342559814, y = -1282.6983642578, z = 29.277154922485},
     state = 0,
     recommendJob = nil},
 
-    {id = 5, label = 'Airport Bilgeco', 
-    price = 1125, 
+    {id = 5, label = 'LSD Lieferung', 
+    price = 10000,
     requires = {
-        {item = 'tomatojuice', label = 'Tomatensaft', amount = 40},
+        {item = 'lsd_brick', label = 'LSD Paket', amount = 1},
     }, 
-    destination = {x = -874.55, y = -2735.07, z = 13.9},
+    destination = {x = 2338.0930175781, y = 2570.7575683594, z = 47.723930358887},
     state = 0,
     recommendJob = nil},
 
-    {id = 6, label = 'Crastenburg Breakfast', 
-    price = 506, 
+    {id = 6, label = 'Krokodil Lieferung', 
+    price = 16000,
     requires = {
-        {item = 'tomatos', label = 'Tomaten', amount = 20},
-        {item = 'mixedsalad', label = 'Gemischter Salat', amount = 10},
+        {item = 'kroko_brick', label = 'Krokodil Paket', amount = 1},
     }, 
-    destination = {x= -1858.72, y= -348.64, z = 49.84},
+    destination = {x = -20.888982772827, y = 3030.1721191406, z = 41.686408996582},
     state = 0,
     recommendJob = nil},
 
-    {id = 7, label = 'Construction', 
-    price = 300, 
+    {id = 7, label = 'Mushroom Lieferung', 
+    price = 5000,
     requires = {
-        {item = 'concrete', label = 'Beton', amount = 12},
+        {item = 'shroom_brick', label = 'Shroom Paket', amount = 1},
     }, 
-    destination = {x = -585.78631591797, y = -286.04611206055, z = 35.454780578613},
+    destination = {x = -1111.2973632812, y = 4937.5224609375, z = 218.38349914551},
     state = 0,
     recommendJob = nil},
 
-    {id = 8, label = 'Construction II', 
-    price = 500, 
+    {id = 8, label = 'Weed Export', 
+    price = 55000,
     requires = {
-        {item = 'concrete', label = 'Beton', amount = 25},
+        {item = 'weed_brick', label = 'Weed Paket', amount = 1},
     }, 
-    destination = {x = -939.75567626953, y = 160.41754150391, z = 65.983016967773},
+    destination = {x = 3807.916015625, y = 4478.6435546875, z = 6.3653903007507},
     state = 0,
     recommendJob = nil},
 
-    {id = 9, label = 'Construction III', 
-    price = 2000, 
+    {id = 9, label = 'Meth Export', 
+    price = 70000,
     requires = {
-        {item = 'concrete', label = 'Beton', amount = 100},
+        {item = 'meth_brick', label = 'Meth Paket', amount = 1},
     }, 
-    destination = {x = -97.227279663086, y = -1013.9320068359, z = 27.275217056274},
+    destination = {x = 3807.916015625, y = 4478.6435546875, z = 6.3653903007507},
     state = 0,
     recommendJob = nil},
 
-    {id = 10, label = 'Construction IV', 
-    price = 2200, 
+    {id = 10, label = 'Kokain Export', 
+    price = 85000,
     requires = {
-        {item = 'concrete', label = 'Beton', amount = 100},
+        {item = 'coke_brick', label = 'Kokain Paket', amount = 1},
     }, 
-    destination = {x = 907.39514160156, y = -1.5027470588684, z = 78.764083862305},
+    destination = {x = 3807.916015625, y = 4478.6435546875, z = 6.3653903007507},
     state = 0,
     recommendJob = nil},
+
+    {id = 11, label = 'Extacy Export', 
+    price = 10000,
+    requires = {
+        {item = 'xtc_brick', label = 'Extacy Paket', amount = 1},
+    }, 
+    destination = {x = 3807.916015625, y = 4478.6435546875, z = 6.3653903007507},
+    state = 0,
+    recommendJob = nil},
+
+    {id = 12, label = 'LSD Export', 
+    price = 15000,
+    requires = {
+        {item = 'lsd_brick', label = 'LSD Paket', amount = 1},
+    }, 
+    destination = {x = 3807.916015625, y = 4478.6435546875, z = 6.3653903007507},
+    state = 0,
+    recommendJob = nil},
+
+    {id = 13, label = 'Krokodil Export', 
+    price = 20000,
+    requires = {
+        {item = 'kroko_brick', label = 'Krokodil Paket', amount = 1},
+    }, 
+    destination = {x = 3807.916015625, y = 4478.6435546875, z = 6.3653903007507},
+    state = 0,
+    recommendJob = nil},
+
+    {id = 14, label = 'Mushroom Export', 
+    price = 8000,
+    requires = {
+        {item = 'shroom_brick', label = 'Shroom Paket', amount = 1},
+    }, 
+    destination = {x = 3807.916015625, y = 4478.6435546875, z = 6.3653903007507},
+    state = 0,
+    recommendJob = nil},
+
+    
 }
 
 

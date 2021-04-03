@@ -111,12 +111,13 @@ Config.WhitelistCars = {
 	[21] = {model = GetHashKey('ambulance'), job = {"ambulance"}},
 
 -- ACLS
-	[22] = {model = GetHashKey('flatbed'), job = {"mechanic"}},
-	[23] = {model = GetHashKey('towtruck'), job = {"mechanic"}},
-	[24] = {model = GetHashKey('towtruck2'), job = {"mechanic"}},
+	[22] = {model = GetHashKey('flatbed'), job = {"acls"}},
+	[23] = {model = GetHashKey('towtruck'), job = {"acls"}},
+	[24] = {model = GetHashKey('towtruck2'), job = {"acls"}},
 
 -- BMEISTER
 	[25] = {model = GetHashKey('cognoscenti'), job = {"bmeister"}},
+	[26] = {model = GetHashKey('taxi'), job = {"bmeister"}},
 
 }
 

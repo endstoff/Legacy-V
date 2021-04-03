@@ -429,7 +429,7 @@ table.insert(Config.DoorList, {
 })
 
 -- ACLS Garagen Tor
-table.insert(Config.DoorList, {
+--[[table.insert(Config.DoorList, {
 	objHash = -550347177,
 	objCoords = vector3(-356.1168, -134.7702, 40.00971),
 	slides = 6.0,
@@ -445,7 +445,7 @@ table.insert(Config.DoorList, {
 	-- audioLock = {['file'] = 'metal-locker.ogg', ['volume'] = 0.6},
 	-- audioUnlock = {['file'] = 'metallic-creak.ogg', ['volume'] = 0.7},
 	-- autoLock = 1000
-})
+})]]--
 
 --XX--XX--XX--XX--XX--XX--XX--XX--XX--XX--XX--XX--XX--XX--XX--XX--XX--XX--XX--XX--XX--XX--XX--XX--XX
 

@@ -6,7 +6,7 @@
 				'<div class="menu-items">' + 
 					'{{#elements}}' +
 						'<div class="menu-item {{#selected}}selected{{/selected}}">' +
-							'{{{label}}}{{#isSlider}} <span class="right-label"><i class="material-icons middle">keyboard_arrow_left</i>{{{sliderLabel}}}<i class="material-icons middle">keyboard_arrow_right</i></span>{{/isSlider}}' +
+							'{{{label}}}{{#isSlider}} : &lt;{{{sliderLabel}}}&gt;{{/isSlider}}' +
 						'</div>' +
 					'{{/elements}}' +
 				'</div>'+
@@ -116,13 +116,6 @@
 
 					if (i == ESX_MENU.pos[namespace][name]) {
 						element.selected = true;
-						// $('audio').each(function(){
-						// 	this.pause(); // Stop playing
-						// 	this.currentTime = 0; // Reset time
-						// }); 
-						// var a = new Audio('sound/select.mp3');
-    					// a.play();
-						//$('#audio-on-select').get(0).play();
 					}
 				}
 
@@ -141,7 +134,7 @@
 	};
 
 	ESX_MENU.submit = function(namespace, name, data) {
-		$.post('https://' + ESX_MENU.ResourceName + '/menu_submit', JSON.stringify({
+		$.post('http://' + ESX_MENU.ResourceName + '/menu_submit', JSON.stringify({
 			_namespace: namespace,
 			_name     : name,
 			current   : data,
@@ -150,14 +143,14 @@
 	};
 
 	ESX_MENU.cancel = function(namespace, name) {
-		$.post('https://' + ESX_MENU.ResourceName + '/menu_cancel', JSON.stringify({
+		$.post('http://' + ESX_MENU.ResourceName + '/menu_cancel', JSON.stringify({
 			_namespace: namespace,
 			_name     : name
 		}));
 	};
 
 	ESX_MENU.change = function(namespace, name, data) {
-		$.post('https://' + ESX_MENU.ResourceName + '/menu_change', JSON.stringify({
+		$.post('http://' + ESX_MENU.ResourceName + '/menu_change', JSON.stringify({
 			_namespace: namespace,
 			_name     : name,
 			current   : data,
@@ -298,12 +291,7 @@
 									let min = (typeof elem.min == 'undefined') ? 0 : elem.min;
 
 									if (elem.value > min) {
-										if(elem.decimal){
-											elem.value = elem.value-elem.decimal;
-										}else{
-											elem.value--;
-										}
-										
+										elem.value--;
 										ESX_MENU.change(focused.namespace, focused.name, elem);
 									}
 
@@ -334,22 +322,12 @@
 
 								case 'slider': {
 									if (typeof elem.options != 'undefined' && elem.value < elem.options.length - 1) {
-										if(elem.decimal){
-											elem.value = elem.value+elem.decimal;
-										}else{
-											elem.value++;
-										}
-										
+										elem.value++;
 										ESX_MENU.change(focused.namespace, focused.name, elem);
 									}
 
 									if (typeof elem.max != 'undefined' && elem.value < elem.max) {
-										if(elem.decimal){
-											elem.value = elem.value+elem.decimal;
-										}else{
-											elem.value++;
-										}
-										
+										elem.value++;
 										ESX_MENU.change(focused.namespace, focused.name, elem);
 									}
 

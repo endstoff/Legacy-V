@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "F:\\[FiveM]\\[Scripting]\\saltychat\\SaltyServer\\SaltyServer.csproj": {}
+    "C:\\Users\\Semir\\Documents\\saltychat\\SaltyServer\\SaltyServer.csproj": {}
   },
   "projects": {
-    "F:\\[FiveM]\\[Scripting]\\saltychat\\SaltyServer\\SaltyServer.csproj": {
+    "C:\\Users\\Semir\\Documents\\saltychat\\SaltyServer\\SaltyServer.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "F:\\[FiveM]\\[Scripting]\\saltychat\\SaltyServer\\SaltyServer.csproj",
+        "projectUniqueName": "C:\\Users\\Semir\\Documents\\saltychat\\SaltyServer\\SaltyServer.csproj",
         "projectName": "SaltyServer.net",
-        "projectPath": "F:\\[FiveM]\\[Scripting]\\saltychat\\SaltyServer\\SaltyServer.csproj",
+        "projectPath": "C:\\Users\\Semir\\Documents\\saltychat\\SaltyServer\\SaltyServer.csproj",
         "packagesPath": "C:\\Users\\Semir\\.nuget\\packages\\",
-        "outputPath": "F:\\[FiveM]\\[Scripting]\\saltychat\\SaltyServer\\obj\\",
+        "outputPath": "C:\\Users\\Semir\\Documents\\saltychat\\SaltyServer\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

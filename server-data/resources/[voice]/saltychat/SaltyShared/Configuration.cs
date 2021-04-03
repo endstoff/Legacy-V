@@ -15,14 +15,18 @@ namespace SaltyShared
         public ulong[] SwissChannelIds { get; set; } = new ulong[0];
 
         public float[] VoiceRanges { get; set; } = new float[] { 3f, 8f, 15f, 32f };
+        public bool EnableVoiceRangeNotification { get; set; } = true;
+        public string VoiceRangeNotification { get; set; } = "New voice range is {voicerange} metres.";
+        public int RadioType { get; set; } = 4;
+        public bool EnableRadioHardcoreMode { get; set; } = true;
         public float MegaphoneRange { get; set; } = 120f;
         public string NamePattern { get; set; } = "{guid}";
         public bool RequestTalkStates { get; set; } = true;
         public bool RequestRadioTrafficStates { get; set; } = false;
 
-        public int ToggleRange { get; set; } = 243; //EnterCheatCode
-        public int TalkPrimary { get; set; } = 249; //PushToTalk
-        public int TalkSecondary { get; set; } = 137; //VehiclePushbikeSprint
-        public int TalkMegaphone { get; set; } = 29; //SpecialAbilitySecondary
+        public string ToggleRange { get; set; } = "F1";
+        public string TalkPrimary { get; set; } = "N";
+        public string TalkSecondary { get; set; } = "CAPITAL";
+        public string TalkMegaphone { get; set; } = "B";
     }
 }
