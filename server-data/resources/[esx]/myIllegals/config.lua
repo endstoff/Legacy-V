@@ -7,7 +7,7 @@ Config.ShowFarmingBlipText = true
 
 Config.FarmingAreas = { 
 
-    {requiredJob = nil, xptype = nil, blip = {sprite = -1, color = 7, data = nil}, items = {{name = 'carbatt', label = 'Autobatterie'}}, x = 2334.5830078125, y = 3050.7287597656, z = 48.151702880859, range = 5.0, randoma = 1, randomb = 2, collectingTime = 10, animation = "WORLD_HUMAN_WELDING"},
+    {requiredJob = nil, xptype = nil, blip = {sprite = -1, color = 7, data = nil}, items = {{name = 'carbatt', label = 'Autobatterie'}}, x = 822.5078125, y = -830.55236816406, z = 26.279895782471, range = 3.0, randoma = 1, randomb = 3, collectingTime = 10, animation = "PROP_HUMAN_BUM_BIN"},
     {requiredJob = nil, xptype = nil, blip = {sprite = -1, color = 7, data = nil}, items = {{name = 'psiloshroom', label = 'Psilocybine Pilze'}}, x = -2156.1760253906, y = 2441.3217773438, z = 3.2220993041992, range = 10.0, randoma = 1, randomb = 2, collectingTime = 10, animation = "PROP_HUMAN_BUM_BIN"},
     {requiredJob = nil, xptype = nil, blip = {sprite = -1, color = 7, data = nil}, items = {{name = 'amphetamine', label = 'Amphetamine'}}, x = 2433.11328125, y = 4970.7255859375, z = 42.347602844238, range = 3.0, randoma = 1, randomb = 1, collectingTime = 10, animation = "PROP_HUMAN_BUM_BIN"},
     {requiredJob = nil, xptype = nil, blip = {sprite = -1, color = 7, data = nil}, items = {{name = 'carton', label = 'Karton'}}, x = -593.12225341797, y = -1607.2611083984, z = 27.010812759399, range = 3.0, randoma = 1, randomb = 3, collectingTime = 10, animation = "PROP_HUMAN_BUM_BIN"},
@@ -20,7 +20,7 @@ Config.CraftBlipIcon = -1
 Config.CraftBlipColour = 0
 
 Config.Processor = {
-    {requiredJob = nil, ItemsId = 1, label = 'Recycler', XPType = 'recycle', ped = "s_m_y_garbage", x = 472.47836303711, y = -1311.0555419922, z = 29.218948364258, rot = 120.33},
+    {requiredJob = nil, ItemsId = 1, label = 'Recycler', XPType = 'recycle', ped = "s_m_y_garbage", x = -52.384143829346, y = -2524.2770996094, z = 7.4011750221252, rot = 52.23},
     {requiredJob = nil, ItemsId = 2, label = 'Küche', XPType = 'chemical', ped = "csb_ortega", x = 1390.3225097656, y = 3606.9924316406, z = 38.941898345947, rot = 20.27},
     {requiredJob = nil, ItemsId = 3, label = 'Redneck', XPType = 'naturals', ped = "s_m_m_trucker_01", x = 1444.5367431641, y = 6333.451171875, z = 23.87401008606, rot = 87.94},
     {requiredJob = nil, ItemsId = 4, label = 'Waffenmanufaktur', XPType = 'weapon', ped = "csb_mweather", x = -1805.1008300781, y = 3088.8745117188, z = 32.841800689697, rot = 322.74},

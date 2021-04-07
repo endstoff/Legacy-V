@@ -26,7 +26,7 @@ Citizen.CreateThread(function()
 	end
 end)
 
-AddEventHandler('skinchanger:modelLoaded', function()
+AddEventHandler('esx_skin:modelLoaded', function()
 	ESX.TriggerServerCallback('SmallTattoos:GetPlayerTattoos', function(tattooList)
 		if tattooList then
 			ClearPedDecorations(PlayerPedId())
@@ -84,7 +84,7 @@ function DrawTattoo(collection, name)
 end
 
 function GetNaked()
-	TriggerEvent('skinchanger:getSkin', function()
+	TriggerEvent('cui_character:getSkin', function()
 		if GetEntityModel(PlayerPedId()) == `mp_m_freemode_01` then
 			TriggerEvent('skinchanger:loadSkin', {
 				sex      = 0,
@@ -116,8 +116,8 @@ function GetNaked()
 end
 
 function ResetSkin()
-	ESX.TriggerServerCallback('esx_skin:getPlayerSkin', function(skin)
-		TriggerEvent('skinchanger:loadSkin', skin)
+	ESX.TriggerServerCallback('skinchanger:getPlayerSkin', function(skin)
+		TriggerEvent('cui_character:loadSkin', skin)
 	end)
 	ClearPedDecorations(PlayerPedId())
 	for k, v in pairs(currentTattoos) do
@@ -167,6 +167,7 @@ function BuyTattoo(collection, name, label, price)
 	ESX.TriggerServerCallback('SmallTattoos:PurchaseTattoo', function(success)
 		if success then
 			table.insert(currentTattoos, {collection = collection, nameHash = name, Count = opacity})
+			TriggerServerEvent('esx_skin:save')
 		end
 	end, currentTattoos, price, {collection = collection, nameHash = name, Count = opacity}, GetLabelText(label))
 end
@@ -178,6 +179,7 @@ function RemoveTattoo(name, label)
 		end
 	end
 	TriggerServerEvent("SmallTattoos:RemoveTattoo", currentTattoos)
+	TriggerServerEvent('esx_skin:save')
 	ESX.ShowNotification("Sie haben das ~y~" .. GetLabelText(label) .. "~s~ Tattoo entfernt")
 end
 

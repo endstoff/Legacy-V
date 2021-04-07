@@ -1,5 +1,5 @@
 <IMPORTANT>
-THIS IS VERSION 0.6
+THIS IS VERSION 0.61
 Join my Discord and open a Ticket.
 
 Then type in .checkpayment <YOURTRANCSACTIONID>
@@ -44,8 +44,40 @@ if number = 1 then the service doenst have a own number. Simple change it to the
 If you want to replace a locale you need to change it in the config but also in the html > js > locales.js
 There are some locales in the js > locales folder
 
-7. If you dont have an item called "phone", create one in your database
-6. YOU NEED TO ADD YOUR IP IN MY DISCORD WRITE THIS IN THE TICKET. OTHERWISE IT WONT WORK
+6. If you dont have an item called "phone", create one in your database
+
+7. Open server > test.lua and remove the 
+--[[
+
+]]
+
+From the correct Version.
+e.g. if youre using ESX 1.2 change this
+```lua
+-- ESX 1.2
+--[[
+ESX.RegisterCommand('sca', 'user', function(xPlayer, args, showError)
+    TriggerClientEvent("d-phone:client:acceptsharecontact", xPlayer.source)
+  end)
+  
+  ESX.RegisterCommand('scd', 'user', function(xPlayer, args, showError)
+    TriggerClientEvent("d-phone:client:declinesharecontact", xPlayer.source)
+  end)
+  ]]
+  ```
+  to
+```lua
+ESX.RegisterCommand('sca', 'user', function(xPlayer, args, showError)
+    TriggerClientEvent("d-phone:client:acceptsharecontact", xPlayer.source)
+  end)
+  
+  ESX.RegisterCommand('scd', 'user', function(xPlayer, args, showError)
+    TriggerClientEvent("d-phone:client:declinesharecontact", xPlayer.source)
+  end)
+  ```
+
+ 
+8. YOU NEED TO ADD YOUR IP IN MY DISCORD WRITE THIS IN THE TICKET. OTHERWISE IT WONT WORK
 
 <Support>
 If there are any bugs then report these on my Discord > https://discord.gg/tngc5yN6mf

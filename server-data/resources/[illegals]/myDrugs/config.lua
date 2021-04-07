@@ -28,9 +28,9 @@ Config.BlackMoneyName = 'black_money'
 
 Config.SellItems = { -- set up the items here, that your players can sell at the seller - You can set up the items they get in the missions config.
 
-    {sqlitem = 'weed_pooch', label = 'Weed', priceBuy = 400.0},
-    {sqlitem = 'meth_pooch', label = 'Meth', priceBuy = 500.0},
-    {sqlitem = 'coke_pooch', label = 'Coke', priceBuy = 600.0},
+    {sqlitem = 'weed_pooch', label = 'Weed', priceBuy = 800.0},
+    {sqlitem = 'meth_pooch', label = 'Meth', priceBuy = 1000.0},
+    {sqlitem = 'coke_pooch', label = 'Coke', priceBuy = 1200.0},
 
 }
 
@@ -68,7 +68,7 @@ Config.Vehicles = {
 
     {model = "dloader", label = 'Bravado Duneloader', price = 50000},
     {model = "burrito3", label = 'Declasse Burrito', price = 75000},
-    {model = "mule2", label = 'Maibatsu Mule', price = 100000},
+    {model = "benson", label = 'Vapid Benson', price = 100000},
 
 }
 
@@ -85,9 +85,9 @@ Config.Farms = {
     --{id = 5, type = "weed", name = "SWeed", label = "Sandy Weed", price = 410000, enter = {x = 1407.08, y = 3603.46, z = 35.0}, inside = {x = 1064.67, y = -3182.66, z = -39.16, rot = 133.74}, bossActions = {x = 1044.02, y = -3194.92, z = -38.16}, spawnVehicle = {x = 1411.14, y = 3620.41, z = 34.89, rot = 304.19}},
     --{id = 6, type = "coke", name = "SCoke", label = "Desert Coke", price = 490000, enter = {x = 2404.55, y = 3127.57, z = 48.15}, inside = {x = 1088.61, y = -3187.81, z = -38.99, rot = 180.0}, bossActions = {x = 1087.4, y = -3194.22, z = -38.99}, spawnVehicle = {x = 2408.06, y = 3138.08, z = 48.17, rot = 241.86}},
     --{id = 7, type = "weed", name = "PWeed", label = "Paleto Weed", price = 340000, enter = {x = -400.21, y = 6378.26, z = 14.07}, inside = {x = 1064.67, y = -3182.66, z = -39.16, rot = 133.74}, bossActions = {x = 1044.02, y = -3194.92, z = -38.16}, spawnVehicle = {x = -409.76, y = 6377.92, z = 13.99, rot = 292.77}},
-    --{id = 8, type = "meth", name = "HMeth", label = "Port Meth", price = 480000, enter = {x = -253.68, y = -2591.14, z = 6.0}, inside = {x = 997.3, y = -3200.57, z = -36.39, rot = 260.1}, bossActions = {x = 1002.09, y = -3195.21, z = -38.99}, spawnVehicle = {x = -257.35, y = -2586.52, z = 6.0, rot = 94.65}},
-    --{id = 9, type = "weed", name = "CWeed", label = "City Hanfplantage", price = 465000, enter = {x = -400.21, y = 6378.26, z = 14.07}, inside = {x = 1064.67, y = -3182.66, z = -39.16, rot = 133.74}, bossActions = {x = 1044.02, y = -3194.92, z = -38.16}, spawnVehicle = {x = 1111.34, y = -2280.78, z = 30.27, rot = 81.42}},
-    --{id = 10, type = "coke", name = "CCoke", label = "City Coke", price = 570000, enter = {x = -1421.74, y = -641.16, z = 28.67}, inside = {x = 1088.61, y = -3187.81, z = -38.99, rot = 180.0}, bossActions = {x = 1087.4, y = -3194.22, z = -38.99}, spawnVehicle = {x = -1425.48, y = -649.9, z = 28.67, rot = 215.43}},
+    {id = 8, type = "meth", name = "HMeth", label = "Port Meth", price = 380000, enter = {x = -253.68, y = -2591.14, z = 6.0}, inside = {x = 997.3, y = -3200.57, z = -36.39, rot = 260.1}, bossActions = {x = 1002.09, y = -3195.21, z = -38.99}, spawnVehicle = {x = -257.35, y = -2586.52, z = 6.0, rot = 94.65}},
+    {id = 9, type = "weed", name = "CWeed", label = "City Hanfplantage", price = 365000, enter = {x = -400.21, y = 6378.26, z = 14.07}, inside = {x = 1064.67, y = -3182.66, z = -39.16, rot = 133.74}, bossActions = {x = 1044.02, y = -3194.92, z = -38.16}, spawnVehicle = {x = 1111.34, y = -2280.78, z = 30.27, rot = 81.42}},
+    {id = 10, type = "coke", name = "CCoke", label = "City Coke", price = 470000, enter = {x = -1421.74, y = -641.16, z = 28.67}, inside = {x = 1088.61, y = -3187.81, z = -38.99, rot = 180.0}, bossActions = {x = 1087.4, y = -3194.22, z = -38.99}, spawnVehicle = {x = -1425.48, y = -649.9, z = 28.67, rot = 215.43}},
 }
 
 Config.EnableMissionMarker = true

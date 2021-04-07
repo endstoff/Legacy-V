@@ -21,7 +21,7 @@ RegisterServerEvent('matif_headlights:install')
 AddEventHandler('matif_headlights:install', function(plate)
     local _src = source
     xPlayer = ESX.GetPlayerFromId(source)
-    if xPlayer.getJob().name == 'mechanic' or xPlayer.getJob().name == 'bennys' then
+    if xPlayer.getJob().name == 'mechanic' or xPlayer.getJob().name == 'bennys' or xPlayer.getJob().name == 'acls' or xPlayer.getJob().name == 'bcustoms' then
         MySQL.Async.fetchScalar('SELECT color FROM owned_vehicles WHERE plate = @plate', {
             ['@plate'] = plate
         }, function(result)

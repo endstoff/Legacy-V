@@ -289,6 +289,7 @@ function finishSpawn(pos, isnew)
     end
 	
 	TriggerEvent('myMultichar:loaded')
+    TriggerServerEvent("d-phone:server:loaduserdata", GetPlayerServerId(PlayerId()))
 	
 end
 

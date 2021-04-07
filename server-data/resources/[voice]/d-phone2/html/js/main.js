@@ -12,6 +12,7 @@ let backgroundurl = null
 let darkbackgroundurl = null
 let lastservicenumber = null
 let darkmode = false;
+let bankmoney = null
 
 $(function() {
     var documentWidth = document.documentElement.clientWidth;
@@ -94,6 +95,18 @@ $(function() {
             syncclosebmessage(item.number)
         } else if (item.updatenumber) {
             $("#phonesettingsnumber").html(item.number);
+        } else if (item.updatejobmoney) {
+            businessmoney = item.businessmoney
+            $("#pbms-money").html(item.businessmoney + "$");
+        } else if (item.isboss) {
+            $("#pbsjobmoney").html(locale.pbsjobmoney);
+            $("#pbsboss").each(function() {
+                $(this).show();
+            });
+        } else if (item.isntboss) {
+            $("#pbsboss").each(function() {
+                $(this).hide();
+            });
         }
     });
 
@@ -176,6 +189,7 @@ $(document).on('click', '.phone-application', function(e) {
         }
     } else if (PressedApplication == "business") {
         let job = $(this).data('job');
+        $(".phone-businessapp").show();
         sendData("showBusiness", { job: job })
         $(".phone-settings").hide();
         currentjob = job
@@ -409,17 +423,26 @@ $(document).on('click', '#phone-ba-member-message', function() {
 
 $(document).on('click', '#pbf-member', function() {
     $(".phone-businessapp-settings").hide();
+    $(".phone-businessapp-rank-sector").hide();
+    $(".phone-businessapp-newrank-sector").hide();
+    $(".phone-businessapp-money-sector").hide(0);
     sendData("showBusiness", { job: currentjob })
 });
 
 $(document).on('click', '#pbf-messages', function() {
     $(".phone-businessapp-settings").hide();
+    $(".phone-businessapp-rank-sector").hide();
+    $(".phone-businessapp-newrank-sector").hide();
+    $(".phone-businessapp-money-sector").hide(0);
     sendData("showBusinessMessages", { job: currentjob })
 });
 
 $(document).on('click', '#pbf-settings', function() {
     $(".phone-recent-businessapp-sector").hide();
     $(".phone-businessapp-message").hide();
+    $(".phone-businessapp-rank-sector").hide();
+    $(".phone-businessapp-newrank-sector").hide();
+    $(".phone-businessapp-money-sector").hide(0);
     $(".phone-businessapp-sector").hide();
     $(".phone-businessapp-settings").fadeIn(250);
 });
@@ -460,6 +483,7 @@ function loadbusinessmessages(html, div) {
     $(".phone-recent-businessapp-sector").hide();
     $(".phone-businessapp-message").fadeIn(250);
     $(".phone-businessapp-chat").scrollTop($(".phone-businessapp-chat")[0].scrollHeight);
+    lastwindow = "businessmessage"
 }
 
 $(document).on('click', '#phone-businessapp-send', function() {
@@ -489,6 +513,8 @@ $(document).on('click', '#phone-businessapp-return', function() {
     $(".phone-businessapp").hide();
 
     $(".phone-applications").fadeIn(250);
+
+    lastwindow = null
 });
 
 $(document).on('click', '#enablejobnumber', function() {
@@ -503,6 +529,82 @@ $(document).on('click', '#backmotd', function() {
     $(".phone-businessapp-motd").fadeOut(250);
 });
 
+let businessid = null
+$(document).on('click', '#phone-ba-member-managment', function() {
+    $(".phone-businessapp-sector").hide(0);
+    $(".phone-businessapp-rank-sector").fadeIn(250);
+    var name = $(this).data('name');
+    var rank = $(this).data('rank');
+    var grade = $(this).data('grade');
+    businessid = $(this).data('id');
+    $("#pbrs-name").html(name);
+    $("#pbrs-rankname").html(rank);
+    $("#pbrs-grade").html(grade);
+});
+
+$(document).on('click', '#pbrs-uprank', function() {
+    sendData("businessapp:uprank", { id: businessid, grade: $("#pbrs-grade").html() })
+    CloseAll();
+    Home();
+
+});
+$(document).on('click', '#pbrs-derank', function() {
+    sendData("businessapp:derank", { id: businessid, grade: $("#pbrs-grade").html() })
+    CloseAll();
+    Home();
+
+});
+
+$(document).on('click', '#pbrs-fire', function() {
+    sendData("businessapp:fire", { id: businessid })
+    CloseAll();
+    Home();
+
+});
+
+$(document).on('click', '#pbrs-recruit', function() {
+    let id = $("#pbns-id").val();
+    let newrank = $("#pbns-newrank2").val();
+
+    sendData("businessapp:recruit", { id: id, rank: newrank })
+
+    CloseAll();
+    Home();
+
+});
+
+$(document).on('click', '#pbrs-updaterank', function() {
+    let newrank = $("#pbns-newrank").val();
+
+    sendData("businessapp:updaterank", { id: businessid, rank: newrank })
+
+    CloseAll();
+    Home();
+});
+
+$(document).on('click', '#seejobmoney', function() {
+    $(".phone-businessapp-settings").hide(0);
+    $(".phone-businessapp-money-sector").fadeIn(250);
+    $("#pbms-money").html(businessmoney + "$");
+});
+
+$(document).on('click', '#pmbs-deposit', function() {
+    let amount = $("#pbms-amount").val();
+
+    sendData("businessapp:depositmoney", { amount: amount })
+});
+
+$(document).on('click', '#pmbs-withdraw', function() {
+    let amount = $("#pbms-amount").val();
+    sendData("businessapp:withdrawmoney", { amount: amount })
+});
+
+
+$(document).on('click', '#phone-addnewmember', function() {
+    $(".phone-businessapp-sector").hide(0);
+    $(".phone-businessapp-newrank-sector").fadeIn(250);
+});
+
 $(document).on('click', '#motdsubmit', function() {
     $(".phone-businessapp-motd").fadeOut(250);
     var message = $('#motd').val();
@@ -514,6 +616,7 @@ function bpbaccept() {
     var declinebutton = "#bpb-decline-" + selectednumber
 
     $(acceptbutton).css({ 'width': '0%', "tranistion": ".5" });
+    $(acceptbutton).css({ 'display': 'none' });
     $(declinebutton).css({ 'width': '100%', "tranistion": ".5" });
 
 
@@ -665,6 +768,9 @@ function CloseAll() {
     $(".phone-settings").hide();
     $(".phone-services").hide();
     $(".phone-businessapp").hide();
+    $(".phone-businessapp-rank-sector").hide();
+    $(".phone-businessapp-newrank-sector").hide();
+    $(".phone-businessapp-money-sector").hide(0);
     $(".phone-radio").hide();
     $(".phone-twitter").hide();
     $(".phone-bankapp").hide();

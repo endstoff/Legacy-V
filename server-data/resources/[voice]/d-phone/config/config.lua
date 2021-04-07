@@ -5,13 +5,13 @@ Config.Locale             = 'de'
 Config.Openkey = 288
 Config.NeedItem = true
 
-Config.CustomNotification = false
-Config.MultiChar = false
+Config.CustomNotification = true
 
 -- If you're server is slow, make this higher
-Config.StartupTime = 3000
-Config.MysqlWaitingTime = 1000
-Config.UserDataWaitingTime = 1000
+Config.FirstTimeSQL = 2000
+Config.MysqlWaitingTime = 750
+Config.UserDataWaitingTime = 750
+Config.RecentMessagesWait = 100
 
 -- ESX Events DONT TOUCH THIS IF YOU DONT EXACTLY KNOW WHAT THESE DOES
 Config.esxgetSharedObjectevent = 'esx:getSharedObject'
@@ -38,8 +38,8 @@ Config.Prefix = true
 Config.LowerPrefix = 555
 Config.HigherPrefix = 555
 
-Config.LowerNumber = 10000
-Config.HigherNumber = 99999
+Config.LowerNumber = 1000
+Config.HigherNumber = 9999
 
 -- Voice Chat [only 1 can be true]
 Config.TokoVoip = false

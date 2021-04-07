@@ -95,3 +95,23 @@ locale.placeholdercardnumber = "KARTENNUMMER";
 locale.bankapptransferamount = "Betrag";
 locale.placeholderamount = "BETRAG";
 locale.bankapptransferbutton = "BESTÄTIGEN";
+
+// 0.61
+// Businessapp
+locale.magnagment = "MANAGMENT";
+locale.pbrsnameheadline = "Name:";
+locale.pbrsgradeheadline = "Rang:";
+locale.pbrsrankheadline = "Rankname:";
+locale.pbrsuprank = "UPRANK";
+locale.pbrsderank = "DERANK";
+locale.pbrsupdaterank = "RANG SETZEN";
+locale.pbrsfire = "FEUERN";
+locale.pbrsrecruitheadline = "REKRUTIEREN";
+locale.pbrsrecruit = "REKRUTIEREN";
+
+locale.pbmsheadlineheadline = "Kontostand";
+locale.pbmsnameheadline = "Kontostand";
+locale.pbmsamount = "Betrag";
+locale.pmbsdeposit = "Einzahlen";
+locale.pmbswithdraw = "Auszahlen";
+locale.pbsjobmoney = "Kontostand";

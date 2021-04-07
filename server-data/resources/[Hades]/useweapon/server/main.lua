@@ -65,3 +65,19 @@ ESX.RegisterUsableItem('smgcaselight', function(source)
 	end
 
 end)
+
+ESX.RegisterUsableItem('brassknuckles', function(source)
+	local xPlayer = ESX.GetPlayerFromId(source)
+	xPlayer.removeInventoryItem('brassknuckles', 1)
+	local weaponName = 'WEAPON_KNUCKLE'
+	if ESX.GetWeapon(weaponName) then
+		weaponName = string.upper(weaponName)
+	end
+
+	if xPlayer.hasWeapon(weaponName) then
+		TriggerClientEvent('chat:addMessage', source, { args = { '^1SYSTEM', 'Player already has that weapon.' } })
+	else
+		xPlayer.addWeapon(weaponName, 1)
+	end
+
+end)

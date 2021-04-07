@@ -34,7 +34,7 @@ Config.webhooks = {
 	chat = "https://discord.com/api/webhooks/793252348625420298/33lx79vPoEOrTfgYQRq7G3wCPcA5S6FoR7VY4oKZqPyYskR6y1fSBJAB5YWYL_VKiDri",
 	joins = "https://discord.com/api/webhooks/793252348625420298/33lx79vPoEOrTfgYQRq7G3wCPcA5S6FoR7VY4oKZqPyYskR6y1fSBJAB5YWYL_VKiDri",
 	leaving = "https://discord.com/api/webhooks/793252348625420298/33lx79vPoEOrTfgYQRq7G3wCPcA5S6FoR7VY4oKZqPyYskR6y1fSBJAB5YWYL_VKiDri",
-	deaths = "https://discord.com/api/webhooks/802160352472203284/poUc7K5PfSo9CUyq2y18K0KXdPcnEpnnYDlRXZInyFQVUlOR5cXstSmBropIXSBoAaEn",
+	deaths = "https://discord.com/api/webhooks/793252348625420298/33lx79vPoEOrTfgYQRq7G3wCPcA5S6FoR7VY4oKZqPyYskR6y1fSBJAB5YWYL_VKiDri",
 	shooting = "https://discord.com/api/webhooks/808335181848379424/ovjAzKqcBlf-9KdLgelNo6hXlu3jkucabSGKq7w2ktrK8i6z-7soT79jg7IiC1j7Yd3Z",
 	resources = "https://discord.com/api/webhooks/793252348625420298/33lx79vPoEOrTfgYQRq7G3wCPcA5S6FoR7VY4oKZqPyYskR6y1fSBJAB5YWYL_VKiDri",
 }
@@ -42,4 +42,4 @@ Config.webhooks = {
 
  --Debug shizzels :D
 Config.debug = false
-Config.versionCheck = "1.1.3"
+Config.versionCheck = "1.1.6"

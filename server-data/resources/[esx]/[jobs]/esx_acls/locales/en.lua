@@ -1,8 +1,10 @@
 Locales['en'] = {
   ['acls'] = 'Auto Club Los Santos',
+  ['acls_stock'] = 'ACLS Lager',
   ['drive_to_indicated'] = '~y~Fahre~s~ an den angegebenen ~g~Ort~s~.',
   ['mission_canceled'] = 'Mission ~r~abgebrochen~s~',
   ['vehicle_list'] = 'Fahrzeugliste',
+  ['quantity'] = 'Anzahl',
   ['work_wear'] = 'Arbeitskleidung',
   ['civ_wear'] = 'Zivilkleidung',
   ['deposit_stock'] = 'Gegenstand Einlagern',

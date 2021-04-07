@@ -62,6 +62,7 @@ Locales['en'] = {
     ['gotrecruit'] = "You got recruited to %s, your rank is %s" ,
 
         -- 0.615
-        ['phoneloading'] = "Your phone is still starting, wait a moment" ,
+        ['phoneloading'] = "Your phone is still starting. This process takes %s seconds"  ,
+        ['yourphonestarted'] = "Your phone started successfully"  ,
 }
 

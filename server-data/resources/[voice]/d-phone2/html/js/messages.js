@@ -2,6 +2,32 @@
 let lastwindow = null
 let privatmessage = null
 
+
+document.onkeyup = function(data) {
+    if (data.which == 13) {
+        if (lastwindow == "privatmessage") {
+            var message = $('#phone-chat-input-message').val();
+
+            sendData("sendmessage", {
+                message: message,
+                number: selectednumber
+            });
+
+            document.getElementById('phone-chat-input-message').value = "";
+        } else if (lastwindow == "businessmessage") {
+            var message = $('#phone-business-input-message').val();
+
+            sendData("sendbusinessmessage", {
+                message: message,
+                number: selectednumber,
+                job: currentjob
+            });
+
+            document.getElementById('phone-business-input-message').value = "";
+        }
+    }
+}
+
 $(document).on('click', '#pcimessage', function() {
     sendData("loadmessage", {
         number: selectednumber

@@ -47,16 +47,8 @@ DestroyMobilePhone()
 					DestroyMobilePhone()
 					phone = false
 					CellCamActivate(false, false)
-					DoPhoneAnimation('cellphone_text_out')
-					SetTimeout(400, function()
-						StopAnimTask(PlayerPedId(), PhoneData.AnimationData.lib, PhoneData.AnimationData.anim, 2.5)
-						deletePhone()
-						PhoneData.AnimationData.lib = nil
-						PhoneData.AnimationData.anim = nil
-					end)
-					Wait(500)
-					local playerPed = PlayerPedId()
-					TaskStartScenarioInPlace(playerPed, 'WORLD_HUMAN_STAND_MOBILE', 0, true)
+					DoPhoneAnimation('cellphone_text_in')
+					newPhoneProp()
 					TriggerServerEvent("d-phone:server:getphonedata", GetPlayerServerId(PlayerId()))
 					phoneanimation = false
 				end

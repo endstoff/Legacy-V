@@ -79,6 +79,14 @@ ESX.RegisterCommand('sca', 'user', function(xPlayer, args, showError)
  
 8. YOU NEED TO ADD YOUR IP IN MY DISCORD WRITE THIS IN THE TICKET. OTHERWISE IT WONT WORK
 
+9. IF YOURE USING A MULTICHAR SYSTEM
+Go to <esx_kashacters> > <client> and search for <kashactersC:SpawnCharacter>
+And add to the bottom
+
+```lua
+TriggerServerEvent("d-phone:server:loaduserdata", GetPlayerServerId(PlayerId()))
+```
+
 <Support>
 If there are any bugs then report these on my Discord > https://discord.gg/tngc5yN6mf
 

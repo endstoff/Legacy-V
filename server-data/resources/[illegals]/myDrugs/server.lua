@@ -309,7 +309,7 @@ ESX.RegisterServerCallback('myDrugs:getPlayersInArea', function(source, cb, posi
         end
     end
     cb(players)
-end)
+  end)
   
   
   --
@@ -427,9 +427,14 @@ AddEventHandler('myDrugs:giveFinalItem', function(farmID, amount, type)
 
     for k, v in pairs(farmOwner) do
         if v.id == farmID then
-            newFinish = farmOwner[k].finish - amount
-            farmOwner[k].finish = newFinish
-            editedLine = k
+			if farmOwner[k].finish >= amount then
+				newFinish = farmOwner[k].finish - amount
+				farmOwner[k].finish = newFinish
+				editedLine = k
+			else
+				print('Tried to get too much drugs. Attempt was blocked')
+				return
+			end
         break
         end
     end

@@ -171,7 +171,7 @@ ShellOffsets = {
   Medium3       = {exit = vector4(-5.65039,   1.839844, 23.29724, 86.2782)},
 }
 
-Houses = {
+Houses = {--[[
   {
     Entry   = vector4(54.250, -1873.34, 23.00, 200.00),
     Garage  = vector4( 58.77, -1881.73, 22.50,  45.00),
@@ -447,7 +447,7 @@ Houses = {
       HotelV1       = true,
       ApartmentV1   = true,
     }
-  },
+  },]]
 }
 
 if IsDuplicityVersion() then

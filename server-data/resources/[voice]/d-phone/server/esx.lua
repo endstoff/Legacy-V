@@ -14,7 +14,7 @@ AddEventHandler('d-phone:server:fire', function(source, id, unemployed2 )
     end
 end)
 
---[[ ESX 1.1
+-- ESX 1.1
 TriggerEvent('es:addGroupCommand', 'sca', 'user', function(p, args, user)
     TriggerClientEvent("d-phone:client:acceptsharecontact", p)
 end)
@@ -22,9 +22,13 @@ end)
 TriggerEvent('es:addGroupCommand', 'scd', 'user', function(p, args, user)
     TriggerClientEvent("d-phone:client:declinesharecontact", p)
 end)
-]]
--- ESX 1.2
 
+TriggerEvent('es:addGroupCommand', 'reloaddata', 'user', function(p, args, user)
+    TriggerEvent("d-phone:server:reloaduserdata", p)
+end)
+
+-- ESX 1.2
+--[[
 ESX.RegisterCommand('sca', 'user', function(xPlayer, args, showError)
     TriggerClientEvent("d-phone:client:acceptsharecontact", xPlayer.source)
   end)
@@ -32,7 +36,7 @@ ESX.RegisterCommand('sca', 'user', function(xPlayer, args, showError)
   ESX.RegisterCommand('scd', 'user', function(xPlayer, args, showError)
     TriggerClientEvent("d-phone:client:declinesharecontact", xPlayer.source)
   end)
-
+  ]]
 
   function getPhoneRandomNumber()
     local numBase0 = math.random(Config.LowerPrefix, Config.HigherPrefix)

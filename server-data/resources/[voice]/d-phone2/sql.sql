@@ -51,9 +51,9 @@ CREATE TABLE IF NOT EXISTS `phone_information` (
 
 CREATE TABLE IF NOT EXISTS `phone_messages` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `sender` varchar(10) NOT NULL,
-  `receiver` varchar(10) NOT NULL,
-  `message` varchar(255) NOT NULL DEFAULT '0',
+  `sender` varchar(50) NOT NULL,
+  `receiver` varchar(50) NOT NULL,
+  `message` varchar(500) NOT NULL DEFAULT '0',
   `date` varchar(50) NOT NULL DEFAULT 'current_timestamp()',
   `isgps` varchar(500) NOT NULL DEFAULT '0',
   `isRead` int(11) NOT NULL DEFAULT 0,
@@ -84,8 +84,17 @@ CREATE TABLE IF NOT EXISTS `phone_twitter_messages` (
   `userid` varchar(50) NOT NULL DEFAULT '0',
   `avatar` varchar(2555) NOT NULL DEFAULT '0',
   `date` varchar(50) NOT NULL DEFAULT '0',
-  `message` varchar(50) NOT NULL DEFAULT '0',
+  `message` varchar(500) NOT NULL DEFAULT '0',
   `imageurl` varchar(266) NOT NULL DEFAULT '0',
   `likes` int(11) NOT NULL DEFAULT 0,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=27 DEFAULT CHARSET=utf8mb4;
+
+
+ALTER TABLE `users` ADD COLUMN `phone_number` VARCHAR(10) NULL;
+ALTER TABLE `users` ADD COLUMN `phone_number2` VARCHAR(10) NULL DEFAULT '1';
+
+ALTER TABLE `jobs` ADD COLUMN `handyservice` VARCHAR(2) NOT NULL DEFAULT '0';
+ALTER TABLE `jobs` ADD COLUMN `hasapp` int(2) NOT NULL DEFAULT '0';
+ALTER TABLE `jobs` ADD COLUMN `onlyboss` int(2) NOT NULL DEFAULT '0';
+ALTER TABLE `jobs` ADD COLUMN `number` VARCHAR(10)  NOT NULL DEFAULT '1';

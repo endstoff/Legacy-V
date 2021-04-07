@@ -7,6 +7,7 @@ server_script {
   'locales/de.lua',
   "config/config.lua",
   "server/server.lua",
+  "server/esx.lua",
 }
 
 client_script {
@@ -15,6 +16,7 @@ client_script {
   'locales/de.lua',
   "config/config.lua",
   "client/client.lua",
+  "client/user.lua",
   "client/animation.lua",
   "client/photo.lua",
 }

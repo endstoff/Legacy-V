@@ -209,14 +209,12 @@ end
 
 function OpenArmoryMenu(station)
 	local elements = {
-		{label = _U('buy_weapons'), value = 'buy_weapons'}
+		{label = _U('buy_weapon'), value = 'buy_weapon'}
 	}
 
 	if Config.EnableArmoryManagement then
 		table.insert(elements, {label = _U('get_weapon'),     value = 'get_weapon'})
 		table.insert(elements, {label = _U('put_weapon'),     value = 'put_weapon'})
-		table.insert(elements, {label = _U('remove_object'),  value = 'get_stock'})
-		table.insert(elements, {label = _U('deposit_object'), value = 'put_stock'})
 	end
 
 	ESX.UI.Menu.CloseAll()
@@ -227,16 +225,16 @@ function OpenArmoryMenu(station)
 		elements = elements
 	}, function(data, menu)
 
-		if data.current.value == 'get_weapon' then
-			OpenGetWeaponMenu()
+		if data.current.value == 'buy_weapon' then
+			OpenBuyWeaponsMenu()
 		elseif data.current.value == 'put_weapon' then
 			OpenPutWeaponMenu()
-		elseif data.current.value == 'buy_weapons' then
-			OpenBuyWeaponsMenu()
-		elseif data.current.value == 'put_stock' then
-			OpenPutStocksMenu()
-		elseif data.current.value == 'get_stock' then
-			OpenGetStocksMenu()
+		elseif data.current.value == 'get_weapon' then
+			OpenGetWeaponMenu()
+		--[[elseif data.current.value == 'put_stock' then
+			OpenPutStocksMenu()]]--
+		--[[elseif data.current.value == 'get_stock' then
+			OpenGetStocksMenu()]]--
 		end
 
 	end, function(data, menu)
@@ -247,6 +245,36 @@ function OpenArmoryMenu(station)
 		CurrentActionData = {station = station}
 	end)
 end
+
+function OpenStorageMenu(station)
+	local elements = {
+		{label = _U('deposit_object'),  value = 'put_stock'},
+		{label = _U('remove_object'), value = 'get_stock'}
+	}
+
+	ESX.UI.Menu.CloseAll()
+
+	ESX.UI.Menu.Open('default', GetCurrentResourceName(), 'storage', {
+		title    = _U('storage'),
+		align    = 'top-left',
+		elements = elements
+	}, function(data, menu)
+
+		if data.current.value == 'put_stock' then
+			OpenPutStocksMenu()
+		elseif data.current.value == 'get_stock' then
+			OpenGetStocksMenu()
+		end
+		
+	end, function(data, menu)
+			menu.close()
+	
+			CurrentAction     = 'menu_storage'
+			CurrentActionMsg  = _U('open_storage')
+			CurrentActionData = {station = station}
+		end)
+end
+
 
 function OpenPoliceActionsMenu()
 	ESX.UI.Menu.CloseAll()
@@ -1046,6 +1074,10 @@ AddEventHandler('esx_policejob:hasEnteredMarker', function(station, part, partNu
 		CurrentAction     = 'menu_armory'
 		CurrentActionMsg  = _U('open_armory')
 		CurrentActionData = {station = station}
+	elseif part == 'Storage' then
+		CurrentAction     = 'menu_storage'
+		CurrentActionMsg  = _U('open_storage')
+		CurrentActionData = {station = station}
 	elseif part == 'Vehicles' then
 		CurrentAction     = 'menu_vehicle_spawner'
 		CurrentActionMsg  = _U('garage_prompt')
@@ -1339,8 +1371,7 @@ Citizen.CreateThread(function()
 					end
 				end
 
-				if ESX.PlayerData.job.grade_name == 'instructor' or ESX.PlayerData.job.grade_name == 'chiefofacademy' or ESX.PlayerData.job.grade_name == 'chiefofdepartment' or ESX.PlayerData.job.grade_name == 'boss' then
-					for i=1, #v.Armories, 1 do
+				for i=1, #v.Armories, 1 do
 						local distance = #(playerCoords - v.Armories[i])
 
 						if distance < Config.DrawDistance then
@@ -1351,8 +1382,21 @@ Citizen.CreateThread(function()
 							isInMarker, currentStation, currentPart, currentPartNum = true, k, 'Armory', i
 							end
 						end
+				end
+
+				for i=1, #v.Storage, 1 do
+					local distance = #(playerCoords - v.Storage[i])
+
+					if distance < Config.DrawDistance then
+						DrawMarker(Config.MarkerType.Storage, v.Storage[i], 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.5, 0.5, 0.5, Config.MarkerColor.r, Config.MarkerColor.g, Config.MarkerColor.b, 100, false, true, 2, true, false, false, false)
+						letSleep = false
+
+						if distance < Config.MarkerSize.x then
+						isInMarker, currentStation, currentPart, currentPartNum = true, k, 'Storage', i
+						end
 					end
 				end
+				
 
 				for i=1, #v.Vehicles, 1 do
 					local distance = #(playerCoords - v.Vehicles[i].Spawner)
@@ -1486,6 +1530,8 @@ Citizen.CreateThread(function()
 
 				if CurrentAction == 'menu_cloakroom' then
 					OpenCloakroomMenu()
+				elseif CurrentAction == 'menu_storage' then
+					OpenStorageMenu(CurrentActionData.station)
 				elseif CurrentAction == 'menu_armory' then
 					if not Config.EnableESXService then
 						OpenArmoryMenu(CurrentActionData.station)

@@ -16,6 +16,51 @@
     top: 16%;
 }
 
+.phone-businessapp-rank-sector {
+    position: relative;
+    height: 75%;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    width: 100%;
+    top: 8%;
+    padding: 0.1vh;
+    display: none;
+}
+
+.phone-businessapp-money-sector {
+    position: relative;
+    height: 75%;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    width: 100%;
+    top: 8%;
+    padding: 0.1vh;
+    display: none;
+}
+
+.phone-businessapp-newrank-sector {
+    display: none;
+    position: absolute;
+    height: 75%;
+    width: 100%;
+    top: 16%;
+}
+
+.pbrs-input {
+    position: relative;
+    height: 5vh;
+    line-height: 5vh;
+    font-size: 2vh;
+    left: 5%;
+    width: 90%;
+    outline: none;
+    border: none;
+    border-bottom: 0.3vh solid rgba(105, 105, 105, 0.4);
+    text-align: center;
+    margin-top: 2vh;
+    background: rgba(0, 0, 0, 0)!important;
+}
+
 #phone-businessapp-return {
     position: relative;
     left: 3vh;
@@ -94,6 +139,22 @@
     font-size: 1.8vh;
 }
 
+.phone-ba-addmember {
+    height: 8vh;
+    line-height: 8vh;
+    width: 100%;
+    font-size: 4vh;
+    text-align: center;
+}
+
+.phone-ba-addmember>i {
+    margin-top: 1vh;
+}
+
+.phone-ba-addmember>i:hover {
+    color: rgb(27, 131, 216);
+}
+
 #phone-ba-member-number {
     float: left;
     width: 60%;
@@ -103,7 +164,7 @@
 
 #phone-ba-member-call {
     float: left;
-    margin-left: 2vh;
+    margin-left: 1vh;
     font-size: 1.8vh;
 }
 
@@ -114,11 +175,22 @@
 
 #phone-ba-member-message {
     float: left;
-    margin-left: 2vh;
+    margin-left: 1vh;
     font-size: 1.8vh;
 }
 
 #phone-ba-member-message:hover {
+    color: rgb(27, 131, 216);
+    transition: 0.5s;
+}
+
+#phone-ba-member-managment {
+    float: left;
+    margin-left: 1vh;
+    font-size: 1.8vh;
+}
+
+#phone-ba-member-managment:hover {
     color: rgb(27, 131, 216);
     transition: 0.5s;
 }
@@ -389,5 +461,65 @@
 
 .darkphone-businessapp-footer-item:hover {
     background-color: rgb(35, 35, 35)!important;
+    transition: 0.5s;
+}
+
+.pbrs-headline {
+    height: 5vh;
+    line-height: 5vh;
+    width: 100%;
+    font-size: 2vh;
+    text-align: center;
+}
+
+.pbrs-smallheadline {
+    height: 4vh;
+    line-height: 4vh;
+    width: 100%;
+    font-size: 1.75vh;
+    text-align: left;
+    padding-left: 2vh;
+}
+
+.pbrs-button {
+    position: relative;
+    left: 5%;
+    width: 90%;
+    height: 5vh;
+    line-height: 5vh;
+    font-size: 2vh;
+    background-color: rgb(27, 131, 216);
+    border-radius: 0.75vh;
+    border: none;
+    outline: none;
+    color: white;
+    margin-top: 2vh;
+}
+
+.pbrs-button:hover {
+    background-color: rgb(0, 140, 255);
+    color: white;
+    transition: 0.5s;
+}
+
+.red {
+    background-color: rgb(165, 23, 23);
+    color: white;
+}
+
+.red:hover {
+    background-color: rgb(218, 14, 14);
+    color: white;
+    transition: 0.5s;
+}
+
+.green {
+    background-color: rgb(30, 207, 45);
+    color: white;
+}
+
+.green:hover {
+    background-color: rgb(33, 221, 49);
+    color: white;
     transition: 0.5s;
 }

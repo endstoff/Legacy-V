@@ -14,7 +14,7 @@ ConfigData.maxMiscObjects = 50 -- The limit of the ground objects (bandages, syr
 ConfigData.tazerDamage = false -- When enabled, tazer will damage the person.
 ConfigData.vehicleRadius = 7.0 -- Vehicle-Search-Radius of putInVehicle-Event. 
 ConfigData.painTimeout = 600 -- Seconds
-ConfigData.needSewedWounds = true -- Should wounds needed to be sewed?
+ConfigData.needSewedWounds = false -- Should wounds needed to be sewed?
 ConfigData.sewTimeout = 600 -- Seconds; When does a sew randomly open again?
 ConfigData.bleedReasons = { -- Reasons that should start bleeding. ("vehicle_hit", "fall_damage", "weapon_damage", "punch_damage")
     "vehicle_hit",

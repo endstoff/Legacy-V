@@ -89,7 +89,7 @@ ensure cui_character
 ensure cui_wardrobe
 ensure esx_accessories
 
-#ensure xnTattoos
+ensure xnTattoos
 #ensure esx_eden_clotheshop 
 #ensure esx_barbershop
 
@@ -176,7 +176,7 @@ ensure esx_bennys_tuning
 ensure esx_bloodscustoms
 ensure esx_bloodscustoms_tuning
 ensure esx_acls
-#ensure hd_postop
+ensure hd_postop
 
 ensure myFarming
 
@@ -255,8 +255,9 @@ ensure CoordsSaver
 ensure No-NPC
 
 ##		Illegals
-ensure myDrugs 
-ensure myIllegals
+ensure myDrugs
+ensure myIllegalsRework
+#ensure myIllegals
 #ensure t1ger_bankrobbery
 
 ##      Cars
@@ -385,6 +386,7 @@ add_principal identifier.license:4849afd121d1fe1b6c325f05e4890f856ac138b0 group.
 add_principal identifier.license:550ea981516d9bab7c8e44aa15977c4cb7c92238 group.admin #Kaba
 add_principal identifier.steam:1100001159d7a6d group.admin #FrEEzed
 add_principal identifier.steam:1100001032B0C37 group.admin #M!W
+add_principal identifier.steam:11000010e77bfb7 group.admin #Terminal
 
 add_ace group.admin command.announce allow
 add_ace identifier.steam:110000113df958c "command.hypnonema" allow

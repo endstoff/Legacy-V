@@ -498,17 +498,60 @@
                             <font style="font-size: 1.8vh;" id="motdchange"> </font>
                         </div>
                         <div id="phone-ba-motd-inhalt">
-                            Message of the Day Message of the Day Message of the Day Message of the Day Message of the Day Message of the Day Message of the Day Message of the Day
+                            Loading... If nothing happens please reconnect or restart the server
                         </div>
                     </div>
 
                     <div id="phone-ba-member">
-                        Mitglieder online: 8
+
                     </div>
                     <div class="phone-ba-member-list">
-
+                        <div class="phone-ba-member" data-number="%s">
+                            <div id="phone-ba-member-name"> </div>
+                            <div id="phone-ba-member-number"> <br> </div><i class="fas fa-phone" id="phone-ba-member-call" data-name="%s" data-number="%s"></i><i class="fas fa-comments" id="phone-ba-member-message" data-name="%s" data-number="%s"></i><i class="fas fa-cog" id="phone-ba-member-managment"
+                                data-name="%s" data-grade="%s" data-rank="%s" data-id="%s"></i></div>
+                        <!-- <div class="phone-ba-member">
+                            <div class="phone-ba-addmember">
+                                <I class="fas fa-plus" id="phone-addnewmember"></I>
+                            </div>
+                        </div> -->
                     </div>
 
+
+                </div>
+
+                <div class="phone-businessapp-rank-sector">
+                    <div class="pbrs-headline">
+                        <font id="pbrs-headlineheadline"> </font>
+                    </div>
+                    <div class="pbrs-smallheadline">
+                        <font id="pbrs-nameheadline"> </font>
+                        <font id="pbrs-name"> </font>
+                    </div>
+                    <div class="pbrs-smallheadline">
+                        <font id="pbrs-gradeheadline"> </font>
+                        <font id="pbrs-grade"> </font>
+                    </div>
+                    <div class="pbrs-smallheadline">
+                        <font id="pbrs-rankheadline"> </font>
+                        <font id="pbrs-rankname"> </font>
+                    </div>
+                    <button class="pbrs-button" id="pbrs-uprank"> </button>
+                    <button class="pbrs-button" id="pbrs-derank">  </button>
+                    <input class="pbrs-input" id="pbns-newrank" placeholder="Rank">
+                    <br>
+                    <button class="pbrs-button" id="pbrs-updaterank">  </button>
+                    <button class="pbrs-button red" id="pbrs-fire">  </button>
+                </div>
+
+                <div class="phone-businessapp-newrank-sector">
+                    <div class="pbrs-headline">
+                        <font id="pbrs-recruitheadline"> </font>
+                    </div>
+                    <input class="pbrs-input" id="pbns-id" placeholder="ID">
+                    <input class="pbrs-input" id="pbns-newrank2" placeholder="Rank">
+                    <br>
+                    <button class="pbrs-button" id="pbrs-recruit">  </button>
                 </div>
 
                 <div class="phone-recent-businessapp-sector">
@@ -520,6 +563,20 @@
                             Das hier ist eine beispielhafte nachricht welche nicht mehr zu sehen
                         </div>
                     </div>
+                </div>
+
+                <div class="phone-businessapp-money-sector">
+                    <div class="pbrs-headline">
+                        <font id="pbms-headlineheadline"> </font>
+                    </div>
+                    <div class="pbrs-smallheadline">
+                        <font id="pbms-nameheadline"> </font>
+                        <font id="pbms-money" style="float: right; color: rgb(1, 202, 1);"> 5000$ </font>
+                    </div>
+                    <input class="pbrs-input" type="number" id="pbms-amount">
+                    <br>
+                    <button class="pbrs-button green" id="pmbs-deposit">  </button>
+                    <button class="pbrs-button red" id="pmbs-withdraw">  </button>
                 </div>
 
                 <div class="phone-businessapp-message">
@@ -554,6 +611,10 @@
                         <font id="pbsjobnumber"> </font>
                         <i id="enablejobnumber" class="fas fa-chevron-right phone-settings-switch"></i>
                     </div>
+                    <div class="phone-businessapp-settings-menu" id="pbsboss">
+                        <font id="pbsjobmoney"> </font>
+                        <i id="seejobmoney" class="fas fa-chevron-right phone-settings-switch"></i>
+                    </div>
                 </div>
 
                 <div class="phone-businessapp-motd ">
@@ -584,7 +645,7 @@
                 </div>
 
             </div>
-            <!--
+            <!---
             <div class="phone-radio">
                 <div class="phone-app-header">
                     <div id="phone-radio-return">
@@ -1014,27 +1075,46 @@
         $(".bankapp-transfer-cardnumber").html(locale.bankapptransfercardnumber);
         $(".bankapp-transfer-amount").html(locale.bankapptransferamount);
         $(".bankapp-transfer-button").html(locale.bankapptransferbutton);
-        $('#inputcardnumber').attr("placeholder ", locale.placeholdercardnumber);
-        $('#inputtransferamoutn').attr("placeholder ", locale.placeholderamount);
+
+        // 0.61
+        // Businessapp
+        $("#pbrs-headlineheadline").html(locale.magnagment);
+        $("#pbrs-nameheadline").html(locale.pbrsnameheadline);
+        $("#pbrs-gradeheadline").html(locale.pbrsgradeheadline);
+        $("#pbrs-rankheadline").html(locale.pbrsrankheadline);
+        $("#pbrs-uprank").html(locale.pbrsuprank);
+        $("#pbrs-derank").html(locale.pbrsderank);
+        $("#pbrs-updaterank").html(locale.pbrsupdaterank);
+        $("#pbrs-fire").html(locale.pbrsfire);
+        $("#pbrs-recruitheadline").html(locale.pbrsrecruitheadline);
+        $("#pbrs-recruit").html(locale.pbrsrecruit);
+        $("#pbms-headlineheadline").html(locale.pbmsheadlineheadline);
+        $("#pbms-nameheadline").html(locale.pbmsnameheadline);
+        $("#pmbs-deposit").html(locale.pmbsdeposit);
+        $("#pmbs-withdraw").html(locale.pmbswithdraw);
+
 
         // Placeholder
-        $('#pciinputname').attr("placeholder ", locale.name);
-        $('#pciinputname2').attr("placeholder ", locale.name);
-        $('#pciinputnumber').attr("placeholder ", locale.number);
-        $('#pciinputnumber2').attr("placeholder ", locale.number);
-        $('#phone-chat-input-message').attr("placeholder ", locale.message);
-        $('#psw').attr("placeholder ", locale.png);
-        $('.phone-service-message-input').attr("placeholder ", locale.description);
-        $('#phone-business-input-message').attr("placeholder ", locale.message);
-        $('#motd').attr("placeholder ", locale.message);
-        $('#ptw-tweetinput').attr("placeholder ", locale.message);
-    //    $('#phone-radio-frequenz-input').attr("placeholder ", locale.frequency);
-        $('#ptw-imageurl').attr("placeholder ", locale.url);
-        $('#ptw-pbinput').attr("placeholder ", locale.url);
-        $('#ptw-username').attr("placeholder ", locale.name);
-        $('#ptw-ftavatarurl').attr("placeholder ", locale.url);
-        $('#ptw-ftusername').attr("placeholder ", locale.name);
-        $('#ptw-ftid').attr("placeholder ", locale.name);
+        $('#pbms-amount').attr("placeholder", locale.pbmsamount);
+        $('#inputcardnumber').attr("placeholder", locale.placeholdercardnumber);
+        $('#inputtransferamoutn').attr("placeholder", locale.placeholderamount);
+        $('#pciinputname').attr("placeholder", locale.name);
+        $('#pciinputname2').attr("placeholder", locale.name);
+        $('#pciinputnumber').attr("placeholder", locale.number);
+        $('#pciinputnumber2').attr("placeholder", locale.number);
+        $('#phone-chat-input-message').attr("placeholder", locale.message);
+        $('#psw').attr("placeholder", locale.png);
+        $('.phone-service-message-input').attr("placeholder", locale.description);
+        $('#phone-business-input-message').attr("placeholder", locale.message);
+        $('#motd').attr("placeholder", locale.message);
+        $('#ptw-tweetinput').attr("placeholder", locale.message);
+    //  $('#phone-radio-frequenz-input').attr("placeholder", locale.frequency);
+        $('#ptw-imageurl').attr("placeholder", locale.url);
+        $('#ptw-pbinput').attr("placeholder", locale.url);
+        $('#ptw-username').attr("placeholder", locale.name);
+        $('#ptw-ftavatarurl').attr("placeholder", locale.url);
+        $('#ptw-ftusername').attr("placeholder", locale.name);
+        $('#ptw-ftid').attr("placeholder", locale.name);
 
     });
 </script>

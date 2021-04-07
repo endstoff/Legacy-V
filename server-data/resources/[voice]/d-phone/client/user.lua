@@ -10,7 +10,8 @@ AddEventHandler("d-customnotification", function(text, length, color)
     end
 
     -- THIS IS AN EXAMPLE IF YOU WANT TO USE THE NORMAL ESX NOTIFIICATION
-    -- ESX.ShowNotification(text)
+    --ESX.ShowNotification(text)
 
-    TriggerEvent('mythic_notify:client:SendAlert', { type = 'inform', text = text, length = length, style = { ['background-color'] = color, ['color'] = '#fff' } })
+    -- TriggerEvent('mythic_notify:client:SendAlert', { type = 'inform', text = text, length = length, style = { ['background-color'] = color, ['color'] = '#fff' } })
+    TriggerEvent('notify', 1, '', text, 2500)
 end)

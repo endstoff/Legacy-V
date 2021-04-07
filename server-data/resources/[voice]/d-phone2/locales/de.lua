@@ -47,4 +47,20 @@ Locales['de'] = {
     ['notenoughmoney'] =  "Du hast nicht genug Geld",
     ['moneytransfered'] =  "%s hat dir  %s$ überwiesen",
     ['moneysended'] =  "Du hast %s %s$ überwiesen",
+
+        --  0.61
+    --  Businessapp
+    ['ranktohigh'] =  "Fehler, dein Rang is zu niedrig um ihn so hoch zu setzen.",
+    ['sucessuprank'] =  "Du hast seinen Rang erhöht: Sein neuer Rang ist %s",
+    ['gotuprank'] =  "Dein Rang wurde erhöht: Dein neuer Rang ist nun %s",
+    ['successderank'] =  "Du hast seinen Rang erniedrigt: Sein neuer Rang ist %s",
+    ['gotderank'] =  "Dein Rang wurde erniedrigt. Dein neuer Rang ist: %s",
+    ['alreadylow'] =  "Er ist schon der niedrigste Rang",
+    ['successfired'] =  "Du hast ihm erfolgreich gefeuert",
+    ['gotfired'] =  "Du wurdest gefeuert",
+    ['recruit'] =  "Du hast ihn erfolgreich angefeuert. Sein neuer Rang ist:  %s",
+    ['gotrecruit'] = "Du wurdest angeheurt von %s, dein neuer Rang ist %s" ,
+
+    -- 0.615
+    ['phoneloading'] = "Dein Handy startet noch, warte einen Moment" ,
 }

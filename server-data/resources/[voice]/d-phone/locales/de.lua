@@ -62,5 +62,6 @@ Locales['de'] = {
     ['gotrecruit'] = "Du wurdest angeheurt von %s, dein neuer Rang ist %s" ,
 
     -- 0.615
-    ['phoneloading'] = "Dein Handy startet noch, warte einen Moment" ,
+    ['phoneloading'] = "Dein Handy startet noch. Das dauert %s Sekunden"  ,
+    ['yourphonestarted'] = "Dein Handy wurde erfolgreich gestartet"  ,
 }

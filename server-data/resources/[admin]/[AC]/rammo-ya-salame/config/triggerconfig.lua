@@ -2,7 +2,7 @@ print("^2 [MIXAS AntiCheat] ^5 TriggerConfig Refresh ^0")
 
 TriggerConfig = {}
 TriggerConfig.Blacklistevent = true -- if true = blocks all these events // we recommend you to keep it true
-TriggerConfig.BlacklisteventBan = false -- if true = blocks all these events // we recommend you to keep it true
+TriggerConfig.BlacklisteventBan = true -- if true = blocks all these events // we recommend you to keep it true
 TriggerConfig.BlacklistedEvents = { -- you can add or remove events below
     "mellotrainer:adminKick",
     'antilynx8:anticheat',

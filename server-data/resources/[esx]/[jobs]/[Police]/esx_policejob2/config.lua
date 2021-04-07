@@ -75,7 +75,7 @@ Config.PoliceStations = {
 		},
 
 		BossActions = {
-			vector3(448.4, -973.2, 0)
+			vector3(461.41348266602, -985.42230224609, 30.346981048584)
 		}
 
 	},
@@ -256,6 +256,7 @@ Config.AuthorizedVehicles = {
 	car = {
 		cadet = {
 			{model = 'dw_lspd1', label = 'Vapid Cruiser', price = 5000},
+			{model = 'police3', label = 'Vapid Interceptor', price = 5000},
 		},
 
 		officer = {
@@ -394,6 +395,7 @@ Config.AuthorizedVehicles = {
 
 			{model = 'dw_lspd2', label = 'Bravado Buffalo', price = 5000},
 			{model = 'dw_lspd3', label = 'Vapid Interceptor', price = 5000},
+			{model = 'police3', label = 'Vapid Interceptor 2', price = 5000},
 			{model = 'pdrafter', label = 'Drafter', price = 5000},
 
 			{model = 'dw_police42', label = 'Bravado Buffalo UM', price = 5000},
@@ -503,7 +505,7 @@ Config.Uniforms = {
 
 	officer = {
 		male = {
-			tshirt_1 = 38,  tshirt_2 = 1,
+			tshirt_1 = 58,  tshirt_2 = 0,
 			torso_1 = 55,   torso_2 = 0,
 			decals_1 = 8,   decals_2 = 3,
 			arms = 41,
@@ -512,9 +514,7 @@ Config.Uniforms = {
 			helmet_1 = -1,  helmet_2 = 0,
 			chain_1 = 0,    chain_2 = 0,
 			ears_1 = 2,     ears_2 = 0,
-			bproof_1 = 12,	bproof_2 = 3,
-			lefthand_1 = -1,	lefthand_2 = 0,
-			righthand_1 = -1,	righthand_2 = 0
+			bproof_1 = 12,	bproof_2 = 3
 		},
 		female = {
 			tshirt_1 = 35,  tshirt_2 = 0,
@@ -532,7 +532,7 @@ Config.Uniforms = {
 
 	detective = {
 		male = {
-			tshirt_1 = 38,  tshirt_2 = 1,
+			tshirt_1 = 58,  tshirt_2 = 0,
 			torso_1 = 55,   torso_2 = 0,
 			decals_1 = 8,   decals_2 = 3,
 			arms = 41,
@@ -541,9 +541,7 @@ Config.Uniforms = {
 			helmet_1 = -1,  helmet_2 = 0,
 			chain_1 = 0,    chain_2 = 0,
 			ears_1 = 2,     ears_2 = 0,
-			bproof_1 = 12,	bproof_2 = 3,
-			lefthand_1 = -1,	lefthand_2 = 0,
-			righthand_1 = -1,	righthand_2 = 0
+			bproof_1 = 12,	bproof_2 = 3
 		},
 		female = {
 			tshirt_1 = 35,  tshirt_2 = 0,
@@ -561,7 +559,7 @@ Config.Uniforms = {
 
 	sergeant = {
 		male = {
-			tshirt_1 = 38,  tshirt_2 = 1,
+			tshirt_1 = 58,  tshirt_2 = 0,
 			torso_1 = 55,   torso_2 = 0,
 			decals_1 = 8,   decals_2 = 3,
 			arms = 41,
@@ -570,9 +568,7 @@ Config.Uniforms = {
 			helmet_1 = -1,  helmet_2 = 0,
 			chain_1 = 0,    chain_2 = 0,
 			ears_1 = 2,     ears_2 = 0,
-			bproof_1 = 12,	bproof_2 = 3,
-			lefthand_1 = -1,	lefthand_2 = 0,
-			righthand_1 = -1,	righthand_2 = 0
+			bproof_1 = 12,	bproof_2 = 3
 		},
 		female = {
 			tshirt_1 = 35,  tshirt_2 = 0,
@@ -590,7 +586,7 @@ Config.Uniforms = {
 
 	firstsergeant = {
 		male = {
-			tshirt_1 = 38,  tshirt_2 = 1,
+			tshirt_1 = 58,  tshirt_2 = 0,
 			torso_1 = 55,   torso_2 = 0,
 			decals_1 = 8,   decals_2 = 3,
 			arms = 41,
@@ -599,9 +595,7 @@ Config.Uniforms = {
 			helmet_1 = -1,  helmet_2 = 0,
 			chain_1 = 0,    chain_2 = 0,
 			ears_1 = 2,     ears_2 = 0,
-			bproof_1 = 12,	bproof_2 = 3,
-			lefthand_1 = -1,	lefthand_2 = 0,
-			righthand_1 = -1,	righthand_2 = 0
+			bproof_1 = 12,	bproof_2 = 3
 		},
 		female = {
 			tshirt_1 = 35,  tshirt_2 = 0,
@@ -619,7 +613,7 @@ Config.Uniforms = {
 
 	lieutenant = {
 		male = {
-			tshirt_1 = 38,  tshirt_2 = 1,
+			tshirt_1 = 58,  tshirt_2 = 0,
 			torso_1 = 55,   torso_2 = 0,
 			decals_1 = 8,   decals_2 = 3,
 			arms = 41,
@@ -628,9 +622,7 @@ Config.Uniforms = {
 			helmet_1 = -1,  helmet_2 = 0,
 			chain_1 = 0,    chain_2 = 0,
 			ears_1 = 2,     ears_2 = 0,
-			bproof_1 = 12,	bproof_2 = 3,
-			lefthand_1 = -1,	lefthand_2 = 0,
-			righthand_1 = -1,	righthand_2 = 0
+			bproof_1 = 12,	bproof_2 = 3
 		},
 		female = {
 			tshirt_1 = 35,  tshirt_2 = 0,
@@ -648,7 +640,7 @@ Config.Uniforms = {
 
 	commissioner = {
 		male = {
-			tshirt_1 = 38,  tshirt_2 = 1,
+			tshirt_1 = 58,  tshirt_2 = 0,
 			torso_1 = 55,   torso_2 = 0,
 			decals_1 = 8,   decals_2 = 3,
 			arms = 41,
@@ -657,9 +649,7 @@ Config.Uniforms = {
 			helmet_1 = -1,  helmet_2 = 0,
 			chain_1 = 0,    chain_2 = 0,
 			ears_1 = 2,     ears_2 = 0,
-			bproof_1 = 12,	bproof_2 = 3,
-			lefthand_1 = -1,	lefthand_2 = 0,
-			righthand_1 = -1,	righthand_2 = 0
+			bproof_1 = 12,	bproof_2 = 3
 		},
 		female = {
 			tshirt_1 = 35,  tshirt_2 = 0,
@@ -677,7 +667,7 @@ Config.Uniforms = {
 
 	instructor = {
 		male = {
-			tshirt_1 = 38,  tshirt_2 = 1,
+			tshirt_1 = 58,  tshirt_2 = 0,
 			torso_1 = 55,   torso_2 = 0,
 			decals_1 = 8,   decals_2 = 3,
 			arms = 41,
@@ -686,9 +676,7 @@ Config.Uniforms = {
 			helmet_1 = -1,  helmet_2 = 0,
 			chain_1 = 0,    chain_2 = 0,
 			ears_1 = 2,     ears_2 = 0,
-			bproof_1 = 12,	bproof_2 = 3,
-			lefthand_1 = -1,	lefthand_2 = 0,
-			righthand_1 = -1,	righthand_2 = 0
+			bproof_1 = 12,	bproof_2 = 3
 		},
 		female = {
 			tshirt_1 = 35,  tshirt_2 = 0,
@@ -706,7 +694,7 @@ Config.Uniforms = {
 
 	chiefofacademy = {
 		male = {
-			tshirt_1 = 38,  tshirt_2 = 1,
+			tshirt_1 = 58,  tshirt_2 = 0,
 			torso_1 = 55,   torso_2 = 0,
 			decals_1 = 8,   decals_2 = 3,
 			arms = 41,
@@ -715,9 +703,7 @@ Config.Uniforms = {
 			helmet_1 = -1,  helmet_2 = 0,
 			chain_1 = 0,    chain_2 = 0,
 			ears_1 = 2,     ears_2 = 0,
-			bproof_1 = 12,	bproof_2 = 3,
-			lefthand_1 = -1,	lefthand_2 = 0,
-			righthand_1 = -1,	righthand_2 = 0
+			bproof_1 = 12,	bproof_2 = 3
 		},
 		female = {
 			tshirt_1 = 35,  tshirt_2 = 0,
@@ -735,7 +721,7 @@ Config.Uniforms = {
 
 	chiefofdepartment = {
 		male = {
-			tshirt_1 = 38,  tshirt_2 = 1,
+			tshirt_1 = 58,  tshirt_2 = 0,
 			torso_1 = 55,   torso_2 = 0,
 			decals_1 = 8,   decals_2 = 3,
 			arms = 41,
@@ -744,9 +730,7 @@ Config.Uniforms = {
 			helmet_1 = -1,  helmet_2 = 0,
 			chain_1 = 0,    chain_2 = 0,
 			ears_1 = 2,     ears_2 = 0,
-			bproof_1 = 12,	bproof_2 = 3,
-			lefthand_1 = -1,	lefthand_2 = 0,
-			righthand_1 = -1,	righthand_2 = 0
+			bproof_1 = 12,	bproof_2 = 3
 		},
 		female = {
 			tshirt_1 = 35,  tshirt_2 = 0,
@@ -764,7 +748,7 @@ Config.Uniforms = {
 
 	boss = {
 		male = {
-			tshirt_1 = 38,  tshirt_2 = 1,
+			tshirt_1 = 58,  tshirt_2 = 0,
 			torso_1 = 55,   torso_2 = 0,
 			decals_1 = 8,   decals_2 = 3,
 			arms = 41,
@@ -773,9 +757,7 @@ Config.Uniforms = {
 			helmet_1 = -1,  helmet_2 = 0,
 			chain_1 = 0,    chain_2 = 0,
 			ears_1 = 2,     ears_2 = 0,
-			bproof_1 = 12,	bproof_2 = 3,
-			lefthand_1 = -1,	lefthand_2 = 0,
-			righthand_1 = -1,	righthand_2 = 0
+			bproof_1 = 12,	bproof_2 = 3
 		},
 		female = {
 			tshirt_1 = 35,  tshirt_2 = 0,

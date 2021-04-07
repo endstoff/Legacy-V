@@ -7,19 +7,19 @@ Config.ShowFarmingBlipText = true
 
 Config.FarmingAreas = { 
 
-    {requiredJob = nil, xptype = nil, blip = {sprite = 420, color = 7, data = nil}, items = {{name = 'grapperaisin', label = 'Trauben'}}, x = -1803.03, y = 2186.55, z = 105.63, range = 110.0, randoma = 1, randomb = 3, collectingTime = 8, animation = "PROP_HUMAN_BUM_BIN"},
-    {requiredJob = nil, xptype = nil, blip = {sprite = 420, color = 36, data = nil}, items = {{name = 'weat', label = 'Weizen'}}, x = 2616.83, y = 4451.19, z = 39.06, range = 70.0, randoma = 2, randomb = 6, collectingTime = 11, animation = "PROP_HUMAN_BUM_BIN"},
-    {requiredJob = nil, xptype = nil, blip = {sprite = 420, color = 1, data = nil}, items = {{name = 'apple', label = 'Apfel'}}, x = 2371.95, y = 4722.87, z = 33.9, range = 30.0, randoma = 1, randomb = 3, collectingTime = 10, animation = "PROP_HUMAN_BUM_BIN"}, -- or orange
-    {requiredJob = nil, xptype = nil, blip = {sprite = 420, color = 50, data = nil}, items = {{name = 'tomatos', label = 'Tomaten'}}, x = 2286.97, y = 4763.68, z = 38.61, range = 10.0, randoma = 1, randomb = 3, collectingTime = 8, animation = "PROP_HUMAN_BUM_BIN"},
-    {requiredJob = nil, xptype = nil, blip = {sprite = 420, color = 69, data = nil}, items = {{name = 'salad', label = 'Salat'}}, x = 3288.39, y = 5181.42, z = 18.56, range = 8.0, randoma = 1, randomb = 3, collectingTime = 8, animation = "PROP_HUMAN_BUM_BIN"},
-    {requiredJob = nil, xptype = nil, blip = {sprite = 420, color = 16, data = nil}, items = {{name = 'potato', label = 'Kartoffel'}}, x = 274.30947875977, y = 6610.6538085938, z = 30.007946014404, range = 8.0, randoma = 1, randomb = 3, collectingTime = 8, animation = "PROP_HUMAN_BUM_BIN"},
-    {requiredJob = nil, xptype = nil, blip = {sprite = 420, color = 16, data = nil}, items = {{name = 'bolcacahuetes', label = 'Erdnuss'}}, x = -1818.7586669922, y = 1980.1359863281, z = 131.1247253418, range = 10.0, randoma = 1, randomb = 3, collectingTime = 8, animation = "PROP_HUMAN_BUM_BIN"},
-    {requiredJob = nil, xptype = nil, blip = {sprite = 420, color = 20, data = nil}, items = {{name = 'stone', label = 'Stein'}}, x = 1306.0484619141, y = 2994.9938964844, z = 42.045059204102, range = 38.0, randoma = 1, randomb = 4, collectingTime = 10, animation = "WORLD_HUMAN_HAMMERING"},
-    {requiredJob = nil, xptype = nil, blip = {sprite = 420, color = 20, data = nil}, items = {{name = 'coal', label = 'Kohle'}}, x = 2724.5593261719, y = 2878.9780273438, z = 40.035640716553, range = 38.0, randoma = 2, randomb = 4, collectingTime = 20, animation = "CODE_HUMAN_MEDIC_TEND_TO_DEAD"},
-    {requiredJob = nil, xptype = nil, blip = {sprite = 420, color = 20, data = nil}, items = {{name = 'silver', label = 'Silber'}}, x = 2996.4460449219, y = 3026.2604980469, z = 89.726150512695, range = 8.0, randoma = 1, randomb = 4, collectingTime = 20, animation = "WORLD_HUMAN_HAMMERING"},
-    {requiredJob = nil, xptype = nil, blip = {sprite = 420, color = 20, data = nil}, items = {{name = 'gold', label = 'Gold'}}, x = -1615.3110351562, y = 2096.2331542969, z = 64.549186706543, range = 12.0, randoma = 1, randomb = 4, collectingTime = 30, animation = "WORLD_HUMAN_BUM_WASH"},
-    {requiredJob = nil, xptype = nil, blip = {sprite = 420, color = 20, data = nil}, items = {{name = 'bauxit', label = 'Bauxit'}}, x = 1093.7824707031, y = 3408.7705078125, z = 34.109252929688, range = 8.0, randoma = 8, randomb = 12, collectingTime = 60, animation = "WORLD_HUMAN_CONST_DRILL"},
-    {requiredJob = nil, xptype = nil, blip = {sprite = 420, color = 20, data = nil}, items = {{name = 'ironore', label = 'Eisenerz'}}, x = 2940.1330566406, y = 2789.3664550781, z = 40.122993469238, range = 30.0, randoma = 8, randomb = 12, collectingTime = 60, animation = "WORLD_HUMAN_CONST_DRILL"},
+    {requiredJob = nil, xptype = nil, blip = {sprite = 420, color = 7, data = nil}, items = {{name = 'grapperaisin', label = 'Trauben'}}, x = -1803.03, y = 2186.55, z = 105.63, range = 110.0, randoma = 1, randomb = 3, collectingTime = 5, animation = "PROP_HUMAN_BUM_BIN"},
+    {requiredJob = nil, xptype = nil, blip = {sprite = 420, color = 36, data = nil}, items = {{name = 'weat', label = 'Weizen'}}, x = 2616.83, y = 4451.19, z = 39.06, range = 70.0, randoma = 2, randomb = 6, collectingTime = 8, animation = "PROP_HUMAN_BUM_BIN"},
+    {requiredJob = nil, xptype = nil, blip = {sprite = 420, color = 1, data = nil}, items = {{name = 'apple', label = 'Apfel'}}, x = 2371.95, y = 4722.87, z = 33.9, range = 30.0, randoma = 1, randomb = 3, collectingTime = 8, animation = "PROP_HUMAN_BUM_BIN"}, -- or orange
+    {requiredJob = nil, xptype = nil, blip = {sprite = 420, color = 50, data = nil}, items = {{name = 'tomatos', label = 'Tomaten'}}, x = 2286.97, y = 4763.68, z = 38.61, range = 10.0, randoma = 1, randomb = 3, collectingTime = 5, animation = "PROP_HUMAN_BUM_BIN"},
+    {requiredJob = nil, xptype = nil, blip = {sprite = 420, color = 69, data = nil}, items = {{name = 'salad', label = 'Salat'}}, x = 3288.39, y = 5181.42, z = 18.56, range = 8.0, randoma = 1, randomb = 3, collectingTime = 5, animation = "PROP_HUMAN_BUM_BIN"},
+    {requiredJob = nil, xptype = nil, blip = {sprite = 420, color = 16, data = nil}, items = {{name = 'potato', label = 'Kartoffel'}}, x = 274.30947875977, y = 6610.6538085938, z = 30.007946014404, range = 8.0, randoma = 1, randomb = 3, collectingTime = 5, animation = "PROP_HUMAN_BUM_BIN"},
+    {requiredJob = nil, xptype = nil, blip = {sprite = 420, color = 16, data = nil}, items = {{name = 'bolcacahuetes', label = 'Erdnuss'}}, x = -1818.7586669922, y = 1980.1359863281, z = 131.1247253418, range = 10.0, randoma = 1, randomb = 3, collectingTime = 5, animation = "PROP_HUMAN_BUM_BIN"},
+    {requiredJob = nil, xptype = nil, blip = {sprite = 420, color = 20, data = nil}, items = {{name = 'stone', label = 'Stein'}}, x = 1306.0484619141, y = 2994.9938964844, z = 42.045059204102, range = 38.0, randoma = 2, randomb = 6, collectingTime = 10, animation = "WORLD_HUMAN_HAMMERING"},
+    {requiredJob = nil, xptype = nil, blip = {sprite = 420, color = 20, data = nil}, items = {{name = 'coal', label = 'Kohle'}}, x = 2724.5593261719, y = 2878.9780273438, z = 40.035640716553, range = 38.0, randoma = 2, randomb = 4, collectingTime = 10, animation = "CODE_HUMAN_MEDIC_TEND_TO_DEAD"},
+    {requiredJob = nil, xptype = nil, blip = {sprite = 420, color = 20, data = nil}, items = {{name = 'silver', label = 'Silber'}}, x = 2996.4460449219, y = 3026.2604980469, z = 89.726150512695, range = 8.0, randoma = 1, randomb = 4, collectingTime = 10, animation = "WORLD_HUMAN_HAMMERING"},
+    {requiredJob = nil, xptype = nil, blip = {sprite = 420, color = 20, data = nil}, items = {{name = 'gold', label = 'Gold'}}, x = -1615.3110351562, y = 2096.2331542969, z = 64.549186706543, range = 12.0, randoma = 1, randomb = 4, collectingTime = 20, animation = "WORLD_HUMAN_BUM_WASH"},
+    {requiredJob = nil, xptype = nil, blip = {sprite = 420, color = 20, data = nil}, items = {{name = 'bauxit', label = 'Bauxit'}}, x = 1093.7824707031, y = 3408.7705078125, z = 34.109252929688, range = 8.0, randoma = 12, randomb = 18, collectingTime = 60, animation = "WORLD_HUMAN_CONST_DRILL"},
+    {requiredJob = nil, xptype = nil, blip = {sprite = 420, color = 20, data = nil}, items = {{name = 'ironore', label = 'Eisenerz'}}, x = 2940.1330566406, y = 2789.3664550781, z = 40.122993469238, range = 30.0, randoma = 12, randomb = 18, collectingTime = 60, animation = "WORLD_HUMAN_CONST_DRILL"},
 }
 
 Config.CraftTime = 4 -- in sek
@@ -168,7 +168,7 @@ Config.Items = {
             {item = 'ironore', label = 'Eisenerz', amount = 2},
             {item = 'coalingot', label = 'Kohle Brikett', amount = 1}},
         newitem = {sqlitem = 'ironingot', label = 'Eisenbarren'},
-        newitemamount = 1,
+        newitemamount = 10,
         craftAmount = 10
     },
     {
@@ -178,7 +178,7 @@ Config.Items = {
         reqItems = {
             {item = 'bauxit', label = 'Bauxit', amount = 2}},
         newitem = {sqlitem = 'aluminium', label = 'Aluminium'},
-        newitemamount = 1,
+        newitemamount = 10,
         craftAmount = 10
     },
     {
@@ -189,7 +189,7 @@ Config.Items = {
             {item = 'ironingot', label = 'Eisenbarren', amount = 1},
             {item = 'coalingot', label = 'Kohle Brikett', amount = 1}},
         newitem = {sqlitem = 'steel', label = 'Stahl'},
-        newitemamount = 1,
+        newitemamount = 10,
         craftAmount = 10
     },
     {
@@ -283,7 +283,7 @@ Config.Items = {
         reqItems = {
             {item = 'ironingot', label = 'Eisenbarren', amount = 1},},
         newitem = {sqlitem = 'screws', label = 'Schrauben'},
-        newitemamount = 1,
+        newitemamount = 10,
         craftAmount = 10
     },
     {
@@ -294,7 +294,7 @@ Config.Items = {
             {item = 'ironingot', label = 'Eisenbarren', amount = 1},
             {item = 'aluminium', label = 'Aluminium', amount = 1},},
         newitem = {sqlitem = 'spring', label = 'Feder'},
-        newitemamount = 1,
+        newitemamount = 10,
         craftAmount = 10
     },
     {
@@ -304,7 +304,7 @@ Config.Items = {
         reqItems = {
             {item = 'steel', label = 'Stahl', amount = 1},},
         newitem = {sqlitem = 'bolt', label = 'Bolzen'},
-        newitemamount = 1,
+        newitemamount = 10,
         craftAmount = 10
     },
 
@@ -314,54 +314,54 @@ Config.Items = {
 Config.SellItems = {
 
     {category = 'Rohmaterial', content = {
-        {sqlitem = 'grapperaisin', label = 'Traube', priceBuy = 2.0},
-        {sqlitem = 'weat', label = 'Weizen', priceBuy = 1.0},
-        {sqlitem = 'apple', label = 'Apfel', priceBuy = 1.0},
-        {sqlitem = 'tomatos', label = 'Tomaten', priceBuy = 2.0},
-        {sqlitem = 'salad', label = 'Salat', priceBuy = 2.0},
-        {sqlitem = 'potato', label = 'Kartoffel', priceBuy = 1.0},
-        {sqlitem = 'bolcacahuetes', label = 'Erdnuss', priceBuy = 3.0},
-        {sqlitem = 'stone', label = 'Stein', priceBuy = 2.0},
-        {sqlitem = 'coal', label = 'Kohle', priceBuy = 10.0},
-        {sqlitem = 'ironore', label = 'Eisenerz', priceBuy = 8.0},
-        {sqlitem = 'bauxit', label = 'Bauxit', priceBuy = 12.0},
-        {sqlitem = 'silver', label = 'Silber', priceBuy = 24.0},
-        {sqlitem = 'gold', label = 'Gold', priceBuy = 40.0},
+        {sqlitem = 'grapperaisin', label = 'Traube', priceBuy = 4.0},
+        {sqlitem = 'weat', label = 'Weizen', priceBuy = 2.0},
+        {sqlitem = 'apple', label = 'Apfel', priceBuy = 2.0},
+        {sqlitem = 'tomatos', label = 'Tomaten', priceBuy = 4.0},
+        {sqlitem = 'salad', label = 'Salat', priceBuy = 4.0},
+        {sqlitem = 'potato', label = 'Kartoffel', priceBuy = 2.0},
+        {sqlitem = 'bolcacahuetes', label = 'Erdnuss', priceBuy = 6.0},
+        {sqlitem = 'stone', label = 'Stein', priceBuy = 4.0},
+        {sqlitem = 'coal', label = 'Kohle', priceBuy = 20.0},
+        {sqlitem = 'ironore', label = 'Eisenerz', priceBuy = 16.0},
+        {sqlitem = 'bauxit', label = 'Bauxit', priceBuy = 24.0},
+        {sqlitem = 'silver', label = 'Silber', priceBuy = 48.0},
+        {sqlitem = 'gold', label = 'Gold', priceBuy = 80.0},
     }},
     {category = 'Salate', content = {
-        {sqlitem = 'mixedsalad', label = 'Gemischter Salat', priceBuy = 20.0},
+        {sqlitem = 'mixedsalad', label = 'Gemischter Salat', priceBuy = 40.0},
     }},
     {category = 'Säfte', content = {
-        {sqlitem = 'applejuice', label = 'Apfelsaft', priceBuy = 10.0},
-        {sqlitem = 'tomatojuice', label = 'Tomatensaft', priceBuy = 15.0},
-        {sqlitem = 'berriesjuice', label = 'Beerensaft', priceBuy = 20.0},
+        {sqlitem = 'applejuice', label = 'Apfelsaft', priceBuy = 20.0},
+        {sqlitem = 'tomatojuice', label = 'Tomatensaft', priceBuy = 30.0},
+        {sqlitem = 'berriesjuice', label = 'Beerensaft', priceBuy = 40.0},
     }},
     {category = 'Bäckerei', content = {
-        {sqlitem = 'flour', label = 'Mehl', priceBuy = 4.0},
+        {sqlitem = 'flour', label = 'Mehl', priceBuy = 8.0},
     }},
     {category = 'Schmelzen', content = {
-        {sqlitem = 'concrete', label = 'Beton', priceBuy = 13.0},
-        {sqlitem = 'coalingot', label = 'Kohlebrikett', priceBuy = 45.0},
-        {sqlitem = 'aluminium', label = 'Aluminium', priceBuy = 50.0},
-        {sqlitem = 'ironingot', label = 'Eisenbarren', priceBuy = 60.0},
-        {sqlitem = 'steel', label = 'Stahl', priceBuy = 80.0},
-        {sqlitem = 'silveringot', label = 'Silberbarren', priceBuy = 90.0},
-        {sqlitem = 'goldingot', label = 'Goldbarren', priceBuy = 180.0},
+        {sqlitem = 'concrete', label = 'Beton', priceBuy = 26.0},
+        {sqlitem = 'coalingot', label = 'Kohlebrikett', priceBuy = 90.0},
+        {sqlitem = 'aluminium', label = 'Aluminium', priceBuy = 100.0},
+        {sqlitem = 'ironingot', label = 'Eisenbarren', priceBuy = 120.0},
+        {sqlitem = 'steel', label = 'Stahl', priceBuy = 160.0},
+        {sqlitem = 'silveringot', label = 'Silberbarren', priceBuy = 180.0},
+        {sqlitem = 'goldingot', label = 'Goldbarren', priceBuy = 360.0},
     }},
     {category = 'Schlosserei', content = {
-        {sqlitem = 'screws', label = 'Schrauben', priceBuy = 65.0},
-        {sqlitem = 'bolt', label = 'Bolzen', priceBuy = 85.0},
-        {sqlitem = 'spring', label = 'Feder', priceBuy = 110.0},
+        {sqlitem = 'screws', label = 'Schrauben', priceBuy = 130.0},
+        {sqlitem = 'bolt', label = 'Bolzen', priceBuy = 170.0},
+        {sqlitem = 'spring', label = 'Feder', priceBuy = 220.0},
     }},
     {category = 'Juwelen', content = { 
-        {sqlitem = 'ironbraclet', label = 'Silberarmband', priceBuy = 300.0},
-        {sqlitem = 'goldrings', label = 'Goldring', priceBuy = 550.0},
-        {sqlitem = 'necklace', label = 'Halskette', priceBuy = 800.0},
+        {sqlitem = 'ironbraclet', label = 'Silberarmband', priceBuy = 600.0},
+        {sqlitem = 'goldrings', label = 'Goldring', priceBuy = 1100.0},
+        {sqlitem = 'necklace', label = 'Halskette', priceBuy = 1600.0},
     }},
     {category = 'Wodka Manufaktur', content = {
-        {sqlitem = 'vodka', label = 'Wodka', priceBuy = 10.0},
-        {sqlitem = 'vodkafruit', label = 'Frucht Wodka', priceBuy = 35.0},
-        {sqlitem = 'vodkapeanut', label = 'Nuss Nougat Wodka', priceBuy = 45.0},
+        {sqlitem = 'vodka', label = 'Wodka', priceBuy = 20.0},
+        {sqlitem = 'vodkafruit', label = 'Frucht Wodka', priceBuy = 70.0},
+        {sqlitem = 'vodkapeanut', label = 'Nuss Nougat Wodka', priceBuy = 90.0},
     }},
 }
 
