@@ -3,7 +3,7 @@ games { 'gta5' }
 
 author 'Philipp Decker'
 description 'Park all your vehicles anywhere!'
-version '2.3.1'
+version '2.4.0'
 
 server_scripts {
 	'@mysql-async/lib/MySQL.lua',

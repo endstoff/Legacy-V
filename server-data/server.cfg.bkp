@@ -257,7 +257,7 @@ ensure No-NPC
 ##		Illegals
 ensure myDrugs
 ensure myIllegalsRework
-#ensure myIllegals
+ensure hd_puredrugs
 #ensure t1ger_bankrobbery
 
 ##      Cars
@@ -323,13 +323,18 @@ ensure casinointerior
 ensure LegacyMaps
 ensure forest
 #ensure bennyspatochev2_1
-ensure flywheels
+#ensure flywheels
 ensure goldhouse
 #ensure madrazo
+#ensure CrucialFix
 
 ensure 247_zancudo
 ensure gabz_247
 
+ensure arcade
+ensure slth_warehouse
+ensure lbc_rockford_autos
+#ensure mosleynutt
 
 # This allows players to use scripthook based plugins such as lambda menu.
 # Set this to 0 to disallow scripthook.
@@ -353,10 +358,10 @@ sets banner_detail "https://media.discordapp.net/attachments/760982812223995945/
 sets banner_connecting ""
 
 # Set your server's hostname
-sv_hostname "« ^3Legacy-V ^0» | 🛡️ ^1One-Klick-Whitelist ^0| 🔥 ^8High-Performance ^0| 🎤 ^3SaltyChat"
+sv_hostname "« ^3Legacy-V ^0» | 🚗 ^4Add-on Fahrzeuge ^0| 💼 ^3Illegale und Legale Farmrouten ^0| 💻 ^6Medic- & Copnet ^0| 🛡️ ^1Anticheat-^1One-Klick-Whitelist! ^0| 🔥 ^8High-Performance ^0| 🎤 ^3SaltyChat"
 
 sets sv_projectName "^3« Legacy-V Roleplay »"
-sets sv_projectDesc "🛑16+, 🛡️ One-Klick-Whitelist!, 🔥 High-Performance, 🚗 Kein Fahrzeug Despawn"
+sets sv_projectDesc "🛡️ One-Klick-Whitelist!, 👮 Cops & 🚒 Medics gesucht, 🚗 Kein Fahrzeug Despawn, 🚗 Add-on Fahrzeuge, 🎭Multi-Char"
 
 # Nested configs!
 #exec server_internal.cfg
@@ -393,7 +398,7 @@ add_ace identifier.steam:110000113df958c "command.hypnonema" allow
 # Hide player endpoints in external log output.
 sv_endpointprivacy true
 
-sets tags 'German,Deutsch,Legacy,RP,Roleplay,esx'
+sets tags 'German,Deutsch,Legacy,RP,Roleplay,esx,Anticheat'
 sets 🎧Discord "https://discord.gg/c7WABYqa9K"
 sets 🎧Teamspeak "ts.legacy-v.net"
 sets 🌐Website "https://legacy-v.net"

@@ -6,8 +6,6 @@ Config.Locale = 'de' -- de or en
 
 Config.useOneSyncInfinity = true
 
-Config.areFarmsUnique = true -- should farms only be sold one time?
-
 -- Supplies
 Config.Supplies = {min = 50, max = 90} -- how many items should be given at a mission
 Config.VehicleModifier1 = 5 -- extra supplies through bigger vehicle
@@ -19,7 +17,7 @@ Config.Level2Price = 250000
 Config.Level3Price = 300000
 
 Config.useSeller = true -- should the Seller be there
-Config.SellerLocation = {x = 2140.58, y = 4789.76, z = 40.97, rot = 94.16}
+Config.SellerLocation = {x = 78.820861816406, y = 112.27390289307, z = 81.168182373047, rot = 161.58}
 Config.SellerPedModel = "s_m_m_cntrybar_01"
 Config.showSellerBlip = false
 
@@ -68,7 +66,7 @@ Config.Vehicles = {
 
     {model = "dloader", label = 'Bravado Duneloader', price = 50000},
     {model = "burrito3", label = 'Declasse Burrito', price = 75000},
-    {model = "benson", label = 'Vapid Benson', price = 100000},
+    {model = "mule", label = 'Maibatsu Mule', price = 200000},
 
 }
 
@@ -85,9 +83,9 @@ Config.Farms = {
     --{id = 5, type = "weed", name = "SWeed", label = "Sandy Weed", price = 410000, enter = {x = 1407.08, y = 3603.46, z = 35.0}, inside = {x = 1064.67, y = -3182.66, z = -39.16, rot = 133.74}, bossActions = {x = 1044.02, y = -3194.92, z = -38.16}, spawnVehicle = {x = 1411.14, y = 3620.41, z = 34.89, rot = 304.19}},
     --{id = 6, type = "coke", name = "SCoke", label = "Desert Coke", price = 490000, enter = {x = 2404.55, y = 3127.57, z = 48.15}, inside = {x = 1088.61, y = -3187.81, z = -38.99, rot = 180.0}, bossActions = {x = 1087.4, y = -3194.22, z = -38.99}, spawnVehicle = {x = 2408.06, y = 3138.08, z = 48.17, rot = 241.86}},
     --{id = 7, type = "weed", name = "PWeed", label = "Paleto Weed", price = 340000, enter = {x = -400.21, y = 6378.26, z = 14.07}, inside = {x = 1064.67, y = -3182.66, z = -39.16, rot = 133.74}, bossActions = {x = 1044.02, y = -3194.92, z = -38.16}, spawnVehicle = {x = -409.76, y = 6377.92, z = 13.99, rot = 292.77}},
-    {id = 8, type = "meth", name = "HMeth", label = "Port Meth", price = 380000, enter = {x = -253.68, y = -2591.14, z = 6.0}, inside = {x = 997.3, y = -3200.57, z = -36.39, rot = 260.1}, bossActions = {x = 1002.09, y = -3195.21, z = -38.99}, spawnVehicle = {x = -257.35, y = -2586.52, z = 6.0, rot = 94.65}},
-    {id = 9, type = "weed", name = "CWeed", label = "City Hanfplantage", price = 365000, enter = {x = -400.21, y = 6378.26, z = 14.07}, inside = {x = 1064.67, y = -3182.66, z = -39.16, rot = 133.74}, bossActions = {x = 1044.02, y = -3194.92, z = -38.16}, spawnVehicle = {x = 1111.34, y = -2280.78, z = 30.27, rot = 81.42}},
-    {id = 10, type = "coke", name = "CCoke", label = "City Coke", price = 470000, enter = {x = -1421.74, y = -641.16, z = 28.67}, inside = {x = 1088.61, y = -3187.81, z = -38.99, rot = 180.0}, bossActions = {x = 1087.4, y = -3194.22, z = -38.99}, spawnVehicle = {x = -1425.48, y = -649.9, z = 28.67, rot = 215.43}},
+    {id = 8, type = "meth", name = "HMeth", label = "Port Meth", price = 480000, enter = {x = 499.60891723633, y = -652.04113769531, z = 24.90825843811}, inside = {x = 998.01354980469, y = -3199.2690429688, z = -36.39372253418, rot = 354.9}, bossActions = {x = 1002.09, y = -3195.21, z = -38.99}, spawnVehicle = {x = 506.44235229492, y = -644.41583251953, z = 24.751142501831, rot = 171.92}},
+    {id = 9, type = "weed", name = "CWeed", label = "City Hanfplantage", price = 465000, enter = {x = -1155.6336669922, y = -1574.3491210938, z = 8.3450107574463}, inside = {x = 1064.67, y = -3182.66, z = -39.16, rot = 133.74}, bossActions = {x = 1044.02, y = -3194.92, z = -38.16}, spawnVehicle = {x = -1146.0258789062, y = -1580.6717529297, z = 4.3149681091309, rot = 299.63}},
+    {id = 10, type = "coke", name = "CCoke", label = "City Coke", price = 570000, enter = {x = -1421.74, y = -641.16, z = 28.67}, inside = {x = 1088.61, y = -3187.81, z = -38.99, rot = 180.0}, bossActions = {x = 1087.4, y = -3194.22, z = -38.99}, spawnVehicle = {x = -1425.48, y = -649.9, z = 28.67, rot = 123.2}},
 }
 
 Config.EnableMissionMarker = true
@@ -168,6 +166,7 @@ Translation = {
         ['mission_loading_2'] = '% ~s~completed.',
         ['mission_wrongCar'] = 'I guess this vehicle is not the right one..',
         ['mission_backToFarm'] = 'Drive back to your farm!',
+        ['mission_notincar'] = 'You´re not sitting in a vehicle!',
 
         ['mission_self_plants_bought'] = 'x supplies ~s~bought for ~g~',
         ['mission_self_plants_bought_2'] = '$~s~.',
@@ -260,7 +259,7 @@ Translation = {
         ['you_only_have_items2'] = 'x ~y~with you',
         ['seller_title'] = 'Seller',
         ['input_howmuch'] = 'How much should be sold?',
-        ['menu_sell_desc'] = 'Sell the farmDiese Farm ist nicht mehr verfügbar!',
+        ['menu_sell_desc'] = 'Sell the farm for ~g~',
 
     },
 
@@ -272,9 +271,9 @@ Translation = {
 
         ['nothing_produced'] = '~y~Während deiner Abwesenheit konnte nichts produziert werden, da keine Vorräte vorhanden sind.',
         ['successfully_produced'] = '~g~Während du weg warst, wurden ~w~',
-        ['successfully_produced_2'] = '~g~verarbeitet.',
-        ['successfully_produced_3'] = ' ~g~produziert.',
-        ['successfully_produced_storageEmpty'] = ' ~g~produziert. Deine Vorräte sind leer!',
+        ['successfully_produced_2'] = '~g~ verarbeitet.',
+        ['successfully_produced_3'] = ' ~g~ produziert.',
+        ['successfully_produced_storageEmpty'] = ' ~g~ produziert. Deine Vorräte sind leer!',
 
         ['get_from_storage'] = '~s~ aus dem Lager entnommen.',
         ['farm_bought_title'] = 'Farm gekauft',
@@ -298,6 +297,7 @@ Translation = {
         ['mission_loading_2'] = '% ~s~abgeschlossen.',
         ['mission_wrongCar'] = 'In das Fahrzeug bekommen wir die Ware aber nicht rein..',
         ['mission_backToFarm'] = 'Fahre nun zurück zur Anlage',
+        ['mission_notincar'] = 'You´re not sitting in a vehicle!',
 
         ['mission_self_plants_bought'] = 'x Rohmaterial ~s~für ~g~',
         ['mission_self_plants_bought_2'] = '$ ~s~bezahlt.',
@@ -391,7 +391,6 @@ Translation = {
         ['seller_title'] = 'Händler',
         ['input_howmuch'] = 'Wie viel soll verkauft werden?',
         ['menu_sell_desc'] = 'Sell the farm for ~g~',
-        ['farm_already_owned'] = '~r~Diese Farm ist nicht mehr verfügbar!',
 
     }
 

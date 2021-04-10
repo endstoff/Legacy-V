@@ -43,6 +43,21 @@ function GetVehicleModifications(vehicle)
     --        table.insert(windowsBroken, i)
     --    end
     --end
+
+    -- custom colors
+    local hasCustomPrimaryColor = GetIsVehiclePrimaryColourCustom(vehicle)
+    local customPrimaryColor = nil
+    if (hasCustomPrimaryColor) then
+        local r, g, b = GetVehicleCustomPrimaryColour(vehicle)
+        customPrimaryColor = { r, g, b }
+    end
+    
+    local hasCustomSecondaryColor = GetIsVehicleSecondaryColourCustom(vehicle)
+    local customSecondaryColor = nil
+    if (hasCustomSecondaryColor) then
+        local r, g, b = GetVehicleCustomSecondaryColour(vehicle)
+        customSecondaryColor = { r, g, b }
+    end
     
     return {
         -- 1 model
@@ -170,7 +185,12 @@ function GetVehicleModifications(vehicle)
         windowsBroken,
 
         -- 72 xenon lights
-        GetVehicleXenonLightsColour(vehicle)
+        GetVehicleXenonLightsColour(vehicle),
+
+        -- 73 custom primary color
+        customPrimaryColor,
+        -- 74 custom secondary color
+        customSecondaryColor
     }
 end
 
@@ -187,6 +207,12 @@ function SetVehicleModifications(vehicle, plate, modifications)
     
     -- colours
     SetVehicleColours(vehicle, modifications[10], modifications[11])
+    if (modifications[73]) then
+        SetVehicleCustomPrimaryColour(vehicle, modifications[73][1], modifications[73][2], modifications[73][3])
+    end
+    if (modifications[74]) then
+        SetVehicleCustomSecondaryColour(vehicle, modifications[74][1], modifications[74][2], modifications[74][3])
+    end
     
     SetVehicleExtraColours(vehicle, modifications[12], modifications[13])
     
@@ -271,8 +297,8 @@ function SetVehicleModifications(vehicle, plate, modifications)
     SetVehicleBodyHealth(vehicle, modifications[4])
     SetVehicleEngineHealth(vehicle, modifications[5])
     SetVehiclePetrolTankHealth(vehicle, modifications[6])
-    if (modifications[5] < -3999.0 or modifications[6] < -999.0) then
-        SetEntityRenderScorched(vehicle, true)
+    if (Config.renderScorched and (modifications[5] < -3999.0 or modifications[6] < -999.0)) then
+        TriggerServerEvent("AdvancedParking:renderScorched", NetworkGetNetworkIdFromEntity(vehicle), true)
     end
     
     SetVehicleDirtLevel(vehicle, modifications[7])

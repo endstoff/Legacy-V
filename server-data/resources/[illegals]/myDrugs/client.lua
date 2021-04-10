@@ -149,28 +149,11 @@ Citizen.CreateThread(function()
 										selectMenu:Visible(not selectMenu:Visible())
 										_menuPool:RefreshIndex()
 										_menuPool:MouseEdgeEnabled (false)
-									elseif Config.areFarmsUnique then
-                                        ESX.TriggerServerCallback('myDrugs:IsFarmAlreadyOwned', function(isOwned)
-                                            if isOwned then
-                                                ShowNotification(Translation[Config.Locale]['farm_already_owned'])
-                                            else
-                                                buyFarmMenu(farm)
-                                            end
-                                        end, farm.name)
-                                    else
-                                        buyFarmMenu(farm)
-                                    end
+									else
+										buyFarmMenu(farm)
+									end
                                 end
                             end
-                        elseif Config.areFarmsUnique then
-                            ESX.TriggerServerCallback('myDrugs:IsFarmAlreadyOwned', function(isOwned)
-                                print(isOwned)
-                                if isOwned then
-                                    ShowNotification(Translation[Config.Locale]['farm_already_owned'])
-                                else
-                                    buyFarmMenu(farm)
-                                end
-                            end, farm.name)
                         else
                             buyFarmMenu(farm)
                         end
@@ -805,14 +788,21 @@ function startLoading(blip, dest, target)
             local playerCoords = GetEntityCoords(ped)
             local distance = Vdist(playerCoords, dest.x, dest.y, dest.z)
 
-            if distance >= 15.0 then
-                RemoveNotification(notificationID)
-                notificationID = ShowNotification(Translation[Config.Locale]['mission_outofrange'])
-                i = i -1
+            if GetEntityModel(vehicle) == GetHashKey(car) then
+                if distance >= 15.0 then
+                    RemoveNotification(notificationID)
+                    notificationID = ShowNotification(Translation[Config.Locale]['mission_outofrange'])
+                    i = i -1
+                else
+                    RemoveNotification(notificationID)
+                    notificationID = ShowNotification(Translation[Config.Locale]['mission_loading'] .. i .. Translation[Config.Locale]['mission_loading_2'])
+                end
             else
                 RemoveNotification(notificationID)
-                notificationID = ShowNotification(Translation[Config.Locale]['mission_loading'] .. i .. Translation[Config.Locale]['mission_loading_2'])
+                notificationID = ShowNotification(Translation[Config.Locale]['mission_notincar'])
+                TriggerEvent('myDrugs:abortMission')
             end
+
             Citizen.Wait(350)
             if i == 100 then
 
@@ -974,7 +964,7 @@ AddEventHandler('myDrugs:receiveFarms', function(farmOwnerServer, steamID)
     for k, v in pairs(ownedFarms) do
         for k2, farm in pairs(Config.Farms) do
             if farm.name == v.name then
-                --[[local blip = AddBlipForCoord(farm.enter.x, farm.enter.y)
+            --[[local blip = AddBlipForCoord(farm.enter.x, farm.enter.y)
                 SetBlipSprite(blip, 140)
                 SetBlipDisplay(blip, 6)
                 SetBlipScale(blip, 1.2)

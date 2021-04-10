@@ -168,7 +168,7 @@ Config.Items = {
             {item = 'ironore', label = 'Eisenerz', amount = 2},
             {item = 'coalingot', label = 'Kohle Brikett', amount = 1}},
         newitem = {sqlitem = 'ironingot', label = 'Eisenbarren'},
-        newitemamount = 10,
+        newitemamount = 1,
         craftAmount = 10
     },
     {
@@ -178,7 +178,7 @@ Config.Items = {
         reqItems = {
             {item = 'bauxit', label = 'Bauxit', amount = 2}},
         newitem = {sqlitem = 'aluminium', label = 'Aluminium'},
-        newitemamount = 10,
+        newitemamount = 1,
         craftAmount = 10
     },
     {
@@ -189,7 +189,7 @@ Config.Items = {
             {item = 'ironingot', label = 'Eisenbarren', amount = 1},
             {item = 'coalingot', label = 'Kohle Brikett', amount = 1}},
         newitem = {sqlitem = 'steel', label = 'Stahl'},
-        newitemamount = 10,
+        newitemamount = 1,
         craftAmount = 10
     },
     {
@@ -283,7 +283,7 @@ Config.Items = {
         reqItems = {
             {item = 'ironingot', label = 'Eisenbarren', amount = 1},},
         newitem = {sqlitem = 'screws', label = 'Schrauben'},
-        newitemamount = 10,
+        newitemamount = 1,
         craftAmount = 10
     },
     {
@@ -294,7 +294,7 @@ Config.Items = {
             {item = 'ironingot', label = 'Eisenbarren', amount = 1},
             {item = 'aluminium', label = 'Aluminium', amount = 1},},
         newitem = {sqlitem = 'spring', label = 'Feder'},
-        newitemamount = 10,
+        newitemamount = 1,
         craftAmount = 10
     },
     {
@@ -304,7 +304,7 @@ Config.Items = {
         reqItems = {
             {item = 'steel', label = 'Stahl', amount = 1},},
         newitem = {sqlitem = 'bolt', label = 'Bolzen'},
-        newitemamount = 10,
+        newitemamount = 1,
         craftAmount = 10
     },
 

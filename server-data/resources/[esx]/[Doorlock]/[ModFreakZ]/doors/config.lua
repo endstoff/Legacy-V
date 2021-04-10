@@ -123,7 +123,7 @@ Config = {
       render_dist   = 20.0,
 
       -- Shop Location
-      location = vector3(451.46771240234,-760.77416992188,0.0),
+      location = vector3(-1561.28,-568.45,108.52),
 
       -- Use 3D Text?
       draw_text     = false,
@@ -155,16 +155,16 @@ Config = {
       content = {
         {
           -- Item name (relevant to database item names).
-          item_name  = "keys_missionrow_pd_front",
+          item_name  = "keys_toni",
 
           -- Item label (purely for menu).
-          item_label = "Mission Row PD Keys (Front)",
+          item_label = "Toni",
 
           -- Derp?
           item_price = 500,
 
           -- Is this item restricted to authorized jobs below?
-          restricted = true,
+          restricted = false,
           auth_jobs = {
             police    = {min_rank = 0},
             mechanic  = {min_rank = 2},

@@ -31,10 +31,10 @@ ESX.RegisterServerCallback('SmallTattoos:PurchaseTattoo', function(source, cb, t
 			['@identifier'] = xPlayer.identifier
 		})
 
-		TriggerClientEvent('esx:showNotification', source, "You have bought the ~y~" .. tattooName .. "~s~ tattoo for ~g~$" .. price)
+		TriggerClientEvent('esx:showNotification', source, "Du hast das ~y~" .. tattooName .. "~s~ Tattoo für ~g~$" .. price .. "~s~ gekauft")
 		cb(true)
 	else
-		TriggerClientEvent('esx:showNotification', source, "You do not have enough money for this tattoo")
+		TriggerClientEvent('esx:showNotification', source, "Du hast nicht genug Geld dabei für dieses Tattoo")
 		cb(false)
 	end
 end)

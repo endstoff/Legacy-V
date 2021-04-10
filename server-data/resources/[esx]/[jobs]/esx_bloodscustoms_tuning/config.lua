@@ -6,7 +6,7 @@ Config.IsMechanicJobOnly = true
 Config.Zones = {
 
 	ls1 = {
-		Pos   = { x = 1765.6469726562, y = 3330.2893066406, z = 41.438529968262},
+		Pos   = { x = -768.08728027344, y = -234.14665222168, z = 37.14762878418},
 		Size  = {x = 5.0, y = 5.0, z = 5.0},
 		Color = {r = 204, g = 204, b = 0},
 		Marker= 1,
@@ -415,7 +415,7 @@ end
 
 Config.Menus = {
 	main = {
-		label		= 'FlyWheels',
+		label		= 'Mosleys',
 		parent		= nil,
 		cosmetics	= _U('cosmetics')
 	},

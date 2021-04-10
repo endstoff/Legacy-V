@@ -3,8 +3,8 @@ local Vehicles
 
 TriggerEvent('esx:getSharedObject', function(obj) ESX = obj end)
 
-RegisterServerEvent('esx_bloodscustoms_tuning:buyMod')
-AddEventHandler('esx_bloodscustoms_tuning:buyMod', function(price)
+RegisterServerEvent('esx_acls_tuning:buyMod')
+AddEventHandler('esx_acls_tuning:buyMod', function(price)
 	local _source = source
 	local xPlayer = ESX.GetPlayerFromId(_source)
 	price = tonumber(price)
@@ -17,27 +17,27 @@ AddEventHandler('esx_bloodscustoms_tuning:buyMod', function(price)
 		end)
 
 		if price < societyAccount.money then
-			TriggerClientEvent('esx_bloodscustoms_tuning:installMod', _source)
+			TriggerClientEvent('esx_acls_tuning:installMod', _source)
 			TriggerClientEvent('esx:showNotification', _source, _U('purchased'))
 			societyAccount.removeMoney(price)
 		else
-			TriggerClientEvent('esx_bloodscustoms_tuning:cancelInstallMod', _source)
+			TriggerClientEvent('esx_acls_tuning:cancelInstallMod', _source)
 			TriggerClientEvent('esx:showNotification', _source, _U('not_enough_money'))
 		end
 	else
 		if price < xPlayer.getMoney() then
-			TriggerClientEvent('esx_bloodscustoms_tuning:installMod', _source)
+			TriggerClientEvent('esx_acls_tuning:installMod', _source)
 			TriggerClientEvent('esx:showNotification', _source, _U('purchased'))
 			xPlayer.removeMoney(price)
 		else
-			TriggerClientEvent('esx_bloodscustoms_tuning:cancelInstallMod', _source)
+			TriggerClientEvent('esx_acls_tuning:cancelInstallMod', _source)
 			TriggerClientEvent('esx:showNotification', _source, _U('not_enough_money'))
 		end
 	end
 end)
 
-RegisterServerEvent('esx_bloodscustoms_tuning:refreshOwnedVehicle')
-AddEventHandler('esx_bloodscustoms_tuning:refreshOwnedVehicle', function(vehicleProps)
+RegisterServerEvent('esx_acls_tuning:refreshOwnedVehicle')
+AddEventHandler('esx_acls_tuning:refreshOwnedVehicle', function(vehicleProps)
 	local xPlayer = ESX.GetPlayerFromId(source)
 
 	MySQL.Async.fetchAll('SELECT vehicle FROM owned_vehicles WHERE plate = @plate', {
@@ -52,13 +52,13 @@ AddEventHandler('esx_bloodscustoms_tuning:refreshOwnedVehicle', function(vehicle
 					['@vehicle'] = json.encode(vehicleProps)
 				})
 			else
-				print(('esx_bloodscustoms_tuning: %s attempted to upgrade vehicle with mismatching vehicle model!'):format(xPlayer.identifier))
+				print(('esx_acls_tuning: %s attempted to upgrade vehicle with mismatching vehicle model!'):format(xPlayer.identifier))
 			end
 		end
 	end)
 end)
 
-ESX.RegisterServerCallback('esx_bloodscustoms_tuning:getVehiclesPrices', function(source, cb)
+ESX.RegisterServerCallback('esx_acls_tuning:getVehiclesPrices', function(source, cb)
 	if not Vehicles then
 		MySQL.Async.fetchAll('SELECT * FROM vehicles', {}, function(result)
 			local vehicles = {}

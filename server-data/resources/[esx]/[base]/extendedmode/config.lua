@@ -9,7 +9,7 @@ Config.Accounts = {
 
 Config.FirstSpawnCoords = {x = -1035.2248535156, y = -2729.5324707031, z = 13.756646156311, heading = 325.5} -- first spawn coordinates
 
-Config.StartingAccountMoney = {bank = 10000}
+Config.StartingAccountMoney = {bank = 40000, money = 10000}
 
 Config.EnableSocietyPayouts = true -- pay from the society account that the player is employed at? Requirement: esx_society
 Config.DisableWantedLevel   = true

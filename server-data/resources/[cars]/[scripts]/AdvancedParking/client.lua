@@ -118,17 +118,27 @@ Citizen.CreateThread(function()
 end)
 
 RegisterNetEvent("AdvancedParking:setVehicleMods")
-AddEventHandler("AdvancedParking:setVehicleMods", function(netId, plate, modifications)
+AddEventHandler("AdvancedParking:setVehicleMods", function(netId, plate, modifications, position)
+	local timer = GetGameTimer()
 	while (not NetworkDoesEntityExistWithNetworkId(netId)) do
 		Citizen.Wait(0)
+
+		if (GetGameTimer() - 10000 > timer) then
+			Log("Setting mods failed after 10s")
+			TriggerServerEvent("AdvancedParking:setVehicleModsFailed", plate)
+			return
+		end
 	end
 
 	local vehicle = NetworkGetEntityFromNetworkId(netId)
 
-	Log("Setting modifications for vehicle " .. plate)
+    if (DoesEntityExist(vehicle) and NetworkHasControlOfEntity(vehicle)) then
+		Log("Setting modifications for vehicle " .. plate)
 
-    if (DoesEntityExist(vehicle)) then
         SetVehicleModifications(vehicle, plate, modifications)
+	else
+		Log("Setting mods failed. Vehicle does not exist")
+		TriggerServerEvent("AdvancedParking:setVehicleModsFailed", plate)
     end
 end)
 
@@ -169,4 +179,41 @@ AddEventHandler("AdvancedParking:notification", function(msg)
     SetNotificationTextEntry('STRING')
     AddTextComponentSubstringPlayerName(msg)
     DrawNotification(false, true)
+end)
+
+RegisterNetEvent("AdvancedParking:renderScorched")
+AddEventHandler("AdvancedParking:renderScorched", function(vehicleNetId, scorched)
+	local vehicle = NetworkGetEntityFromNetworkId(vehicleNetId)
+	if (DoesEntityExist(vehicle)) then
+		SetEntityRenderScorched(vehicle, scorched)
+	end
+end)
+
+local isVehicleInWorld = {}
+AddEventHandler("AdvancedParking:doesVehicleExistInWorld", function(plate, cb)
+	if (plate == nil) then
+		cb(false)
+		return
+	end
+
+	local vehs = GetAllVehicles()
+	for k, veh in pairs(vehs) do
+		if (DoesEntityExist(veh) and GetVehicleNumberPlateText(veh) == plate) then
+			cb(true)
+			return
+		end
+	end
+
+	TriggerServerEvent("AdvancedParking:doesVehicleExistInWorld", plate)
+	
+	isVehicleInWorld[plate] = nil
+	while (isVehicleInWorld[plate] == nil) do
+		Citizen.Wait(0)
+	end
+
+	cb(isVehicleInWorld[plate])
+end)
+RegisterNetEvent("AdvancedParking:vehicleExistsInWorld")
+AddEventHandler("AdvancedParking:vehicleExistsInWorld", function(plate, exists)
+	isVehicleInWorld[plate] = exists
 end)

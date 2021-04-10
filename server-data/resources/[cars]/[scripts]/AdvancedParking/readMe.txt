@@ -23,6 +23,19 @@ jobs), the vehicle automatically gets unregistered from the script and database 
 will not spawn anymore until you enter that vehicle again!
 
 
+**Update (v2.4)**
+
+- added a license
+- support for custom vehicle colors (using RGB)
+- added config option for vehicles rendering as scorched when broken
+- added an event that can be triggered when repairing a vehicle to not make it 
+  render as scorched anymore (replace vehicle with your variable):
+  TriggerServerEvent("AdvancedParking:renderScorched", NetworkGetNetworkIdFromEntity(vehicle), false)
+- fixed rare occasions of vehicles respawning without any of their proper mods
+- massively reduced network traffic by fixing a bug when spawning a vehicle
+- fixed another error regarding the CleanUp() function
+
+
 **Hotfix (v2.3.1)**
 
 - fixed a nil value resulting in an SQL error

@@ -7,12 +7,12 @@ Config.ShowFarmingBlipText = true
 
 Config.FarmingAreas = { 
 
-    {requiredJob = nil, xptype = nil, blip = {sprite = -1, color = 7, data = nil}, items = {{name = 'amphetamine', label = 'Amphetamine'}}, x = 2433.11328125, y = 4970.7255859375, z = 42.347602844238, range = 3.0, randoma = 1, randomb = 1, collectingTime = 5, animation = "PROP_HUMAN_BUM_BIN"},
-    {requiredJob = nil, xptype = nil, blip = {sprite = -1, color = 7, data = nil}, items = {{name = 'poppyjuice', label = 'Mohnblütensaft'}}, x = 1558.9467773438, y = 3818.7534179688, z = 32.480598449707, range = 10.0, randoma = 1, randomb = 1, collectingTime = 5, animation = "PROP_HUMAN_BUM_BIN"},
+    {requiredJob = nil, xptype = nil, blip = {sprite = -1, color = 7, data = nil}, items = {{name = 'amphetamine', label = 'Amphetamine'}}, x = 2433.11328125, y = 4970.7255859375, z = 42.347602844238, range = 3.0, randoma = 1, randomb = 1, collectingTime = 10, animation = "PROP_HUMAN_BUM_BIN"},
+    {requiredJob = nil, xptype = nil, blip = {sprite = -1, color = 7, data = nil}, items = {{name = 'poppyjuice', label = 'Mohnblütensaft'}}, x = 1558.9467773438, y = 3818.7534179688, z = 32.480598449707, range = 10.0, randoma = 1, randomb = 1, collectingTime = 10, animation = "PROP_HUMAN_BUM_BIN"},
     {requiredJob = nil, xptype = nil, blip = {sprite = -1, color = 7, data = nil}, items = {{name = 'malware', label = 'Malware Diskette'}}, x = -1044.8726806641, y = -240.38133239746, z = 37.964935302734, range = 1.0, randoma = 1, randomb = 1, collectingTime = 120, animation = "PROP_HUMAN_PARKING_METER"},
 }
 
-Config.CraftTime = 2 -- in sek
+Config.CraftTime = 4 -- in sek
 Config.CraftBlipIcon = -1
 Config.CraftBlipColour = 0
 

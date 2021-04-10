@@ -44,20 +44,21 @@ function CleanUp()
 
     local toDelete = {}
 
-    for i = 1, #vehicles, 1 do
-        if (vehicles[i].lastUpdate < os.difftime(currentTime, threshold)) then
+    for plate, vehicle in pairs(vehicles) do
+        if (vehicle.lastUpdate < os.difftime(currentTime, threshold)) then
             
             MySQL.Async.execute("DELETE FROM vehicle_parking WHERE plate = @plate",
             {
-                ["@plate"] = vehicles[i].plate
+                ["@plate"] = plate
             })
 
-            table.insert(toDelete, i)
+            table.insert(toDelete, plate)
         end
     end
-
-    for i = #toDelete, 1, -1 do
-        table.remove(vehicles, toDelete[i])
+    
+    for i = 1, #toDelete, 1 do
+        local plate = toDelete[i]
+        vehicles[plate] = nil
     end
 
     Log("CleanUp complete. Deleted " .. #toDelete .. " entries.")
@@ -474,9 +475,13 @@ function TrySpawnVehicles()
                             vehicleData.spawning = false
                             vehicleData.handle = vehicle
 
-                            Log("Creating vehicle " .. plate .. " at " .. tostring(vehicleData.position))
+                            while (NetworkGetEntityOwner(vehicleData.handle) == -1) do
+                                Citizen.Wait(0)
+                            end
 
-                            TriggerClientEvent("AdvancedParking:setVehicleMods", NetworkGetEntityOwner(vehicleData.handle), NetworkGetNetworkIdFromEntity(vehicleData.handle), plate, vehicleData.modifications)
+                            Log("Creating vehicle " .. plate .. " at " .. tostring(vehicleData.position) .. "\n at entity owner " .. tostring(NetworkGetEntityOwner(vehicleData.handle)))
+
+                            TriggerClientEvent("AdvancedParking:setVehicleMods", NetworkGetEntityOwner(vehicleData.handle), NetworkGetNetworkIdFromEntity(vehicleData.handle), plate, vehicleData.modifications, vehicleData.position)
                         end)
                     end
                 end
@@ -484,6 +489,25 @@ function TrySpawnVehicles()
         end
     end
 end
+
+RegisterServerEvent("AdvancedParking:setVehicleModsFailed")
+AddEventHandler("AdvancedParking:setVehicleModsFailed", function(plate)
+    Log("Setting mods failed... retrying...")
+
+    if (vehicles[plate] and vehicles[plate].handle and DoesEntityExist(vehicles[plate].handle)) then
+        Citizen.CreateThread(function()
+            while (true) do
+                Citizen.Wait(500)
+                
+                local closestPlayer, dist = GetClosestPlayerId(vehicles[plate].position)
+                if (closestPlayer ~= nil and dist < Config.spawnDistance) then
+                    TriggerClientEvent("AdvancedParking:setVehicleMods", NetworkGetEntityOwner(vehicles[plate].handle), NetworkGetNetworkIdFromEntity(vehicles[plate].handle), plate, vehicles[plate].modifications, vehicles[plate].position)
+                    return
+                end
+            end
+        end)
+    end
+end)
 
 RegisterServerEvent("AdvancedParking:updatePlate")
 AddEventHandler("AdvancedParking:updatePlate", function(oldPlate, newPlate)
@@ -572,3 +596,47 @@ function DeleteAllVehicles()
     
     Log("Deleted " .. tostring(deleted) .. "/" .. tostring(#vehs) .. " vehicles. Took " .. tostring((GetGameTimer() - time) / 1000.0) .. "sec")
 end
+
+-- render entity scorched (trigger with netid of the vehicle and false when repairing)
+RegisterServerEvent("AdvancedParking:renderScorched")
+AddEventHandler("AdvancedParking:renderScorched", function(vehicleNetId, scorched)
+    local vehicleHandle = NetworkGetEntityFromNetworkId(vehicleNetId)
+    if (DoesEntityExist(vehicleHandle)) then
+        TriggerClientEvent("AdvancedParking:renderScorched", -1, vehicleNetId, scorched)
+    end
+end)
+
+-- return all vehicles plates and positions via a search string
+AddEventHandler("AdvancedParking:getVehiclePosition", function(searchString, cb)
+	local foundVehicles = {}
+
+	for plate, veh in pairs(vehicles) do
+		if (plate:find(searchString)) then
+			table.insert(foundVehicles, {
+                plate = plate,
+                position = veh.position
+            })
+		end
+	end
+
+    cb(foundVehicles)
+end)
+
+-- if vehicle is in the world
+RegisterServerEvent("AdvancedParking:doesVehicleExistInWorld")
+AddEventHandler("AdvancedParking:doesVehicleExistInWorld", function(plate)
+    if (vehicles[plate]) then
+        TriggerClientEvent("AdvancedParking:vehicleExistsInWorld", source, plate, true)
+        return
+    end
+
+    local vehs = GetAllVehicles()
+    for k, veh in pairs(vehs) do
+        if (DoesEntityExist(veh) and GetVehicleNumberPlateText(veh) == plate) then
+            TriggerClientEvent("AdvancedParking:vehicleExistsInWorld", source, plate, true)
+            return
+        end
+    end
+        
+    TriggerClientEvent("AdvancedParking:vehicleExistsInWorld", source, plate, false)
+end)

@@ -150,7 +150,13 @@ UseWebhook = true,
 			{
 				model = 'cognoscenti', -- Vehicle spawn model
 				label = 'Cognoscenti', -- Vehicle menu label
-				props = {plate = '1234567', modXenon = true} -- Here you can add all vehicle mods you want, documentation can be found here: https://esx-framework.github.io/es_extended/client/functions/game/setvehicleproperties/#valid-table-content
+				props = {plate = '123456', modXenon = true} -- Here you can add all vehicle mods you want, documentation can be found here: https://esx-framework.github.io/es_extended/client/functions/game/setvehicleproperties/#valid-table-content
+
+			},
+			{
+				model = 'alpinab7', -- Vehicle spawn model
+				label = 'BMWAlpinab7', -- Vehicle menu label
+				props = {plate = '123456', modXenon = true} -- Here you can add all vehicle mods you want, documentation can be found here: https://esx-framework.github.io/es_extended/client/functions/game/setvehicleproperties/#valid-table-content
 
 			},
 		},
@@ -161,7 +167,7 @@ UseWebhook = true,
 	-- End of Authorized vehicles and start of Allowed Actions
 	AllowedActions = {
 		Billing = true, -- Adds "Billing" to the interaction menu, the society is society_*player_job_name* (players job is police -> society is society_police)
-		HasBodyActions = false, -- Adds Body Action such as Cuffing, Dragging, Taking out of vehicle, Putting in vehicle ...
+		HasBodyActions = true, -- Adds Body Action such as Cuffing, Dragging, Taking out of vehicle, Putting in vehicle ...
 		HasMechanicActions = false, -- This allows vehicle interaction in F6 menu
 		CanRevive = false, -- This adds revive possibility to F6 menu
 		CanWash = false, -- This manages if the boss can wash dirty money in BossMenu

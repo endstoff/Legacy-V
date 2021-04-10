@@ -1,5 +1,5 @@
 Locales['en'] = {
-  ['bcustoms'] = 'FlyWheels',
+  ['bcustoms'] = 'Sunrise Tuning',
   ['drive_to_indicated'] = '~y~Fahre~s~ an den angegebenen ~g~Ort~s~.',
   ['mission_canceled'] = 'Mission ~r~abgebrochen~s~',
   ['vehicle_list'] = 'Fahrzeugliste',

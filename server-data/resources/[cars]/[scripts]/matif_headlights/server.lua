@@ -21,10 +21,12 @@ RegisterServerEvent('matif_headlights:install')
 AddEventHandler('matif_headlights:install', function(plate)
     local _src = source
     xPlayer = ESX.GetPlayerFromId(source)
+
     if xPlayer.getJob().name == 'mechanic' or xPlayer.getJob().name == 'bennys' or xPlayer.getJob().name == 'acls' or xPlayer.getJob().name == 'bcustoms' then
         MySQL.Async.fetchScalar('SELECT color FROM owned_vehicles WHERE plate = @plate', {
             ['@plate'] = plate
         }, function(result)
+
             if result == 'NOT' then
                 MySQL.Sync.execute("UPDATE owned_vehicles SET color =@color WHERE plate=@plate",{['@color'] = -1, ['@plate'] = plate})
                 notify(_src, 'Xenon headlight extra installed successfully!')
@@ -33,6 +35,7 @@ AddEventHandler('matif_headlights:install', function(plate)
             else
                 notify(_src, 'You cannot install the extra on this vehicle!')
             end
+            
         end)
     else
         TriggerClientEvent('esx:showNotification', source, 'Du bist kein Mechaniker!')

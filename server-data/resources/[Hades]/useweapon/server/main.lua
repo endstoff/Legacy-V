@@ -37,7 +37,7 @@ end)
 ESX.RegisterUsableItem('smgcaseassault', function(source)
 	local xPlayer = ESX.GetPlayerFromId(source)
 	xPlayer.removeInventoryItem('smgcaseassault', 1)
-	local weaponName = 'WEAPON_ASSAULTSMG'
+	local weaponName = 'WEAPON_COMBATSMG'
 	if ESX.GetWeapon(weaponName) then
 		weaponName = string.upper(weaponName)
 	end
