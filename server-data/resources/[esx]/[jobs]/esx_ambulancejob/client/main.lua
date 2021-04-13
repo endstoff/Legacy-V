@@ -162,13 +162,10 @@ end
 
 function SendDistressSignal()
 	local playerPed = PlayerPedId()
-	local coords    = GetEntityCoords(playerPed)
-	local position = {x = coords.x, y = coords.y, z = coords.z}
+	local coords = GetEntityCoords(playerPed)
 
-
-	TriggerServerEvent("d-phone:server:sendservicemessage", GetPlayerServerId(PlayerId()), "Bewusstlose Person", "Notdienst", 0, 1, position, "5")
-	TriggerEvent("d-notification", "Service Message sended", 5000,  "rgba(255, 0, 0, 0.8)")
-
+	ESX.ShowNotification(_U('distress_sent'))
+	TriggerServerEvent('esx_ambulancejob:onPlayerDistress')
 end
 
 function DrawGenericTextThisFrame()

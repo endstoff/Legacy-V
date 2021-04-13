@@ -251,6 +251,7 @@ function OpenShopMenu(elements, restoreCoords, shopCoords)
 			table.insert(spawnedVehicles, vehicle)
 			TaskWarpPedIntoVehicle(playerPed, vehicle, -1)
 			FreezeEntityPosition(vehicle, true)
+			TriggerEvent("AdvancedParking:enable", false)
 			SetModelAsNoLongerNeeded(data.current.model)
 
 			if data.current.props then
@@ -264,6 +265,7 @@ function OpenShopMenu(elements, restoreCoords, shopCoords)
 		table.insert(spawnedVehicles, vehicle)
 		TaskWarpPedIntoVehicle(playerPed, vehicle, -1)
 		FreezeEntityPosition(vehicle, true)
+		TriggerEvent("AdvancedParking:enable", false)
 		SetModelAsNoLongerNeeded(elements[1].model)
 
 		if elements[1].props then

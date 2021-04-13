@@ -1,7 +1,7 @@
 Config = {}
 
 -- set this to true if you want to see debug messages on client and server side
-Config.isDebug = true
+Config.isDebug = false
 
 -- this controls the distance at which vehicles will spawn to the closest player 
 -- (in meters)

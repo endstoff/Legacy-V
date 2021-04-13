@@ -90,7 +90,6 @@ function RequestAllIpls()
 
 	-- Tunnels
 	RequestIpl('v_tunnel_hole')
-	RequestIpl('v_tunnel_hole_lod')
 
 	-- Carwash: 55.7, -1391.3, 30.5
 	RequestIpl('Carwash_with_spinners')
@@ -121,7 +120,7 @@ function RequestAllIpls()
 	RequestIpl('CS3_07_MPGates')
 
 	-- Pillbox hospital: 356.8, -590.1, 43.3
-	RequestIpl('RC12B_Default')
+	--RequestIpl('RC12B_Default')
 	-- RequestIpl('RC12B_Fixed')
 
 	-- Josh's house: -1117.163, 303.1, 66.522
@@ -142,8 +141,9 @@ function RequestAllIpls()
 	RequestIpl('ch3_rd2_bishopschickengraffiti') -- 1861.28, 2402.11, 58.53
 	RequestIpl('cs5_04_mazebillboardgraffiti') -- 2697.32, 3162.18, 58.1
 	RequestIpl('cs5_roads_ronoilgraffiti') -- 2119.12, 3058.21, 53.25
---[[
+
 	-- Aircraft Carrier (USS Luxington): 3082.312 -4717.119 15.262
+	--[[
 	RequestIpl('hei_carrier')
 	RequestIpl('hei_carrier_distantlights')
 	RequestIpl('hei_Carrier_int1')
@@ -154,8 +154,9 @@ function RequestAllIpls()
 	RequestIpl('hei_Carrier_int6')
 	RequestIpl('hei_carrier_lodlights')
 	RequestIpl('hei_carrier_slod')
-]]
+	]]
 	-- Galaxy Super Yacht: -2043.974,-1031.582, 11.981
+	--[[
 	RequestIpl('hei_yacht_heist')
 	RequestIpl('hei_yacht_heist_Bar')
 	RequestIpl('hei_yacht_heist_Bedrm')
@@ -164,12 +165,12 @@ function RequestAllIpls()
 	RequestIpl('hei_yacht_heist_enginrm')
 	RequestIpl('hei_yacht_heist_LODLights')
 	RequestIpl('hei_yacht_heist_Lounge')
-
+	]]
 	-- Bahama Mamas: -1388, -618.420, 30.820
-	RequestIpl('hei_sm_16_interior_v_bahama_milo_')
+	--RequestIpl('hei_sm_16_interior_v_bahama_milo_')
 
 	-- Red Carpet: 300.593, 199.759, 104.378
-	--RequestIpl('redCarpet')
+	RequestIpl('redCarpet')
 
 	-- UFO
 	-- Zancudo: -2052, 3237, 1457
@@ -424,6 +425,17 @@ function RequestAllIpls()
 	RequestIpl('xm_hatches_terrain')
 	RequestIpl('xm_hatches_terrain_lod')
 	RequestIpl('xm_mpchristmasadditions')
+
+	
+	RequestIpl('canyonriver01_traincrash')
+	RequestIpl('railing_end')
+
+	-- Casino: Interior: 1100.0000, 220.0000, -50.0000
+	RequestIpl('vw_casino_penthouse')
+	RequestIpl('hei_dlc_windows_casino')
+	RequestIpl('vw_casino_carpark')
+	RequestIpl('vw_casino_garage')
+	RequestIpl('vw_casino_main')
 
 	-- Bunkers: Interior: 892.638, -3245.866, -98.265
 	--[[

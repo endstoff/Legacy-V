@@ -5,175 +5,133 @@
     "messages": {
         "seconds": "Sekunden",
         "menuTitle": "Gesundheitsmenü",
-
         "gauze_bandage": "Elastischer Verband",
         "bandage": "Verband",
         "quick_clot": "Feldverband (QuickClot)",
         "package_bandage": "Packungsverband",
-
         "bandage_applied": "Verband verwendet.<br><br>Typ: <b>%s</b>",
-
         "epinephrine_inject": "Epinephrin wurde in den Körper injiziert.",
         "atropine_inject": "Atropin wurde in den Körper injiziert.",
         "morphin_inject": "Morphin wurde in den Körper injiziert.",
-
         "measuring_pulse": "Messe Puls...",
         "pulse_measured": "Puls wurde gemessen.<br><br>Pulse: <b>%s Schläge pro Minute</b><br>Dauer: <b>%s</b></b>",
-        
         "checking_reponse": "Überprüfe Bewusstsein...",
         "person_not_responsive": "Die untersuchte Person reagiert nicht.",
         "person_responsive": "Die untersuchte Person reagiert.",
-
         "measuring_blood_pressure": "Blutdruck wird gemessen...",
         "blood_pressure_measured": "Blutdruck wurde gemessen.<br><br>Blutdruck: <b>%s / %s</b><br>Dauer: <b>%s</b></b>",
-        
         "measuring_blood_content": "Blutgehalt wird gemessen...",
         "blood_content_measured": "Blutgehalt wurde gemessen.<br><br>Blutgehalt: <b>%sl</b><br>Dauer: <b>%s</b></b>",
-        
         "applying_badange": "Verband wird angelegt...",
-
         "sewing_wounds": "Wunden werden genäht...",
         "sewd_wounds": "Wunden wurden genäht.",
-
         "stow_in_body_bag": "Leiche wird im Leichensack verstaut...",
         "person_stowed": "Leiche wurde im Leichensack verstaut.",
-
         "cpr_in_progress": "HLW wird durchgeführt...",
         "cpr_performed": "HLW wurde durchgeführt.",
-
         "giving_painkillers": "Verabreiche Schmerzmittel...",
         "given_painkillers": "Schmerzmittel wurden verabreicht.",
-
         "defibrillator_being_used": "Defibrillator wird benutzt...",
         "defibrillator_used": "Defibrillator benutzt.",
-
         "injecting_liquid": "Injiziere Flüssigkeit...",
         "liquid_injected": "Flüssigkeit injiziert.",
-
         "giving_infusion": "Infusion wird verabreicht...",
         "infusion_given": "Infusion erfolgreich verabreicht.",
-
         "phone_call_text": "Notfall: Bewusstlose Person",
         "distress_call_sent": "Ein Notruf wurde an alle verfügbaren LSFMD-Beamten gesendet.",
-
         "open_health_menu_self": "Gesundheitsmenü öffnen: Eigen",
         "open_health_menu_other": "Gesundheitsmenü öffnen: Person vor Dir",
-
         "carrying_person": "Person wird getragen.<br><br>Drücke <b>%s</b>, um das Tragen abzubrechen!",
-
         "missing_item": "Aktion abgebrochen. Fehlendes Item!",
         "person_too_far_away": "Aktion abgebrochen. Person befindet sich zu weit entfernt.",
         "person_must_be_unconscious": "Die Person muss für diese Aktion ohnmächtig sein.",
-        
         "head": "Kopf",
         "right_arm": "Rechter Arm",
         "left_arm": "Linker Arm",
         "torso": "Torso",
         "right_leg": "Rechtes Bein",
         "left_leg": "Linkes Bein",
-
         "activityHistory": "Aktivitätsverlauf",
-
         "active_bleeding_weak": "Aktive Blutung (schwach)",
         "active_bleeding_average": "Aktive Blutung (durchschnittlich)",
         "active_bleeding_strong": "Aktive Blutung (stark)",
-
         "lost_blood_little": "Hat eine geringe Menge Blut verloren",
         "lost_blood_huge": "Hat eine große Menge Blut verloren",
         "lost_blood_fatal": "Hat eine tödliche Menge Blut verloren",
-
         "active_pain": "Aktiver Schmerz",
         "active_blood_infusion": "Aktive Blutinfusion ({0}ml)",
-
         "discord_kill_player": "Der Spieler %s (%d) wurde von dem Spieler %s (%s) getötet.",
         "discord_kill_self": "Der Spieler %s (%d) hat sich selbst getötet.",
-        
         "slight_concussion": "Leichte Gehirnerschütterung",
         "moderately_large_head_laceration": "Größere Kopfverletzung",
         "large_open_lacerated_wound": "Große offene Schnittwunde",
         "severe_burns": "Starke Verbrennungen",
-
         "suturing_required": "Wundnaht erforderlich...",
         "no_injuries_at_bodypart": "Keine Verletzungen an diesem Körperteil...",
-
         "small_abrasion": "Kleiner Abrieb",
         "large_laceration": "Große Verletzung",
         "large_cut": "Großer Schnitt",
-
         "open_tear_wound": "Offene Risswunde",
         "slight_bruise": "Leichte Blutergüsse",
         "open_stab_wound": "Offene Stichwunde",
-
         "CHECK_PERSON": "Die Reaktionsfähigkeit wurde überprüft",
         "CHECK_PULSE": "Eine Pulsmessung wurde durchgeführt.",
         "CHECK_BLOOD_VOLUME": "Eine Blutgehaltsmessung wurde durchgeführt.",
-        
         "GIVE_BANDAGE_NORMAL_HEAD": "Ein Verband wurde um den Kopf gebunden.",
         "GIVE_BANDAGE_NORMAL_LEFT_ARM": "Ein Verband wurde um den linken Arm gebunden.",
         "GIVE_BANDAGE_NORMAL_RIGHT_ARM": "Ein Verband wurde um den rechten Arm gebunden.",
         "GIVE_BANDAGE_NORMAL_TORSO": "Ein Verband wurde um den Oberkörper gebunden.",
         "GIVE_BANDAGE_NORMAL_LEFT_LEG": "Ein Verband wurde um das linke Bein gebunden.",
         "GIVE_BANDAGE_NORMAL_RIGHT_LEG": "Ein Verband wurde um das rechte Bein gebunden.",
-        
         "GIVE_BANDAGE_ELASTIC_HEAD": "Ein Mullverband wurde um den Kopf gebunden.",
         "GIVE_BANDAGE_ELASTIC_LEFT_ARM": "Ein Mullverband wurde um den linken Arm gebunden.",
         "GIVE_BANDAGE_ELASTIC_RIGHT_ARM": "Ein Mullverband wurde um den rechten Arm gebunden.",
         "GIVE_BANDAGE_ELASTIC_TORSO": "Ein Mullverband wurde um den Oberkörper gebunden.",
         "GIVE_BANDAGE_ELASTIC_LEFT_LEG": "Ein Mullverband wurde um das linke Bein gebunden.",
         "GIVE_BANDAGE_ELASTIC_RIGHT_LEG": "Ein Mullverband wurde um das rechte Bein gebunden.",
-        
         "GIVE_BANDAGE_QUICKCLOT_HEAD": "Ein Feldverband (QuickClot) wurde um den Kopf gebunden.",
         "GIVE_BANDAGE_QUICKCLOT_LEFT_ARM": "Ein Feldverband (QuickClot) wurde um den linken Arm gebunden.",
         "GIVE_BANDAGE_QUICKCLOT_RIGHT_ARM": "Ein Feldverband (QuickClot) wurde um den rechten Arm gebunden.",
         "GIVE_BANDAGE_QUICKCLOT_TORSO": "Ein Feldverband (QuickClot) wurde um den Oberkörper gebunden.",
         "GIVE_BANDAGE_QUICKCLOT_LEFT_LEG": "Ein Feldverband (QuickClot) wurde um das linke Bein gebunden.",
         "GIVE_BANDAGE_QUICKCLOT_RIGHT_LEG": "Ein Feldverband (QuickClot) wurde um das rechte Bein gebunden.",
-        
         "GIVE_BANDAGE_PACKING_HEAD": "Ein Packverband wurde um den Kopf gebunden.",
         "GIVE_BANDAGE_PACKING_LEFT_ARM": "Ein Packverband wurde um den linken Arm gebunden.",
         "GIVE_BANDAGE_PACKING_RIGHT_ARM": "Ein Packverband wurde um den rechten Arm gebunden.",
         "GIVE_BANDAGE_PACKING_TORSO": "Ein Packverband wurde um den Oberkörper gebunden.",
         "GIVE_BANDAGE_PACKING_LEFT_LEG": "Ein Packverband wurde um das linke Bein gebunden.",
         "GIVE_BANDAGE_PACKING_RIGHT_LEG": "Ein Packverband wurde um das rechte Bein gebunden.",
-        
         "USE_SURGICAL_KIT_HEAD": "Alle Wunden im Kopfbereich wurden genäht.",
         "USE_SURGICAL_KIT_LEFT_ARM": "Alle Wunden im Bereich des linken Armes wurden genäht.",
         "USE_SURGICAL_KIT_RIGHT_ARM": "Alle Wunden im Bereich des rechten Arms wurden genäht.",
         "USE_SURGICAL_KIT_TORSO": "Alle Wunden im Rumpfbereich wurden genäht.",
         "USE_SURGICAL_KIT_LEFT_LEG": "Alle Wunden im Bereich des linken Beins wurden genäht.",
         "USE_SURGICAL_KIT_RIGHT_LEG": "Alle Wunden im Bereich des rechten Beins wurden genäht.",
-
         "GIVE_EPINEPHRIN_LEFT_ARM": "Epinephrin wurde in das linke Bein injiziert.",
         "GIVE_EPINEPHRIN_RIGHT_ARM": "Epinephrin wurde in den rechten Arm injiziert.",
         "GIVE_EPINEPHRIN_LEFT_LEG": "Epinephrin wurde in das linke Bein injiziert.",
         "GIVE_EPINEPHRIN_RIGHT_LEG": "Epinephrin wurde in das rechte Bein injiziert.",
-        
         "GIVE_MORPHIN_LEFT_ARM": "Morphin wurde in das linke Bein injiziert.",
         "GIVE_MORPHIN_RIGHT_ARM": "Morphin wurde in den rechten Arm injiziert.",
         "GIVE_MORPHIN_LEFT_LEG": "Morphin wurde in das linke Bein injiziert.",
         "GIVE_MORPHIN_RIGHT_LEG": "Morphin wurde in das rechte Bein injiziert.",
-
         "GIVE_ATROPINE_LEFT_ARM": "Atropin wurde in den linken Arm injiziert.",
         "GIVE_ATROPINE_RIGHT_ARM": "Atropin wurde in den rechten Arm injiziert.",
         "GIVE_ATROPINE_LEFT_LEG": "Atropin wurde in das linke Bein injiziert.",
         "GIVE_ATROPINE_RIGHT_LEG": "Atropin wurde in das rechte Bein injiziert.",
-
         "USE_CPR": "Eine Herz-Lungen-Wiederbelebung wurde durchgeführt.",
         "USE_DEFIBRILATOR": "Ein Defibrillatorschock wurde durchgeführt.",
         "USE_PAINKILLERS": "Schmerzmittel wurden verabreicht.",
-
         "GIVE_INFUSION_BLOOD_100": "Eine Blutinfusion (100 ml) wurde verabreicht.",
         "GIVE_INFUSION_BLOOD_250": "Eine Blutinfusion (250 ml) wurde verabreicht.",
         "GIVE_INFUSION_BLOOD_500": "Eine Blutinfusion (500 ml) wurde verabreicht.",
         "GIVE_INFUSION_BLOOD_1000": "Eine Blutinfusion (1000 ml) wurde verabreicht.",
-
         "CHECK_BLOOD_PRESSURE": "Eine Blutdruckmessung wurde durchgeführt.",
         "USE_BODY_BAG": "Leichensack wurde verwendet.",
-
+        "USE_EMR": "Ein Notfallwiederbelebungsset wurde verwendet.",
         "unconscious_text": "Du bist bewusstlos!",
         "bleed_to_death_text": "Sie werden in 15 Minuten verbluten, wenn Sie keine Erste Hilfe erhalten.",
         "inform_ems_text": "Drücken Sie G, um einen LSFMD-Offizier mit Ihrer letzten Kraft zu kontaktieren.",
-
         "checkPerson": "Diagnosen",
         "boneBreak": "Verbände & co.",
         "syringes": "Spritzen",
@@ -181,75 +139,51 @@
         "infusions": "Infusionen",
         "carry": "Tragen",
         "sync": "Menü resynchronisieren",
-
         "putInVehicle": "Ins Fahrzeug lagern",
         "putInVehicle_title": "",
-
         "pullOutVehicle": "Aus dem Fahrzeug herausziehen",
         "pullOutVehicle_title": "",
-
         "doing_cpr": "Führe HLW durch...",
-
         "checkResponse": "Reaktionsfähigkeit überprüfen",
         "checkResponse_title": "Ein Bewusstseinszustand beschreibt Arten bewusster Erfahrung, die durch die Eigenschaften der Wahrnehmung usw. Gekennzeichnet sind.",
-        
         "checkPulse": "Pulsmessung durchführen",
         "checkPulse_title": "Das Schlagen der Blutwelle, die durch den Herzschlag auf die Gefäßwände übertragen wird, insbesondere auf die Arterien am inneren Handgelenk und an den Schläfen.",
-        
         "checkBloodPressure": "Blutdruck messen",
         "checkBloodPressure_title": "",
-
         "checkBloodVolume": "Blutinhalt messen",
         "checkBloodVolume_title": "",
-
         "useBandage": "Verband anlegen",
         "useBandage_title": "",
-
         "useBandageGauze": "Mullverband anlegen",
         "useBandageGauze_title": "",
-
         "useBandageQuickClot": "Quickclot-Verband anlegen",
         "useBandageQuickClot_title": "",
-
         "useBandagePacking": "Packverband anlegen",
         "useBandagePacking_title": "",
-
         "useSurgicalKit": "Nähset verwenden",
         "useSurgicalKit_title": "Ein Nähset ist ein Koffer mit Inhalt, mit dem offene und gereinigte Wunden genäht werden.",
-        
         "useMorphin": "Morphium injizieren",
         "useMorphin_title": "Morphin ist ein Hauptalkaloid von Opium und daher eines der Opiate.",
-        
         "useEpinephrin": "Epinephrin injizieren",
         "useEpinephrin_title": "Adrenalin oder Adrenalin ist ein Hormon, das im Nebennierenmark produziert wird und zur Gruppe der Katecholamine gehört.",
-
         "useAtropin": "Atropin injizieren",
         "useAtropin_title": "Atropin ist ein sehr giftiges Tropanalkaloid; Es ist ein Racemat aus dem Isomer und Hyoscyamin, das während der Isolierung durch Racemisierung aus dem Naturprodukt Hyoscyamin gebildet wird.",
-    
         "usePainkillers": "Schmerzmittel verabreichen",
         "usePainkillers_title": "Schmerzmittel werden zur Behandlung von aktuen und chronischen Schmerzen eingesetzt.",
-
         "doCPR": "HLW durchführen",
         "doCPR_title": "Die Herz-Lungen-Wiederbelebung soll einen Atem- und Kreislaufstillstand beenden und so den bevorstehenden Tod der betroffenen Person verhindern.",
-        
         "useDefibrilator": "Defibrilator benutzen",
         "useDefibrilator_title": "Ein Defibrillator oder Defibrillator im Fachjargon ist ein medizinisches Gerät zur Defibrillation und möglicherweise zur Kardioversion.",
-        
         "useBodybag": "Leichensack benutzen",
         "useBodybag_title": "Der Leichensack ist ein luftdichter und flüssigkeitsdichter Beutel aus Spezialkunststoff, mit dem Leichen von dem Ort transportiert werden, an dem sie zur weiteren Untersuchung gefunden wurden, beispielsweise in der forensischen Medizin, oder direkt zur Bestattung.",
-        
         "useInfusionBlood1000": "Blutinfusion verabreichen (1000ml)",
         "useInfusionBlood1000_title": "Unter Bluttransfusion versteht man die intravenöse Verabreichung (Übertragung oder Infusion) von Konzentraten roter Blutkörperchen (Erythrozyten = rote Blutkörperchen) oder (heute sehr selten) von (Voll-) Blut.",
-                
         "useInfusionBlood500": "Blutinfusion verabreichen (500ml)",
         "useInfusionBlood500_title": "Unter Bluttransfusion versteht man die intravenöse Verabreichung (Übertragung oder Infusion) von Konzentraten roter Blutkörperchen (Erythrozyten = rote Blutkörperchen) oder (heute sehr selten) von (Voll-) Blut.",
-                
         "useInfusionBlood250": "Blutinfusion verabreichen (250ml)",
         "useInfusionBlood250_title": "Unter Bluttransfusion versteht man die intravenöse Verabreichung (Übertragung oder Infusion) von Konzentraten roter Blutkörperchen (Erythrozyten = rote Blutkörperchen) oder (heute sehr selten) von (Voll-) Blut.",
-                
         "useInfusionBlood100": "Blutinfusion verabreichen (100ml)",
         "useInfusionBlood100_title": "Unter Bluttransfusion versteht man die intravenöse Verabreichung (Übertragung oder Infusion) von Konzentraten roter Blutkörperchen (Erythrozyten = rote Blutkörperchen) oder (heute sehr selten) von (Voll-) Blut.",
-    
         "tourniquet_is_applied": "Tourniquet angebract",
         "removing_tourniquet": "Entferne Tourniquet...",
         "removed_tourniquet": "Tourniquet entfernt.",
@@ -258,7 +192,13 @@
         "useTourniquet": "Benutze Tourniquet",
         "removeTourniquet": "Entferne Tourniquet",
 
+        "useEmergencyReviveKit": "Notfallwiederbelebungsset benutzen",
+        "useEmergencyReviveKit_title": "",
+
         "useTourniquet_title": "",
-        "removeTourniquet_title": ""
+        "removeTourniquet_title": "",
+        "wound_opened": "Eine Wunde hat sich erneut geöffnet.",
+        "using_emr": "Benutze Notfallwiederbelebungsset...",
+        "used_emr": "Notfallwiederbelebungsset wurde benutzt"
     }
 }

@@ -10,17 +10,17 @@ end)
 _menuPool  = NativeUI.CreatePool()
 
 local notificationID = 0
-local isNearKitchen = false
-local isAtKitchen = false
-local currentKitchen = nil
-local currentKitchenData = nil
+local isNearkitchen = false
+local isAtkitchen = false
+local currentkitchen = nil
+local currentkitchenData = nil
 local currentPersonaldata = nil
 local isAtLeave = false
-local isInKitchen = false
+local isInkitchen = false
 local isAtComputer = false 
-local ownedKitchens = {}
+local ownedkitchens = {}
 local isDoingMission = false
-local gotKitchens = false
+local gotkitchens = false
 
 local isNearSeller = false
 local isAtSeller = false
@@ -29,24 +29,24 @@ local npc
 
 RegisterNetEvent('esx:playerLoaded')
 AddEventHandler('esx:playerLoaded', function(xPlayer)
-    gotKitchens = false
-    TriggerServerEvent('hd_puredrugs:getKitchensFromPlayer')
+    gotkitchens = false
+    TriggerServerEvent('hd_puredrugs:getkitchensFromPlayer')
 
-    while not gotKitchens do
+    while not gotkitchens do
         Wait(10)
     end
 
-    ESX.TriggerServerCallback('hd_puredrugs:getLastKitchen', function(KitchenID)
-        if KitchenID ~= nil or KitchenID ~= 0 then
-            for k, ownKitchen in pairs(ownedKitchens) do
-                if ownKitchen.id == tonumber(KitchenID) then
-                    for k2, Kitchen in pairs(Config.Kitchens) do
-                        if Kitchen.name == ownKitchen.name then
-                            currentPersonaldata = ownKitchen
-                            currentKitchenData = Kitchen
-                            currentKitchen = Kitchen.id
+    ESX.TriggerServerCallback('hd_puredrugs:getLastkitchen', function(kitchenID)
+        if kitchenID ~= nil or kitchenID ~= 0 then
+            for k, ownkitchen in pairs(ownedkitchens) do
+                if ownkitchen.id == tonumber(kitchenID) then
+                    for k2, kitchen in pairs(Config.kitchens) do
+                        if kitchen.name == ownkitchen.name then
+                            currentPersonaldata = ownkitchen
+                            currentkitchenData = kitchen
+                            currentkitchen = kitchen.id
                             loadAppereance()
-                            isInKitchen = true
+                            isInkitchen = true
                             TriggerServerEvent('hd_puredrugs:setPlayerInvisible', currentPersonaldata.id)
                             break
                         end
@@ -74,20 +74,20 @@ end
 Citizen.CreateThread(function()
 	
 	if Config.Debug then
-		TriggerServerEvent('hd_puredrugs:getKitchensFromPlayer')  -- just for Debug
+		TriggerServerEvent('hd_puredrugs:getkitchensFromPlayer')  -- just for Debug
 	end
 	
     while true do
 
-        if isNearKitchen then
-            for k, Kitchen in pairs(Config.Kitchens) do
-                if Kitchen.id == currentKitchen then
-                    DrawMarker(1, Kitchen.enter.x, Kitchen.enter.y, Kitchen.enter.z - 0.98, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0*0.75, 1.0*0.75, 1.0, 66, 246, 66, 75, false, false, 2, false, false, false, false)
+        if isNearkitchen then
+            for k, kitchen in pairs(Config.kitchens) do
+                if kitchen.id == currentkitchen then
+                    DrawMarker(1, kitchen.enter.x, kitchen.enter.y, kitchen.enter.z - 0.98, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0*0.75, 1.0*0.75, 1.0, 66, 246, 66, 75, false, false, 2, false, false, false, false)
                     break
                 end
             end
-        elseif isInKitchen then
-            DrawMarker(27, currentKitchenData.bossActions.x, currentKitchenData.bossActions.y, currentKitchenData.bossActions.z - 0.98, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0*0.75, 1.0*0.75, 1.0, 66, 246, 66, 75, false, false, 2, false, false, false, false)
+        elseif isInkitchen then
+            DrawMarker(27, currentkitchenData.bossActions.x, currentkitchenData.bossActions.y, currentkitchenData.bossActions.z - 0.98, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0*0.75, 1.0*0.75, 1.0, 66, 246, 66, 75, false, false, 2, false, false, false, false)
             if isAtComputer then
                 showInfobar(Translation[Config.Locale]['access_computer'])
                 _menuPool:ProcessMenus()
@@ -96,53 +96,53 @@ Citizen.CreateThread(function()
                 end
             end
         end
-        if isAtKitchen then
+        if isAtkitchen then
             _menuPool:ProcessMenus()
-            for k, Kitchen in pairs(Config.Kitchens) do
-                if Kitchen.id == currentKitchen then
-                    showInfobar(Translation[Config.Locale]['enter_Kitchen'] .. Kitchen.label .. Translation[Config.Locale]['enter_Kitchen_2'])
+            for k, kitchen in pairs(Config.kitchens) do
+                if kitchen.id == currentkitchen then
+                    showInfobar(Translation[Config.Locale]['enter_kitchen'] .. kitchen.label .. Translation[Config.Locale]['enter_kitchen_2'])
                     if IsControlJustReleased(0, 38) then
-                        if #ownedKitchens > 0 then
+                        if #ownedkitchens > 0 then
 						
 							_menuPool:Remove()
 							collectgarbage()
 							
-							local selectMenu = NativeUI.CreateMenu(Translation[Config.Locale]['menu_enter_Kitchen'], nil)
+							local selectMenu = NativeUI.CreateMenu(Translation[Config.Locale]['menu_enter_kitchen'], nil)
 							_menuPool:Add(selectMenu)
 							
-							local hasAtLeastOneKitchen = false
+							local hasAtLeastOnekitchen = false
 							local dataForEnter = {}
-                            for k, owned in pairs(ownedKitchens) do
-                                if owned.name == Kitchen.name then
-									hasAtLeastOneKitchen = true
-									local KitchenToSelect = NativeUI.CreateItem(Kitchen.label, '~b~')
-									KitchenToSelect:RightLabel('(~b~#' .. owned.id .. '~s~)')
-									selectMenu:AddItem(KitchenToSelect)
+                            for k, owned in pairs(ownedkitchens) do
+                                if owned.name == kitchen.name then
+									hasAtLeastOnekitchen = true
+									local kitchenToSelect = NativeUI.CreateItem(kitchen.label, '~b~')
+									kitchenToSelect:RightLabel('(~b~#' .. owned.id .. '~s~)')
+									selectMenu:AddItem(kitchenToSelect)
 									
 									table.insert(dataForEnter, {
-									KitchenData = Kitchen,
+									kitchenData = kitchen,
 									personalData = owned,
 									
 									})
                                     --break
 									
 								end
-                                if k == #ownedKitchens then
-									if hasAtLeastOneKitchen then
+                                if k == #ownedkitchens then
+									if hasAtLeastOnekitchen then
 									
 										selectMenu.OnItemSelect = function(sender, item, index)
 											local playerPed = PlayerPedId()
 											currentPersonaldata = dataForEnter[index].personalData
-											currentKitchenData = dataForEnter[index].KitchenData
+											currentkitchenData = dataForEnter[index].kitchenData
 											loadAppereance()
 											DoScreenFadeOut(1000)
 											Citizen.Wait(1000)
-											SetEntityCoords(playerPed, currentKitchenData.inside.x, currentKitchenData.inside.y, currentKitchenData.inside.z, currentKitchenData.inside.rot)
+											SetEntityCoords(playerPed, currentkitchenData.inside.x, currentkitchenData.inside.y, currentkitchenData.inside.z, currentkitchenData.inside.rot)
 											DoScreenFadeIn(1500)
-											isInKitchen = true
+											isInkitchen = true
 											TriggerServerEvent('hd_puredrugs:setLastLogin', currentPersonaldata)
 											TriggerServerEvent('hd_puredrugs:setPlayerInvisible', currentPersonaldata.id)
-											TriggerServerEvent('hd_puredrugs:saveLastKitchen', currentPersonaldata.id)
+											TriggerServerEvent('hd_puredrugs:saveLastkitchen', currentPersonaldata.id)
 											_menuPool:CloseAllMenus()
 										end
 										
@@ -150,36 +150,36 @@ Citizen.CreateThread(function()
 										_menuPool:RefreshIndex()
 										_menuPool:MouseEdgeEnabled (false)
 									else
-										buyKitchenMenu(Kitchen)
+										buykitchenMenu(kitchen)
 									end
                                 end
                             end
                         else
-                            buyKitchenMenu(Kitchen)
+                            buykitchenMenu(kitchen)
                         end
                     end
                     break
                 end
             end
         elseif isAtLeave then
-            showInfobar(Translation[Config.Locale]['leave_Kitchen'])
+            showInfobar(Translation[Config.Locale]['leave_kitchen'])
 
             if IsControlJustReleased(0, 38) then
-                for k2, KitchenToLeave in pairs(Config.Kitchens) do
-                    --print(currentKitchen)
-                    if currentKitchen == KitchenToLeave.id then
+                for k2, kitchenToLeave in pairs(Config.kitchens) do
+                    --print(currentkitchen)
+                    if currentkitchen == kitchenToLeave.id then
                         local playerPed = PlayerPedId()
                         DoScreenFadeOut(1000)
                         Citizen.Wait(1000)
-                        SetEntityCoords(playerPed, KitchenToLeave.enter.x, KitchenToLeave.enter.y, KitchenToLeave.enter.z)
+                        SetEntityCoords(playerPed, kitchenToLeave.enter.x, kitchenToLeave.enter.y, kitchenToLeave.enter.z)
                         DoScreenFadeIn(1500)
                         
-                        TriggerServerEvent('hd_puredrugs:leaveKitchen', currentPersonaldata.id)
-                        TriggerServerEvent('hd_puredrugs:saveLastKitchen', 0)
+                        TriggerServerEvent('hd_puredrugs:leavekitchen', currentPersonaldata.id)
+                        TriggerServerEvent('hd_puredrugs:saveLastkitchen', 0)
 
-                        isInKitchen = false
+                        isInkitchen = false
                         currentPersonaldata = nil
-                        currentKitchenData = nil
+                        currentkitchenData = nil
                         break
                     end
                 end
@@ -221,25 +221,25 @@ function loadAppereance()
     --         RefreshInterior(InteriorId)
     --     end)
     -- end
-    if Config.UseIPLs then
+    --[[if Config.UseIPLs then
 
         if currentPersonaldata.type == 'weed' then
 
             Citizen.CreateThread(function()
 
-                BikerWeedKitchen = exports['bob74_ipl']:GetBikerWeedKitchenObject()
+                BikerWeedkitchen = exports['bob74_ipl']:GetBikerWeedkitchenObject()
                 if currentPersonaldata.upgraded == 1 then
-                    BikerWeedKitchen.Style.Set(BikerWeedKitchen.Style.basic)
+                    BikerWeedkitchen.Style.Set(BikerWeedkitchen.Style.basic)
                 else
-                    BikerWeedKitchen.Style.Set(BikerWeedKitchen.Style.upgrade)
+                    BikerWeedkitchen.Style.Set(BikerWeedkitchen.Style.upgrade)
                 end
 
                 if currentPersonaldata.upgraded == 3 then
-                    BikerWeedKitchen.Security.Set(BikerWeedKitchen.Security.upgrade)
+                    BikerWeedkitchen.Security.Set(BikerWeedkitchen.Security.upgrade)
                 else
-                    BikerWeedKitchen.Security.Set(BikerWeedKitchen.Security.basic)
+                    BikerWeedkitchen.Security.Set(BikerWeedkitchen.Security.basic)
                 end
-                RefreshInterior(BikerWeedKitchen.interiorId)
+                RefreshInterior(BikerWeedkitchen.interiorId)
             end)
 
         elseif currentPersonaldata.type == 'meth' then
@@ -284,7 +284,7 @@ function loadAppereance()
 
         end
 
-    end
+    end]]--
 
 end
 
@@ -294,27 +294,27 @@ Citizen.CreateThread(function()
         local ped = PlayerPedId()
         local playerCoords = GetEntityCoords(ped)
 
-        isNearKitchen = false
-        isAtKitchen = false
+        isNearkitchen = false
+        isAtkitchen = false
         isAtLeave = false
         isAtComputer = false
         isAtSeller = false
         isNearSeller = false
 
-        for k, Kitchen in pairs(Config.Kitchens) do
-            local distance = Vdist(playerCoords, Kitchen.enter.x, Kitchen.enter.y, Kitchen.enter.z)
+        for k, kitchen in pairs(Config.kitchens) do
+            local distance = Vdist(playerCoords, kitchen.enter.x, kitchen.enter.y, kitchen.enter.z)
             
 
             if distance < 25.0 then
-                isNearKitchen = true
-                currentKitchen = Kitchen.id
+                isNearkitchen = true
+                currentkitchen = kitchen.id
             end
             if distance < 1.0 then
-                isAtKitchen = true
+                isAtkitchen = true
             end
-            if isInKitchen then
-                local distanceLeave = Vdist(playerCoords, Kitchen.inside.x, Kitchen.inside.y, Kitchen.inside.z)
-                local distanceToComputer = Vdist(playerCoords, Kitchen.bossActions.x, Kitchen.bossActions.y, Kitchen.bossActions.z)
+            if isInkitchen then
+                local distanceLeave = Vdist(playerCoords, kitchen.inside.x, kitchen.inside.y, kitchen.inside.z)
+                local distanceToComputer = Vdist(playerCoords, kitchen.bossActions.x, kitchen.bossActions.y, kitchen.bossActions.z)
                 if distanceLeave < 2.3 then
                     isAtLeave = true
                 elseif distanceToComputer < 1.4 then
@@ -392,29 +392,29 @@ if Config.useSeller then
     end
 end
 
-function buyKitchenMenu(KitchenData)
+function buykitchenMenu(kitchenData)
     _menuPool:Remove()
     collectgarbage()
    
-    local buyMenu = NativeUI.CreateMenu(Translation[Config.Locale]['menu_buy_Kitchen'], nil)
+    local buyMenu = NativeUI.CreateMenu(Translation[Config.Locale]['menu_buy_kitchen'], nil)
     _menuPool:Add(buyMenu)
-    local labelKitchen = NativeUI.CreateItem(Translation[Config.Locale]['menu_buy_name'], '~b~')
-    labelKitchen:RightLabel(KitchenData.label)
-    local typeKitchen = NativeUI.CreateItem(Translation[Config.Locale]['menu_buy_type'], '~b~')
-    if KitchenData.type == 'weed' then
-        typeKitchen:RightLabel(Translation[Config.Locale]['weed'])
-    elseif KitchenData.type == 'meth' then
-        typeKitchen:RightLabel(Translation[Config.Locale]['meth'])
-    elseif KitchenData.type == 'poppyjuice' then
-        typeKitchen:RightLabel(Translation[Config.Locale]['poppyjuice'])
+    local labelkitchen = NativeUI.CreateItem(Translation[Config.Locale]['menu_buy_name'], '~b~')
+    labelkitchen:RightLabel(kitchenData.label)
+    local typekitchen = NativeUI.CreateItem(Translation[Config.Locale]['menu_buy_type'], '~b~')
+    if kitchenData.type == 'weed' then
+        typekitchen:RightLabel(Translation[Config.Locale]['weed'])
+    elseif kitchenData.type == 'meth' then
+        typekitchen:RightLabel(Translation[Config.Locale]['meth'])
+    elseif kitchenData.type == 'poppyjuice' then
+        typekitchen:RightLabel(Translation[Config.Locale]['poppyjuice'])
     end
-    local priceKitchen = NativeUI.CreateItem(Translation[Config.Locale]['menu_buy_price'], '~b~')
-    priceKitchen:RightLabel(KitchenData.price .. '$')
+    local pricekitchen = NativeUI.CreateItem(Translation[Config.Locale]['menu_buy_price'], '~b~')
+    pricekitchen:RightLabel(kitchenData.price .. '$')
 
-    buyMenu:AddItem(labelKitchen)
-    buyMenu:AddItem(typeKitchen)
-    buyMenu:AddItem(priceKitchen)
-    local buy = _menuPool:AddSubMenu(buyMenu, Translation[Config.Locale]['menu_buy_Kitchen'], '~b~')
+    buyMenu:AddItem(labelkitchen)
+    buyMenu:AddItem(typekitchen)
+    buyMenu:AddItem(pricekitchen)
+    local buy = _menuPool:AddSubMenu(buyMenu, Translation[Config.Locale]['menu_buy_kitchen'], '~b~')
     local yes = NativeUI.CreateItem(Translation[Config.Locale]['menu_buy_confirm'], '~b~')
     yes:RightLabel('~b~→→→')
     buy:AddItem(yes)
@@ -424,7 +424,7 @@ function buyKitchenMenu(KitchenData)
         if item == yes then
 
             _menuPool:CloseAllMenus()
-            TriggerServerEvent('hd_puredrugs:buyKitchen', KitchenData)
+            TriggerServerEvent('hd_puredrugs:buykitchen', kitchenData)
 
         end
 
@@ -446,7 +446,7 @@ function generateComputer()
     local finishCapacity = Config.FinishCapacity[level]
 
 
-    local computer = NativeUI.CreateMenu(currentKitchenData.label , Translation[Config.Locale]['menu_computer_level'] .. currentPersonaldata.upgraded)
+    local computer = NativeUI.CreateMenu(currentkitchenData.label , Translation[Config.Locale]['menu_computer_level'] .. currentPersonaldata.upgraded)
     _menuPool:Add(computer)
     
     local produced = NativeUI.CreateItem(Translation[Config.Locale]['menu_computer_produced'], Translation[Config.Locale]['menu_computer_produced_desc'])
@@ -491,7 +491,7 @@ function generateComputer()
             local res_amount = CreateDialog(Translation[Config.Locale]['menu_storage_inputseeds'])
             if tonumber(res_amount) then
                 local quantity = tonumber(res_amount)
-                TriggerServerEvent('hd_puredrugs:store', currentKitchenData.type, currentPersonaldata.id, storeCapacity, quantity)
+                TriggerServerEvent('hd_puredrugs:store', currentkitchenData.type, currentPersonaldata.id, storeCapacity, quantity)
                 _menuPool:CloseAllMenus()
             end
         end
@@ -499,14 +499,14 @@ function generateComputer()
     end
 
     
-	local playersInArea = ESX.Game.GetPlayersInArea(currentKitchenData.enter, 10.0)
+	local playersInArea = ESX.Game.GetPlayersInArea(currentkitchenData.enter, 10.0)
 
     local gotOSResult = false
     if Config.useOneSyncInfinity then
         ESX.TriggerServerCallback('hd_puredrugs:getPlayersInArea', function(playersInArea_res)
             playersInArea = playersInArea_res
             gotOSResult = true
-        end, currentKitchenData.enter, 10.0)
+        end, currentkitchenData.enter, 10.0)
     end
 
     for i=1, 10, 1 do
@@ -539,16 +539,16 @@ function generateComputer()
 
     otherBuy.OnItemSelect = function(sender, item, index)
 		if Config.useOneSyncInfinity then
-			TriggerServerEvent('hd_puredrugs:requestMission', playersInArea[index].id, currentKitchenData, currentPersonaldata)
+			TriggerServerEvent('hd_puredrugs:requestMission', playersInArea[index].id, currentkitchenData, currentPersonaldata)
 		else
-			TriggerServerEvent('hd_puredrugs:requestMission', GetPlayerServerId(playersInArea[index]), currentKitchenData, currentPersonaldata)
+			TriggerServerEvent('hd_puredrugs:requestMission', GetPlayerServerId(playersInArea[index]), currentkitchenData, currentPersonaldata)
 		end
         
 
     end
 
     local upgrade = _menuPool:AddSubMenu(computer, Translation[Config.Locale]['menu_upgrade'], nil)
-    local upgradeKitchen = _menuPool:AddSubMenu(upgrade, Translation[Config.Locale]['menu_upgrade_prod'], Translation[Config.Locale]['menu_upgrade_prod_desc'])
+    local upgradekitchen = _menuPool:AddSubMenu(upgrade, Translation[Config.Locale]['menu_upgrade_prod'], Translation[Config.Locale]['menu_upgrade_prod_desc'])
 
     local level2 = NativeUI.CreateItem(Translation[Config.Locale]['menu_upgrade_prod_level2'], Translation[Config.Locale]['menu_upgrade_prod_level2_desc'])
     local level3 = NativeUI.CreateItem(Translation[Config.Locale]['menu_upgrade_prod_level3'], Translation[Config.Locale]['menu_upgrade_prod_level3_desc'])
@@ -564,19 +564,19 @@ function generateComputer()
         level3:SetRightBadge(BadgeStyle.Tick)
     end
 
-    upgradeKitchen:AddItem(level2)
-    upgradeKitchen:AddItem(level3)
+    upgradekitchen:AddItem(level2)
+    upgradekitchen:AddItem(level3)
 
-    upgradeKitchen.OnItemSelect = function(sender, item, index)
+    upgradekitchen.OnItemSelect = function(sender, item, index)
 
         if currentPersonaldata.upgraded == 1 then
             if item == level2 then
-                TriggerServerEvent('hd_puredrugs:upgradeKitchen', currentPersonaldata.id, 2, Config.Level2Price)
+                TriggerServerEvent('hd_puredrugs:upgradekitchen', currentPersonaldata.id, 2, Config.Level2Price)
                 _menuPool:CloseAllMenus()
             end
         elseif currentPersonaldata.upgraded == 2 then
             if item == level3 then
-                TriggerServerEvent('hd_puredrugs:upgradeKitchen', currentPersonaldata.id, 3, Config.Level3Price)
+                TriggerServerEvent('hd_puredrugs:upgradekitchen', currentPersonaldata.id, 3, Config.Level3Price)
                 _menuPool:CloseAllMenus()
             end
         end
@@ -585,13 +585,13 @@ function generateComputer()
     
     local finishCap = NativeUI.CreateItem(Translation[Config.Locale]['menu_stats_finished'], '~b~')
     finishCap:RightLabel(Config.FinishCapacity[currentPersonaldata.upgraded] .. 'g')
-    upgradeKitchen:AddItem(finishCap)
+    upgradekitchen:AddItem(finishCap)
     local storeCap = NativeUI.CreateItem(Translation[Config.Locale]['menu_stats_storecap'], Translation[Config.Locale]['menu_stats_storecap_desc'])
     storeCap:RightLabel(Config.StoreCapacity[currentPersonaldata.upgraded] .. 'g')
-    upgradeKitchen:AddItem(storeCap)
+    upgradekitchen:AddItem(storeCap)
     local productivity = NativeUI.CreateItem(Translation[Config.Locale]['menu_stats_productivity'], '~b~')
     productivity:RightLabel(Config.ProduceRate[currentPersonaldata.upgraded] .. 'g / h')
-    upgradeKitchen:AddItem(productivity)
+    upgradekitchen:AddItem(productivity)
 
     local buyVehicle = _menuPool:AddSubMenu(upgrade, Translation[Config.Locale]['menu_changeVehicle'], nil)
 
@@ -634,14 +634,14 @@ function generateComputer()
 	end
 
 	local addTrusted = _menuPool:AddSubMenu(alreadyTrusted, Translation[Config.Locale]['menu_addTrusted'], '~b~')
-	local playersInArea2 = ESX.Game.GetPlayersInArea(currentKitchenData.enter, 10.0)
+	local playersInArea2 = ESX.Game.GetPlayersInArea(currentkitchenData.enter, 10.0)
 
     local gotOSResult = false
     if Config.useOneSyncInfinity then
         ESX.TriggerServerCallback('hd_puredrugs:getPlayersInArea', function(playersInArea_res)
             playersInArea2 = playersInArea_res
             gotOSResult = true
-        end, currentKitchenData.enter, 10.0)
+        end, currentkitchenData.enter, 10.0)
     end
 
     for i=1, 10, 1 do
@@ -674,28 +674,28 @@ function generateComputer()
 	end
 	
 
-    local sellKitchen = _menuPool:AddSubMenu(computer, Translation[Config.Locale]['menu_sell'], Translation[Config.Locale]['menu_sell_desc'] .. currentKitchenData.price / Config.SellDivide .. '$')
+    local sellkitchen = _menuPool:AddSubMenu(computer, Translation[Config.Locale]['menu_sell'], Translation[Config.Locale]['menu_sell_desc'] .. currentkitchenData.price / Config.SellDivide .. '$')
 
-    local sellKitchenConfirm = NativeUI.CreateItem(Translation[Config.Locale]['menu_sell_confirm'], '~b~')
-    sellKitchen:AddItem(sellKitchenConfirm)
+    local sellkitchenConfirm = NativeUI.CreateItem(Translation[Config.Locale]['menu_sell_confirm'], '~b~')
+    sellkitchen:AddItem(sellkitchenConfirm)
 
-    sellKitchenConfirm.Activated = function(sender, index)
+    sellkitchenConfirm.Activated = function(sender, index)
 
         local playerPed = PlayerPedId()
         DoScreenFadeOut(1000)
         Citizen.Wait(1000)
-        SetEntityCoords(playerPed, currentKitchenData.enter.x, currentKitchenData.enter.y, currentKitchenData.enter.z)
+        SetEntityCoords(playerPed, currentkitchenData.enter.x, currentkitchenData.enter.y, currentkitchenData.enter.z)
         DoScreenFadeIn(1500)
         
-        TriggerServerEvent('hd_puredrugs:leaveKitchen', currentPersonaldata.id)
-        TriggerServerEvent('hd_puredrugs:saveLastKitchen', 0)
+        TriggerServerEvent('hd_puredrugs:leavekitchen', currentPersonaldata.id)
+        TriggerServerEvent('hd_puredrugs:saveLastkitchen', 0)
 
-        TriggerServerEvent('hd_puredrugs:sellKitchen', currentPersonaldata.owner, currentPersonaldata.id, currentKitchenData.price)
-        sellKitchen:Visible(false)
+        TriggerServerEvent('hd_puredrugs:sellkitchen', currentPersonaldata.owner, currentPersonaldata.id, currentkitchenData.price)
+        sellkitchen:Visible(false)
 
-        isInKitchen = false
+        isInkitchen = false
         currentPersonaldata = nil
-        currentKitchenData = nil
+        currentkitchenData = nil
 
     end
 
@@ -722,7 +722,7 @@ AddEventHandler('hd_puredrugs:startStorageMission', function(target)
         local dest = Config.StorageMissionDestinations[random].loc
         SetNewWaypoint(dest.x, dest.y)
 
-        SpawnVehicle(Config.Vehicles[tonumber(currentPersonaldata.vehicle)].model, currentKitchenData.spawnVehicle)
+        SpawnVehicle(Config.Vehicles[tonumber(currentPersonaldata.vehicle)].model, currentkitchenData.spawnVehicle)
 
         local blip = AddBlipForCoord(dest.x, dest.y)
         SetBlipSprite(blip, 514)
@@ -836,8 +836,8 @@ RegisterNetEvent('hd_puredrugs:deliverPlants')
 AddEventHandler('hd_puredrugs:deliverPlants', function(amount, target)
 
 
-    SetNewWaypoint(currentKitchenData.spawnVehicle.x, currentKitchenData.spawnVehicle.y)
-    ShowNotification(Translation[Config.Locale]['mission_backToKitchen'])
+    SetNewWaypoint(currentkitchenData.spawnVehicle.x, currentkitchenData.spawnVehicle.y)
+    ShowNotification(Translation[Config.Locale]['mission_backTokitchen'])
     isDelivering = true
 
     local isAtGarage = false
@@ -850,7 +850,7 @@ AddEventHandler('hd_puredrugs:deliverPlants', function(amount, target)
 
                 local ped = PlayerPedId()
                 local playerCoords = GetEntityCoords(ped)
-                local distance = Vdist(playerCoords, currentKitchenData.spawnVehicle.x, currentKitchenData.spawnVehicle.y, currentKitchenData.spawnVehicle.z)
+                local distance = Vdist(playerCoords, currentkitchenData.spawnVehicle.x, currentkitchenData.spawnVehicle.y, currentkitchenData.spawnVehicle.z)
 
                 isAtGarage = false
 
@@ -869,7 +869,7 @@ AddEventHandler('hd_puredrugs:deliverPlants', function(amount, target)
             Citizen.Wait(0)
 			
 			if Config.EnableMissionMarker then
-				DrawMarker(27, currentKitchenData.spawnVehicle.x, currentKitchenData.spawnVehicle.y, currentKitchenData.spawnVehicle.z - 0.98, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0*4.0, 1.0*4.0, 1.0, 66, 246, 66, 75, false, false, 2, false, false, false, false)
+				DrawMarker(27, currentkitchenData.spawnVehicle.x, currentkitchenData.spawnVehicle.y, currentkitchenData.spawnVehicle.z - 0.98, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0*4.0, 1.0*4.0, 1.0, 66, 246, 66, 75, false, false, 2, false, false, false, false)
 			end
 			
             if isAtGarage then
@@ -907,7 +907,7 @@ AddEventHandler('hd_puredrugs:abortMission', function()
 end)
 
 RegisterNetEvent('hd_puredrugs:hasRequest')
-AddEventHandler('hd_puredrugs:hasRequest', function(target, KitchenData_res, persData_res)
+AddEventHandler('hd_puredrugs:hasRequest', function(target, kitchenData_res, persData_res)
 
 	hasInvite = true
 
@@ -918,7 +918,7 @@ AddEventHandler('hd_puredrugs:hasRequest', function(target, KitchenData_res, per
 			Citizen.Wait(0)
 			if IsControlJustReleased(0, 38) then
                 
-                currentKitchenData = KitchenData_res
+                currentkitchenData = kitchenData_res
                 currentPersonaldata = persData_res
                 hasInvite = false
                 TriggerServerEvent('hd_puredrugs:startMission', target)
@@ -936,35 +936,35 @@ AddEventHandler('hd_puredrugs:hasRequest', function(target, KitchenData_res, per
 
 end)
 
-RegisterNetEvent('hd_puredrugs:receiveKitchens')
-AddEventHandler('hd_puredrugs:receiveKitchens', function(KitchenOwnerServer, steamID)
-	--ownedKitchens = {}
-	for k2, Kitchen in pairs(KitchenOwnerServer) do
-		if Kitchen.owner == steamID then
+RegisterNetEvent('hd_puredrugs:receivekitchens')
+AddEventHandler('hd_puredrugs:receivekitchens', function(kitchenOwnerServer, steamID)
+	--ownedkitchens = {}
+	for k2, kitchen in pairs(kitchenOwnerServer) do
+		if kitchen.owner == steamID then
 		
-			ownedKitchens[#ownedKitchens + 1] = Kitchen
+			ownedkitchens[#ownedkitchens + 1] = kitchen
 		
 		end
-		for k3, trusted in pairs(Kitchen.trusted) do
+		for k3, trusted in pairs(kitchen.trusted) do
 			if trusted.steamID == steamID then
-				ownedKitchens[#ownedKitchens + 1] = Kitchen
+				ownedkitchens[#ownedkitchens + 1] = kitchen
 			end
 		end
 	end
-    --ownedKitchens = KitchenOwnerServer
-    gotKitchens = true
+    --ownedkitchens = kitchenOwnerServer
+    gotkitchens = true
 
-    for k, v in pairs(ownedKitchens) do
-        for k2, Kitchen in pairs(Config.Kitchens) do
-            if Kitchen.name == v.name then
-            --[[local blip = AddBlipForCoord(Kitchen.enter.x, Kitchen.enter.y)
+    for k, v in pairs(ownedkitchens) do
+        for k2, kitchen in pairs(Config.kitchens) do
+            if kitchen.name == v.name then
+            --[[local blip = AddBlipForCoord(kitchen.enter.x, kitchen.enter.y)
                 SetBlipSprite(blip, 140)
                 SetBlipDisplay(blip, 6)
                 SetBlipScale(blip, 1.2)
                 SetBlipColour(blip, 2)
                 SetBlipAsShortRange(blip, true)
                 BeginTextCommandSetBlipName("STRING");
-                AddTextComponentString(Kitchen.label)
+                AddTextComponentString(kitchen.label)
                 EndTextCommandSetBlipName(blip)
                 break]]
             end
@@ -972,43 +972,43 @@ AddEventHandler('hd_puredrugs:receiveKitchens', function(KitchenOwnerServer, ste
 
 
     end
-    --currentPersonaldata = ownedKitchens[1]
+    --currentPersonaldata = ownedkitchens[1]
 
 end)
 
-RegisterNetEvent('hd_puredrugs:updateKitchens')
-AddEventHandler('hd_puredrugs:updateKitchens', function(line, KitchenOwnerUpdated)
+RegisterNetEvent('hd_puredrugs:updatekitchens')
+AddEventHandler('hd_puredrugs:updatekitchens', function(line, kitchenOwnerUpdated)
 
-    for k, v in pairs(ownedKitchens) do
-        if v.id == KitchenOwnerUpdated.id then
-            ownedKitchens[k] = KitchenOwnerUpdated
-            currentPersonaldata = KitchenOwnerUpdated
+    for k, v in pairs(ownedkitchens) do
+        if v.id == kitchenOwnerUpdated.id then
+            ownedkitchens[k] = kitchenOwnerUpdated
+            currentPersonaldata = kitchenOwnerUpdated
         break
         end
     end
 end)
 
-RegisterNetEvent('hd_puredrugs:deleteKitchen')
-AddEventHandler('hd_puredrugs:deleteKitchen', function(toDeleteID)
+RegisterNetEvent('hd_puredrugs:deletekitchen')
+AddEventHandler('hd_puredrugs:deletekitchen', function(toDeleteID)
 
-    for k, v in pairs(ownedKitchens) do
+    for k, v in pairs(ownedkitchens) do
         if v.id == toDeleteID then
-            table.remove(ownedKitchens, k)
+            table.remove(ownedkitchens, k)
         break
         end
     end
 end)
 
-RegisterNetEvent('hd_puredrugs:setNewKitchenOwned')
-AddEventHandler('hd_puredrugs:setNewKitchenOwned', function(KitchenOwnerNew, owner_res)
+RegisterNetEvent('hd_puredrugs:setNewkitchenOwned')
+AddEventHandler('hd_puredrugs:setNewkitchenOwned', function(kitchenOwnerNew, owner_res)
 
-    --print(KitchenOwnerNew.id)
+    --print(kitchenOwnerNew.id)
 
-    table.insert(ownedKitchens, {
-        id = KitchenOwnerNew.id,
+    table.insert(ownedkitchens, {
+        id = kitchenOwnerNew.id,
         owner = owner_res,
-        name = KitchenOwnerNew.name,
-        type = KitchenOwnerNew.type,
+        name = kitchenOwnerNew.name,
+        type = kitchenOwnerNew.type,
         upgraded = 1,
         vehicle = 1,
         store = 0,
@@ -1016,28 +1016,28 @@ AddEventHandler('hd_puredrugs:setNewKitchenOwned', function(KitchenOwnerNew, own
         lastlogin = 0,
     })
 
-    for k2, Kitchen in pairs(Config.Kitchens) do
-        if Kitchen.name == KitchenOwnerNew.name then
-            --[[local blip = AddBlipForCoord(Kitchen.enter.x, Kitchen.enter.y)
+    for k2, kitchen in pairs(Config.kitchens) do
+        if kitchen.name == kitchenOwnerNew.name then
+            --[[local blip = AddBlipForCoord(kitchen.enter.x, kitchen.enter.y)
             SetBlipSprite(blip, 140)
             SetBlipDisplay(blip, 6)
             SetBlipScale(blip, 1.2)
             SetBlipColour(blip, 2)
             SetBlipAsShortRange(blip, true)
             BeginTextCommandSetBlipName("STRING");
-            AddTextComponentString(Kitchen.label)
+            AddTextComponentString(kitchen.label)
             EndTextCommandSetBlipName(blip)]]
         end
     end
 
 end)
 
-RegisterNetEvent('hd_puredrugs:sellKitchen')
-AddEventHandler('hd_puredrugs:sellKitchen', function(KitchenID)
-    if #ownedKitchens > 0 then
-        for k, v in pairs(ownedKitchens) do
-            if v.id == KitchenID then
-                table.remove(ownedKitchens, k)
+RegisterNetEvent('hd_puredrugs:sellkitchen')
+AddEventHandler('hd_puredrugs:sellkitchen', function(kitchenID)
+    if #ownedkitchens > 0 then
+        for k, v in pairs(ownedkitchens) do
+            if v.id == kitchenID then
+                table.remove(ownedkitchens, k)
             end
         end
     end
@@ -1160,7 +1160,7 @@ end)
 -- 	while true do
 -- 		Citizen.Wait(0)
 -- 		local playerPed = PlayerPedId()
--- 		if isInKitchen then
+-- 		if isInkitchen then
 -- 			for k, user in pairs(vanishedUser) do
 -- 				if user ~= playerPed then
 -- 					--SetEntityLocallyInvisible(user)

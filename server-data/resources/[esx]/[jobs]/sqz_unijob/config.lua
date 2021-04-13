@@ -285,6 +285,97 @@ UseWebhook = true,
 	--AuthorizedAirCrafts = {},
 }]]
 
+Config.Jobs.midnight = { -- This is name of job you have in your database
+Webhook = 'https://discord.com/api/webhooks/814214959323152404/tHXOPUGhcNLGKoDHGXWoO-qR8jFrQt-nTvnMZQg0RjzAjdnn7VBWaZ7dKwIPuzFrKffn', -- Name of the webhook if lower is UseWebhook true
+UseWebhook = true,
+	Zones = {
+		armory = {
+			Pos = {x = 934.78979492188, y = -1460.7720947266, z = 33.612937927246},  
+			Size = {x = 0.7, y = 0.7, z = 0.7},
+			Color = {r = 255, g = 255, b = 255},
+			Direction = {x = 0.0, y = 0.0, z = 0.0},
+			Rotation = {x = 0.0, y = 0.0, z = 0.0},
+			BouncingMarker = false,
+			RotatingMarker = true,
+			Marker = 22,
+			Type = 'Armory',
+			Draw3DText = true,
+			MotionText = _U('armory_open'),
+			BuyWeapon = false, -- This allows you to buy weapons in this Armory (if you have multiple armories and you do not want to have buy weapon in all of them, simply cahnge it to false
+			BuyWeaponGrade = 0, -- This is the least grade you must have to be allowed to buy weapons ( grade 0, 1, 2, 3, 4, 5, ... is now able to buy weapons)
+			GetWeaponGrade = 0, -- This is the least grade you must have to be able to withdraw weapons from the armory (at some servers I have see that somebody was stealing thing from armories :D ( grade 0, 1, 2, 3, 4, 5, ... is now able to witdraw weapons) (Everybody can deposit weapons)
+			GetStockGrade = 0, -- This is the least grade you must have to be able to withdraw things from the armory (at some servers I have see that somebody was stealing thing from armories :D ( grade 0, 1, 2, 3, 4, 5, ... is now able to witdraw weapons) (Everybody can deposit weapons)
+		},	  	
+	--Cloakroom = {},
+	BossActions = {
+			Pos = {x = 943.92736816406, y = -1463.7520751953, z = 30.401245117188},  -- 1This is the place where you open BossMenu (only grade with name boss is allowed (depends on your esx_society edits)
+			Size = {x = 0.7, y = 0.7, z = 0.7},
+			Color = {r = 255, g = 255, b = 255},
+			Direction = {x = 0.0, y = 0.0, z = 0.0},
+			Rotation = {x = 0.0, y = 0.0, z = 0.0},
+			BouncingMarker = false,
+			RotatingMarker = true,
+			Marker = 22,
+			Type = 'BossActions',
+			Draw3DText = true,
+			MotionText = _U('bossmenu_open'),
+	},
+	--Crafting = {}, -- If you do not want to use the Crafting menu, you can disable it like it is here, otherwise use it as above
+
+	--Selling = {}, -- If you do not want to use the Selling menu, you can disable it like it is here, otherwise use it as above
+
+	Vehicles = {
+			Pos = {x = 0, y = 0, z = 0}, -- This is the spawnpoint where you see menu with vehicles which you can spawn
+			Size = {x = 0.7, y = 0.7, z = 0.7},
+			Color = {r = 255, g = 255, b = 255},
+			Direction = {x = 0.0, y = 0.0, z = 0.0},
+			Rotation = {x = 0.0, y = 0.0, z = 0.0},
+			BouncingMarker = false,
+			RotatingMarker = true,
+			Marker = 36,
+			MotionText = _U('vehicles_open'),
+			Type = 'Vehicles',
+			Draw3DText = true,
+			SpawnPoints = { -- Here you configure spawnpoints, where the vehicle will be spawned (Chcecks if the spawnpoint is clear), you can add as much as you want
+					{coords = vector3(-1543.6083984375, -583.17895507812, 25.707921981812), heading = 31.58, radius = 3.0},
+					{coords = vector3(-1546.3911132812, -584.81561279297, 25.707921981812), heading = 31.58, radius = 3.0}
+		}
+		},	
+	VehicleDeletePoint = { -- here you add vehicle deleter points. It can delete helicopters, car, bikes, boats...
+			Pos = {x = 0, y = 0, z = 0}, 
+			Size = {x = 3.5, y = 3.5, z = 1.0},
+			Color = {r = 255, g = 0, b = 0},
+			Direction = {x = 0.0, y = 0.0, z = 0.0},
+			Rotation = {x = 0.0, y = 0.0, z = 0.0},
+			BouncingMarker = false,
+			RotatingMarker = true,
+			Marker = 1,
+			Type = 'VehicleDeleter',
+			Draw3DText = true,
+			MotionText = _U('vehicles_open_park'),	
+		},			
+	--HeliSpawn = {},
+	},
+
+	CollectPoints = {}, -- If you do not want to use Collect Points, set it like this
+
+	-- End of zones and start of authorized vehicles
+	--AuthorizedVehicles = {},
+	-- End of Authorized vehicles and start of Allowed Actions
+	AllowedActions = {
+		Billing = false, -- Adds "Billing" to the interaction menu, the society is society_*player_job_name* (players job is police -> society is society_police)
+		HasBodyActions = true, -- Adds Body Action such as Cuffing, Dragging, Taking out of vehicle, Putting in vehicle ...
+		HasMechanicActions = false, -- This allows vehicle interaction in F6 menu
+		CanRevive = false, -- This adds revive possibility to F6 menu
+		CanWash = false, -- This manages if the boss can wash dirty money in BossMenu
+		CustomMenuElement = false,
+	},
+	-- End of Authorized actions and start of authorized Weapons for the job
+	--AuthorizedWeapons = {},
+	-- End of authorized Weapons and Start of authorized AirCrafts
+	--AuthorizedAirCrafts = {},
+}
+
 Config.Jobs.blackwater = { -- This is name of job you have in your database
 Webhook = 'https://discord.com/api/webhooks/814214959323152404/tHXOPUGhcNLGKoDHGXWoO-qR8jFrQt-nTvnMZQg0RjzAjdnn7VBWaZ7dKwIPuzFrKffn', -- Name of the webhook if lower is UseWebhook true
 UseWebhook = true,

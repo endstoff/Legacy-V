@@ -953,6 +953,14 @@ function performMethod(methodType) {
             }));
             break;
 
+        case "useEmergencyReviveKit":
+            $.post('http://visn_are/enable', false);
+            $.post('http://visn_are/useEmergencyReviveKit', JSON.stringify({
+                source: personData.source,
+                personData: personData,
+            }));
+            break;
+
         case "tryPullOutVehicle":
             $.post('http://visn_are/enable', false);
             $.post('http://visn_are/tryPullOutVehicle', JSON.stringify({
@@ -1106,7 +1114,7 @@ function translateContainer() {
     $("#activityHistory").text(_localeType("activityHistory"));
     $("#unconscious_text").text(_localeType("unconscious_text"));
     $("#informEMSText").text(_localeType("inform_ems_text"));
-    
+
     $('[data-toggle="tooltip"]').tooltip();
 }
 

@@ -21,6 +21,7 @@ client_scripts {
 	'shared/client/are_medical/damage/are_damage.lua',
 	'shared/client/are_medical/carry/are_carry.lua',
 	'shared/client/are_medical/blood/are_blood.lua',
+	'shared/client/are_medical/are_customevents.lua',
 	'shared/client/are_medical/are_medical.lua',
 	'shared/client/are_medical/are_debug.lua',
 
@@ -29,6 +30,7 @@ client_scripts {
 }
 
 export 'isSelfUnconscious'
+export 'getInfo'
 export 'isInjured'
 export 'hasPain'
 export 'getPulse'

@@ -159,6 +159,7 @@
         "GIVE_ATROPINE_RIGHT_LEG": "Atropine was injected into the right leg.",
 
         "USE_BODY_BAG": "Bodybag was used.",
+        "USE_EMR": "A emergency revive kit was used.",
 
         "USE_CPR": "Cardiopulmonary resuscitation was performed.",
         "USE_DEFIBRILATOR": "A defibrillator shock was performed.",
@@ -259,7 +260,15 @@
         "useTourniquet": "Use tourniquet",
         "removeTourniquet": "remove tourniquet",
 
+        "useEmergencyReviveKit": "Use emergency revive",
+        "useEmergencyReviveKit_title": "",
+
         "useTourniquet_title": "",
-        "removeTourniquet_title": ""
+        "removeTourniquet_title": "",
+
+        "wound_opened": "A wound has opened again.",
+
+        "using_emr": "Using emergency revive kit...",
+        "used_emr": "Emergency revive kit has been used"
     }
 }

@@ -156,27 +156,53 @@ Config.AuthorizedVehicles = {
 		},
 
 		rettungssani = {
-			{model = 'ambulance', price = 4500}
+			{model = 'ambulance', price = 4500},
+			{model = 'dw_ambulance', price = 5000},
+			{model = 'emsnspeedo', price = 6500}
 		},
 
 		notfallsani = {
-			{model = 'ambulance', price = 3000}
+			{model = 'ambulance', price = 3000},
+			{model = 'dw_ambulance', price = 5000},
+			{model = 'dw_ambulance2', price = 5000},
+			{model = 'emsnspeedo', price = 6500}
 		},
 
 		arzt = {
-			{model = 'ambulance', price = 3000}
+			{model = 'ambulance', price = 3000},
+			{model = 'dw_ambulance', price = 5000},
+			{model = 'dw_ambulance2', price = 5000},
+			{model = 'dw_emscar', price = 5000},
+			{model = 'emsnspeedo', price = 6500}
 		},
 
 		notundfacharzt = {
-			{model = 'ambulance', price = 3000}
+			{model = 'ambulance', price = 3000},
+			{model = 'dw_ambulance', price = 5000},
+			{model = 'dw_ambulance2', price = 5000},
+			{model = 'dw_emscar', price = 5000},
+			{model = 'dw_emscar2', price = 5000},
+			{model = 'emsnspeedo', price = 6500}
 		},
 
 		oberarzt = {
-			{model = 'ambulance', price = 3000}
+			{model = 'emsnspeedo', price = 5000},
+			{model = 'dw_ambulance', price = 5000},
+			{model = 'dw_ambulance2',  price = 5000},
+			{model = 'dw_emscar', price = 5000},
+			{model = 'dw_emscar2', price = 5000},
+			{model = 'dw_emssuv', price = 5000},
+			{model = 'dw_emsvan', price = 5000}
 		},
 
 		boss = {
-			{model = 'ambulance', price = 2000}
+			{model = 'emsnspeedo', price = 5000},
+			{model = 'dw_ambulance', price = 5000},
+			{model = 'dw_ambulance2',  price = 5000},
+			{model = 'dw_emscar', price = 5000},
+			{model = 'dw_emscar2', price = 5000},
+			{model = 'dw_emssuv', price = 5000},
+			{model = 'dw_emsvan', price = 5000}
 		}
 	},
 

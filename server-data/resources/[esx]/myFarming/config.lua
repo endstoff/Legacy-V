@@ -16,8 +16,8 @@ Config.FarmingAreas = {
     {requiredJob = nil, xptype = nil, blip = {sprite = 420, color = 16, data = nil}, items = {{name = 'bolcacahuetes', label = 'Erdnuss'}}, x = -1818.7586669922, y = 1980.1359863281, z = 131.1247253418, range = 10.0, randoma = 1, randomb = 3, collectingTime = 5, animation = "PROP_HUMAN_BUM_BIN"},
     {requiredJob = nil, xptype = nil, blip = {sprite = 420, color = 20, data = nil}, items = {{name = 'stone', label = 'Stein'}}, x = 1306.0484619141, y = 2994.9938964844, z = 42.045059204102, range = 38.0, randoma = 2, randomb = 6, collectingTime = 10, animation = "WORLD_HUMAN_HAMMERING"},
     {requiredJob = nil, xptype = nil, blip = {sprite = 420, color = 20, data = nil}, items = {{name = 'coal', label = 'Kohle'}}, x = 2724.5593261719, y = 2878.9780273438, z = 40.035640716553, range = 38.0, randoma = 2, randomb = 4, collectingTime = 10, animation = "CODE_HUMAN_MEDIC_TEND_TO_DEAD"},
-    {requiredJob = nil, xptype = nil, blip = {sprite = 420, color = 20, data = nil}, items = {{name = 'silver', label = 'Silber'}}, x = 2996.4460449219, y = 3026.2604980469, z = 89.726150512695, range = 8.0, randoma = 1, randomb = 4, collectingTime = 10, animation = "WORLD_HUMAN_HAMMERING"},
-    {requiredJob = nil, xptype = nil, blip = {sprite = 420, color = 20, data = nil}, items = {{name = 'gold', label = 'Gold'}}, x = -1615.3110351562, y = 2096.2331542969, z = 64.549186706543, range = 12.0, randoma = 1, randomb = 4, collectingTime = 20, animation = "WORLD_HUMAN_BUM_WASH"},
+    {requiredJob = nil, xptype = nil, blip = {sprite = 420, color = 20, data = nil}, items = {{name = 'silver', label = 'Silber'}}, x = 2996.4460449219, y = 3026.2604980469, z = 89.726150512695, range = 8.0, randoma = 1, randomb = 3, collectingTime = 15, animation = "WORLD_HUMAN_HAMMERING"},
+    {requiredJob = nil, xptype = nil, blip = {sprite = 420, color = 20, data = nil}, items = {{name = 'gold', label = 'Gold'}}, x = -1615.3110351562, y = 2096.2331542969, z = 64.549186706543, range = 12.0, randoma = 1, randomb = 3, collectingTime = 20, animation = "WORLD_HUMAN_BUM_WASH"},
     {requiredJob = nil, xptype = nil, blip = {sprite = 420, color = 20, data = nil}, items = {{name = 'bauxit', label = 'Bauxit'}}, x = 1093.7824707031, y = 3408.7705078125, z = 34.109252929688, range = 8.0, randoma = 12, randomb = 18, collectingTime = 60, animation = "WORLD_HUMAN_CONST_DRILL"},
     {requiredJob = nil, xptype = nil, blip = {sprite = 420, color = 20, data = nil}, items = {{name = 'ironore', label = 'Eisenerz'}}, x = 2940.1330566406, y = 2789.3664550781, z = 40.122993469238, range = 30.0, randoma = 12, randomb = 18, collectingTime = 60, animation = "WORLD_HUMAN_CONST_DRILL"},
 }
@@ -225,7 +225,7 @@ Config.Items = {
     },
     {
         id = 8,
-        reqXP = 3500,
+        reqXP = 4500,
         giveXP = {type = 'jewellery', a = 2, b = 4},
         reqItems = {
             {item = 'goldingot', label = 'Goldbarren', amount = 2}},
@@ -235,7 +235,7 @@ Config.Items = {
     },
     {
         id = 8,
-        reqXP = 5000,
+        reqXP = 6000,
         giveXP = {type = 'jewellery', a = 2, b = 4},
         reqItems = {
             {item = 'goldingot', label = 'Goldbarren', amount = 2},

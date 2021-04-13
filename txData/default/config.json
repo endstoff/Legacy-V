@@ -1,13 +1,14 @@
 {
   "global": {
-    "serverName": "Legacy-V | Open Beta",
+    "serverName": "Legacy-V",
     "language": "de"
   },
   "logger": {},
   "monitor": {
     "restarterSchedule": [
       "18:00",
-      "06:00"
+      "06:00",
+      "00:00"
     ],
     "restarterScheduleWarnings": [
       60,

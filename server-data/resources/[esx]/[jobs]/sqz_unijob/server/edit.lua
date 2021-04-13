@@ -6,6 +6,8 @@ TriggerEvent('esx_phone:registerNumber', 'sandy_mechanic', _U('alert_mechanic'),
 TriggerEvent('esx_phone:registerNumber', 'fib', _U('alert_fib'), true, true)
 ]]
 TriggerEvent('esx_society:registerSociety', 'yakuza', 'Yakuza', 'society_yakuza', 'society_yakuza', 'society_yakuza', {type = 'public'})
+TriggerEvent('esx_society:registerSociety', 'midnight', 'Midnight Club', 'society_midnight', 'society_midnight', 'society_midnight', {type = 'public'})
+TriggerEvent('esx_society:registerSociety', 'blackwater', 'BLK', 'society_blackwater', 'society_blackwater', 'society_blackwater', {type = 'public'})
 TriggerEvent('esx_society:registerSociety', 'bmeister', 'Bürgermeister', 'society_bmeister', 'society_bmeister', 'society_bmeister', {type = 'public'})
 
 RegisterNetEvent('sqz_unijob:Server:CanPlayerCarryItem')

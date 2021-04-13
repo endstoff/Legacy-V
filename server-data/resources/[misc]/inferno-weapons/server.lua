@@ -29,7 +29,11 @@ AddEventHandler('Weapons:Server:Toggle', function(bool, flashlight, weapon)
     else
         Flashlights[source] = nil
     end
+
+    TriggerClientEvent('Weapons:Client:Return', -1, Flashlights)
 end)
+
+--[[
 
 Citizen.CreateThread(function()
     while true do
@@ -39,3 +43,5 @@ Citizen.CreateThread(function()
         TriggerClientEvent('Weapons:Client:Return', -1, Flashlights)
     end
 end)
+
+]]

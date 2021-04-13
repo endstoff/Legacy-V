@@ -36,9 +36,21 @@ function OpenMobileAmbulanceActionsMenu()
 		title    = _U('ambulance'),
 		align    = 'top-left',
 		elements = {
-			{label = _U('ems_menu'), value = 'citizen_interaction'}
+			{label = _U('invoice'), value = 'invoice'}
 	}}, function(data, menu)
-		if data.current.value == 'citizen_interaction' then
+
+		local closestPlayer, closestDistance = ESX.Game.GetClosestPlayer()
+
+		if closestPlayer == -1 or closestDistance > 1.0 then
+			ESX.ShowNotification(_U('no_players'))
+		else
+			if data.current.value == 'invoice' then
+			OpenFineMenu(closestPlayer)
+			end
+		end
+
+		
+	--[[if data.current.value == 'citizen_interaction' then
 			ESX.UI.Menu.Open('default', GetCurrentResourceName(), 'citizen_interaction', {
 				title    = _U('ems_menu_title'),
 				align    = 'top-left',
@@ -119,12 +131,53 @@ function OpenMobileAmbulanceActionsMenu()
 			end, function(data, menu)
 				menu.close()
 			end)
-		end
+		end]]
 
 	end, function(data, menu)
 		menu.close()
 	end)
 end
+
+
+function OpenFineMenu(player)
+	ESX.UI.Menu.CloseAll()
+
+	ESX.UI.Menu.Open('default', GetCurrentResourceName(), 'mobile_taxi_actions', {
+		title    = '',
+		align    = 'top-left',
+		elements = {
+			{label = 'Rechnung',   value = 'billing'},
+	}}, function(data, menu)
+		if data.current.value == 'billing' then
+
+			ESX.UI.Menu.Open('dialog', GetCurrentResourceName(), 'billing', {
+				title = 'Rechnung - Betrag'
+			}, function(data, menu)
+
+				local amount = tonumber(data.value)
+				if amount == nil then
+					ESX.ShowNotification('Ungültiger Betrag')
+				else
+					menu.close()
+					local closestPlayer, closestDistance = ESX.Game.GetClosestPlayer()
+					if closestPlayer == -1 or closestDistance > 1.0 then
+						ESX.ShowNotification('Keine Spieler in der Nähe')
+					else
+						TriggerServerEvent('esx_billing:sendBill', GetPlayerServerId(closestPlayer), 'society_ambulance', 'Notdienst', amount)
+						ESX.ShowNotification('Rechnung ausgestellt')
+					end
+
+				end
+
+			end, function(data, menu)
+				menu.close()
+			end)
+		end
+	end, function(data, menu)
+		menu.close()
+	end)
+end
+
 
 function revivePlayer(closestPlayer)
 	isBusy = true
@@ -372,7 +425,7 @@ Citizen.CreateThread(function()
 
 				CurrentAction = nil
 			end
-
+			
 		elseif ESX.PlayerData.job and ESX.PlayerData.job.name == 'ambulance' and not isDead then
 			if IsControlJustReleased(0, 167) then
 				OpenMobileAmbulanceActionsMenu()
@@ -452,10 +505,26 @@ function OpenPharmacyMenu()
 		title    = _U('pharmacy_menu_title'),
 		align    = 'top-left',
 		elements = {
-			{label = _U('pharmacy_take', _U('medikit')), item = 'medikit', type = 'slider', value = 1, min = 1, max = 100},
-			{label = _U('pharmacy_take', _U('bandage')), item = 'bandage', type = 'slider', value = 1, min = 1, max = 100}
+			{label = _U('pharmacy_take', _U('defibrilator')), item = 'defibrilator', type = 'slider', value = 1, min = 1, max = 100},
+			{label = _U('pharmacy_take', _U('painkillers')), item = 'painkillers', type = 'slider', value = 1, min = 1, max = 100},
+			{label = _U('pharmacy_take', _U('morphin')), item = 'morphin', type = 'slider', value = 1, min = 1, max = 100},
+			{label = _U('pharmacy_take', _U('bodybag')), item = 'bodybag', type = 'slider', value = 1, min = 1, max = 100},
+			{label = _U('pharmacy_take', _U('atropine')), item = 'atropine', type = 'slider', value = 1, min = 1, max = 100},
+			{label = _U('pharmacy_take', _U('epinephrine')), item = 'epinephrine', type = 'slider', value = 1, min = 1, max = 100},
+			{label = _U('pharmacy_take', _U('surgical_kit')), item = 'surgical_kit', type = 'slider', value = 1, min = 1, max = 100},
+			{label = _U('pharmacy_take', _U('bandage')), item = 'bandage', type = 'slider', value = 1, min = 1, max = 100},
+			{label = _U('pharmacy_take', _U('elastic_bandage')), item = 'elastic_bandage', type = 'slider', value = 1, min = 1, max = 100},
+			{label = _U('pharmacy_take', _U('quickclot')), item = 'quickclot', type = 'slider', value = 1, min = 1, max = 100},
+			{label = _U('pharmacy_take', _U('tourniquet')), item = 'tourniquet', type = 'slider', value = 1, min = 1, max = 100},
+			{label = _U('pharmacy_take', _U('packing_bandage')), item = 'packing_bandage', type = 'slider', value = 1, min = 1, max = 100},
+			{label = _U('pharmacy_take', _U('emergency_revive_kit')), item = 'emergency_revive_kit', type = 'slider', value = 1, min = 1, max = 100},
+			{label = _U('pharmacy_take', _U('blood_100')), item = 'blood_100', type = 'slider', value = 1, min = 1, max = 100},
+			{label = _U('pharmacy_take', _U('blood_250')), item = 'blood_250', type = 'slider', value = 1, min = 1, max = 100},
+			{label = _U('pharmacy_take', _U('blood_500')), item = 'blood_500', type = 'slider', value = 1, min = 1, max = 100},
+			{label = _U('pharmacy_take', _U('blood_1000')), item = 'blood_1000', type = 'slider', value = 1, min = 1, max = 100}
 	}}, function(data, menu)
 		TriggerServerEvent('esx_ambulancejob:giveItem', data.current.item, data.current.value)
+	--	TriggerServerEvent('esx_policejob:getStockItem', data.current.item, data.current.value)
 	end, function(data, menu)
 		menu.close()
 	end)

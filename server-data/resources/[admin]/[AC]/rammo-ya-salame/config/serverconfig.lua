@@ -15,6 +15,7 @@ ServerConfig.Whitelist = { --if you add player's hex id or license below they wi
 "steam:1100001032b0c37", -- gargani
 "steam:1100001074f2d61", -- kaba
 "steam:110000104034487", -- Hades
+"steam:1100001159d7a6d", -- panic
 "steam:11000010e77bfb7", -- Terminal
 "steam:11000010c661632", -- Alexadioz
 }
@@ -24,7 +25,7 @@ ServerConfig.BlacklistNickNames = {
   "nig3r", "shagged", "4dm1n", "4dmin", "m0d3r4t0r", "n199er", "n1993r", "rustchance.com", "rustchance", "hellcase.com", "hellcase", "youtube.com", "youtu.be", "youtube", "twitch.tv", "twitch", "anticheat.gg", "anticheat", "fucking", "ψ", "@", "&", "{", "}", ";", "ϟ", "♕", "Æ", "Œ", "‰", "™", "š", "œ", "Ÿ", "µ", "ß",
   "±", "¦", "»", "«", "¼", "½", "¾", "¬", "¿", "Ñ", "®", "©", "²", "·", "•", "°", "þ",  "✪", "Ä", "ƒ", "Ã", "¢", "?", "†", "€", "웃", "и", "】", "【", "j4p.pl", "ֆ", "ȶ", "L͙", "a͙", "l͙", "ľ̶̚͝", "Ḩ̷̤͚̤͑͂̎̎͆", "a̸̢͉̠͎͒͌͐̑̇", "♚", "я", "Ʒ", "Ӂ̴", "Ƹ̴", "≋",
   "chocohax", "civilgamers.com", "civilgamers", "csgoempire.com", "csgoempire", "g4skins.com", "g4skins", "gameodds.gg", "duckfuck.com", "crysishosting.com", "crysishosting", "key-drop.com", "key-drop.pl", "skinhub.com", "skinhub", "`", "¤", "¡",
-  "<",">"
+  "<",">","tpggames","m4free"
 }
 ServerConfig.VPNBlock = true
 ServerConfig.ClearPedTaskMethod = false -- Anti Kick Vehicle

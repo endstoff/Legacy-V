@@ -10,4 +10,3 @@ client_scripts {
 	'iplList.lua',
 	'client.lua'
 }
-

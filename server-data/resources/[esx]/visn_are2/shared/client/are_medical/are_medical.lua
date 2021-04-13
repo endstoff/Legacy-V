@@ -1,3 +1,5 @@
+--hello
+
 --[[
 -- Author: Tim 'veryinsanee' Plate
 -- 
@@ -79,8 +81,8 @@ local decalPool = {}
 local logs = {}
 local bloodAreas = {}
 local storedMedications = {}
+local fracturedBones = {}
 local appliedTourniquets = {}
-
 local latestMiscObjects = {}
 
 Citizen.CreateThread(function()
@@ -153,287 +155,331 @@ AddEventHandler('esx:onPlayerDeath', function(data)
     TriggerServerEvent('esx:updateLastPosition', formattedCoords)
     TriggerServerEvent('esx_ambulancejob:setDeathStatus', true)
     TriggerServerEvent('visn_are:SetDeathStatus', isUnconscious)
+    TriggerEvent('visn_are:catchEvent', 'onPlayerDeath', currentCoords)
 end)
 
-AddEventHandler("gameEventTriggered", function(name, args)
-    local playerPed = PlayerPedId()
+Citizen.CreateThread(function()
+    Citizen.Wait(ConfigData.startDamageTimer)
     
-    if name == "CEventNetworkEntityDamage" then
-        local entity, damager, bone, fatalDamage, damageType = table.unpack(args)
+    AddEventHandler("gameEventTriggered", function(name, args)
+        local playerPed = PlayerPedId()
         
-        if entity == PlayerPedId() then
+        if name == "CEventNetworkEntityDamage" then
+            local entity, damager, bone, fatalDamage, damageType = table.unpack(args)
             
-            if isUnconscious == false then
-                if fatalDamage == 1 then
-                    if damager ~= entity then
-                        local killerSource = GetPlayerServerId(NetworkGetPlayerIndexFromPed(damager))
-                        if killerSource ~= 0 then
-                            TriggerServerEvent('visn_are:killLog', _translate("discord_kill_player", GetPlayerName(PlayerId()), GetPlayerServerId(PlayerId()), GetPlayerName(NetworkGetPlayerIndexFromPed(damager)), killerSource))
+            print(damageType)
+
+            if entity == PlayerPedId() then
+                
+                if isUnconscious == false then
+                    if fatalDamage == 1 then
+                        if damager ~= entity then
+                            local killerSource = GetPlayerServerId(NetworkGetPlayerIndexFromPed(damager))
+                            if killerSource ~= 0 then
+                                TriggerServerEvent('visn_are:killLog', _translate("discord_kill_player", GetPlayerName(PlayerId()), GetPlayerServerId(PlayerId()), GetPlayerName(NetworkGetPlayerIndexFromPed(damager)), killerSource))
+                            else
+                                TriggerServerEvent('visn_are:killLog', _translate("discord_kill_self", GetPlayerName(PlayerId()), GetPlayerServerId(PlayerId())))
+                            end
                         else
                             TriggerServerEvent('visn_are:killLog', _translate("discord_kill_self", GetPlayerName(PlayerId()), GetPlayerServerId(PlayerId())))
                         end
-                    else
-                        TriggerServerEvent('visn_are:killLog', _translate("discord_kill_self", GetPlayerName(PlayerId()), GetPlayerServerId(PlayerId())))
                     end
                 end
-            end
 
-            if bone ~= nil and bone ~= 0 then
-                local returnValue, outBone = GetPedLastDamageBone(playerPed)
+                if bone ~= nil and bone ~= 0 then
+                    local returnValue, outBone = GetPedLastDamageBone(playerPed)
+                    local shouldBleed = false
 
-                if damageType == -1569615261 and fatalDamage == 0 then
-                    if ConfigData.enablePunchDamage then
+                    -- BLEED REASONS
+
+                    if damageType == -1553120962 and has_value(ConfigData.bleedReasons, "vehicle_hit") then
+                        shouldBleed = true
+                    end
+
+                    if damageType == -842959696 and has_value(ConfigData.bleedReasons, "fall_damage") then
+                        shouldBleed = true
+                    end
+
+                    if damageType == 453432689 and has_value(ConfigData.bleedReasons, "weapon_damage") then
+                        shouldBleed = true
+                    end
+
+                    if damageType == -1569615261 and has_value(ConfigData.bleedReasons, "punch_damage") then
+                        shouldBleed = true
+                    end
+
+                    if damageType == -1553120962 and not has_value(ConfigData.activatedReasons, "vehicle_hit") then
+                        return
+                    end
+
+                    if damageType == -842959696 and not has_value(ConfigData.activatedReasons, "fall_damage") then
+                        return
+                    end
+
+                    if damageType == 453432689 and not has_value(ConfigData.activatedReasons, "weapon_damage") then
+                        return
+                    end
+
+                    if damageType == -1569615261 and not has_value(ConfigData.activatedReasons, "punch_damage") then
+                        return
+                    end
+
+                    --
+
+                    if damageType == 911657153 and not ConfigData.tazerDamage then
+                        return
+                    end
+
+                    if damageType == -1569615261 and fatalDamage == 0 then
                         local head = math.random(0, 1)
                         damagedAreas["head"] = 1
 
                         if bloodAreas["head"] == 0 then
                             bloodAreas["head"] = head
                         end
-                    else
+                    end
+
+                    if damageType == -1323279794 then
+                        local head = math.random(1, 3)
+                        local leftArm = math.random(1, 3)
+                        local rightArm = math.random(1, 3)
+                        local torso = math.random(1, 3)
+                        local leftLeg = math.random(1, 3)
+                        local rightLeg = math.random(1, 3)
+
+                        damagedAreas["head"] = head
+                        damagedAreas["left_arm"] = leftArm
+                        damagedAreas["right_arm"] = rightArm
+                        damagedAreas["torso"] = torso
+                        damagedAreas["left_leg"] = leftLeg
+                        damagedAreas["right_leg"] = rightLeg
+
+                        bloodAreas["head"] = head
+                        bloodAreas["left_arm"] = leftArm
+                        bloodAreas["right_arm"] = rightArm
+                        bloodAreas["torso"] = torso
+                        bloodAreas["left_leg"] = leftLeg
+                        bloodAreas["right_leg"] = rightLeg
+                    end
+
+                    if damageType == -1323279794 and fatalDamage == 1 then
+                        local leftArm = math.random(1, 3)
+                        local rightArm = math.random(1, 3)
+                        local torso = math.random(1, 3)
+
+                        damagedAreas["left_arm"] = leftArm
+                        damagedAreas["right_arm"] = rightArm
+                        damagedAreas["torso"] = torso
+
+                        bloodAreas["head"] = 3
+                        bloodAreas["left_arm"] = 3
+                        bloodAreas["right_arm"] = 3
+                        bloodAreas["torso"] = 3
+                        bloodAreas["left_leg"] = 3
+                        bloodAreas["right_leg"] = 3
+                    end
+
+                    if damageType == 539292904 and fatalDamage == 1 then
+                        local head = math.random(1, 3)
+                        local leftArm = math.random(1, 3)
+                        local rightArm = math.random(1, 3)
+                        local torso = math.random(1, 3)
+                        local leftLeg = math.random(1, 3)
+                        local rightLeg = math.random(1, 3)
+
+                        damagedAreas["head"] = head
+                        damagedAreas["left_arm"] = leftArm
+                        damagedAreas["right_arm"] = rightArm
+                        damagedAreas["torso"] = torso
+                        damagedAreas["left_leg"] = leftLeg
+                        damagedAreas["right_leg"] = rightLeg
+
+                        bloodAreas["head"] = head
+                        bloodAreas["left_arm"] = leftArm
+                        bloodAreas["right_arm"] = rightArm
+                        bloodAreas["torso"] = torso
+                        bloodAreas["left_leg"] = leftLeg
+                        bloodAreas["right_leg"] = rightLeg
+                    end
+
+                    if damageType == -842959696 and fatalDamage == 1 then
+                        local head = math.random(0, 3)
+                        local leftArm = math.random(0, 3)
+                        local rightArm = math.random(0, 3)
+                        local torso = math.random(0, 3)
+                        local leftLeg = math.random(0, 3)
+                        local rightLeg = math.random(0, 3)
+
+                        damagedAreas["head"] = head
+                        damagedAreas["left_arm"] = leftArm
+                        damagedAreas["right_arm"] = rightArm
+                        damagedAreas["torso"] = torso
+                        damagedAreas["left_leg"] = leftLeg
+                        damagedAreas["right_leg"] = rightLeg
+
+                        bloodAreas["head"] = head
+                        bloodAreas["left_arm"] = leftArm
+                        bloodAreas["right_arm"] = rightArm
+                        bloodAreas["torso"] = torso
+                        bloodAreas["left_leg"] = leftLeg
+                        bloodAreas["right_leg"] = rightLeg
+                    end
+
+                    if damageType == 133987706 then
+                        increasePain(math.random(0, 3))
+                        damagedAreas["head"] = math.random(0, 2)
+                    end
+
+                    if outBone == 0 then
                         return
                     end
+
+                    TriggerEvent('visn_are:catchEvent', 'onPlayerDamage', pedBones[outBone][2])
+
+                    if not has_value(damagedBones, outBone) then
+                        table.insert(damagedBones, outBone)
+                        ClearPedLastDamageBone(playerPed)
+
+                        TriggerEvent('visn_are:changePower', 1)
+
+                        local damaged = 0
+                        local loseMultiplier = 0
+
+                        for index, value in pairsByKeys(damagedBones) do 
+                            if value >= 1 then
+                                damaged = damaged + 1
+                            end
+
+                            if value > 1 then
+                                loseMultiplier = loseMultiplier + 0.25
+                            end
+                        end
+
+                        if not isUnconscious then
+                            increasePulse(damaged, loseMultiplier * 3)
+                            increasePain(1)
+                        end
+                    elseif has_value(damagedBones, outBone) then
+                        TriggerEvent('visn_are:changePower', 1)
+
+                        local damaged = 0
+                        local loseMultiplier = 0
+
+                        for index, value in pairsByKeys(damagedAreas) do 
+                            if value >= 1 then
+                                damaged = damaged + 1
+                            end
+
+                            if value > 1 then
+                                loseMultiplier = loseMultiplier + 0.25
+                            end
+                        end
+
+                        if not isUnconscious then
+                            increasePulse(damaged, loseMultiplier * 3)
+                            increasePain(1)
+                        end
+                    end
+
+                    damagedAreas[pedBones[outBone][2]] = damagedAreas[pedBones[outBone][2]] + 1 
+
+                    if damagedAreas[pedBones[outBone][2]] > 3 then
+                        damagedAreas[pedBones[outBone][2]] = 3
+                    elseif damagedAreas[pedBones[outBone][2]] < 0 then
+                        damagedAreas[pedBones[outBone][2]] = 0
+                    end        
+                    
+                    if pedBones[outBone][2] ~= "torso" then
+                        if shouldBleed then
+                            bloodAreas[pedBones[outBone][2]] = bloodAreas[pedBones[outBone][2]] + 1 
+                        end
+                    end
+                    
+                    if pedBones[outBone][2] == "torso" then
+                        if GetPedArmour(PlayerPedId()) == 0 then
+                            if shouldBleed then
+                                bloodAreas[pedBones[outBone][2]] = bloodAreas[pedBones[outBone][2]] + 1 
+                            end
+                        end
+                    end
+
+                    if bloodAreas[pedBones[outBone][2]] > 3 then
+                        bloodAreas[pedBones[outBone][2]] = 3
+                    elseif bloodAreas[pedBones[outBone][2]] < 0 then
+                        bloodAreas[pedBones[outBone][2]] = 0
+                    end
                 end
+            end
+        end
 
-                if damageType == -1323279794 then
-                    local head = math.random(1, 3)
-                    local leftArm = math.random(1, 3)
-                    local rightArm = math.random(1, 3)
-                    local torso = math.random(1, 3)
-                    local leftLeg = math.random(1, 3)
-                    local rightLeg = math.random(1, 3)
+        if name == "CEventOnFire" then
+            if entity == PlayerPedId() then
+                if bone ~= nil and bone ~= 0 then
+                    local returnValue, outBone = GetPedLastDamageBone(playerPed)
 
-                    damagedAreas["head"] = head
-                    damagedAreas["left_arm"] = leftArm
-                    damagedAreas["right_arm"] = rightArm
-                    damagedAreas["torso"] = torso
-                    damagedAreas["left_leg"] = leftLeg
-                    damagedAreas["right_leg"] = rightLeg
-
-                    bloodAreas["head"] = head
-                    bloodAreas["left_arm"] = leftArm
-                    bloodAreas["right_arm"] = rightArm
-                    bloodAreas["torso"] = torso
-                    bloodAreas["left_leg"] = leftLeg
-                    bloodAreas["right_leg"] = rightLeg
-                end
-
-                if damageType == -842959696 and fatalDamage == 0 then
-                    if not ConfigData.enableFallDamage then
+                    if outBone == 0 then
                         return
                     end
-                end
 
-                if damageType == -1323279794 and fatalDamage == 1 then
-                    local leftArm = math.random(1, 3)
-                    local rightArm = math.random(1, 3)
-                    local torso = math.random(1, 3)
+                    if not has_value(damagedBones, outBone) then
+                        table.insert(damagedBones, outBone)
+                        ClearPedLastDamageBone(playerPed)
 
-                    damagedAreas["left_arm"] = leftArm
-                    damagedAreas["right_arm"] = rightArm
-                    damagedAreas["torso"] = torso
+                        TriggerEvent('visn_are:changePower', 1)
 
-                    bloodAreas["head"] = 3
-                    bloodAreas["left_arm"] = 3
-                    bloodAreas["right_arm"] = 3
-                    bloodAreas["torso"] = 3
-                    bloodAreas["left_leg"] = 3
-                    bloodAreas["right_leg"] = 3
-                end
+                        local damaged = 0
+                        local loseMultiplier = 0
 
-                if damageType == 539292904 and fatalDamage == 1 then
-                    local head = math.random(1, 3)
-                    local leftArm = math.random(1, 3)
-                    local rightArm = math.random(1, 3)
-                    local torso = math.random(1, 3)
-                    local leftLeg = math.random(1, 3)
-                    local rightLeg = math.random(1, 3)
+                        for index, value in pairsByKeys(damagedBones) do 
+                            if value >= 1 then
+                                damaged = damaged + 1
+                            end
 
-                    damagedAreas["head"] = head
-                    damagedAreas["left_arm"] = leftArm
-                    damagedAreas["right_arm"] = rightArm
-                    damagedAreas["torso"] = torso
-                    damagedAreas["left_leg"] = leftLeg
-                    damagedAreas["right_leg"] = rightLeg
-
-                    bloodAreas["head"] = head
-                    bloodAreas["left_arm"] = leftArm
-                    bloodAreas["right_arm"] = rightArm
-                    bloodAreas["torso"] = torso
-                    bloodAreas["left_leg"] = leftLeg
-                    bloodAreas["right_leg"] = rightLeg
-                end
-
-                if damageType == -842959696 and fatalDamage == 1 then
-                    local head = math.random(0, 3)
-                    local leftArm = math.random(0, 3)
-                    local rightArm = math.random(0, 3)
-                    local torso = math.random(0, 3)
-                    local leftLeg = math.random(0, 3)
-                    local rightLeg = math.random(0, 3)
-
-                    damagedAreas["head"] = head
-                    damagedAreas["left_arm"] = leftArm
-                    damagedAreas["right_arm"] = rightArm
-                    damagedAreas["torso"] = torso
-                    damagedAreas["left_leg"] = leftLeg
-                    damagedAreas["right_leg"] = rightLeg
-
-                    bloodAreas["head"] = head
-                    bloodAreas["left_arm"] = leftArm
-                    bloodAreas["right_arm"] = rightArm
-                    bloodAreas["torso"] = torso
-                    bloodAreas["left_leg"] = leftLeg
-                    bloodAreas["right_leg"] = rightLeg
-                end
-
-                if damageType == 133987706 then
-                    increasePain(math.random(0, 3))
-                    damagedAreas["head"] = math.random(0, 2)
-                end
-
-                if outBone == 0 then
-                    return
-                end
-
-                if not has_value(damagedBones, outBone) then
-                    table.insert(damagedBones, outBone)
-                    ClearPedLastDamageBone(playerPed)
-
-                    TriggerEvent('visn_are:changePower', 1)
-
-                    local damaged = 0
-                    local loseMultiplier = 0
-
-                    for index, value in pairsByKeys(damagedBones) do 
-                        if value >= 1 then
-                            damaged = damaged + 1
+                            if value > 1 then
+                                loseMultiplier = loseMultiplier + 0.25
+                            end
                         end
 
-                        if value > 1 then
-                            loseMultiplier = loseMultiplier + 0.25
-                        end
-                    end
-
-                    if not isUnconscious then
-                        increasePulse(damaged, loseMultiplier * 3)
+                        increasePulse(damaged, loseMultiplier * 15)
                         increasePain(1)
-                    end
-                elseif has_value(damagedBones, outBone) then
-                    TriggerEvent('visn_are:changePower', 1)
+                    elseif has_value(damagedBones, outBone) then
+                        TriggerEvent('visn_are:changePower', 1)
 
-                    local damaged = 0
-                    local loseMultiplier = 0
+                        local damaged = 0
+                        local loseMultiplier = 0
 
-                    for index, value in pairsByKeys(damagedAreas) do 
-                        if value >= 1 then
-                            damaged = damaged + 1
+                        for index, value in pairsByKeys(damagedAreas) do 
+                            if value >= 1 then
+                                damaged = damaged + 1
+                            end
+
+                            if value > 1 then
+                                loseMultiplier = loseMultiplier + 0.25
+                            end
                         end
 
-                        if value > 1 then
-                            loseMultiplier = loseMultiplier + 0.25
-                        end
+                        increasePulse(damaged, loseMultiplier * 100)
                     end
 
-                    if not isUnconscious then
-                        increasePulse(damaged, loseMultiplier * 3)
-                        increasePain(1)
-                    end
-                end
+                    damagedAreas[pedBones[outBone][2]] = damagedAreas[pedBones[outBone][2]] + 1 
 
-                damagedAreas[pedBones[outBone][2]] = damagedAreas[pedBones[outBone][2]] + 1 
-
-                if damagedAreas[pedBones[outBone][2]] > 3 then
-                    damagedAreas[pedBones[outBone][2]] = 3
-                elseif damagedAreas[pedBones[outBone][2]] < 0 then
-                    damagedAreas[pedBones[outBone][2]] = 0
-                end        
-                
-                if pedBones[outBone][2] ~= "torso" then
+                    if damagedAreas[pedBones[outBone][2]] > 3 then
+                        damagedAreas[pedBones[outBone][2]] = 3
+                    elseif damagedAreas[pedBones[outBone][2]] < 0 then
+                        damagedAreas[pedBones[outBone][2]] = 0
+                    end                    
+                    
                     bloodAreas[pedBones[outBone][2]] = bloodAreas[pedBones[outBone][2]] + 1 
-                end
-                
-                if pedBones[outBone][2] == "torso" then
-                    if GetPedArmour(PlayerPedId()) == 0 then
-                        bloodAreas[pedBones[outBone][2]] = bloodAreas[pedBones[outBone][2]] + 1 
-                    end
-                end
 
-                if bloodAreas[pedBones[outBone][2]] > 3 then
-                    bloodAreas[pedBones[outBone][2]] = 3
-                elseif bloodAreas[pedBones[outBone][2]] < 0 then
-                    bloodAreas[pedBones[outBone][2]] = 0
+                    if bloodAreas[pedBones[outBone][2]] > 3 then
+                        bloodAreas[pedBones[outBone][2]] = 3
+                    elseif bloodAreas[pedBones[outBone][2]] < 0 then
+                        bloodAreas[pedBones[outBone][2]] = 0
+                    end
                 end
             end
         end
-    end
-
-    if name == "CEventOnFire" then
-        if entity == PlayerPedId() then
-            if bone ~= nil and bone ~= 0 then
-                local returnValue, outBone = GetPedLastDamageBone(playerPed)
-
-                if outBone == 0 then
-                    return
-                end
-
-                if not has_value(damagedBones, outBone) then
-                    table.insert(damagedBones, outBone)
-                    ClearPedLastDamageBone(playerPed)
-
-                    TriggerEvent('visn_are:changePower', 1)
-
-                    local damaged = 0
-                    local loseMultiplier = 0
-
-                    for index, value in pairsByKeys(damagedBones) do 
-                        if value >= 1 then
-                            damaged = damaged + 1
-                        end
-
-                        if value > 1 then
-                            loseMultiplier = loseMultiplier + 0.25
-                        end
-                    end
-
-                    increasePulse(damaged, loseMultiplier * 15)
-                    increasePain(1)
-                elseif has_value(damagedBones, outBone) then
-                    TriggerEvent('visn_are:changePower', 1)
-
-                    local damaged = 0
-                    local loseMultiplier = 0
-
-                    for index, value in pairsByKeys(damagedAreas) do 
-                        if value >= 1 then
-                            damaged = damaged + 1
-                        end
-
-                        if value > 1 then
-                            loseMultiplier = loseMultiplier + 0.25
-                        end
-                    end
-
-                    increasePulse(damaged, loseMultiplier * 100)
-                end
-
-                damagedAreas[pedBones[outBone][2]] = damagedAreas[pedBones[outBone][2]] + 1 
-
-                if damagedAreas[pedBones[outBone][2]] > 3 then
-                    damagedAreas[pedBones[outBone][2]] = 3
-                elseif damagedAreas[pedBones[outBone][2]] < 0 then
-                    damagedAreas[pedBones[outBone][2]] = 0
-                end                    
-                
-                bloodAreas[pedBones[outBone][2]] = bloodAreas[pedBones[outBone][2]] + 1 
-
-                if bloodAreas[pedBones[outBone][2]] > 3 then
-                    bloodAreas[pedBones[outBone][2]] = 3
-                elseif bloodAreas[pedBones[outBone][2]] < 0 then
-                    bloodAreas[pedBones[outBone][2]] = 0
-                end
-            end
-        end
-    end
+    end)
 end)
 
 function doCPR(playerId)
@@ -467,7 +513,7 @@ function increasePain(step)
     painFactor = painFactor + step
 
     if savedPain ~= painFactor and painFactor > 0 then
-        painTimer = 600
+        painTimer = ConfigData.painTimeout
     end
 
     if painFactor > 4 then
@@ -550,8 +596,8 @@ AddEventHandler('visn_are:getBodyInfo', function()
     })
 end)
 
-RegisterNetEvent('visn_are:recieveLiquid')
-AddEventHandler('visn_are:recieveLiquid', function(liquidType, bodyPart)
+RegisterNetEvent('visn_are:receiveLiquid')
+AddEventHandler('visn_are:receiveLiquid', function(liquidType, bodyPart)
     if appliedTourniquets[bodyPart] ~= nil then
         if storedMedications[bodyPart] == nil then
             storedMedications[bodyPart] = {}
@@ -580,13 +626,13 @@ function evalLiquid(liquidType)
     end
 end
 
-RegisterNetEvent('visn_are:recievePainkillers')
-AddEventHandler('visn_are:recievePainkillers', function()
+RegisterNetEvent('visn_are:receivePainkillers')
+AddEventHandler('visn_are:receivePainkillers', function()
     decreasePain(6)
 end)
 
-RegisterNetEvent('visn_are:recieveInfusion')
-AddEventHandler('visn_are:recieveInfusion', function(infusionType, infusionAmount)
+RegisterNetEvent('visn_are:receiveInfusion')
+AddEventHandler('visn_are:receiveInfusion', function(infusionType, infusionAmount)
     if infusionType == 'blood' then
         recievingBloodInfusion = recievingBloodInfusion + infusionAmount
     end
@@ -627,8 +673,8 @@ AddEventHandler('visn_are:syncMe', function(animationLib, animation,length,contr
 	carryControlFlagPlaying = controlFlag
 end)
 
-RegisterNetEvent('visn_are:recieveTourniquet')
-AddEventHandler('visn_are:recieveTourniquet', function(bodyPart)
+RegisterNetEvent('visn_are:receiveTourniquet')
+AddEventHandler('visn_are:receiveTourniquet', function(bodyPart)
     appliedTourniquets[bodyPart] = GetGameTimer()
 end)
 
@@ -643,13 +689,61 @@ AddEventHandler('visn_are:removeTourniquet', function(bodyPart)
     end
 end)
 
-RegisterNetEvent('visn_are:recieveSurgicalKit')
-AddEventHandler('visn_are:recieveSurgicalKit', function(bodyPart)
+RegisterNetEvent('visn_are:receiveSurgicalKit')
+AddEventHandler('visn_are:receiveSurgicalKit', function(bodyPart)
     needSewed[bodyPart] = 0
 end)
 
-RegisterNetEvent('visn_are:recieveCPR')
-AddEventHandler('visn_are:recieveCPR', function()
+RegisterNetEvent('visn_are:receiveEmergencyReviveKit')
+AddEventHandler('visn_are:receiveEmergencyReviveKit', function(bodyPart)
+    TriggerEvent("visn_are:resetValues")
+    
+    if ConfigData.recoveryAnimation then
+        local lib = 'anim@heists@fleeca_bank@ig_7_jetski_owner'
+        local anim = 'owner_idle'
+        
+        ESX.Streaming.RequestAnimDict(lib, function()
+            TaskPlayAnim(PlayerPedId(), lib, anim, 8.0, -8.0, -1, 9, 0, false, false, false)
+            
+            while IsEntityPlayingAnim(PlayerPedId(), lib, anim, 3) do
+                Citizen.Wait(1)
+                --DisableAllControlActions(0)
+            end
+        end)
+    end
+    
+    SendNUIMessage({
+        type = 'checkU',
+        enable = false
+    })
+    
+    SendNUIMessage({
+        type = 'setTimer',
+        time = 1,
+    })
+
+    SetEntityInvincible(PlayerPedId(), false)
+    TriggerServerEvent('esx_ambulancejob:setDeathStatus', false)
+    TriggerServerEvent('visn_are:SetDeathStatus', false)
+
+    StopScreenEffect('DeathFailOut')
+
+    SetPedConfigFlag(62, false)
+    SetPedConfigFlag(60, true)
+    SetPedRagdollOnCollision(PlayerPedId(), true)
+    SetPedConfigFlag(61, true)
+    SetPedConfigFlag(104, true)
+    SetPedCanBeTargetted(PlayerPedId(), true)
+    SetCanAttackFriendly(PlayerPedId(), true, true)
+
+    cardiacDecided = false
+    isUnconscious = false
+    kickedOutVehicle = false
+    forceUnconscious = false 
+end)
+
+RegisterNetEvent('visn_are:receiveCPR')
+AddEventHandler('visn_are:receiveCPR', function()
     increasePulse(math.random(0, 2), math.random(0, 10))
 
     SendNUIMessage({
@@ -658,8 +752,8 @@ AddEventHandler('visn_are:recieveCPR', function()
     })
 end)
 
-RegisterNetEvent('visn_are:recieveDefibrilator')
-AddEventHandler('visn_are:recieveDefibrilator', function()
+RegisterNetEvent('visn_are:receiveDefibrilator')
+AddEventHandler('visn_are:receiveDefibrilator', function()
     local random = math.random(0, 1000000)
 
     if random < 500000 then
@@ -700,7 +794,7 @@ AddEventHandler('visn_are:reduceDamageLevel', function(bodyPart, damageLevel)
     end
 
     if damagedAreas[bodyPart] == 0 and damagedAreas[bodyPart] ~= savedDamaged then
-        if math.random(0, 100000) > 50000 then
+        if math.random(0, 100000) > 50000 and ConfigData.needSewedWounds then
             needSewed[bodyPart] = 1
         end
     end
@@ -719,8 +813,8 @@ function createObject(objectName, objectX, objectY, objectZ, objectHeading, obje
     }))
 end
 
-RegisterNetEvent('visn_are:recieveLog')
-AddEventHandler('visn_are:recieveLog', function(senderId, logType, logTime)
+RegisterNetEvent('visn_are:receiveLog')
+AddEventHandler('visn_are:receiveLog', function(senderId, logType, logTime)
     table.insert(logs, {
         playerId = GetPlayerServerId(PlayerId()),
         senderId = senderId,
@@ -807,6 +901,7 @@ function _checkPulse(playerId, bodyPart)
     end)
 
     TriggerServerEvent('visn_are:addLog', GetPlayerServerId(PlayerId()), playerId, 'CHECK_PULSE')
+    TriggerEvent('visn_are:catchEvent', 'onAction', 'checkPulse')
 
     Citizen.SetTimeout(2500, function()
         if GetDistanceBetweenCoords(GetEntityCoords(victimPed, true), GetEntityCoords(ownPed, true), true) < 1.5 then
@@ -845,6 +940,7 @@ function _checkPerson(playerId)
     end)
 
     TriggerServerEvent('visn_are:addLog', GetPlayerServerId(PlayerId()), playerId, 'CHECK_PERSON')
+    TriggerEvent('visn_are:catchEvent', 'onAction', 'checkPerson')
 
     Citizen.SetTimeout(2000, function()
         if GetDistanceBetweenCoords(GetEntityCoords(victimPed, true), GetEntityCoords(ownPed, true), true) < 1.5 then
@@ -884,6 +980,7 @@ function _checkBloodPressure(playerId, bodyPart)
     end)
 
     TriggerServerEvent('visn_are:addLog', GetPlayerServerId(PlayerId()), playerId, 'CHECK_BLOOD_PRESSURE')
+    TriggerEvent('visn_are:catchEvent', 'onAction', 'checkBloodPressure')
 
     Citizen.SetTimeout(3000, function()
         if GetDistanceBetweenCoords(GetEntityCoords(victimPed, true), GetEntityCoords(ownPed, true), true) < 1.5 then
@@ -975,6 +1072,8 @@ function _useBandage(playerId, bandageArea, bandageType)
                     --DisableAllControlActions(0)
                 end
             end)
+            
+            TriggerEvent('visn_are:catchEvent', 'onAction', 'bandage')
             
             if bandageType == 'bandage' then
                 Citizen.SetTimeout(bandageTime, function()      
@@ -1081,6 +1180,53 @@ function _useBandage(playerId, bandageArea, bandageType)
     end, bandageItem)
 end
 
+function _useEmergencyReviveKit(playerId)
+
+    ESX.TriggerServerCallback('visn_are:getItemCount', function(itemCount)
+        if itemCount > 0 then
+            createProgressbar(_translate('using_emr'), 7500, 0.08)
+
+            local lib, anim = 'anim@heists@narcotics@funding@gang_idle', 'gang_chatting_idle01' -- TODO better animations
+
+            SetCurrentPedWeapon(PlayerPedId(), GetHashKey("WEAPON_UNARMED"), true)
+
+            ESX.Streaming.RequestAnimDict(lib, function()
+                TaskPlayAnim(PlayerPedId(), lib, anim, 8.0, -8.0, -1, 2, 0, false, false, false)
+                
+                while IsEntityPlayingAnim(PlayerPedId(), lib, anim, 3) do
+                    Citizen.Wait(1)
+                    --DisableAllControlActions(0)
+                end
+            end)
+            
+            TriggerEvent('visn_are:catchEvent', 'onAction', 'emergencyReviveKit')
+
+            Citizen.SetTimeout(7500, function()     
+                local victimPed = GetPlayerPed(GetPlayerFromServerId(playerId))
+                local ownPed = PlayerPedId()
+
+                if GetDistanceBetweenCoords(GetEntityCoords(victimPed, true), GetEntityCoords(ownPed, true), true) < 1.5 then
+                    if not isUnconscious then
+                        createObject("bkr_prop_meth_bigbag_04a", GetEntityCoords(PlayerPedId()).x, GetEntityCoords(PlayerPedId()).y, GetEntityCoords(PlayerPedId()).z - 0.95, GetEntityHeading(PlayerPedId()), 0.0)
+                        
+                        TriggerServerEvent('visn_are:addLog', GetPlayerServerId(PlayerId()), playerId, 'USE_EMR')
+                        TriggerServerEvent('visn_are:sendEmergencyReviveKit', playerId)
+
+                        ESX.TriggerServerCallback('visn_are:getBodyPartInfo', function(bodyPartInfoCB)
+                            _sendNotification(_translate('used_emr'))
+                            ClearPedTasks(PlayerPedId())
+                            EnableGui(true, lastPlayerId)
+                        end, playerId, "head")
+                    else
+                        _sendNotification(_translate("person_too_far_away"), "error", 3500)
+                        EnableGui(false, lastPlayerId)
+                    end
+                end
+            end)
+        end
+    end, 'emergency_revive_kit')
+end
+
 function _useSurgicalKit(playerId, bandageArea)
 
     ESX.TriggerServerCallback('visn_are:getItemCount', function(itemCount)
@@ -1099,6 +1245,8 @@ function _useSurgicalKit(playerId, bandageArea)
                     --DisableAllControlActions(0)
                 end
             end)
+            
+            TriggerEvent('visn_are:catchEvent', 'onAction', 'surgicalKit')
             
             Citizen.SetTimeout(7500, function()     
                 local victimPed = GetPlayerPed(GetPlayerFromServerId(playerId))
@@ -1144,6 +1292,8 @@ function _removeTourniquet(playerId, bodyPart)
         end
     end)
     
+    TriggerEvent('visn_are:catchEvent', 'onAction', 'removeTourniquet')
+    
     Citizen.SetTimeout(4500, function()     
         local victimPed = GetPlayerPed(GetPlayerFromServerId(playerId))
         local ownPed = PlayerPedId()
@@ -1184,6 +1334,8 @@ function _useTourniquet(playerId, bodyPart)
                 end
             end)
             
+            TriggerEvent('visn_are:catchEvent', 'onAction', 'torniquet')
+
             Citizen.SetTimeout(4500, function()     
                 local victimPed = GetPlayerPed(GetPlayerFromServerId(playerId))
                 local ownPed = PlayerPedId()
@@ -1228,6 +1380,8 @@ function _useBodybag(playerId)
                     --DisableAllControlActions(0)
                 end
             end)
+
+            TriggerEvent('visn_are:catchEvent', 'onAction', 'bodybag')
             
             Citizen.SetTimeout(1000, function()        
                 local victimPed = GetPlayerPed(GetPlayerFromServerId(playerId))
@@ -1259,6 +1413,7 @@ function _useCPR(playerId)
     doingCPR = true
 
     SetCurrentPedWeapon(PlayerPedId(), GetHashKey("WEAPON_UNARMED"), true)
+    TriggerEvent('visn_are:catchEvent', 'onAction', 'cpr')
     
     Citizen.SetTimeout(30000, function()        
         local victimPed = GetPlayerPed(GetPlayerFromServerId(playerId))
@@ -1289,6 +1444,7 @@ function _usePainkillers(playerId)
         if itemCount > 0 then
             createProgressbar(_translate('giving_painkillers'), 5000, 0.08)
 
+            TriggerEvent('visn_are:catchEvent', 'onAction', 'painkillers')
             SetCurrentPedWeapon(PlayerPedId(), GetHashKey("WEAPON_UNARMED"), true)
             
             local lib, anim = 'anim@heists@narcotics@funding@gang_idle', 'gang_chatting_idle01' -- TODO better animations
@@ -1333,6 +1489,7 @@ function _useDefibrilator(playerId)
 
             local lib, anim = 'anim@heists@narcotics@funding@gang_idle', 'gang_chatting_idle01' -- TODO better animations
 
+            TriggerEvent('visn_are:catchEvent', 'onAction', 'defibrillator')
             SetCurrentPedWeapon(PlayerPedId(), GetHashKey("WEAPON_UNARMED"), true)
 
             ESX.Streaming.RequestAnimDict(lib, function()
@@ -1379,6 +1536,7 @@ function _useLiquid(playerId, liquidType, bodyPart)
         if itemCount > 0 then
             createProgressbar(_translate('injecting_liquid'), 2500, 0.07)
 
+            TriggerEvent('visn_are:catchEvent', 'onAction', 'liquid')
             local lib, anim = 'anim@heists@narcotics@funding@gang_idle', 'gang_chatting_idle01' -- TODO better animations
 
             SetCurrentPedWeapon(PlayerPedId(), GetHashKey("WEAPON_UNARMED"), true)
@@ -1450,6 +1608,7 @@ function _giveInfusion(playerId, infusionType, infusionAmount)
                 end
             end)
 
+            TriggerEvent('visn_are:catchEvent', 'onAction', 'infusion')
             SetCurrentPedWeapon(PlayerPedId(), GetHashKey("WEAPON_UNARMED"), true)
 
             Citizen.SetTimeout(5000, function()
@@ -1686,18 +1845,20 @@ function PutInBodybag()
     local playerCoords = GetEntityCoords(playerPed)
 
     if isUnconscious and not attached then
-        SetEntityVisible(playerPed, false, false)
-        
+
         RequestModel(bag_model)
         while not HasModelLoaded(bag_model) do
             Citizen.Wait(1)
         end
 
         bodyBag = CreateObject(GetHashKey(bag_hash), playerCoords.x, playerCoords.y, playerCoords.z, true, true, true)
+        SetEntityVisible(playerPed, false, false)
 
         AttachEntityToEntity(bodyBag, playerPed, 0, -0.2, 0.75, -0.1, 0.0, 0.0, 0.0, false, false, false, false, 20, false)
         attached = true
         inBodybag = true
+
+        SetEntityVisible(bodyBag, true, true)
     end
 end
 
@@ -1889,20 +2050,14 @@ Citizen.CreateThread(function()
         if IsDisabledControlJustPressed(0, 47) then
             if isUnconscious then
                 if cooldownTimer == 0 then
-                    local PedPosition = GetEntityCoords(PlayerPedId())
-                    
-                    TriggerServerEvent('esx_addons_gcphone:startCall', "ambulance", _translate("phone_call_text"), {
-                        x = PedPosition.x,
-                        y = PedPosition.y,
-                        z = PedPosition.z
-                    })
+                    TriggerEvent('visn_are:catchEvent', 'onKeyPressed', 'DISTRESS_SIGNAL')
+
                     SendNUIMessage({
                         type = 'informedEMS',
                         state = false,
                     })
 
                     cooldownTimer = cooldownTimer + 300
-
                     _sendNotification(_translate("distress_call_sent"), "info")
                 end
             end
@@ -1913,32 +2068,29 @@ Citizen.CreateThread(function()
         end
         
         if not isUnconscious then
-            if (not IsControlPressed(0, ConfigData.modifierKey) and not IsControlPressed(0, 21)) and IsControlJustPressed(0, ConfigData.mainKey) then
-                if (not IsPedSittingInAnyVehicle(GetPlayerPed(-1))) then
-                    EnableGui(true, GetPlayerServerId(PlayerId()))
-                    _sendNotification(_translate("open_health_menu_self"), "info", 200)
-                end
+            if (not IsControlPressed(0, ConfigData.modifierKey) and not IsControlPressed(0, 21)) and IsControlJustPressed(0, ConfigData.mainKey) and not IsPedSittingInAnyVehicle(GetPlayerPed(-1)) then
+                EnableGui(true, GetPlayerServerId(PlayerId()))
+                _sendNotification(_translate("open_health_menu_self"), "info", 200)
             end
             
-            if IsControlJustPressed(0, 73) then
+            if IsControlJustPressed(0, 73) and not IsPedSittingInAnyVehicle(GetPlayerPed(-1)) then
                 if carryingBackInProgress then
                     local closestPlayer, closestDistance = ESX.Game.GetClosestPlayer()    
 
                     if closestPlayer ~= -1 and closestDistance < 3.0 then
                         TriggerServerEvent("visn_are:stopCarry", GetPlayerServerId(closestPlayer))
+                        TriggerEvent('visn_are:catchEvent', 'onKeyPressed', 'CARRY_STOPPED')
                     end
                 end
             end
             
-            if IsControlPressed(0, ConfigData.modifierKey) and IsControlJustPressed(0, ConfigData.mainKey) then
-                if (not IsPedSittingInAnyVehicle(GetPlayerPed(-1))) then
-                    for _, player in ipairs(GetActivePlayers()) do
-                        if GetPlayerPed(player) ~= PlayerPedId() then
-                            local distance = GetDistanceBetweenCoords(GetEntityCoords(PlayerPedId()), GetEntityCoords(GetPlayerPed(player), true))
-                            if distance ~= -1 and distance <= 2.5 then
-                                EnableGui(true, GetPlayerServerId(player))
-                                _sendNotification(_translate("open_health_menu_other"), "info", 200)
-                            end
+            if IsControlPressed(0, ConfigData.modifierKey) and IsControlJustPressed(0, ConfigData.mainKey) and not IsPedSittingInAnyVehicle(GetPlayerPed(-1)) then
+                for _, player in ipairs(GetActivePlayers()) do
+                    if GetPlayerPed(player) ~= PlayerPedId() then
+                        local distance = GetDistanceBetweenCoords(GetEntityCoords(PlayerPedId()), GetEntityCoords(GetPlayerPed(player), true))
+                        if distance ~= -1 and distance <= 2.5 then
+                            EnableGui(true, GetPlayerServerId(player))
+                            _sendNotification(_translate("open_health_menu_other"), "info", 200)
                         end
                     end
                 end
@@ -1978,6 +2130,7 @@ Citizen.CreateThread(function()
             if bloodLevel <= 0 then
                 if isUnconscious then
                     TriggerEvent('esx_ambulancejob:forceRespawn')
+                    TriggerEvent('visn_are:catchEvent', 'onFinalDeath')
 
                     SendNUIMessage({
                         type = 'checkU',
@@ -2233,26 +2386,28 @@ Citizen.CreateThread(function()
 
         if not isUnconscious and attached then
             DetachEntity(playerPed, true, false)
-            SetEntityVisible(playerPed, true, true)
 
             SetEntityAsMissionEntity(bodyBag, false, false)
             SetEntityVisible(bodybag, false)
             SetModelAsNoLongerNeeded(bodyBag)
-            
-            TriggerServerEvent('visn_are:sendAlpha', 255)
 
             DeleteObject(bodyBag)
             DeleteEntity(bodyBag)
+            
+            SetEntityVisible(playerPed, true, true)
+            TriggerServerEvent('visn_are:sendAlpha', 255)
 
             bodyBag = nil
             attached = false
             inBodybag = false
         end
         
-        SendNUIMessage({
-            type = 'bloodEffect',
-            state = isBleedingF()
-        })
+        if has_value(ConfigData.flashScreens, "bleeding") then
+            SendNUIMessage({
+                type = 'bloodEffect',
+                state = isBleedingF()
+            })
+        end
 
         local canHeal = true
 
@@ -2329,7 +2484,7 @@ Citizen.CreateThread(function()
 end)
 
 Citizen.CreateThread(function()
-    while true do
+    while true and has_value(ConfigData.flashScreens, "pain") do
         Citizen.Wait(0)
 
         if not isUnconscious then
@@ -2421,11 +2576,12 @@ Citizen.CreateThread(function()
         for index, value in pairsByKeys(needSewed) do 
             if value == 1 then
                 damagedAreas[index] = 1
-                needSewed[index] = 0
+                needSewed[index] = 1
+                _sendNotification(_translate("wound_opened"))
             end
         end
 
-        Citizen.Wait(math.random(300000, 600000))
+        Citizen.Wait(ConfigData.sewTimeout)
     end
 end)
 
@@ -2503,6 +2659,8 @@ function EnableGui(enable, playerId)
             else
                 selfOpened = false
             end
+
+            TriggerEvent('visn_are:catchEvent', 'onMenuOpened', selfOpened)
             
             SendNUIMessage({
                 type = "selfOpened",
@@ -2842,6 +3000,20 @@ RegisterNUICallback('useSurgicalKit', function(data)
     end
 end)
 
+RegisterNUICallback('useEmergencyReviveKit', function(data)
+    if data.personData.isMedic and not data.personData.inBodybag then
+        local victimPed = GetPlayerPed(GetPlayerFromServerId(data.source))
+        local ownPed = PlayerPedId()
+
+        if GetDistanceBetweenCoords(GetEntityCoords(victimPed, true), GetEntityCoords(ownPed, true), true) < 1.5 then
+            _useEmergencyReviveKit(data.source)
+        else
+            _sendNotification(_translate("person_too_far_away"), "error", 3500)
+            EnableGui(false, lastPlayerId)
+        end
+    end
+end)
+
 RegisterNUICallback('giveInfusion', function(data)
     if data.personData.isMedic and not data.personData.inBodybag then
         local victimPed = GetPlayerPed(GetPlayerFromServerId(data.source))
@@ -2906,8 +3078,8 @@ AddEventHandler('visn_are:putInVehicle', function()
 		local playerPed = PlayerPedId()
 		local coords = GetEntityCoords(playerPed)
 
-		if IsAnyVehicleNearPoint(coords, 5.0) then
-			local vehicle = GetClosestVehicle(coords, 5.0, 0, 71)
+		if IsAnyVehicleNearPoint(coords, ConfigData.vehicleRadius) then
+			local vehicle = GetClosestVehicle(coords, ConfigData.vehicleRadius, 0, 71)
 
 			if DoesEntityExist(vehicle) then
 				local maxSeats, freeSeat = GetVehicleMaxNumberOfPassengers(vehicle)
@@ -2943,6 +3115,26 @@ end)
 
 exports('isSelfUnconscious', function()
     return isUnconscious
+end)
+
+exports('getInfo', function()
+    return json.encode({
+        bodyPartDamage = damagedAreas,
+        bloodParts = bloodAreas,
+        needSewed = needSewed,
+        bodyPulse = currentPulse,
+        inBodybag = inBodybag,
+        bodyPain = painFactor,
+        bodyInPain = isFeelingPain,
+        victimBleeding = isBleeding,
+        bodyBloodLevel = bloodLevel,
+        isUnconscious = isUnconscious,
+        recievingBloodInfusion = recievingBloodInfusion,
+        bloodPressureL = bloodPressureL, 
+        appliedTourniquets = appliedTourniquets,
+        bloodPressureH = bloodPressureH, 
+        logs = logs,
+    })
 end)
 
 exports('isInjured', function()

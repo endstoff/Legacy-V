@@ -10,9 +10,6 @@ Information {
  - Keys: Z or Y and ALT + Z or ALT + Y
  - The resource must be named 'visn_are'.
  - You could change the notification system in file /shared/client/are_common/are_common.lua
-
- - (For developers) The following events are avaliable:
- 	- "visn_are:SetDeathStatus" with params [isUnconscious - bool]
 }
 
 

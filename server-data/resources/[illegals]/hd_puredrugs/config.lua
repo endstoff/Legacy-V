@@ -30,7 +30,7 @@ Config.SellItems = { -- set up the items here, that your players can sell at the
 
 }
 
-Config.SellDivide = 2 -- old price / SellDivide is the amount the player gets when he sells the Kitchen
+Config.SellDivide = 2 -- old price / SellDivide is the amount the player gets when he sells the kitchen
 
 Config.UseIPLs = true -- needs bob74_ipl
 -- 
@@ -70,7 +70,7 @@ Config.Vehicles = {
 
 Config.CokeItem = 'pureheroin'
 
-Config.Kitchens = { 
+Config.kitchens = { 
     
     {id = 1, type = "poppyjuice", name = "GHero", label = "Heroinlabor", price = 600000, enter = {x = 1443.8988037109, y = 1132.3662109375, z = 114.33402252197}, inside = {x = 1088.61, y = -3187.81, z = -38.99, rot = 180.0}, bossActions = {x = 1087.4, y = -3194.22, z = -38.99}, spawnVehicle = {x = 1433.7369384766, y = 1124.6838378906, z = 114.27763366699, rot = 358.3}}, 
     --{id = 2, type = "poppyjuice", name = "PHero", label = "Heroinlabor", price = 685000, enter = {x = -3169.1801757812, y = 1093.5223388672, z = 20.858015060425}, inside = {x = 1088.61, y = -3187.81, z = -38.99, rot = 180.0}, bossActions = {x = 1087.4, y = -3194.22, z = -38.99}, spawnVehicle = {x = -3173.4626464844, y = 1103.439453125, z = 20.816411972046, rot = 334.87}}, 
@@ -130,9 +130,9 @@ Config.StorageMissionDestinations = {
 Translation = {
     ['en'] = {
         ['access_computer'] = 'Press ~g~E~s~, to access the computer',
-        ['enter_Kitchen'] = 'Press ~g~E~s~, to enter ~o~',
-        ['enter_Kitchen_2'] = '~s~.',
-        ['leave_Kitchen'] = 'Press ~g~E~s~, to leave the Kitchen',
+        ['enter_kitchen'] = 'Press ~g~E~s~, to enter ~o~',
+        ['enter_kitchen_2'] = '~s~.',
+        ['leave_kitchen'] = 'Press ~g~E~s~, to leave the kitchen',
 
         ['nothing_produced'] = '~y~Nothing could be produced in your absence as there are no supplies.',
         ['successfully_produced'] = '~g~During your absence, ~w~',
@@ -141,9 +141,9 @@ Translation = {
         ['successfully_produced_storageEmpty'] = ' ~g~produced. Supplies are empty!',
 
         ['get_from_storage'] = '~s~ taken from the warehouse.',
-        ['Kitchen_bought_title'] = 'Kitchen bought',
-        ['Kitchen_bought'] = 'Well! ~g~',
-        ['Kitchen_bought_2'] = ' ~s~is now yours. Good choice!',
+        ['kitchen_bought_title'] = 'kitchen bought',
+        ['kitchen_bought'] = 'Well! ~g~',
+        ['kitchen_bought_2'] = ' ~s~is now yours. Good choice!',
 
         ['heroin'] = '~g~Heroin',
         ['Rohmaterial'] = '~b~',
@@ -161,7 +161,7 @@ Translation = {
         ['mission_loading'] = 'Vehicle is being loaded: \n~g~',
         ['mission_loading_2'] = '% ~s~completed.',
         ['mission_wrongCar'] = 'I guess this vehicle is not the right one..',
-        ['mission_backToKitchen'] = 'Drive back to your Kitchen!',
+        ['mission_backTokitchen'] = 'Drive back to your kitchen!',
 
         ['mission_self_plants_bought'] = 'x supplies ~s~bought for ~g~',
         ['mission_self_plants_bought_2'] = '$~s~.',
@@ -180,8 +180,8 @@ Translation = {
         ['mission_invited'] = 'You were ~g~invited ~s~to do a ~b~mission~s~. Press  ~g~E~s~, to accept.',
         ['mission_invited_over'] = 'The invite has ~r~expired~s~!',
 
-        ['menu_enter_Kitchen'] = 'Enter the Kitchen',
-        ['menu_buy_Kitchen'] = 'Buy the Kitchen',
+        ['menu_enter_kitchen'] = 'Enter the kitchen',
+        ['menu_buy_kitchen'] = 'Buy the kitchen',
         ['menu_buy_name'] = 'Name:',
         ['menu_buy_type'] = 'Type:',
         ['menu_buy_price'] = 'Price:',
@@ -205,13 +205,13 @@ Translation = {
         ['menu_storage_buy_desc'] = 'Buy supplies from black market',
         ['menu_storage_buy_self'] = 'Buy supplies on your own',
         ['menu_storage_buy_others'] = 'Let somebody buy your supplys',
-        ['menu_storage_buy_others_desc'] = 'The person have to stay next to the Kitchen entrance',
+        ['menu_storage_buy_others_desc'] = 'The person have to stay next to the kitchen entrance',
         ['menu_storage_inputseeds'] = 'How much should be stored?',
         ['storagemission_invite'] = 'Click to ask ~b~',
         ['storagemission_invite_2'] = '~s~',
 
-        ['menu_upgrade'] = 'Upgrade Kitchen',
-        ['menu_upgrade_prod'] = 'Improve Kitchen',
+        ['menu_upgrade'] = 'Upgrade kitchen',
+        ['menu_upgrade_prod'] = 'Improve kitchen',
         ['menu_upgrade_prod_desc'] = 'Increase productivity and storage',
         ['menu_upgrade_prod_level2'] = 'Improve equipment',
         ['menu_upgrade_prod_level2_desc'] = 'Increase performance by improving your equipment: e.g. better fans',
@@ -219,8 +219,8 @@ Translation = {
         ['menu_upgrade_prod_level3_desc'] = 'Increase performance by improving your monitoring: e.g. Video recording',
         ['menu_upgrade_level2required'] = 'Level 2 required',
         ['upgraded_title'] = 'Buy upgrade',
-        ['upgraded'] = 'The ~y~level ~s~of your Kitchen was upgraded to ~y~',
-        ['upgraded_2'] = ' ~s~. Reenter the Kitchen to see the progress.',
+        ['upgraded'] = 'The ~y~level ~s~of your kitchen was upgraded to ~y~',
+        ['upgraded_2'] = ' ~s~. Reenter the kitchen to see the progress.',
 
         ['menu_stats_finished'] = '~b~Storage capacity (finished drugs):',
         ['menu_stats_storecap'] = '~b~Storage capacity (supplies):',
@@ -232,7 +232,7 @@ Translation = {
         ['menu_changeVehicle_change2'] = ' ~s~as your mission vehicle',
 
         ['menu_access'] = 'Key cards',
-        ['menu_access_desc'] = 'Set up who have access to the Kitchen',
+        ['menu_access_desc'] = 'Set up who have access to the kitchen',
         ['menu_access_trust_remove'] = 'Click to revoke ~b~',
         ['menu_access_trust_remove_2'] = ' ~s~s access',
         ['menu_addTrusted'] = '~g~Grant access',
@@ -240,29 +240,29 @@ Translation = {
         ['menu_access_trust_add_2'] = ' ~s~access',
 
         ['menu_access_removed'] = ' ~s~s access was revoked.',
-        ['menu_access_removed_target'] = 'You access for ~y~Kitchen (#',
+        ['menu_access_removed_target'] = 'You access for ~y~kitchen (#',
         ['menu_access_removed_target_2'] = ') was revoked.',
         ['menu_access_granted'] = ' ~s~s access was granted.',
-        ['menu_access_granted_target'] = 'You now have access to ~g~Kitchen (#',
+        ['menu_access_granted_target'] = 'You now have access to ~g~kitchen (#',
         ['menu_access_granted_target_2'] = ')',
 
-        ['menu_sell'] = 'Sell Kitchen',
-        ['menu_sell_confirm'] = 'Confirm selling Kitchen',
+        ['menu_sell'] = 'Sell kitchen',
+        ['menu_sell_confirm'] = 'Confirm selling kitchen',
         ['infobar_seller'] = 'Press ~o~E~s~, to talk with the seller',
         ['items_sold_for'] = '~s~Items sold for ~g~',
         ['you_only_have_items'] = '~y~You only have ~w~',
         ['you_only_have_items2'] = 'x ~y~with you',
         ['seller_title'] = 'Seller',
         ['input_howmuch'] = 'How much should be sold?',
-        ['menu_sell_desc'] = 'Sell the Kitchen for ~g~',
+        ['menu_sell_desc'] = 'Sell the kitchen for ~g~',
 
     },
 
     ['de'] = {
         ['access_computer'] = 'Drücke ~g~E~s~, um auf den Computer zuzugreifen',
-        ['enter_Kitchen'] = 'Drücke ~g~E~s~, um ~o~',
-        ['enter_Kitchen_2'] = '~s~ zu betreten',
-        ['leave-Kitchen'] = 'Drücke ~g~E~s~, um die Produktion zu verlassen',
+        ['enter_kitchen'] = 'Drücke ~g~E~s~, um ~o~',
+        ['enter_kitchen_2'] = '~s~ zu betreten',
+        ['leave-kitchen'] = 'Drücke ~g~E~s~, um die Produktion zu verlassen',
 
         ['nothing_produced'] = '~y~Während deiner Abwesenheit konnte nichts produziert werden, da keine Vorräte vorhanden sind.',
         ['successfully_produced'] = '~g~Während du weg warst, wurden ~w~',
@@ -271,14 +271,14 @@ Translation = {
         ['successfully_produced_storageEmpty'] = ' ~g~produziert. Deine Vorräte sind leer!',
 
         ['get_from_storage'] = '~s~ aus dem Lager entnommen.',
-        ['Kitchen_bought_title'] = 'Küche gekauft',
-        ['Kitchen_bought'] = 'Dann ist die ~g~',
-        ['Kitchen_bought_2'] = ' ~s~wohl ab Sofort deins..gute Wahl!',
+        ['kitchen_bought_title'] = 'Küche gekauft',
+        ['kitchen_bought'] = 'Dann ist die ~g~',
+        ['kitchen_bought_2'] = ' ~s~wohl ab Sofort deins..gute Wahl!',
 
         ['pureheroin'] = '~g~Reines Heroin',
         ['poppyjuice'] = '~b~Opiate',
 
-        ['Kitchen'] = 'Küche',
+        ['kitchen'] = 'Küche',
         ['supplies'] = 'Rohmaterial',
         ['already_started_mission'] = '~r~Du hast bereits eine Beschaffungsmission gestartet!',
         ['notEnoughMoney'] = '~r~Du hast nicht genügend Geld!',
@@ -291,7 +291,7 @@ Translation = {
         ['mission_loading'] = 'Fahrzeug wird beladen: \n~g~',
         ['mission_loading_2'] = '% ~s~abgeschlossen.',
         ['mission_wrongCar'] = 'In das Fahrzeug bekommen wir die Ware aber nicht rein..',
-        ['mission_backToKitchen'] = 'Fahre nun zurück zur Anlage',
+        ['mission_backTokitchen'] = 'Fahre nun zurück zur Anlage',
 
         ['mission_self_plants_bought'] = 'x Rohmaterial ~s~für ~g~',
         ['mission_self_plants_bought_2'] = '$ ~s~bezahlt.',
@@ -310,8 +310,8 @@ Translation = {
         ['mission_invited'] = 'Du wurdest ~g~eingeladen ~s~eine ~b~Beschaffungsmission ~s~durchzuführen. Drücke  ~g~E~s~, um anzunehmen.',
         ['mission_invited_over'] = 'Die Einladung ist ~r~abgelaufen~s~!',
 
-        ['menu_enter_Kitchen'] = 'Küche betreten',
-        ['menu_buy_Kitchen'] = 'Küche kaufen',
+        ['menu_enter_kitchen'] = 'Küche betreten',
+        ['menu_buy_kitchen'] = 'Küche kaufen',
         ['menu_buy_name'] = 'Name:',
         ['menu_buy_type'] = 'Art:',
         ['menu_buy_price'] = 'Preis:',
@@ -370,21 +370,21 @@ Translation = {
         ['menu_access_trust_add_2'] = ' ~s~den Zugang zu entziehen',
 
         ['menu_access_removed'] = ' ~s~wurde der Zugang entzogen.',
-        ['menu_access_removed_target'] = 'Dir wurde der Zugang für ~y~Kitchen (#',
+        ['menu_access_removed_target'] = 'Dir wurde der Zugang für ~y~kitchen (#',
         ['menu_access_removed_target_2'] = ') entzogen.',
         ['menu_access_granted'] = ' ~s~wurde der Zugang freigeschaltet.',
-        ['menu_access_granted_target'] = 'Dir wurde der Zugang für ~g~Kitchen (#',
+        ['menu_access_granted_target'] = 'Dir wurde der Zugang für ~g~kitchen (#',
         ['menu_access_granted_target_2'] = ') erteilt.',
 
-        ['menu_sell'] = 'Kitchen verkaufen',
-        ['menu_sell_confirm'] = 'Kitchen verkaufen bestätigen',
+        ['menu_sell'] = 'Küche verkaufen',
+        ['menu_sell_confirm'] = 'kitchen verkaufen bestätigen',
         ['infobar_seller'] = 'Drücke ~o~E~s~, um mit dem Händler zu sprechen',
         ['items_sold_for'] = '~s~Gegenstände verkauft für ~g~',
         ['you_only_have_items'] = '~y~Das hast nur ~w~',
         ['you_only_have_items2'] = 'x ~y~dabei',
         ['seller_title'] = 'Händler',
         ['input_howmuch'] = 'Wie viel soll verkauft werden?',
-        ['menu_sell_desc'] = 'Sell the Kitchen for ~g~',
+        ['menu_sell_desc'] = 'Sell the kitchen for ~g~',
 
     }
 
