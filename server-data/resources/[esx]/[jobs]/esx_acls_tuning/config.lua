@@ -6,7 +6,7 @@ Config.IsMechanicJobOnly = true
 Config.Zones = {
 
 	ls1 = {
-		Pos   = { x = -332.14730834961, y = -142.79508972168, z = 39.009628295898},
+		Pos   = { x = -1129.5625, y = -2015.8221435547, z = 13.180233955383},
 		Size  = {x = 5.0, y = 5.0, z = 5.0},
 		Color = {r = 204, g = 204, b = 0},
 		Marker= 1,
@@ -14,7 +14,15 @@ Config.Zones = {
 	},
 
 	ls2 = {
-		Pos   = { x = -325.68597412109, y = -144.36619567871, z = 39.00963973999},
+		Pos   = { x = -1163.6435546875, y = -2009.6632080078, z = 13.180228233337},
+		Size  = {x = 3.0, y = 3.0, z = 0.2},
+		Color = {r = 204, g = 204, b = 0},
+		Marker= 1,
+		Hint  = _U('press_custom')
+	},
+
+	ls3 = {
+		Pos   = { x = -1167.3503417969, y = -2014.4964599609, z = 13.180262565613},
 		Size  = {x = 3.0, y = 3.0, z = 0.2},
 		Color = {r = 204, g = 204, b = 0},
 		Marker= 1,
@@ -247,13 +255,175 @@ function GetColors(color)
 	return colors
 end
 
+function GetWindowName(index)
+	if (index == 1) then
+		return "Pure Black"
+	elseif (index == 2) then
+		return "Darksmoke"
+	elseif (index == 3) then
+		return "Lightsmoke"
+	elseif (index == 4) then
+		return "Limo"
+	elseif (index == 5) then
+		return "Green"
+	else
+		return "Unknown"
+	end
+end
 
+function GetHornName(index)
+	if (index == 0) then
+		return "Truck Horn"
+	elseif (index == 1) then
+		return "Cop Horn"
+	elseif (index == 2) then
+		return "Clown Horn"
+	elseif (index == 3) then
+		return "Musical Horn 1"
+	elseif (index == 4) then
+		return "Musical Horn 2"
+	elseif (index == 5) then
+		return "Musical Horn 3"
+	elseif (index == 6) then
+		return "Musical Horn 4"
+	elseif (index == 7) then
+		return "Musical Horn 5"
+	elseif (index == 8) then
+		return "Sad Trombone"
+	elseif (index == 9) then
+		return "Classical Horn 1"
+	elseif (index == 10) then
+		return "Classical Horn 2"
+	elseif (index == 11) then
+		return "Classical Horn 3"
+	elseif (index == 12) then
+		return "Classical Horn 4"
+	elseif (index == 13) then
+		return "Classical Horn 5"
+	elseif (index == 14) then
+		return "Classical Horn 6"
+	elseif (index == 15) then
+		return "Classical Horn 7"
+	elseif (index == 16) then
+		return "Scale - Do"
+	elseif (index == 17) then
+		return "Scale - Re"
+	elseif (index == 18) then
+		return "Scale - Mi"
+	elseif (index == 19) then
+		return "Scale - Fa"
+	elseif (index == 20) then
+		return "Scale - Sol"
+	elseif (index == 21) then
+		return "Scale - La"
+	elseif (index == 22) then
+		return "Scale - Ti"
+	elseif (index == 23) then
+		return "Scale - Do"
+	elseif (index == 24) then
+		return "Jazz Horn 1"
+	elseif (index == 25) then
+		return "Jazz Horn 2"
+	elseif (index == 26) then
+		return "Jazz Horn 3"
+	elseif (index == 27) then
+		return "Jazz Horn Loop"
+	elseif (index == 28) then
+		return "Star Spangled Banner 1"
+	elseif (index == 29) then
+		return "Star Spangled Banner 2"
+	elseif (index == 30) then
+		return "Star Spangled Banner 3"
+	elseif (index == 31) then
+		return "Star Spangled Banner 4"
+	elseif (index == 32) then
+		return "Classical Horn 8 Loop"
+	elseif (index == 33) then
+		return "Classical Horn 9 Loop"
+	elseif (index == 34) then
+		return "Classical Horn 10 Loop"
+	elseif (index == 35) then
+		return "Classical Horn 8"
+	elseif (index == 36) then
+		return "Classical Horn 9"
+	elseif (index == 37) then
+		return "Classical Horn 10"
+	elseif (index == 38) then
+		return "Funeral Loop"
+	elseif (index == 39) then
+		return "Funeral"
+	elseif (index == 40) then
+		return "Spooky Loop"
+	elseif (index == 41) then
+		return "Spooky"
+	elseif (index == 42) then
+		return "San Andreas Loop"
+	elseif (index == 43) then
+		return "San Andreas"
+	elseif (index == 44) then
+		return "Liberty City Loop"
+	elseif (index == 45) then
+		return "Liberty City"
+	elseif (index == 46) then
+		return "Festive 1 Loop"
+	elseif (index == 47) then
+		return "Festive 1"
+	elseif (index == 48) then
+		return "Festive 2 Loop"
+	elseif (index == 49) then
+		return "Festive 2"
+	elseif (index == 50) then
+		return "Festive 3 Loop"
+	elseif (index == 51) then
+		return "Festive 3"
+	else
+		return "Unknown Horn"
+	end
+end
 
+function GetNeons()
+	local neons = {
+		{ label = _U('white'),		r = 255, 	g = 255, 	b = 255},
+		{ label = "Slate Gray",		r = 112, 	g = 128, 	b = 144},
+		{ label = "Blue",			r = 0, 		g = 0, 		b = 255},
+		{ label = "Light Blue",		r = 0, 		g = 150, 	b = 255},
+		{ label = "Navy Blue", 		r = 0, 		g = 0, 		b = 128},
+		{ label = "Sky Blue", 		r = 135, 	g = 206, 	b = 235},
+		{ label = "Turquoise", 		r = 0, 		g = 245, 	b = 255},
+		{ label = "Mint Green", 	r = 50, 	g = 255, 	b = 155},
+		{ label = "Lime Green", 	r = 0, 		g = 255, 	b = 0},
+		{ label = "Olive", 			r = 128, 	g = 128, 	b = 0},
+		{ label = _U('yellow'), 	r = 255, 	g = 255, 	b = 0},
+		{ label = _U('gold'), 		r = 255, 	g = 215, 	b = 0},
+		{ label = _U('orange'), 	r = 255, 	g = 165, 	b = 0},
+		{ label = _U('wheat'), 		r = 245, 	g = 222, 	b = 179},
+		{ label = _U('red'), 		r = 255, 	g = 0, 		b = 0},
+		{ label = _U('pink'), 		r = 255, 	g = 161, 	b = 211},
+		{ label = _U('brightpink'),	r = 255, 	g = 0, 		b = 255},
+		{ label = _U('purple'), 	r = 153, 	g = 0, 		b = 153},
+		{ label = "Ivory", 			r = 41, 	g = 36, 	b = 33}
+	}
 
+	return neons
+end
+
+function GetPlatesName(index)
+	if (index == 0) then
+		return _U('blue_on_white_1')
+	elseif (index == 1) then
+		return _U('yellow_on_black')
+	elseif (index == 2) then
+		return _U('yellow_blue')
+	elseif (index == 3) then
+		return _U('blue_on_white_2')
+	elseif (index == 4) then
+		return _U('blue_on_white_3')
+	end
+end
 
 Config.Menus = {
 	main = {
-		label		= 'Lackierkammer',
+		label		= 'ACLS',
 		parent		= nil,
 		cosmetics	= _U('cosmetics')
 	},
@@ -261,6 +431,416 @@ Config.Menus = {
 	cosmetics = {
 		label				= _U('cosmetics'),
 		parent				= 'main',
+		bodyparts			= _U('bodyparts'),
+		windowTint			= _U('windowtint'),
+		modHorns			= _U('horns'),
+		neonColor			= _U('neons'),
 		resprays			= _U('respray'),
+		modXenon			= _U('headlights'),
+		plateIndex			= _U('licenseplates'),
+		wheels				= _U('wheels'),
+		modPlateHolder		= _U('modplateholder'),
+		modVanityPlate		= _U('modvanityplate'),
+		modTrimA			= _U('interior'),
+		modOrnaments		= _U('trim'),
+		modDashboard		= _U('dashboard'),
+		modDial				= _U('speedometer'),
+		modDoorSpeaker		= _U('door_speakers'),
+		modSeats			= _U('seats'),
+		modSteeringWheel	= _U('steering_wheel'),
+		modShifterLeavers	= _U('gear_lever'),
+		modAPlate			= _U('quarter_deck'),
+		modSpeakers			= _U('speakers'),
+		modTrunk			= _U('trunk'),
+		modHydrolic			= _U('hydraulic'),
+		modEngineBlock		= _U('engine_block'),
+		modAirFilter		= _U('air_filter'),
+		modStruts			= _U('struts'),
+		modArchCover		= _U('arch_cover'),
+		modAerials			= _U('aerials'),
+		modTrimB			= _U('wings'),
+		modTank				= _U('fuel_tank'),
+		modWindows			= _U('windows'),
+		modLivery			= _U('stickers')
 	},
+
+	modPlateHolder = {
+		label = _U('modplateholder'),
+		parent = 'cosmetics',
+		modType = 25,
+		price = 1.49
+	},
+	modVanityPlate = {
+		label = _U('modvanityplate'),
+		parent = 'cosmetics',
+		modType = 26,
+		price = 1.1
+	},
+	modTrimA = {
+		label = _U('interior'),
+		parent = 'cosmetics',
+		modType = 27,
+		price = 1.98
+	},
+	modOrnaments = {
+		label = _U('trim'),
+		parent = 'cosmetics',
+		modType = 28,
+		price = 0.9
+	},
+	modDashboard = {
+		label = _U('dashboard'),
+		parent = 'cosmetics',
+		modType = 29,
+		price = 1.65
+	},
+	modDial = {
+		label = _U('speedometer'),
+		parent = 'cosmetics',
+		modType = 30,
+		price = 1.19
+	},
+	modDoorSpeaker = {
+		label = _U('door_speakers'),
+		parent = 'cosmetics',
+		modType = 31,
+		price = 1.58
+	},
+	modSeats = {
+		label = _U('seats'),
+		parent = 'cosmetics',
+		modType = 32,
+		price = 1.65
+	},
+	modSteeringWheel = {
+		label = _U('steering_wheel'),
+		parent = 'cosmetics',
+		modType = 33,
+		price = 1.19
+	},
+	modShifterLeavers = {
+		label = _U('gear_lever'),
+		parent = 'cosmetics',
+		modType = 34,
+		price = 1.26
+	},
+	modAPlate = {
+		label = _U('quarter_deck'),
+		parent = 'cosmetics',
+		modType = 35,
+		price = 1.19
+	},
+	modSpeakers = {
+		label = _U('speakers'),
+		parent = 'cosmetics',
+		modType = 36,
+		price = 1.98
+	},
+	modTrunk = {
+		label = _U('trunk'),
+		parent = 'cosmetics',
+		modType = 37,
+		price = 1.58
+	},
+	modHydrolic = {
+		label = _U('hydraulic'),
+		parent = 'cosmetics',
+		modType = 38,
+		price = 1.12
+	},
+	modEngineBlock = {
+		label = _U('engine_block'),
+		parent = 'cosmetics',
+		modType = 39,
+		price = 1.12
+	},
+	modAirFilter = {
+		label = _U('air_filter'),
+		parent = 'cosmetics',
+		modType = 40,
+		price = 1.72
+	},
+	modStruts = {
+		label = _U('struts'),
+		parent = 'cosmetics',
+		modType = 41,
+		price = 1.51
+	},
+	modArchCover = {
+		label = _U('arch_cover'),
+		parent = 'cosmetics',
+		modType = 42,
+		price = 1.19
+	},
+	modAerials = {
+		label = _U('aerials'),
+		parent = 'cosmetics',
+		modType = 43,
+		price = 1.12
+	},
+	modTrimB = {
+		label = _U('wings'),
+		parent = 'cosmetics',
+		modType = 44,
+		price = 1.05
+	},
+	modTank = {
+		label = _U('fuel_tank'),
+		parent = 'cosmetics',
+		modType = 45,
+		price = 0.1
+	},
+	modWindows = {
+		label = _U('windows'),
+		parent = 'cosmetics',
+		modType = 46,
+		price = 0.1
+	},
+	modLivery = {
+		label = _U('stickers'),
+		parent = 'cosmetics',
+		modType = 48,
+		price = 1.3
+	},
+
+	wheels = {
+		label = _U('wheels'),
+		parent = 'cosmetics',
+		modFrontWheelsTypes = _U('wheel_type'),
+		modFrontWheelsColor = _U('wheel_color'),
+		tyreSmokeColor = _U('tiresmoke')
+	},
+	modFrontWheelsTypes = {
+		label				= _U('wheel_type'),
+		parent				= 'wheels',
+		modFrontWheelsType0	= _U('sport'),
+		modFrontWheelsType1	= _U('muscle'),
+		modFrontWheelsType2	= _U('lowrider'),
+		modFrontWheelsType3	= _U('suv'),
+		modFrontWheelsType4	= _U('allterrain'),
+		modFrontWheelsType5	= _U('tuning'),
+		modFrontWheelsType6	= _U('motorcycle'),
+		modFrontWheelsType7	= _U('highend')
+	},
+	modFrontWheelsType0 = {
+		label = _U('sport'),
+		parent = 'modFrontWheelsTypes',
+		modType = 23,
+		wheelType = 0,
+		price = 0.6
+	},
+	modFrontWheelsType1 = {
+		label = _U('muscle'),
+		parent = 'modFrontWheelsTypes',
+		modType = 23,
+		wheelType = 1,
+		price = 0.1
+	},
+	modFrontWheelsType2 = {
+		label = _U('lowrider'),
+		parent = 'modFrontWheelsTypes',
+		modType = 23,
+		wheelType = 2,
+		price = 0.6
+	},
+	modFrontWheelsType3 = {
+		label = _U('suv'),
+		parent = 'modFrontWheelsTypes',
+		modType = 23,
+		wheelType = 3,
+		price = 0.1
+	},
+	modFrontWheelsType4 = {
+		label = _U('allterrain'),
+		parent = 'modFrontWheelsTypes',
+		modType = 23,
+		wheelType = 4,
+		price = 0.1
+	},
+	modFrontWheelsType5 = {
+		label = _U('tuning'),
+		parent = 'modFrontWheelsTypes',
+		modType = 23,
+		wheelType = 5,
+		price = 0.1
+	},
+	modFrontWheelsType6 = {
+		label = _U('motorcycle'),
+		parent = 'modFrontWheelsTypes',
+		modType = 23,
+		wheelType = 6,
+		price = 0.2
+	},
+	modFrontWheelsType7 = {
+		label = _U('highend'),
+		parent = 'modFrontWheelsTypes',
+		modType = 23,
+		wheelType = 7,
+		price = 0.1
+	},
+	modFrontWheelsColor = {
+		label = _U('wheel_color'),
+		parent = 'wheels'
+	},
+	wheelColor = {
+		label = _U('wheel_color'),
+		parent = 'modFrontWheelsColor',
+		modType = 'wheelColor',
+		price = 0.6
+	},
+	plateIndex = {
+		label = _U('licenseplates'),
+		parent = 'cosmetics',
+		modType = 'plateIndex',
+		price = 1.1
+	},
+	resprays = {
+		label = _U('respray'),
+		parent = 'cosmetics',
+		primaryRespray = _U('primary'),
+		secondaryRespray = _U('secondary'),
+		pearlescentRespray = _U('pearlescent'),
+	},
+	primaryRespray = {
+		label = _U('primary'),
+		parent = 'resprays',
+	},
+	secondaryRespray = {
+		label = _U('secondary'),
+		parent = 'resprays',
+	},
+	pearlescentRespray = {
+		label = _U('pearlescent'),
+		parent = 'resprays',
+	},
+	color1 = {
+		label = _U('primary'),
+		parent = 'primaryRespray',
+		modType = 'color1',
+		price = 0.1
+	},
+	color2 = {
+		label = _U('secondary'),
+		parent = 'secondaryRespray',
+		modType = 'color2',
+		price = 0.6
+	},
+	pearlescentColor = {
+		label = _U('pearlescent'),
+		parent = 'pearlescentRespray',
+		modType = 'pearlescentColor',
+		price = 0.8
+	},
+	modXenon = {
+		label = _U('headlights'),
+		parent = 'cosmetics',
+		modType = 22,
+		price = 0.7
+	},
+	bodyparts = {
+		label = _U('bodyparts'),
+		parent = 'cosmetics',
+		modFender = _U('leftfender'),
+		modRightFender = _U('rightfender'),
+		modSpoilers = _U('spoilers'),
+		modSideSkirt = _U('sideskirt'),
+		modFrame = _U('cage'),
+		modHood = _U('hood'),
+		modGrille = _U('grille'),
+		modRearBumper = _U('rearbumper'),
+		modFrontBumper = _U('frontbumper'),
+		modExhaust = _U('exhaust'),
+		modRoof = _U('roof')
+	},
+	modSpoilers = {
+		label = _U('spoilers'),
+		parent = 'bodyparts',
+		modType = 0,
+		price = 0.6
+	},
+	modFrontBumper = {
+		label = _U('frontbumper'),
+		parent = 'bodyparts',
+		modType = 1,
+		price = 0.1
+	},
+	modRearBumper = {
+		label = _U('rearbumper'),
+		parent = 'bodyparts',
+		modType = 2,
+		price = 0.12
+	},
+	modSideSkirt = {
+		label = _U('sideskirt'),
+		parent = 'bodyparts',
+		modType = 3,
+		price = 0.6
+	},
+	modExhaust = {
+		label = _U('exhaust'),
+		parent = 'bodyparts',
+		modType = 4,
+		price = 0.12
+	},
+	modFrame = {
+		label = _U('cage'),
+		parent = 'bodyparts',
+		modType = 5,
+		price = 0.1
+	},
+	modGrille = {
+		label = _U('grille'),
+		parent = 'bodyparts',
+		modType = 6,
+		price = 0.7
+	},
+	modHood = {
+		label = _U('hood'),
+		parent = 'bodyparts',
+		modType = 7,
+		price = 0.8
+	},
+	modFender = {
+		label = _U('leftfender'),
+		parent = 'bodyparts',
+		modType = 8,
+		price = 0.1
+	},
+	modRightFender = {
+		label = _U('rightfender'),
+		parent = 'bodyparts',
+		modType = 9,
+		price = 0.1
+	},
+	modRoof = {
+		label = _U('roof'),
+		parent = 'bodyparts',
+		modType = 10,
+		price = 0.5
+	},
+	windowTint = {
+		label = _U('windowtint'),
+		parent = 'cosmetics',
+		modType = 'windowTint',
+		price = 0.1
+	},
+	modHorns = {
+		label = _U('horns'),
+		parent = 'cosmetics',
+		modType = 14,
+		price = 0.1
+	},
+	neonColor = {
+		label = _U('neons'),
+		parent = 'cosmetics',
+		modType = 'neonColor',
+		price = 0.1
+	},
+	tyreSmokeColor = {
+		label = _U('tiresmoke'),
+		parent = 'wheels',
+		modType = 'tyreSmokeColor',
+		price = 0.1
+	}
+
 }

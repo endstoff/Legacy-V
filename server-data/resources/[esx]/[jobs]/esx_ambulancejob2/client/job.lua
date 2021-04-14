@@ -15,8 +15,10 @@ function OpenAmbulanceActionsMenu()
 	ESX.UI.Menu.Open('default', GetCurrentResourceName(), 'ambulance_actions', {
 		title    = _U('ambulance'),
 		align    = 'top-left',
-		elements = elements
-	}, function(data, menu)
+		elements = {
+			{label = _U('cloakroom'), value = 'cloakroom'},
+			{label = _U('boss_actions'), value = 'boss_actions'}
+	}}, function(data, menu)
 		if data.current.value == 'cloakroom' then
 			OpenCloakroomMenu()
 		elseif data.current.value == 'boss_actions' then
@@ -138,47 +140,6 @@ function OpenMobileAmbulanceActionsMenu()
 	end)
 end
 
-
-function OpenFineMenu(player)
-	ESX.UI.Menu.CloseAll()
-
-	ESX.UI.Menu.Open('default', GetCurrentResourceName(), 'mobile_taxi_actions', {
-		title    = '',
-		align    = 'top-left',
-		elements = {
-			{label = 'Rechnung',   value = 'billing'},
-	}}, function(data, menu)
-		if data.current.value == 'billing' then
-
-			ESX.UI.Menu.Open('dialog', GetCurrentResourceName(), 'billing', {
-				title = 'Rechnung - Betrag'
-			}, function(data, menu)
-
-				local amount = tonumber(data.value)
-				if amount == nil then
-					ESX.ShowNotification('Ungültiger Betrag')
-				else
-					menu.close()
-					local closestPlayer, closestDistance = ESX.Game.GetClosestPlayer()
-					if closestPlayer == -1 or closestDistance > 1.0 then
-						ESX.ShowNotification('Keine Spieler in der Nähe')
-					else
-						TriggerServerEvent('esx_billing:sendBill', GetPlayerServerId(closestPlayer), 'society_ambulance', 'Notdienst', amount)
-						ESX.ShowNotification('Rechnung ausgestellt')
-					end
-
-				end
-
-			end, function(data, menu)
-				menu.close()
-			end)
-		end
-	end, function(data, menu)
-		menu.close()
-	end)
-end
-
-
 function revivePlayer(closestPlayer)
 	isBusy = true
 
@@ -250,6 +211,20 @@ Citizen.CreateThread(function()
 
 						if distance < Config.Marker.x then
 							isInMarker, currentHospital, currentPart, currentPartNum = true, hospitalNum, 'AmbulanceActions', k
+						end
+					end
+				end
+				
+				--Cloakroom
+				for k,v in ipairs(hospital.Cloakroom) do
+					local distance = #(playerCoords - v)
+
+					if distance < Config.DrawDistance then
+						DrawMarker(Config.Marker.type, v, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, Config.Marker.x, Config.Marker.y, Config.Marker.z, Config.Marker.r, Config.Marker.g, Config.Marker.b, Config.Marker.a, false, false, 2, Config.Marker.rotate, nil, nil, false)
+						letSleep = false
+
+						if distance < Config.Marker.x then
+							isInMarker, currentHospital, currentPart, currentPartNum = true, hospitalNum, 'Cloakroom', k
 						end
 					end
 				end
@@ -373,6 +348,10 @@ AddEventHandler('esx_ambulancejob:hasEnteredMarker', function(hospital, part, pa
 		CurrentAction = part
 		CurrentActionMsg = _U('actions_prompt')
 		CurrentActionData = {}
+	elseif part == 'Cloakroom' then
+		CurrentAction = part
+		CurrentActionMsg = _U('open_cloakroom')
+		CurrentActionData = {}
 	elseif part == 'Pharmacy' then
 		CurrentAction = part
 		CurrentActionMsg = _U('open_pharmacy')
@@ -413,6 +392,8 @@ Citizen.CreateThread(function()
 			if IsControlJustReleased(0, 38) then
 				if CurrentAction == 'AmbulanceActions' then
 					OpenAmbulanceActionsMenu()
+				elseif CurrentAction == 'Cloakroom' then
+					OpenCloakroomMenu()
 				elseif CurrentAction == 'Pharmacy' then
 					OpenPharmacyMenu()
 				elseif CurrentAction == 'Vehicles' then
@@ -425,7 +406,7 @@ Citizen.CreateThread(function()
 
 				CurrentAction = nil
 			end
-			
+
 		elseif ESX.PlayerData.job and ESX.PlayerData.job.name == 'ambulance' and not isDead then
 			if IsControlJustReleased(0, 167) then
 				OpenMobileAmbulanceActionsMenu()
@@ -524,7 +505,6 @@ function OpenPharmacyMenu()
 			{label = _U('pharmacy_take', _U('blood_1000')), item = 'blood_1000', type = 'slider', value = 1, min = 1, max = 100}
 	}}, function(data, menu)
 		TriggerServerEvent('esx_ambulancejob:giveItem', data.current.item, data.current.value)
-	--	TriggerServerEvent('esx_policejob:getStockItem', data.current.item, data.current.value)
 	end, function(data, menu)
 		menu.close()
 	end)

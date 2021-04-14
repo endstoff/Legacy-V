@@ -2,12 +2,38 @@ local display = false
 local v = 'n'
 local lastplate = 1
 
+local PlayerData = {}
+local xPlayer
+
+local whitelisted = true 
+local whitelistedjob = 'Midnight Club' -- LABEL
+
+
 Citizen.CreateThread(function()
 	while ESX == nil do
 		TriggerEvent('esx:getSharedObject', function(obj) ESX = obj end)
 		Citizen.Wait(0)
 	end
+
+	while ESX.GetPlayerData().job == nil do
+		Citizen.Wait(100)
+	end
+
+	PlayerLoaded = true
+	ESX.PlayerData = ESX.GetPlayerData()
 end)
+
+RegisterNetEvent('esx:playerLoaded')
+AddEventHandler('esx:playerLoaded', function(xPlayer)
+	ESX.PlayerData = xPlayer
+	PlayerLoaded = true
+end)
+
+RegisterNetEvent('esx:setJob')
+AddEventHandler('esx:setJob', function(job)
+	ESX.PlayerData.job = job
+end)
+
 
 Citizen.CreateThread(function()
     while true do
@@ -37,26 +63,56 @@ function checkluzes()
 end
 
 RegisterCommand("headlights", function(source, args)
-    if IsPedSittingInAnyVehicle(GetPlayerPed(-1)) then
-        local plate = ESX.Math.Trim(GetVehicleNumberPlateText(GetVehiclePedIsIn(GetPlayerPed(-1),false)))
+    if whitelisted then 
+        local playerJob = ESX.PlayerData.job.label
 
-        if plate ~= lastplate then
-            ESX.TriggerServerCallback('matif_headlights:check', function(result)
-                if result ~= nil and result == 'NOT' then
-                    print('doesnt have')
-                    TriggerEvent('esx:showNotification', 'The vehicle you are in doesnt have the xenon headlight extra!')
-                elseif result ~= nil and result ~= 'NOT' then
-                    lastplate = plate
-                    SetDisplay(not display)
+        if playerJob == whitelistedjob then 
+            if IsPedSittingInAnyVehicle(GetPlayerPed(-1)) then
+                local plate = ESX.Math.Trim(GetVehicleNumberPlateText(GetVehiclePedIsIn(GetPlayerPed(-1),false)))
+
+                if plate ~= lastplate then
+                    ESX.TriggerServerCallback('matif_headlights:check', function(result)
+                        if result ~= nil and result == 'NOT' then
+                            print('doesnt have')
+                            TriggerEvent('esx:showNotification', 'The vehicle you are in doesnt have the xenon headlight extra!')
+                        elseif result ~= nil and result ~= 'NOT' then
+                            lastplate = plate
+                            SetDisplay(not display)
+                        else
+                            TriggerEvent('esx:showNotification', 'Something went wrong!')
+                        end
+                    end, plate)
                 else
-                    TriggerEvent('esx:showNotification', 'Something went wrong!')
-                end
-            end, plate)
+                    SetDisplay(not display)
+                end   
+            else
+                TriggerEvent('esx:showNotification', 'You are not in a vehicle!')
+            end
+        else 
+                TriggerEvent('esx:showNotification', 'Du bist nicht Berechtigt dies zu nutzen!')
+        end
+    else 
+        if IsPedSittingInAnyVehicle(GetPlayerPed(-1)) then
+            local plate = ESX.Math.Trim(GetVehicleNumberPlateText(GetVehiclePedIsIn(GetPlayerPed(-1),false)))
+
+            if plate ~= lastplate then
+                ESX.TriggerServerCallback('matif_headlights:check', function(result)
+                    if result ~= nil and result == 'NOT' then
+                        print('doesnt have')
+                        TriggerEvent('esx:showNotification', 'The vehicle you are in doesnt have the xenon headlight extra!')
+                    elseif result ~= nil and result ~= 'NOT' then
+                        lastplate = plate
+                        SetDisplay(not display)
+                    else
+                        TriggerEvent('esx:showNotification', 'Something went wrong!')
+                    end
+                end, plate)
+            else
+                SetDisplay(not display)
+            end   
         else
-            SetDisplay(not display)
-        end   
-    else
-        TriggerEvent('esx:showNotification', 'You are not in a vehicle!')
+            TriggerEvent('esx:showNotification', 'You are not in a vehicle!')
+        end
     end
 end)
 

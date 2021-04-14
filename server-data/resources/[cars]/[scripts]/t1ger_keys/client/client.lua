@@ -238,7 +238,7 @@ function OpenCarMenu()
 		{ label = Lang['veh_windows_menu'], value = "veh_window_menu" },
 --		{ label = Lang['veh_door_menu'], value = "veh_door_menu" },
 --		{ label = Lang['veh_engine_label'], value = "veh_eng_btn" },
---		{ label = Lang['veh_neon_label'], value = "veh_neon_btn" },
+		{ label = Lang['veh_neon_label'], value = "veh_neon_btn" },
 		{ label = Lang['hotwiring'], value = "hotwire" },
 		{ label = Lang['car_search'], value = "car_search" },
 	}

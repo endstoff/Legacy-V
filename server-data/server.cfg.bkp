@@ -53,7 +53,7 @@ ensure d-phone
 ensure saltyradio
 
 ##      Admin
-ensure mxs-adminmenu
+#ensure mxs-adminmenu
 ensure discordroles
 ensure DiscordWhitelist
 #ensure EasyAdmin
@@ -178,6 +178,7 @@ ensure esx_bennys_tuning
 ensure esx_midnight_tuning
 
 ensure esx_acls
+#ensure esx_acls_tuning
 
 ensure hd_postop
 
@@ -194,7 +195,7 @@ ensure rcpaxon
 ensure interact-sound
 
 ensure KnifeArch
-ensure Ammo-Armour
+#ensure Ammo-Armour
 ensure Weazel-News
 ensure AdvancedParking
 
@@ -307,7 +308,7 @@ ensure gabz_bennys
 ensure gabz_diner
 #ensure gabz_imp_garage
 #ensure gabz_pacific_bank
-ensure gabz_pillbox_fivem
+ensure gabz_pillbox_hospital
 ensure gabz_mrpd
 
 #ensure prisonprops

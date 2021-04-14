@@ -3649,7 +3649,7 @@
       <swankness>SWANKNESS_5</swankness>
       <maxNum value="5" />
       <flags>FLAG_NO_BOOT FLAG_AVERAGE_CAR FLAG_EMERGENCY_SERVICE FLAG_POOR_CAR FLAG_SPORTS FLAG_HAS_LIVERY FLAG_SPAWN_ON_TRAILER FLAG_RICH_CAR FLAG_HAS_INTERIOR_EXTRAS</flags>
-      <type>VEHICLE_TYPE_CAR</type>
+      <type>VC_EMERGENCY</type>
       <plateType>VPT_BACK_PLATES</plateType>
 	  <dashboardType>VDT_GENTAXI</dashboardType>
       <vehicleClass>VC_SPORT</vehicleClass>

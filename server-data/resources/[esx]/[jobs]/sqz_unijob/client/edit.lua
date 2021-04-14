@@ -85,8 +85,7 @@ AddEventHandler('sqz_unijob:GetWeaponsCustomMenu', function(station)
 
 end)
 
-RegisterNetEvent('sqz_unijob:DrawCustomMarkers')
-AddEventHandler('sqz_unijob:DrawCustomMarkers', function(data)
+function DrawCustomMarkers(data)
     --[[
         The sctructure is:
         ["Size"] = {
@@ -107,7 +106,7 @@ AddEventHandler('sqz_unijob:DrawCustomMarkers', function(data)
         ["MotionText"] = [E] VehicleSpawner
     ]]
     -- Here you can add you custom DrawText/DrawMarker
-end)
+end
 
 RegisterNetEvent('sqz_unijob:CustomElementInPersonalMenu')
 AddEventHandler('sqz_unijob:CustomElementInPersonalMenu', function()
@@ -147,8 +146,7 @@ AddEventHandler('sqz_unijob:StoreVehicleCustom', function()
 
 end)
 
-RegisterNetEvent('sqz_unijob:DrawText3Ds')
-AddEventHandler('sqz_unijob:DrawText3Ds', function(x,y,z, text)
+function DrawText3Ds(x,y,z, text)
 	local onScreen,_x,_y=World3dToScreen2d(x,y,z)
 	local px,py,pz=table.unpack(GetGameplayCamCoords())
 	
@@ -162,7 +160,7 @@ AddEventHandler('sqz_unijob:DrawText3Ds', function(x,y,z, text)
 	DrawText(_x,_y)
 	local factor = (string.len(text)) / 200
 	DrawRect(_x,_y+0.0105, 0.025+ factor, 0.05, 41, 11, 41, 150)
-end)
+end
 
 -- KeyMapping, you can let it be as it is
 RegisterKeyMapping('epressed', 'E pressed', 'keyboard', 'e')

@@ -33,7 +33,7 @@ Config.Processor = {
     {requiredJob = nil, ItemsId = 7, label = 'Schmelze', XPType = 'stone', ped = "ig_chef2", x = 1078.8861083984, y = -1979.7579345703, z = 31.471523284912, rot = 238.72868347168},
     {requiredJob = nil, ItemsId = 8, label = 'Juwelier', XPType = 'jewellery', ped = "u_f_y_jewelass_01", x = -622.05590820313, y = -232.09861755371, z = 38.057010650635, rot = 126.61913299561},
     {requiredJob = nil, ItemsId = 9, label = 'Wodka Manufaktur', XPType = 'potato', ped = "a_m_m_farmer_01", x = 1459.3967285156, y = -1930.6866455078, z = 71.804565429688, rot = 268.56},
-    {requiredJob = nil, ItemsId = 10, label = 'Schlosserei', XPType = 'smith', ped = "ig_chef2", x = 944.125, y = -1697.728515625, z = 30.090450286865, rot = 269.33},
+    {requiredJob = nil, ItemsId = 10, label = 'Schlosserei', XPType = 'smith', ped = "ig_chef2", x = 474.47055053711, y = -1951.7414550781, z = 24.635202407837, rot = 119.1},
 }
 
 Config.Seller = {

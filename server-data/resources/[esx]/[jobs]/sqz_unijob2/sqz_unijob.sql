@@ -1,14 +1,22 @@
 INSERT INTO `jobs` (name, label) VALUES
-('yakuza', 'Yakuza')
+('midnight', 'Midnight Club')
 ;
 
 INSERT INTO `job_grades` (job_name, grade, name, label, salary, skin_male, skin_female) VALUES
-	('yakuza',0,'officer','Shingiin',0,'{}','{}'),
-	('yakuza',1,'sergeant','Komon',0,'{}','{}'),
-	('yakuza',2,'lieutenant','Wakagashira',0,'{}','{}'),
-	('yakuza',3,'boss','Oyabun',0,'{}','{}')
+	('midnight',0,'intancüs','Intan',0,'{}','{}'),
+	('midnight',1,'untenistsluftig','Unten-sha',0,'{}','{}'),
+	('midnight',2,'eyyococojambo','Kyodo rida',0,'{}','{}'),
+	('midnight',3,'boss','Meishu',0,'{}','{}')
 ;
 
 INSERT INTO `addon_account` (name, label, shared) VALUES
-	('yakuza', 'Yakuza', 1)
+	('midnight', 'Midnight Club', 1)
+;
+
+INSERT INTO `addon_inventory` (name, label, shared) VALUES
+	('midnight', 'Midnight Club', 1)
+;
+
+INSERT INTO `datastore` (name, label, shared) VALUES
+	('midnight', 'Midnight Club', 1)
 ;

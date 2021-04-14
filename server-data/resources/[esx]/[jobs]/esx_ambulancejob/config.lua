@@ -54,14 +54,14 @@ Config.Hospitals = {
 
 		Vehicles = {
 			{
-				Spawner = vector3(330.19940185547, -572.87377929688, 28.796852111816),
-				InsideShop = vector3(446.7, -1355.6, 43.5),
+				Spawner = vector3(293.89697265625,-598.14971923828,43.301696777344),
+				InsideShop = vector3(351.37973022461,-587.24176025391,74.164413452148),
 				Marker = {type = 36, x = 1.0, y = 1.0, z = 1.0, r = 255, g = 255, b = 255, a = 100, rotate = true},
 				SpawnPoints = {
-					{coords = vector3(319.80474853516, -569.76348876953, 28.796842575073), heading = 250.0, radius = 4.0},
-					{coords = vector3(320.91900634766, -565.55609130859, 28.796844482422), heading = 250.0, radius = 4.0},
-					{coords = vector3(317.29678344727, -573.89868164062, 28.796844482422), heading = 250.0, radius = 4.0},
-					{coords = vector3(316.25762939453, -578.05090332031, 28.796846389771), heading = 250.0, radius = 4.0}
+					{coords = vector3(294.927734375,-604.99786376953,42.715194702148), heading = 69.58, radius = 4.0},
+					{coords = vector3(292.927734375,-611.99786376953,42.715194702148), heading = 69.58, radius = 4.0},
+					{coords = vector3(286.33636474609,-611.77575683594,42.736587524414), heading = 339.53, radius = 4.0},
+					{coords = vector3(291.02038574219,-593.49487304688,42.446964263916), heading = 339.31, radius = 4.0}
 				}
 			}
 		},
@@ -135,19 +135,19 @@ Config.Hospitals = {
 			
 			-- 
 			
-			{
+			--[[{
 				From = vector3(330.35, -601.16, 43.28),
 				To = { coords = vector3(339.92929077148, -584.63385009766, 28.796850204468), heading = 72.0 },
 				Marker = { type = 22, x = 1.0, y = 1.0, z = 1.0, r = 255, g = 255, b = 255, a = 100, rotate = true },
 				Prompt = _U('fast_travel')
-			},
+			},]]
 			
-			{
+			--[[{
 				From = vector3(339.92929077148, -584.63385009766, 28.796850204468),
 				To = { coords = vector3(330.35, -601.16, 42.28), heading = 74.0 },
 				Marker = { type = 22, x = 1.0, y = 1.0, z = 1.0, r = 255, g = 255, b = 255, a = 100, rotate = true },
 				Prompt = _U('fast_travel')
-			},
+			},]]
 		}
 
 	}
@@ -156,7 +156,7 @@ Config.Hospitals = {
 Config.AuthorizedVehicles = {
 	car = {
 		rettungshelfer = {
-			{model = 'ambulance', price = 5000}
+			{model = 'dw_ambulance', price = 5000}
 		},
 
 		rettungssani = {

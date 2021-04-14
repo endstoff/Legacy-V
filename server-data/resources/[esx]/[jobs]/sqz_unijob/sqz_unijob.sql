@@ -1,22 +1,44 @@
 INSERT INTO `jobs` (name, label) VALUES
-('midnight', 'Midnight Club')
+	('fib', 'FIB'),
+  ('sandy_mechanic', 'Sandy Mechanic')
 ;
 
 INSERT INTO `job_grades` (job_name, grade, name, label, salary, skin_male, skin_female) VALUES
-	('midnight',0,'intancüs','Intan',0,'{}','{}'),
-	('midnight',1,'untenistsluftig','Unten-sha',0,'{}','{}'),
-	('midnight',2,'eyyococojambo','Kyodo rida',0,'{}','{}'),
-	('midnight',3,'boss','Meishu',0,'{}','{}')
+	('fib',0,'recruit','Recrue',20,'{}','{}'),
+	('fib',1,'officer','Officier',40,'{}','{}'),
+	('fib',2,'sergeant','Sergent',60,'{}','{}'),
+	('fib',3,'lieutenant','Lieutenant',85,'{}','{}'),
+	('fib',4,'boss','Commandant',100,'{}','{}'),
+
+  ('sandy_mechanic',0,'recruit','Recrue',20,'{}','{}'),
+	('sandy_mechanic',1,'novice','Novice',40,'{}','{}'),
+	('sandy_mechanic',2,'experienced','Experienced worker',60,'{}','{}'),
+	('sandy_mechanic',3,'professional','Professional worker',85,'{}','{}'),
+	('sandy_mechanic',4,'boss','Boss',100,'{}','{}')
 ;
 
 INSERT INTO `addon_account` (name, label, shared) VALUES
-	('midnight', 'Midnight Club', 1)
+	('society_sandy_mechanic', 'Sandy Mechanic', 1),
+	('society_fib', 'FIB', 1)
 ;
 
-INSERT INTO `addon_inventory` (name, label, shared) VALUES
-	('midnight', 'Midnight Club', 1)
-;
+CREATE TABLE IF NOT EXISTS `sqz_unijob_inventory` (
+  `vault` longtext,
+  `item` varchar(50) DEFAULT NULL,
+  `count` longtext,
+  `label` longtext,
+  `type` longtext,
+  `item_id` longtext
+) COMMENT='sqz_unijob_inventory';
 
-INSERT INTO `datastore` (name, label, shared) VALUES
-	('midnight', 'Midnight Club', 1)
+CREATE TABLE `sqz_unijob_log` (
+  `Steam` longtext,
+  `OOCname` longtext,
+  `Target` longtext,
+  `Time` longtext,
+  `Type` longtext
+) COMMENT='sqz_unijob_log';
+
+INSERT INTO `items` (`name`, `label`, `weight`) VALUES
+	('cuffs', 'Hand Cuffs', 1)
 ;

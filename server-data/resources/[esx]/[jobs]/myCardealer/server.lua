@@ -44,6 +44,23 @@ end)
 
 -- OneSync getPlayers
 
+ESX.RegisterServerCallback('myCardealer:getPlayersInArea', function(source, cb, position, distance)
+    local p = GetPlayers()
+    local players = {}
+    local vecposition = vector3(position.x, position.y, position.z)
+    if(#p > 0) then
+        for index, playerID in ipairs(p) do
+            local player = ESX.GetPlayerFromId(playerID)
+            local coords = player.getCoords(true)
+            if #(vecposition - coords) < distance then
+                local playerInfo = {id = playerID, name = player.getName()}
+                table.insert(players, playerInfo)
+            end
+        end
+    end
+    cb(players)
+  end)
+
 ESX.RegisterServerCallback('myCardealer:getClosestPlayer', function(source, cb, position, distance)
   local p = GetPlayers()
   local players = {}
@@ -220,13 +237,6 @@ AddEventHandler('myCardealer:BuyVeh', function(targetSource, manufacturer, model
         ['@vehicle'] = json.encode({model = vehProps.model, plate = vehProps.plate})
     }, function(rowsChanged)
         print('Vehicle successfully sold at Luxury Cardealer. Plate: ' .. vehProps.plate)
-
-        PerformHttpRequest(Cfg.Webhook, function(e,r,h) end, "POST", json.encode({
-			["username"] = "Job Logs | Legacy-V",
-			["avatar_url"] = "https://i.imgur.com/6wKJCFU.png",
-			["content"] = "[cardealer] | **" .. xPlayer.name(targetSource) .. "** wurde ein **" .. modellabel .. "** mit dem Kennzeichen **" .. vehProps.plate .. "** verkauft"
-		}), {["Content-Type"] = "application/json"})
-
     end)
 
     --_source, steamID, netID, position, heading, modifications

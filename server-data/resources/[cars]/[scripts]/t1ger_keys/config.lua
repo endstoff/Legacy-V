@@ -114,10 +114,12 @@ Config.WhitelistCars = {
 	[22] = {model = GetHashKey('flatbed'), job = {"acls"}},
 	[23] = {model = GetHashKey('towtruck'), job = {"acls"}},
 	[24] = {model = GetHashKey('towtruck2'), job = {"acls"}},
+	[25] = {model = GetHashKey('faggio'), job = {"acls"}},
 
 -- BMEISTER
 	[25] = {model = GetHashKey('cognoscenti'), job = {"bmeister"}},
-	[26] = {model = GetHashKey('taxi'), job = {"bmeister"}},
+	[26] = {model = GetHashKey('alpinab7'), job = {"bmeister"}},
+	[27] = {model = GetHashKey('taxi'), job = {"bmeister"}},
 
 }
 
@@ -126,7 +128,7 @@ Config.LockpickItem = {{
 	ItemName			= "lockpick",			-- Item name in database for usable item
 	ItemLabel			= "Dietrich",			-- Item name that is displayed in notifications etc
 	ProgressBarText		= "Aufbrechen",		-- Progress bar text
-	LockpickTime 		= 10,					-- Lockpicking time in seconds
+	LockpickTime 		= 15,					-- Lockpicking time in seconds
 	ChanceOne 			= 90,					-- Lockpicking success chance in percent (no alarm)
 	ChanceTwo 			= 30,					-- Lockpicking success chance in percent (Alarm I)
 	ChanceThree 		= 10,					-- Lockpicking success chance in percent (Alarm II)

@@ -367,7 +367,7 @@ Citizen.CreateThread(function()
 			local coords = GetEntityCoords(PlayerPedId())
 			local currentZone, zone, lastZone
 
-			if (PlayerData.job and PlayerData.job.name == 'mechanic' or PlayerData.job.name == 'acls') or not Config.IsMechanicJobOnly then
+			if (PlayerData.job and PlayerData.job.name == 'acls') or not Config.IsMechanicJobOnly then
 				for k,v in pairs(Config.Zones) do
 					if GetDistanceBetweenCoords(coords, v.Pos.x, v.Pos.y, v.Pos.z, true) < v.Size.x and not lsMenuIsShowed then
 						isInLSMarker  = true

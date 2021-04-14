@@ -74,15 +74,3 @@ https://discord.gg/FVXAu2F
 - Any leaking and breaking the TOS may and WILL lead to blacklisting your IPs, ban from the Discord and adding you to Blacklist.
 
 ### You can edit this resource only in config, client and server side part, you can't rename the script or re-release it as yours and sell it as yours. For suggestions contact me to the PM -> Squizer#3020
-
-
-
-
-How to add jobs:
-- Insert the jobs into jobs and job_grades table as other jobs
-- Insert a society made society_jobname and insert it into the addon_account to the database
-- Copy whole Config.Jobs.sandy_mechanic (the whole table) and replace sandy_mechanic to the new job name
-- Configure and change all the locations you want to
-- Register the society for esx_society in the server/edit.lua -> You will see there examples
-
-And thats it! Thats how unijob works. You can add as much jobs as you would like to.

@@ -37,7 +37,7 @@ end)
 ESX.RegisterUsableItem('smgcaseassault', function(source)
 	local xPlayer = ESX.GetPlayerFromId(source)
 	xPlayer.removeInventoryItem('smgcaseassault', 1)
-	local weaponName = 'WEAPON_COMBATPDW'
+	local weaponName = 'WEAPON_ASSAULTSMG'
 	if ESX.GetWeapon(weaponName) then
 		weaponName = string.upper(weaponName)
 	end
@@ -81,3 +81,52 @@ ESX.RegisterUsableItem('brassknuckles', function(source)
 	end
 
 end)
+
+ESX.RegisterUsableItem('t_ammoclip', function(source)
+	local xPlayer = ESX.GetPlayerFromId(source)
+	xPlayer.removeInventoryItem('t_ammoclip', 1)
+	local weaponName = 'WEAPON_PISTOL'
+
+	
+	if ESX.GetWeapon(weaponName) then
+		weaponName = string.upper(weaponName)
+	end
+
+	if xPlayer.hasWeapon(weaponName) then
+	xPlayer.addWeaponAmmo(weaponName, 50)
+	end
+
+end)
+
+ESX.RegisterUsableItem('ammoclip_smg', function(source)
+	local xPlayer = ESX.GetPlayerFromId(source)
+	xPlayer.removeInventoryItem('ammoclip_smg', 1)
+	local weaponName = 'WEAPON_SMG'
+
+	
+	if ESX.GetWeapon(weaponName) then
+		weaponName = string.upper(weaponName)
+	end
+
+	if xPlayer.hasWeapon(weaponName) then
+	xPlayer.addWeaponAmmo(weaponName, 50)
+	end
+
+end)
+
+ESX.RegisterUsableItem('ammoclip_mk2', function(source)
+	local xPlayer = ESX.GetPlayerFromId(source)
+	xPlayer.removeInventoryItem('ammoclip_mk2', 1)
+	local weaponName = 'WEAPON_PISTOL_MK2'
+
+	
+	if ESX.GetWeapon(weaponName) then
+		weaponName = string.upper(weaponName)
+	end
+
+	if xPlayer.hasWeapon(weaponName) then
+	xPlayer.addWeaponAmmo(weaponName, 50)
+	end
+
+end)
+

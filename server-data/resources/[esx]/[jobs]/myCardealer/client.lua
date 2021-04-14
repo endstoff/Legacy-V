@@ -456,11 +456,12 @@ function SpawnVehicle(modelHash, x, y, z, rot, WarpPlayerInVeh, plate, tunig)
     end
 
     local props = {
-        modEngine       = 2,
-        modBrakes       = 2,
-        modTransmission = 2,
-        modSuspension   = 3,
-        modTurbo        = true,
+        modEngine       = 0,
+        modBrakes       = 0,
+        modTransmission = 0,
+        modSuspension   = 0,
+        modTurbo        = false,
+        fuelLevel       = 100,
     }
     
     if tunig then
@@ -981,7 +982,7 @@ function GenerateShowMenu(x, y, z, rot, x2, y2, z2, rot2)
             local veh = GetClosestVehicle(x, y, z, 1.0, 0, 2175)
             local props = ESX.Game.GetVehicleProperties(veh)
             local veh = SpawnVehicle(props.model, x2, y2, z2, rot2, true, true, false)
-            props.plate = 'SUNRISE'
+            props.plate = 'LUXURY'
             ESX.Game.SetVehicleProperties(veh, props)
         end
         for k, v in pairs(Vehicles) do 
@@ -1061,504 +1062,106 @@ function GenerateComputerMenu(x, y, z, rot)
 
     local playerPed = PlayerPedId()
     local playerCoords = GetEntityCoords(playerPed)
-    local player, Distance = ESX.Game.GetClosestPlayer(playerCoords)
 
-	local gotOSResult = false
-	if Cfg.useOneSyncInfinity then
-		ESX.TriggerServerCallback('myCardealer:getClosestPlayer', function(playersInArea)
-			player = playersInArea
-			Distance = 2.5
-			gotOSResult = true
-		end, playerCoords, 5.0)
+    local sellVehicle = _menuPool:AddSubMenu(pcMenu, Translation[Cfg.Locale]['sell_vehicle'], '~b~')
 
-        for i=1, 5, 1 do
-            if not gotOSResult then
-                --ShowNotification('Loading Customers...')
-                Citizen.Wait(100)
-            end
+    local playersInArea = ESX.Game.GetPlayersInArea(playerCoords, 10.0)
 
-            if not gotOSResult and i == 5 then
-                player = nil
+    local gotOSResult = false
+    if Cfg.useOneSyncInfinity then
+        ESX.TriggerServerCallback('myCardealer:getPlayersInArea', function(playersInArea_res)
+            playersInArea = playersInArea_res
+            gotOSResult = true
+        end, playerCoords, 10.0)
+    end
+
+    for i=1, 10, 1 do
+        if not gotOSResult then
+            Citizen.Wait(100)
+        end
+    end
+	
+    for k, player in pairs(playersInArea) do
+	
+		local playerInvite
+		if Cfg.useOneSyncInfinity then
+			playerInvite = _menuPool:AddSubMenu(sellVehicle, player.name, '~b~')
+		else
+			playerInvite = _menuPool:AddSubMenu(sellVehicle, GetPlayerName(player), '~b~')
+		end
+
+        for k,v in pairs(Vehicles) do
+            local vehsubmenu = _menuPool:AddSubMenu(playerInvite, v.manufacturer .. ' ' .. v.label)
+            local price_item = NativeUI.CreateItem(Translation[Cfg.Locale]['show_price'], '')
+            local model_item = NativeUI.CreateItem(Translation[Cfg.Locale]['show_model'], '')
+            local storage = NativeUI.CreateItem(Translation[Cfg.Locale]['amount_cars'], '')
+            local bigstorage = NativeUI.CreateItem(Translation[Cfg.Locale]['amount_storage'], '')
+
+            local buy_item = NativeUI.CreateItem(v.manufacturer .. ' ' .. v.label .. Translation[Cfg.Locale]['car_sell'], '')
+
+            price_item:RightLabel('~HUD_COLOUR_GREENDARK~$' .. v.price)
+            model_item:RightLabel(v.label)
+            storage:RightLabel(v.storage .. Translation[Cfg.Locale]['amount_cars'])
+            bigstorage:RightLabel(v.bigstorage .. Translation[Cfg.Locale]['amount_cars'])
+
+            vehsubmenu:AddItem(model_item)
+            vehsubmenu:AddItem(price_item)
+            vehsubmenu:AddItem(storage)
+            vehsubmenu:AddItem(bigstorage)
+            vehsubmenu:AddItem(buy_item)
+            
+            buy_item.Activated = function(sender, item)
+                local ServerIdtargetPlayer
+                if Cfg.useOneSyncInfinity then
+                    ServerIdtargetPlayer = player.id
+                else
+                    ServerIdtargetPlayer = GetPlayerServerId(player)
+                end
+
+                if v.storage > 0 then
+                    local price = CreateDialog(Translation[Cfg.Locale]['dialog_price'])
+                    if tonumber(price) then
+                        --
+                        if price ~= nil then
+                            price = tonumber(price)
+                            -- MONEY Check
+                            ESX.TriggerServerCallback('myCardealer:hasEnoughMoney', function(hasEnoughMoney)
+                                
+                                if hasEnoughMoney then
+                                    local veh = SpawnVehicle(v.model, SpawnLocation.x, SpawnLocation.y, SpawnLocation.z, SpawnLocation.rot, false, false, false)
+                                    --print('SpawnVehicle')
+                                    TriggerServerEvent('myCardealer:removeMoney', ServerIdtargetPlayer, price)
+                                    local generatedPlate = GeneratePlate()
+    
+                                    local vehProps = ESX.Game.GetVehicleProperties(veh)
+                                    --print('oldplate: ' .. vehProps.plate)
+                                    vehProps.plate = generatedPlate
+    
+                                    --TaskWarpPedIntoVehicle(PlayerPedId(), vehicle, -1)
+                                    SetVehicleNumberPlateText(veh, generatedPlate)
+    
+                                    FreezeEntityPosition(PlayerPedId(), false)
+                                    SetEntityVisible(PlayerPedId(), true)
+    
+                                    TriggerServerEvent('myCardealer:BuyVeh', ServerIdtargetPlayer, v.manufacturer, v.label, vehProps, v.storage, GetDisplayNameFromVehicleModel(vehHash), price, NetworkGetNetworkIdFromEntity(veh), GetEntityCoords(veh), GetEntityHeading(veh))
+                                    v.storage = v.storage - 1
+                                else
+                                    ShowNotification(Translation[Cfg.Locale]['customer_not_enough_money'])
+                                end
+                                
+                            end, price, ServerIdtargetPlayer)
+                        end
+                    end
+                else
+                    ShowNotification(Translation[Cfg.Locale]['not_enough_vehicles_in_storage'])
+                end
+
+
             end
         end
-
-        
+		
 	end
 
-	
-    
-    if Distance < 5.0 and player ~= nil then
-
-        local targetPlayerPed
-        local ServerIdtargetPlayer
-
-        if Cfg.useOneSyncInfinity then
-            targetPlayerPed = GetPlayerPed(player.id)
-            ServerIdtargetPlayer = player.id
-        else
-            targetPlayerPed = GetPlayerPed(player)
-            ServerIdtargetPlayer = GetPlayerServerId(player)
-        end
-
-        -- local targetPlayerPed = GetPlayerPed(-1)
-        -- local ServerIdTargetPlayer = GetPlayerServerId(PlayerId())
-        Citizen.CreateThread(function()
-            while true do
-                Citizen.Wait(10)
-                if (pcMenu:Visible()) then
-                    local coords = GetEntityCoords(targetPlayerPed)
-                    DrawMarker(1, coords.x, coords.y, coords.z-0.989, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, Cfg.Marker.radius*1.5, Cfg.Marker.radius*1.5, Cfg.Marker.radius, Cfg.Marker.colour.r, Cfg.Marker.colour.g, Cfg.Marker.colour.b, Cfg.Marker.colour.a, false, false, 2, false, false, false, false)
-                else
-                    break
-                end
-            end
-        end)
-        local sell_item = NativeUI.CreateItem(Translation[Cfg.Locale]['sell_vehicle'], '')
-        pcMenu:AddItem(sell_item)
-
-        sell_item.Activated = function(sender, item)
-            _menuPool:CloseAllMenus()
-            _menuPool:Remove()
-            _menuPool = NativeUI.CreatePool()
-            collectgarbage()
-            
-            pcMenu2 = NativeUI.CreateMenu(Translation[Cfg.Locale]['computer'],'')
-            _menuPool:Add(pcMenu2)
-            pcMenu2:Visible(true)
-
-            local sub = _menuPool:AddSubMenu(pcMenu2, Translation[Cfg.Locale]['show_1'])
-            local sub2 = _menuPool:AddSubMenu(pcMenu2, Translation[Cfg.Locale]['show_2'])
-            local sub3 = _menuPool:AddSubMenu(pcMenu2, Translation[Cfg.Locale]['show_3'])
-            local sub4 = _menuPool:AddSubMenu(pcMenu2, Translation[Cfg.Locale]['show_4'])
-            local sub5 = _menuPool:AddSubMenu(pcMenu2, Translation[Cfg.Locale]['show_abort'])
-            cam = CreateCamWithParams("DEFAULT_SCRIPTED_CAMERA", Cfg.Coords.cam.pos.x, Cfg.Coords.cam.pos.y, Cfg.Coords.cam.pos.z, 300.00,0.00,0.00, 100.00, false, 0)
-            cam2 = CreateCamWithParams("DEFAULT_SCRIPTED_CAMERA", Cfg.Coords.cam2.pos.x, Cfg.Coords.cam2.pos.y, Cfg.Coords.cam2.pos.z, 300.00,0.00,0.00, 100.00, false, 0)
-            cam3 = CreateCamWithParams("DEFAULT_SCRIPTED_CAMERA", Cfg.Coords.cam3.pos.x, Cfg.Coords.cam3.pos.y, Cfg.Coords.cam3.pos.z, 300.00,0.00,0.00, 100.00, false, 0)
-            cam4 = CreateCamWithParams("DEFAULT_SCRIPTED_CAMERA", Cfg.Coords.cam4.pos.x, Cfg.Coords.cam4.pos.y, Cfg.Coords.cam4.pos.z, 300.00,0.00,0.00, 100.00, false, 0)
-            local currCam = cam
-
-            local veh = GetClosestVehicle(Cfg.Coords.cam.point.x, Cfg.Coords.cam.point.y, Cfg.Coords.cam.point.z, 1.0, 0, 2175)
-            local veh2 = GetClosestVehicle(Cfg.Coords.cam2.point.x, Cfg.Coords.cam2.point.y, Cfg.Coords.cam2.point.z, 1.0, 0, 2175)
-            local veh3 = GetClosestVehicle(Cfg.Coords.cam3.point.x, Cfg.Coords.cam3.point.y, Cfg.Coords.cam3.point.z, 1.0, 0, 2175)
-            local veh4 = GetClosestVehicle(Cfg.Coords.cam4.point.x, Cfg.Coords.cam4.point.y, Cfg.Coords.cam4.point.z, 1.0, 0, 2175)
-
-            local vehHash = GetEntityModel(veh)
-            local vehHash2 = GetEntityModel(veh2)
-            local vehHash3 = GetEntityModel(veh3)
-            local vehHash4 = GetEntityModel(veh4)
-            
-            SetCamActive(cam2, true)
-            SetCamActive(cam3, true)
-            SetCamActive(cam4, true)
-            SetCamActive(cam, true)
-            RenderScriptCams(true, false, 1, true, true)
-            local yes = NativeUI.CreateItem(Translation[Cfg.Locale]['yes'], '')
-            local no = NativeUI.CreateItem(Translation[Cfg.Locale]['no'], '')
-            sub5:AddItem(yes)
-            sub5:AddItem(no)
-
-            yes.Activated = function(sender, item)
-                RenderScriptCams(false, true, 500, true, true)
-                SetCamActive(cam, false)
-                DestroyCam(cam, true)
-                SetCamActive(cam2, false)
-                DestroyCam(cam2, true)
-                SetCamActive(cam3, false)
-                DestroyCam(cam3, true)
-                SetCamActive(cam4, false)
-                DestroyCam(cam4, true)
-                _menuPool:CloseAllMenus()
-            end
-
-            pcMenu2.OnIndexChange = function(sender, index)
-                Citizen.Wait(500)
-                if index == 1 then
-                    PointCamAtCoord(cam, Cfg.Coords.cam.point.x, Cfg.Coords.cam.point.y, Cfg.Coords.cam.point.z)
-                    SetCamActiveWithInterp(cam, currCam, 1500, true, true)
-                    currCam = cam
-                end
-                if index == 2 then
-                    PointCamAtCoord(cam2, Cfg.Coords.cam2.point.x, Cfg.Coords.cam2.point.y, Cfg.Coords.cam2.point.z)
-                    SetCamActiveWithInterp(cam2, currCam, 1500, true, true)
-                    currCam = cam2
-                end
-                if index == 3 then
-                    PointCamAtCoord(cam3, Cfg.Coords.cam3.point.x, Cfg.Coords.cam3.point.y, Cfg.Coords.cam3.point.z)
-                    SetCamActiveWithInterp(cam3, currCam, 1500, true, true)
-                    currCam = cam3
-                end
-                if index == 4 then
-                    PointCamAtCoord(cam4, Cfg.Coords.cam4.point.x, Cfg.Coords.cam4.point.y, Cfg.Coords.cam4.point.z)
-                    SetCamActiveWithInterp(cam4, currCam, 1500, true, true)
-                    currCam = cam4
-                end
-            end
-            for k,v in pairs(Vehicles) do
-                
-                if v.storage > 0 then
-                    if GetHashKey(v.model) == vehHash then
-                        local manufacturer_item = NativeUI.CreateItem(Translation[Cfg.Locale]['show_manufacturer'], '')
-                        local price_item = NativeUI.CreateItem(Translation[Cfg.Locale]['show_price'], '')
-                        local model_item = NativeUI.CreateItem(Translation[Cfg.Locale]['show_model'], '')
-                        local storage = NativeUI.CreateItem(Translation[Cfg.Locale]['amount_cardealer'], '')
-                        local bigstorage = NativeUI.CreateItem(Translation[Cfg.Locale]['amount_storage'], '')
-                        local park_item = NativeUI.CreateItem(Translation[Cfg.Locale]['set_to_showroom'], '')
-                        local placeholder = NativeUI.CreateItem('', '')
-                        local ps_item = NativeUI.CreateItem(Translation[Cfg.Locale]['show_performance'], '')
-                        local maxSpeed_item = NativeUI.CreateItem(Translation[Cfg.Locale]['show_maxSpeed'], '')
-                        local speedup = NativeUI.CreateItem(Translation[Cfg.Locale]['show_speedup'], '')
-                        local modifikation = NativeUI.CreateItem(Translation[Cfg.Locale]['show_modifications'], '')
-                        local tankcapacity = NativeUI.CreateItem(Translation[Cfg.Locale]['show_fuelcapacity'], '')
-                        local placeholder2 = NativeUI.CreateItem('', '')
-                        local buy_item = NativeUI.CreateItem(v.manufacturer .. ' ' .. v.label .. Translation[Cfg.Locale]['car_sell'], '')
-                        manufacturer_item:RightLabel(v.manufacturer)
-                        price_item:RightLabel('~HUD_COLOUR_GREENDARK~$' .. v.price)
-                        model_item:RightLabel(v.label)
-                        storage:RightLabel(v.storage .. Translation[Cfg.Locale]['amount_cars'])
-                        bigstorage:RightLabel(v.bigstorage .. Translation[Cfg.Locale]['amount_cars'])
-                        ps_item:RightLabel(v.ps .. Translation[Cfg.Locale]['show_suffix_performance'])
-                        maxSpeed_item:RightLabel(v.maxSpeed .. Translation[Cfg.Locale]['show_suffix_maxSpeed'])
-                        speedup:RightLabel(v.speedUp .. Translation[Cfg.Locale]['show_suffix_speedup'])
-                        modifikation:RightLabel(v.modification .. Translation[Cfg.Locale]['show_suffix_modifications'])
-                        tankcapacity:RightLabel(v.tankcapacity .. Translation[Cfg.Locale]['show_suffix_fuelcapacity'])
-                        sub:AddItem(manufacturer_item)
-                        sub:AddItem(model_item)
-                        sub:AddItem(price_item)
-                        sub:AddItem(storage)
-                        sub:AddItem(bigstorage)        
-                        sub:AddItem(placeholder)
-                        sub:AddItem(ps_item)
-                        sub:AddItem(maxSpeed_item)
-                        sub:AddItem(speedup)
-                        sub:AddItem(modifikation)
-                        sub:AddItem(tankcapacity)
-                        sub:AddItem(placeholder2)
-                        sub:AddItem(buy_item)
-
-                        
-
-                        buy_item.Activated = function(sender, item)
-                            local price = CreateDialog(Translation[Cfg.Locale]['dialog_price'])
-                            if tonumber(price) then
-                                local vehProps = ESX.Game.GetVehicleProperties(veh)
-                                --local vehProps = zero.vehicle.GetVehicleModifications(veh)
-								
-                                if vehProps ~= nil then
-                                    if price ~= nil then
-                                        price = tonumber(price)
-                                        -- MONEY Check
-										ESX.TriggerServerCallback('myCardealer:hasEnoughMoney', function(hasEnoughMoney)
-											
-											if hasEnoughMoney then
-												TriggerServerEvent('myCardealer:removeMoney', ServerIdtargetPlayer, price)
-											    local generatedPlate = GeneratePlate()
-												vehProps.plate = generatedPlate
-
-												local vehicle = SpawnVehicle(vehProps.model, SpawnLocation.x, SpawnLocation.y, SpawnLocation.z, SpawnLocation.rot, false, true, true)
-												--TaskWarpPedIntoVehicle(PlayerPedId(), vehicle, -1)
-												SetVehicleNumberPlateText(vehicle, generatedPlate)
-				
-												FreezeEntityPosition(PlayerPedId(), false)
-												SetEntityVisible(PlayerPedId(), true)
-
-												TriggerServerEvent('myCardealer:BuyVeh', ServerIdtargetPlayer, v.manufacturer, v.label, vehProps, v.storage, GetDisplayNameFromVehicleModel(vehHash), price, NetworkGetNetworkIdFromEntity(veh), GetEntityCoords(veh), GetEntityHeading(veh))
-												RenderScriptCams(false, true, 500, true, true)
-												SetCamActive(cam, false)
-												DestroyCam(cam, true)
-												SetCamActive(cam2, false)
-												DestroyCam(cam2, true)
-												SetCamActive(cam3, false)
-												DestroyCam(cam3, true)
-												SetCamActive(cam4, false)
-												DestroyCam(cam4, true)
-												GiveCarBack(veh)
-											else
-												ShowNotification(Translation[Cfg.Locale]['customer_not_enough_money'])
-											end
-											
-										end, price, ServerIdtargetPlayer)
-                                        --TriggerServerEvent('esx_billing:sendBill', ServerIdtargetPlayer, 'society_cardealer', Translation[Cfg.Locale]['bill_purchase_of'] .. v.manufacturer .. ' ' .. v.label, price)
-
-                                    end
-                                else
-                                    ShowNotification('~r~An error occured, please notify the server owner! Error: vehProps = nil')
-                                end
-                            end
-                        end
-                    end
-                    if GetHashKey(v.model) == vehHash2 then
-                        local manufacturer_item = NativeUI.CreateItem(Translation[Cfg.Locale]['show_manufacturer'], '')
-                        local price_item = NativeUI.CreateItem(Translation[Cfg.Locale]['show_price'], '')
-                        local model_item = NativeUI.CreateItem(Translation[Cfg.Locale]['show_model'], '')
-                        local storage = NativeUI.CreateItem(Translation[Cfg.Locale]['amount_cars'], '')
-                        local bigstorage = NativeUI.CreateItem(Translation[Cfg.Locale]['amount_storage'], '')
-                        local park_item = NativeUI.CreateItem(Translation[Cfg.Locale]['set_to_showroom'], '')
-                        local placeholder = NativeUI.CreateItem('', '')
-                        local ps_item = NativeUI.CreateItem(Translation[Cfg.Locale]['show_performance'], '')
-                        local maxSpeed_item = NativeUI.CreateItem(Translation[Cfg.Locale]['show_maxSpeed'], '')
-                        local speedup = NativeUI.CreateItem(Translation[Cfg.Locale]['show_speedup'], '')
-                        local modifikation = NativeUI.CreateItem(Translation[Cfg.Locale]['show_modifications'], '')
-                        local tankcapacity = NativeUI.CreateItem(Translation[Cfg.Locale]['show_fuelcapacity'], '')
-                        local placeholder2 = NativeUI.CreateItem('', '')
-                        local buy_item = NativeUI.CreateItem(v.manufacturer .. ' ' .. v.label .. Translation[Cfg.Locale]['car_sell'], '')
-                        manufacturer_item:RightLabel(v.manufacturer)
-                        price_item:RightLabel('~HUD_COLOUR_GREENDARK~$' .. v.price)
-                        model_item:RightLabel(v.label)
-                        storage:RightLabel(v.storage .. Translation[Cfg.Locale]['amount_cars'])
-                        bigstorage:RightLabel(v.bigstorage .. Translation[Cfg.Locale]['amount_cars'])
-                        ps_item:RightLabel(v.ps .. Translation[Cfg.Locale]['show_suffix_performance'])
-                        maxSpeed_item:RightLabel(v.maxSpeed .. Translation[Cfg.Locale]['show_suffix_maxSpeed'])
-                        speedup:RightLabel(v.speedUp .. Translation[Cfg.Locale]['show_suffix_speedup'])
-                        modifikation:RightLabel(v.modification .. Translation[Cfg.Locale]['show_suffix_modifications'])
-                        tankcapacity:RightLabel(v.tankcapacity .. Translation[Cfg.Locale]['show_suffix_fuelcapacity'])
-
-                        sub2:AddItem(manufacturer_item)
-                        sub2:AddItem(model_item)
-                        sub2:AddItem(price_item)
-                        sub2:AddItem(storage)
-                        sub2:AddItem(bigstorage)        
-                        sub2:AddItem(placeholder)
-                        sub2:AddItem(ps_item)
-                        sub2:AddItem(maxSpeed_item)
-                        sub2:AddItem(speedup)
-                        sub2:AddItem(modifikation)
-                        sub2:AddItem(tankcapacity)
-                        sub2:AddItem(placeholder2)
-                        sub2:AddItem(buy_item)
-                        buy_item.Activated = function(sender, item)
-                            local price = CreateDialog(Translation[Cfg.Locale]['dialog_price'])
-                            if tonumber(price) then
-                                local vehProps = ESX.Game.GetVehicleProperties(veh2)
-                                --local vehProps = zero.vehicle.GetVehicleModifications(veh)
-                                print('Model: ' .. vehProps.model)
-                                if vehProps ~= nil then
-                                    if price ~= nil then
-                                        price = tonumber(price)
-                                        -- MONEY Check
-										ESX.TriggerServerCallback('myCardealer:hasEnoughMoney', function(hasEnoughMoney)
-											
-											if hasEnoughMoney then
-												TriggerServerEvent('myCardealer:removeMoney', ServerIdtargetPlayer, price)
-											    local generatedPlate = GeneratePlate()
-												vehProps.plate = generatedPlate
-
-												local vehicle = SpawnVehicle(vehProps.model, SpawnLocation.x, SpawnLocation.y, SpawnLocation.z, SpawnLocation.rot, false, true, true)
-												--TaskWarpPedIntoVehicle(PlayerPedId(), vehicle, -1)
-												SetVehicleNumberPlateText(vehicle, generatedPlate)
-				
-												FreezeEntityPosition(PlayerPedId(), false)
-												SetEntityVisible(PlayerPedId(), true)
-
-												TriggerServerEvent('myCardealer:BuyVeh', ServerIdtargetPlayer, v.manufacturer, v.label, vehProps, v.storage, GetDisplayNameFromVehicleModel(vehHash), price, NetworkGetNetworkIdFromEntity(veh), GetEntityCoords(veh), GetEntityHeading(veh))
-												RenderScriptCams(false, true, 500, true, true)
-												SetCamActive(cam, false)
-												DestroyCam(cam, true)
-												SetCamActive(cam2, false)
-												DestroyCam(cam2, true)
-												SetCamActive(cam3, false)
-												DestroyCam(cam3, true)
-												SetCamActive(cam4, false)
-												DestroyCam(cam4, true)
-												GiveCarBack(veh)
-											else
-												ShowNotification(Translation[Cfg.Locale]['customer_not_enough_money'])
-											end
-											
-										end, price, ServerIdtargetPlayer)
-                                        --TriggerServerEvent('esx_billing:sendBill', ServerIdtargetPlayer, 'society_cardealer', Translation[Cfg.Locale]['bill_purchase_of'] .. v.manufacturer .. ' ' .. v.label, price)
-                                    end
-                                else
-                                    ShowNotification('~r~An error occured, please notify the server owner! Error: vehProps = nil')
-                                end
-                            end
-                        end
-                    end
-                    if GetHashKey(v.model) == vehHash3 then
-                        local manufacturer_item = NativeUI.CreateItem(Translation[Cfg.Locale]['show_manufacturer'], '')
-                        local price_item = NativeUI.CreateItem(Translation[Cfg.Locale]['show_price'], '')
-                        local model_item = NativeUI.CreateItem(Translation[Cfg.Locale]['show_model'], '')
-                        local storage = NativeUI.CreateItem(Translation[Cfg.Locale]['amount_cars'], '')
-                        local bigstorage = NativeUI.CreateItem(Translation[Cfg.Locale]['amount_storage'], '')
-                        local park_item = NativeUI.CreateItem(Translation[Cfg.Locale]['set_to_showroom'], '')
-                        local placeholder = NativeUI.CreateItem('', '')
-                        local ps_item = NativeUI.CreateItem(Translation[Cfg.Locale]['show_performance'], '')
-                        local maxSpeed_item = NativeUI.CreateItem(Translation[Cfg.Locale]['show_maxSpeed'], '')
-                        local speedup = NativeUI.CreateItem(Translation[Cfg.Locale]['show_speedup'], '')
-                        local modifikation = NativeUI.CreateItem(Translation[Cfg.Locale]['show_modifications'], '')
-                        local tankcapacity = NativeUI.CreateItem(Translation[Cfg.Locale]['show_fuelcapacity'], '')
-                        local placeholder2 = NativeUI.CreateItem('', '')
-                        local buy_item = NativeUI.CreateItem(v.manufacturer .. ' ' .. v.label .. ' verkaufen', '')
-                        manufacturer_item:RightLabel(v.manufacturer)
-                        price_item:RightLabel('~HUD_COLOUR_GREENDARK~$' .. v.price)
-                        model_item:RightLabel(v.label)
-                        storage:RightLabel(v.storage .. Translation[Cfg.Locale]['amount_cars'])
-                        bigstorage:RightLabel(v.bigstorage .. Translation[Cfg.Locale]['amount_cars'])
-                        ps_item:RightLabel(v.ps .. Translation[Cfg.Locale]['show_suffix_performance'])
-                        maxSpeed_item:RightLabel(v.maxSpeed .. Translation[Cfg.Locale]['show_suffix_maxSpeed'])
-                        speedup:RightLabel(v.speedUp .. Translation[Cfg.Locale]['show_suffix_speedup'])
-                        modifikation:RightLabel(v.modification .. Translation[Cfg.Locale]['show_suffix_modifications'])
-                        tankcapacity:RightLabel(v.tankcapacity .. Translation[Cfg.Locale]['show_suffix_fuelcapacity'])
-
-                        sub3:AddItem(manufacturer_item)
-                        sub3:AddItem(model_item)
-                        sub3:AddItem(price_item)
-                        sub3:AddItem(storage)
-                        sub3:AddItem(bigstorage)        
-                        sub3:AddItem(placeholder)
-                        sub3:AddItem(ps_item)
-                        sub3:AddItem(maxSpeed_item)
-                        sub3:AddItem(speedup)
-                        sub3:AddItem(modifikation)
-                        sub3:AddItem(tankcapacity)
-                        sub3:AddItem(placeholder2)
-                        sub3:AddItem(buy_item)
-                        
-                        buy_item.Activated = function(sender, item)
-                            local price = CreateDialog(Translation[Cfg.Locale]['dialog_price'])
-                            if tonumber(price) then
-                                local vehProps = ESX.Game.GetVehicleProperties(veh3)
-                                --local vehProps = zero.vehicle.GetVehicleModifications(veh)
-                                print('Model: ' .. vehProps.model)
-                                if vehProps ~= nil then
-                                    if price ~= nil then
-                                        price = tonumber(price)
-                                        -- MONEY Check
-										ESX.TriggerServerCallback('myCardealer:hasEnoughMoney', function(hasEnoughMoney)
-											
-											if hasEnoughMoney then
-												TriggerServerEvent('myCardealer:removeMoney', ServerIdtargetPlayer, price)
-											    local generatedPlate = GeneratePlate()
-												vehProps.plate = generatedPlate
-
-												local vehicle = SpawnVehicle(vehProps.model, SpawnLocation.x, SpawnLocation.y, SpawnLocation.z, SpawnLocation.rot, false, true, true)
-												--TaskWarpPedIntoVehicle(PlayerPedId(), vehicle, -1)
-												SetVehicleNumberPlateText(vehicle, generatedPlate)
-				
-												FreezeEntityPosition(PlayerPedId(), false)
-												SetEntityVisible(PlayerPedId(), true)
-
-												TriggerServerEvent('myCardealer:BuyVeh', ServerIdtargetPlayer, v.manufacturer, v.label, vehProps, v.storage, GetDisplayNameFromVehicleModel(vehHash), price, NetworkGetNetworkIdFromEntity(veh), GetEntityCoords(veh), GetEntityHeading(veh))
-												RenderScriptCams(false, true, 500, true, true)
-												SetCamActive(cam, false)
-												DestroyCam(cam, true)
-												SetCamActive(cam2, false)
-												DestroyCam(cam2, true)
-												SetCamActive(cam3, false)
-												DestroyCam(cam3, true)
-												SetCamActive(cam4, false)
-												DestroyCam(cam4, true)
-												GiveCarBack(veh)
-											else
-												ShowNotification(Translation[Cfg.Locale]['customer_not_enough_money'])
-											end
-											
-										end, price, ServerIdtargetPlayer)
-                                        --TriggerServerEvent('esx_billing:sendBill', ServerIdtargetPlayer, 'society_cardealer', Translation[Cfg.Locale]['bill_purchase_of'] .. v.manufacturer .. ' ' .. v.label, price)
-                                    end
-                                else
-                                    ShowNotification('~r~An error occured, please notify the server owner! Error: vehProps = nil')
-                                end
-                            end
-                        end
-                    end
-                    if GetHashKey(v.model) == vehHash4 then
-                        local manufacturer_item = NativeUI.CreateItem(Translation[Cfg.Locale]['show_manufacturer'], '')
-                        local price_item = NativeUI.CreateItem(Translation[Cfg.Locale]['show_price'], '')
-                        local model_item = NativeUI.CreateItem(Translation[Cfg.Locale]['show_model'], '')
-                        local storage = NativeUI.CreateItem(Translation[Cfg.Locale]['amount_cars'], '')
-                        local bigstorage = NativeUI.CreateItem(Translation[Cfg.Locale]['amount_storage'], '')
-                        local park_item = NativeUI.CreateItem(Translation[Cfg.Locale]['set_to_showroom'], '')
-                        local placeholder = NativeUI.CreateItem('', '')
-                        local ps_item = NativeUI.CreateItem(Translation[Cfg.Locale]['show_performance'], '')
-                        local maxSpeed_item = NativeUI.CreateItem(Translation[Cfg.Locale]['show_maxSpeed'], '')
-                        local speedup = NativeUI.CreateItem(Translation[Cfg.Locale]['show_speedup'], '')
-                        local modifikation = NativeUI.CreateItem(Translation[Cfg.Locale]['show_modifications'], '')
-                        local tankcapacity = NativeUI.CreateItem(Translation[Cfg.Locale]['show_fuelcapacity'], '')
-                        local placeholder2 = NativeUI.CreateItem('', '')
-                        local buy_item = NativeUI.CreateItem(v.manufacturer .. ' ' .. v.label .. ' verkaufen', '')
-                        manufacturer_item:RightLabel(v.manufacturer)
-                        price_item:RightLabel('~HUD_COLOUR_GREENDARK~$' .. v.price)
-                        model_item:RightLabel(v.label)
-                        storage:RightLabel(v.storage .. Translation[Cfg.Locale]['amount_cars'])
-                        bigstorage:RightLabel(v.bigstorage .. Translation[Cfg.Locale]['amount_cars'])
-                        ps_item:RightLabel(v.ps .. Translation[Cfg.Locale]['show_suffix_performance'])
-                        maxSpeed_item:RightLabel(v.maxSpeed .. Translation[Cfg.Locale]['show_suffix_maxSpeed'])
-                        speedup:RightLabel(v.speedUp .. Translation[Cfg.Locale]['show_suffix_speedup'])
-                        modifikation:RightLabel(v.modification .. Translation[Cfg.Locale]['show_suffix_modifications'])
-                        tankcapacity:RightLabel(v.tankcapacity .. Translation[Cfg.Locale]['show_suffix_fuelcapacity'])
-
-                        sub4:AddItem(manufacturer_item)
-                        sub4:AddItem(model_item)
-                        sub4:AddItem(price_item)
-                        sub4:AddItem(storage)
-                        sub4:AddItem(bigstorage)        
-                        sub4:AddItem(placeholder)
-                        sub4:AddItem(ps_item)
-                        sub4:AddItem(maxSpeed_item)
-                        sub4:AddItem(speedup)
-                        sub4:AddItem(modifikation)
-                        sub4:AddItem(tankcapacity)
-                        sub4:AddItem(placeholder2)
-                        sub4:AddItem(buy_item)
-
-                        buy_item.Activated = function(sender, item)
-                            local price = CreateDialog(Translation[Cfg.Locale]['dialog_price'])
-                            if tonumber(price) then
-                                local vehProps = ESX.Game.GetVehicleProperties(veh4)
-                                --local vehProps = zero.vehicle.GetVehicleModifications(veh)
-                                print('Model: ' .. vehProps.model)
-                                if vehProps ~= nil then
-                                    if price ~= nil then
-                                        price = tonumber(price)
-                                        -- MONEY Check
-										ESX.TriggerServerCallback('myCardealer:hasEnoughMoney', function(hasEnoughMoney)
-											
-											if hasEnoughMoney then
-												TriggerServerEvent('myCardealer:removeMoney', ServerIdtargetPlayer, price)
-											    local generatedPlate = GeneratePlate()
-												vehProps.plate = generatedPlate
-
-												local vehicle = SpawnVehicle(vehProps.model, SpawnLocation.x, SpawnLocation.y, SpawnLocation.z, SpawnLocation.rot, false, true, true)
-												--TaskWarpPedIntoVehicle(PlayerPedId(), vehicle, -1)
-												SetVehicleNumberPlateText(vehicle, generatedPlate)
-				
-												FreezeEntityPosition(PlayerPedId(), false)
-												SetEntityVisible(PlayerPedId(), true)
-
-												TriggerServerEvent('myCardealer:BuyVeh', ServerIdtargetPlayer, v.manufacturer, v.label, vehProps, v.storage, GetDisplayNameFromVehicleModel(vehHash), price, NetworkGetNetworkIdFromEntity(veh), GetEntityCoords(veh), GetEntityHeading(veh))
-												RenderScriptCams(false, true, 500, true, true)
-												SetCamActive(cam, false)
-												DestroyCam(cam, true)
-												SetCamActive(cam2, false)
-												DestroyCam(cam2, true)
-												SetCamActive(cam3, false)
-												DestroyCam(cam3, true)
-												SetCamActive(cam4, false)
-												DestroyCam(cam4, true)
-												GiveCarBack(veh)
-											else
-												ShowNotification(Translation[Cfg.Locale]['customer_not_enough_money'])
-											end
-											
-										end, price, ServerIdtargetPlayer)
-                                        --TriggerServerEvent('esx_billing:sendBill', ServerIdtargetPlayer, 'society_cardealer', Translation[Cfg.Locale]['bill_purchase_of'] .. v.manufacturer .. ' ' .. v.label, price)
-                                    end
-                                else
-                                    ShowNotification('~r~An error occured, please notify the server owner! Error: vehProps = nil')
-                                end
-                            end
-                        end
-                    end
-                end  
-            end
-            _menuPool:RefreshIndex()
-            _menuPool:MouseControlsEnabled (false)
-            _menuPool:MouseEdgeEnabled (false)
-            _menuPool:ControlDisablingEnabled(false)
-        end
-    else
-        ShowNotification(Translation[Cfg.Locale]['no_customers'])
-    end
     local VehiclesList = _menuPool:AddSubMenu(pcMenu, Translation[Cfg.Locale]['vehicles_list'], '')
 
     for k,v in pairs(Vehicles) do

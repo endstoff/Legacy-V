@@ -4,7 +4,7 @@ positions = {
     --[[
     {{Teleport1 X, Teleport1 Y, Teleport1 Z, Teleport1 Heading}, {Teleport2 X, Teleport 2Y, Teleport 2Z, Teleport2 Heading}, {Red, Green, Blue}, "Text for Teleport"}
     ]]
-    {{-1581.4482421875,-558.21923828125,33.953056335449, 0}, {-1583.6552734375,-559.6650390625,107.5228805542, 0},{36,237,157}, "Büro der Stadtverwaltung"}, -- Outside Lombank
+    {{-1581.4482421875,-558.21923828125,33.953056335449, 0}, {-142.36477661133,-614.39758300781,168.82051086426, 0},{36,237,157}, "Büro der Stadtverwaltung"}, -- Outside Lombank
 }
 
 -----------------------------------------------------------------------------

@@ -1361,7 +1361,7 @@
       <handlingName>ZORRUSSO</handlingName>
       <fMass value="1300.000000" />
       <fInitialDragCoeff value="4.20" />
-      <fDownforceModifier value="190.00" />
+      <fDownforceModifier value="180.00" />
       <fPercentSubmerged value="85.000000" />
       <vecCentreOfMassOffset x="0.000000" y="-0.02000" z="-0.030000" />
       <vecInertiaMultiplier x="1.000000" y="1.400000" z="1.200000" />
@@ -1371,7 +1371,7 @@
       <fDriveInertia value="1.000000" />
       <fClutchChangeRateScaleUpShift value="7.000000" />
       <fClutchChangeRateScaleDownShift value="6.000000" />
-      <fInitialDriveMaxFlatVel value="300.0000" />
+      <fInitialDriveMaxFlatVel value="350.0000" />
       <fBrakeForce value="1.200000" />
       <fBrakeBiasFront value="0.450000" />
       <fHandBrakeForce value="0.500000" />

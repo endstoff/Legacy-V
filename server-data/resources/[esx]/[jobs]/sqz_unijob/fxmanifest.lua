@@ -4,13 +4,13 @@ game 'gta5'
 
 description 'SQZ unijob'
 
-version '1.1.6'
+version '1.1.9'
 
 server_scripts {
 	'license.lua',
 	'@mysql-async/lib/MySQL.lua',
 	'@es_extended/locale.lua',
-	'locales/*.lua',
+	'locales.lua',
 	'config.lua',
 	'server/edit.lua',
 	'server/main.lua'
@@ -18,14 +18,14 @@ server_scripts {
 
 client_scripts {
 	'@es_extended/locale.lua',
-	'locales/*.lua',
+	'locales.lua',
 	'config.lua',
 	'client/edit.lua',
 	'client/main.lua'
 }
 
 dependencies {
-	'extendedmode',
+	'es_extended',
 	'esx_billing',
 	'esx_menu_default'
 }

@@ -7,7 +7,7 @@ Config.Zones = {
 
 	ls1 = {
 		Pos   = { x = 937.81500244141, y = -1473.3701171875, z = 29.578950881958},
-		Size  = {x = 2.0, y = 2.0, z = 0.2},
+		Size  = {x = 5.0, y = 5.0, z = 3.2},
 		Color = {r = 204, g = 204, b = 0},
 		Marker= 1,
 		Hint  = _U('press_custom')

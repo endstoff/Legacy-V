@@ -5,21 +5,21 @@
     <Item type="CHandlingData">
       <handlingName>agerars</handlingName>
       <fMass value="1400.000000" />
-      <fInitialDragCoeff value="8.3000" />
+      <fInitialDragCoeff value="1.3000" />
       <fPercentSubmerged value="85.000000" />
       <vecCentreOfMassOffset x="0.000000" y="-0.0" z="-0.100000" />
       <vecInertiaMultiplier x="1.000000" y="1.300000" z="1.100000" />
-      <fDriveBiasFront value="0.00000" />
-      <nInitialDriveGears value="8" />
-      <fInitialDriveForce value="0.355000" />
-      <fDriveInertia value="1.000000" />
-      <fClutchChangeRateScaleUpShift value="6.000000" />
-      <fClutchChangeRateScaleDownShift value="6.000000" />
-      <fInitialDriveMaxFlatVel value="275.000" />
-      <fBrakeForce value="1.00000" />
+      <fDriveBiasFront value="0.50000" />
+      <nInitialDriveGears value="6" />
+      <fInitialDriveForce value="0.385000" />
+      <fDriveInertia value="0.85000000" />
+      <fClutchChangeRateScaleUpShift value="4.000000" />
+      <fClutchChangeRateScaleDownShift value="4.000000" />
+      <fInitialDriveMaxFlatVel value="300.000" />
+      <fBrakeForce value="3.00000" />
       <fBrakeBiasFront value="0.60000" />
       <fHandBrakeForce value="0.500000" />
-      <fSteeringLock value="40.000000" />
+      <fSteeringLock value="43.000000" />
       <fTractionCurveMax value="2.77000" />
       <fTractionCurveMin value="2.60000" />
       <fTractionCurveLateral value="22.500000" />
