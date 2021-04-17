@@ -389,6 +389,7 @@ Config = {
         },
         ["diverse"] = {
             {label = "Zigarette", item = "zigarette", price = 2},
+            {label = "Kaufvertrag", item = "contract", price = 1000},
         --    {label = "Benzinkanister", item = "weapon_petrolcan", price = 80},
         --    {label = "Tändare", item = "lighter", price = 20},
         --    {label = "Trisslott", item = "lotteryticket", price = 20},

@@ -461,7 +461,6 @@ function SpawnVehicle(modelHash, x, y, z, rot, WarpPlayerInVeh, plate, tunig)
         modTransmission = 0,
         modSuspension   = 0,
         modTurbo        = false,
-        fuelLevel       = 100,
     }
     
     if tunig then
@@ -982,7 +981,7 @@ function GenerateShowMenu(x, y, z, rot, x2, y2, z2, rot2)
             local veh = GetClosestVehicle(x, y, z, 1.0, 0, 2175)
             local props = ESX.Game.GetVehicleProperties(veh)
             local veh = SpawnVehicle(props.model, x2, y2, z2, rot2, true, true, false)
-            props.plate = 'LUXURY'
+            props.plate = 'SUNRISE'
             ESX.Game.SetVehicleProperties(veh, props)
         end
         for k, v in pairs(Vehicles) do 

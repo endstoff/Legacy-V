@@ -133,21 +133,21 @@ Config.Hospitals = {
 				Prompt = _U('fast_travel')
 			},
 			
-			-- 
 			
-			--[[{
+			
+			{
 				From = vector3(330.35, -601.16, 43.28),
 				To = { coords = vector3(339.92929077148, -584.63385009766, 28.796850204468), heading = 72.0 },
 				Marker = { type = 22, x = 1.0, y = 1.0, z = 1.0, r = 255, g = 255, b = 255, a = 100, rotate = true },
 				Prompt = _U('fast_travel')
-			},]]
+			},
 			
-			--[[{
+			{
 				From = vector3(339.92929077148, -584.63385009766, 28.796850204468),
 				To = { coords = vector3(330.35, -601.16, 42.28), heading = 74.0 },
 				Marker = { type = 22, x = 1.0, y = 1.0, z = 1.0, r = 255, g = 255, b = 255, a = 100, rotate = true },
 				Prompt = _U('fast_travel')
-			},]]
+			},
 		}
 
 	}

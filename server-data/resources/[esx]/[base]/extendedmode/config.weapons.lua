@@ -730,7 +730,7 @@ Config.Weapons = {
 			{ name = 'scope_macro', label = _U('component_scope_macro'), hash = `COMPONENT_AT_SCOPE_MACRO_02_MK2` },
 			{ name = 'scope_small', label = _U('component_scope_small'), hash = `COMPONENT_AT_SCOPE_SMALL_MK2` },
 
-			{ name = 'barrel', label = _U('component_barrel'), hash = `COMPONENT_AT_BP_BARREL_01` },
+			{ name = 'barrel', label = _U('component_barrel'), hash = `COMPONENT_AT_SB_BARREL_01` },
 			{ name = 'barrel_heavy', label = _U('component_barrel_heavy'), hash = `COMPONENT_AT_BP_BARREL_02` },
 			
 			{ name = 'suppressor', label = _U('component_scope'), hash = `COMPONENT_AT_AR_SUPP` },
@@ -869,6 +869,52 @@ Config.Weapons = {
 			{ name = 'scope', label = _U('component_scope'), hash = `COMPONENT_AT_SIGHTS` },
 			{ name = 'scope_medium', label = _U('component_scope_medium'), hash = `COMPONENT_AT_SCOPE_MEDIUM_MK2` },
 			{ name = 'scope_zoom', label = _U('component_scope_zoom'), hash = `COMPONENT_AT_SCOPE_LARGE_FIXED_ZOOM_MK2` },
+
+			{ name = 'barrel', label = _U('component_barrel'), hash = `COMPONENT_AT_MRFL_BARREL_01` },
+			{ name = 'barrel_heavy', label = _U('component_barrel_heavy'), hash = `COMPONENT_AT_MRFL_BARREL_02` },
+					
+			{ name = 'muzzle_flat', label = _U('component_muzzle_flat'), hash = `COMPONENT_AT_MUZZLE_01` },
+			{ name = 'muzzle_tatical', label = _U('component_muzzle_tatical'), hash = `COMPONENT_AT_MUZZLE_02` },
+			{ name = 'muzzle_fat', label = _U('component_muzzle_fat'), hash = `COMPONENT_AT_MUZZLE_03` },
+			{ name = 'muzzle_precision', label = _U('component_muzzle_precision'), hash = `COMPONENT_AT_MUZZLE_04` },
+			{ name = 'muzzle_heavy', label = _U('component_muzzle_heavy'), hash = `COMPONENT_AT_MUZZLE_05` },
+			{ name = 'muzzle_slanted', label = _U('component_muzzle_slanted'), hash = `COMPONENT_AT_MUZZLE_06` },
+			{ name = 'muzzle_split', label = _U('component_muzzle_split'), hash = `COMPONENT_AT_MUZZLE_07` },
+			
+			
+			{ name = 'skin_camo', label = _U('component_skin_camo'), hash = `COMPONENT_MARKSMANRIFLE_MK2_CAMO` },
+			{ name = 'skin_brushstroke', label = _U('component_skin_brushstroke'), hash = `COMPONENT_MARKSMANRIFLE_MK2_CAMO_02` },
+			{ name = 'skin_woodland', label = _U('component_skin_woodland'), hash = `COMPONENT_MARKSMANRIFLE_MK2_CAMO_03` },
+			{ name = 'skin_skull', label = _U('component_skin_skull'), hash = `COMPONENT_MARKSMANRIFLE_MK2_CAMO_04` },
+			{ name = 'skin_sessanta', label = _U('component_skin_sessanta'), hash = `COMPONENT_MARKSMANRIFLE_MK2_CAMO_05` },
+			{ name = 'skin_perseus', label = _U('component_skin_perseus'), hash = `COMPONENT_MARKSMANRIFLE_MK2_CAMO_06` },
+			{ name = 'skin_leopard', label = _U('component_skin_leopard'), hash = `COMPONENT_MARKSMANRIFLE_MK2_CAMO_07` },
+			{ name = 'skin_zebra', label = _U('component_skin_zebra'), hash = `COMPONENT_MARKSMANRIFLE_MK2_CAMO_08` },
+			{ name = 'skin_geometric', label = _U('component_skin_geometric'), hash = `COMPONENT_MARKSMANRIFLE_MK2_CAMO_09` },
+			{ name = 'skin_boom', label = _U('component_skin_boom'), hash = `COMPONENT_MARKSMANRIFLE_MK2_CAMO_10` },
+			{ name = 'skin_patriotic', label = _U('component_skin_patriotic'), hash = `COMPONENT_MARKSMANRIFLE_MK2_CAMO_IND_01` },
+		}
+	},
+
+	{
+		name = 'WEAPON_SMG_MK2',
+		label = _U('weapon_smg_mk2'),
+		components = {
+			{ name = 'clip_default', label = _U('component_clip_default'), hash = `COMPONENT_SMG_MK2_CLIP_01` },
+			{ name = 'clip_extended', label = _U('component_clip_extended'), hash = `COMPONENT_SMG_MK2_CLIP_02` },
+
+			{ name = 'rounds_tracer', label = _U('component_round_tracer'), hash = `COMPONENT_SMG_MK2_CLIP_TRACER` },
+			{ name = 'rounds_incendiary', label = _U('component_round_incendiary'), hash = `COMPONENT_SMG_MK2_CLIP_INCENDIARY` },
+			{ name = 'rounds_hollowpoint', label = _U('component_round_hollowpoint'), hash = `COMPONENT_SMG_MK2_CLIP_HOLLOWPOINT` },
+			{ name = 'rounds_fullmetal', label = _U('component_round_fullmetal'), hash = `COMPONENT_SMG_MK2_CLIP_FMJ` },
+			
+			{ name = 'flashlight', label = _U('component_flashlight'), hash = `COMPONENT_AT_AR_FLSH` },
+
+			{ name = 'suppressor', label = _U('component_suppressor'), hash = `COMPONENT_AT_AR_SUPP` },
+
+			{ name = 'scope', label = _U('component_scope'), hash = `COMPONENT_AT_SIGHTS_SMG` },
+			{ name = 'scope_small', label = _U('component_scope_small'), hash = `COMPONENT_AT_SCOPE_MACRO_02_SMG_MK2` },
+			{ name = 'scope_medium', label = _U('component_scope_medium'), hash = `COMPONENT_AT_SCOPE_SMALL_SMG_MK2` },
 
 			{ name = 'barrel', label = _U('component_barrel'), hash = `COMPONENT_AT_MRFL_BARREL_01` },
 			{ name = 'barrel_heavy', label = _U('component_barrel_heavy'), hash = `COMPONENT_AT_MRFL_BARREL_02` },

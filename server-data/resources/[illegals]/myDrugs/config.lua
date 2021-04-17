@@ -4,7 +4,7 @@ Translation = {}
 Config.Debug = true -- when this is activated, you can restart the script
 Config.Locale = 'de' -- de or en
 
-Config.useOneSyncInfinity = true
+Config.useOneSyncInfinity = false
 
 -- Supplies
 Config.Supplies = {min = 50, max = 90} -- how many items should be given at a mission

@@ -3,7 +3,7 @@ Translation = {}
 
 Cfg.Locale = 'de'
 
-Cfg.useOneSyncInfinity = true
+Cfg.useOneSyncInfinity = false
 
 Cfg.DeliveryTime = {h = 18, m = 30} -- When should ordered vehicles arrive at the cardealer
 

@@ -193,7 +193,7 @@ Locales['de'] = {
   ['weapon_bullpuprifle_mk2'] = 'Bullpupgewehr Mk2',      -- needs translation
   ['weapon_marksmanrifle_mk2'] = 'Scharfschützengewehr Mk2',    -- needs translation
   ['weapon_revolver_mk2'] = 'Schwerer Revolver Mk2',         -- needs translation
-
+  ['weapon_smg_mk2'] = 'SMG Mk2',
   -- Weapon Components
   ['component_clip_default'] = 'Standard Magazin',
   ['component_clip_extended'] = 'Erweitertes Magazin',

@@ -1,0 +1,177 @@
+* {
+  -webkit-animation: fadein 3s;
+	-moz-animation: fadein 3s;
+	-ms-animation: fadein 3s;
+	-o-animation: fadein 3s;
+	animation: fadein 3s; 
+  padding: 0;
+  margin: 0;
+  font-family: "Poppins", sans-serif;
+  color: #6600a6;
+}
+
+html,
+body {
+  -webkit-animation: fadein 3s;
+	-moz-animation: fadein 3s;
+	-ms-animation: fadein 3s;
+	-o-animation: fadein 3s;
+	animation: fadein 3s;
+  padding: 0;
+  margin: 0;
+  background: transparent;
+}
+
+.notification {
+  -webkit-animation: fadein 3s;
+	-moz-animation: fadein 3s;
+	-ms-animation: fadein 3s;
+	-o-animation: fadein 3s;
+	animation: fadein 3s;
+  margin-bottom: 1vh;
+  position: relative;
+  top: 7vh;
+  left: 65vh;
+  background-color: rgb(53, 53, 53);
+  max-width: 45vh;
+  min-height: 3.5vh;
+  word-wrap: break-word;
+  padding: 0.8vh;
+  border-radius: 5px;
+  border-top: 5px #6600a6 solid;
+  border-bottom: 5px #6600a6 solid;
+  background-image: url("Warnzeichen.png");
+
+  -webkit-box-shadow: 11px 10px 58px -22px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 11px 10px 58px -22px rgba(0, 0, 0, 0.75);
+  box-shadow: 11px 10px 58px -22px rgba(0, 0, 0, 0.75);
+}
+
+.notification-title {
+  -webkit-animation: fadein 3s;
+	-moz-animation: fadein 3s;
+	-ms-animation: fadein 3s;
+	-o-animation: fadein 3s;
+	animation: fadein 3s;
+  padding-left: 60px;
+  font-size: 1.4vh;
+  color: #fff;
+}
+
+.notification2 {
+  -webkit-animation: fadein 3s;
+	-moz-animation: fadein 3s;
+	-ms-animation: fadein 3s;
+	-o-animation: fadein 3s;
+	animation: fadein 3s;
+  margin-bottom: 1vh;
+  position: relative;
+  top: 7vh;
+  left: 65vh;
+  background-color: rgb(53, 53, 53);
+  max-width: 45vh;
+  min-height: 3.5vh;
+  word-wrap: break-word;
+  padding: 0.8vh;
+  border-radius: 5px;
+  border-top: 5px #fd9904 solid;
+  border-bottom: 5px #fd9904 solid;
+  background-image: url("Warnzeichen2.png");
+
+  -webkit-box-shadow: 11px 10px 58px -22px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 11px 10px 58px -22px rgba(0, 0, 0, 0.75);
+  box-shadow: 11px 10px 58px -22px rgba(0, 0, 0, 0.75);
+}
+
+.notification2-title {
+  -webkit-animation: fadein 3s;
+	-moz-animation: fadein 3s;
+	-ms-animation: fadein 3s;
+	-o-animation: fadein 3s;
+	animation: fadein 3s;
+  padding-left: 60px;
+  font-size: 1.4vh;
+  color: #fd9904;
+}
+
+.notification4 {
+  -webkit-animation: fadein 3s;
+	-moz-animation: fadein 3s;
+	-ms-animation: fadein 3s;
+	-o-animation: fadein 3s;
+	animation: fadein 3s;
+  margin-bottom: 1vh;
+  position: relative;
+  top: 7vh;
+  left: 65vh;
+  background-color: rgb(53, 53, 53);
+  max-width: 45vh;
+  min-height: 3.5vh;
+  word-wrap: break-word;
+  padding: 0.8vh;
+  border-radius: 5px;
+  border-top: 5px #6600a6 solid;
+  border-bottom: 5px #6600a6 solid;
+  background-image: url("Announcefib.png");
+
+  -webkit-box-shadow: 11px 10px 58px -22px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 11px 10px 58px -22px rgba(0, 0, 0, 0.75);
+  box-shadow: 11px 10px 58px -22px rgba(0, 0, 0, 0.75);
+}
+
+.notification4-title {
+  -webkit-animation: fadein 3s;
+	-moz-animation: fadein 3s;
+	-ms-animation: fadein 3s;
+	-o-animation: fadein 3s;
+	animation: fadein 3s;
+  padding-left: 60px;
+  font-size: 1.4vh;
+  color: #fff;
+}
+
+.notification-anc {
+  -webkit-animation: fadein 3s;
+	-moz-animation: fadein 3s;
+	-ms-animation: fadein 3s;
+	-o-animation: fadein 3s;
+	animation: fadein 3s;
+  margin-bottom: 1vh;
+  position: relative;
+  top: 7vh;
+  left: 65vh;
+  background-color: rgb(53, 53, 53);
+  max-width: 45vh;
+  min-height: 3.5vh;
+  word-wrap: break-word;
+  padding: 0.8vh;
+  border-radius: 5px;
+  border-top: 5px #6600a6 solid;
+  border-bottom: 5px #6600a6 solid;
+  /*background-image: url("Announceglobal.png");*/
+  background-image: url("https://cdn.discordapp.com/attachments/454714848467746818/817445116791881728/Announcefib_4.png");
+
+  -webkit-box-shadow: 11px 10px 58px -22px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 11px 10px 58px -22px rgba(0, 0, 0, 0.75);
+  box-shadow: 11px 10px 58px -22px rgba(0, 0, 0, 0.75);
+}
+
+.notification-anc-title {
+  -webkit-animation: fadein 3s;
+	-moz-animation: fadein 3s;
+	-ms-animation: fadein 3s;
+	-o-animation: fadein 3s;
+	animation: fadein 3s;
+  padding-left: 60px;
+  font-size: 1.4vh;
+  color: #fff;
+}
+
+p {
+  -webkit-animation: fadein 3s;
+	-moz-animation: fadein 3s;
+	-ms-animation: fadein 3s;
+	-o-animation: fadein 3s;
+	animation: fadein 3s;
+  color: #ffffff;
+}

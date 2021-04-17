@@ -1,0 +1,28 @@
+* {
+  padding: 0;
+  margin: 0;
+  font-family: "Poppins", sans-serif;
+}
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+  background: transparent;
+}
+
+.notification-biild {
+  margin-bottom: 1vh;
+  position: absolute;
+  top: 3vh;
+  left: 10vh;
+  padding: 0.8vh;
+  word-wrap: break-word;
+  background-image: url("Warnzeichen.png");
+  max-width: 45vh;
+  min-height: 3.5vh;
+
+  -webkit-box-shadow: 11px 10px 58px -22px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 11px 10px 58px -22px rgba(0, 0, 0, 0.75);
+  box-shadow: 11px 10px 58px -22px rgba(0, 0, 0, 0.75);
+}
